@@ -39,32 +39,28 @@ class UserContainer extends React.Component {
       return (
         <div>
            Profiles
-        <div className="ui cards">
+        <div className="ui link cards">
           {this.renderList()}
         </div>
         </div>
       )
     }
   }
+  
+  // <div><Link to={`/users/${user.id}`}> <button 
+  //         className="ui button primary" onClick={this.props.viewProfile(profile)}>View Profile! </button> </Link></div>
+
+//   const userDetail = ({selectedProfile}) => {
+//     console.log("selected", selectedProfile)
+//     if (!selectedProfile) {
+//     return <div> Select a profile </div> 
+//     } return <div> {selectedProfile.name} </div>
+// }
 
   const mapStateToProps = state => {
     console.log("state", state)
-    return  { profiles: state.profiles};
+    return  { profiles: state.profiles,
+              selectedProfile: state.selectedProfile};
   }
-  
-  export default connect(mapStateToProps, {viewProfile})(UserContainer);
 
-  //  {/* <div className="item" key={profile.name}>
-  //           <div className="right floated content">
-  //               <button onClick={() => this.props.viewProfile(profile)}
-  //               className="ui button primary">
-  //                 Select
-  //               </button>
-  //             </div>
-  //            <div className="content"> Name: {profile.name}
-  //            <br/>
-  //             Age: {profile.age}
-  //             <br/>
-  //             Current City: {profile.city}, {profile.state}
-  //            </div>
-  //         </div> */}
+  export default connect(mapStateToProps, {viewProfile})(UserContainer);

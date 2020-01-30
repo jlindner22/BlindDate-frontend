@@ -5,11 +5,12 @@ import { viewProfile } from '../actions';
 import UserDetail from './UserDetail';
 import { getAllUsers } from '../actions';
 import { connect } from 'react-redux';
+import NavBar from './NavBar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 class App extends React.Component {
   
-
-
   // componentDidMount() {
   //   fetch('http://localhost:3000/api/v1/users')
   //   .then((response) => {
@@ -23,19 +24,25 @@ class App extends React.Component {
   
   render() {
     console.log(this.props.getAllUsers)
-    return  (
+    return (
+      <Router>
+      <div>
+        <NavBar/>
+        <body>
       <div className="ui container grid">
         <div className="ui row">
-          <div className="column eight wide">
+          <div className="column twelve wide">
         <UserContainer 
-        // profiles={this.state.profiles}
         />
          </div>
-         <div className="column eight wide">
-           <UserDetail/>
-         </div>
+         {/* <div className="column eight wide"> */}
+           {/* <UserDetail/> */}
+         {/* </div> */}
         </div>
       </div>
+      </body>
+    </div>
+    </Router>
     )
   }
 }

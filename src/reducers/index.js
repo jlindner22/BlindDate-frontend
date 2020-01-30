@@ -18,7 +18,13 @@ const profilesReducer = (users = [], action) => {
 const selectProfileReducer = (profile = null, action) => {
     if (action.type === 'VIEW_PROFILE') {
         return action.payload;
-    
+    }
+    return profile;
+}
+
+const likeProfileReducer = (profile = [], action) => {
+    if (action.type === 'LIKE_PROFILE') {
+        return action.payload;
     }
     return profile;
 }
@@ -26,4 +32,5 @@ const selectProfileReducer = (profile = null, action) => {
 export default combineReducers({
     profiles: profilesReducer,
     selectedProfile: selectProfileReducer,
+    likeProfile: likeProfileReducer
 })
