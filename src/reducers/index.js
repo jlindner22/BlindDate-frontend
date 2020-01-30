@@ -3,17 +3,20 @@
 
 import { combineReducers } from 'redux';
 
+
 //static
-const profilesReducer = () => {
-    return [
-        { name: 'adf', city: "isf"},
-        { name: 'sddfb', city: "sdf"}
-    ]
+const profilesReducer = (users = [], action) => {
+    // console.log("ARE WE IN REDUCER")
+    // console.log("action", action)
+    if (action.type === 'GET_ALL_USERS') {
+        return action.payload;
+    }
+    return users;
 }
 
 //dynamic
 const selectProfileReducer = (profile = null, action) => {
-    if (action.type == 'VIEW_PROFILE') {
+    if (action.type === 'VIEW_PROFILE') {
         return action.payload;
     
     }
@@ -22,5 +25,5 @@ const selectProfileReducer = (profile = null, action) => {
 
 export default combineReducers({
     profiles: profilesReducer,
-    selectedProfile: selectProfileReducer
+    selectedProfile: selectProfileReducer,
 })

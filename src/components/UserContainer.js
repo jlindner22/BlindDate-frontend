@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {viewProfile } from '../actions';
+import { viewProfile } from '../actions';
+
 
 class UserContainer extends React.Component {
   
@@ -21,7 +22,7 @@ class UserContainer extends React.Component {
     };
 
     render() {
-      console.log("props", this.props.profiles[0].name)
+      // console.log("props", this.props.profiles[0].name)
       console.log("props 2", this.props)
       return (
         <div className="ui divided list"> Profiles
@@ -45,7 +46,5 @@ class UserContainer extends React.Component {
     console.log("state", state)
     return  { profiles: state.profiles};
   }
-  
-
   
   export default connect(mapStateToProps, {viewProfile})(UserContainer);

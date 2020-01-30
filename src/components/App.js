@@ -1,37 +1,28 @@
 import React from 'react';
 // import './App.css';
-import UserContainer from './UserContainer'
-import { viewProfile } from '../actions'
+import UserContainer from './UserContainer';
+import { viewProfile } from '../actions';
+import UserDetail from './UserDetail';
+import { getAllUsers } from '../actions';
+import { connect } from 'react-redux';
 
 class App extends React.Component {
   
-  state = {
-    profiles: []
-  }
 
-  router = type => {
-    switch(type){
-      case "LIKE":
-        this.setState({ likes: this.state.likes + 1})
-        default: 
-          break;
-    }
-  }
 
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/users')
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      this.setState({
-        profiles: data
-      })
-    });
-  }
+  // componentDidMount() {
+  //   fetch('http://localhost:3000/api/v1/users')
+  //   .then((response) => {
+  //     return response.json();
+  //   })
+  //   .then((users) => {
+  //     console.log(users);
+  //     this.props.getAllUsers(users)
+  //   })
+  // }
   
   render() {
+    console.log(this.props.getAllUsers)
     return  (
       <div className="ui container grid">
         <div className="ui row">
@@ -40,11 +31,19 @@ class App extends React.Component {
         // profiles={this.state.profiles}
         />
          </div>
+         <div className="column eight wide">
+           <UserDetail/>
+         </div>
         </div>
       </div>
     )
   }
 }
 
+const mapStateToProps = state => {
+  console.log("state", state)
+  return  { profiles: state.profiles};
+}
 
-export default App;
+// export default App;
+export default connect(mapStateToProps, getAllUsers)(App);
