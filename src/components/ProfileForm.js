@@ -9,14 +9,27 @@ class ProfileForm extends React.Component {
       state = {
         name: '',
         firstPartComplete: false,
+        secondPartComplete: false,
+        thirdPartComplete: false,
 
     }
 
     goToSecondPage = () => {
         this.setState({
-            firstPartComplete: !this.state.firstPartComplete
+            firstPartComplete: true
         })
-        // , ()=>console.log("button clicked", this.state.clickedInfoButton))
+      }
+
+      goToThirdPage = () => {
+        this.setState({
+            secondPartComplete: true
+        })
+      }
+
+      goToFourthPage = () => {
+        this.setState({
+            thirdPartComplete: true
+        })
       }
 
       handleText = (e) => {
@@ -125,81 +138,118 @@ class ProfileForm extends React.Component {
     <button className="ui basic button right floated" onClick={this.goToSecondPage}>
         Next Page
     </button>
-
-
-    {/* <div>
-
-  <h4 className="ui dividing header">About Me</h4>
-  <div className="field">
-    <label>Card Type</label>
-    <div className="ui selection dropdown">
-      <input type="hidden" name="card[type]"></input>
-      <div className="default text">Type</div>
-      <i className="dropdown icon"></i>
-      <div className="menu">
-        <div className="item" data-value="visa">
-          <i className="visa icon"></i>
-          Visa
-        </div>
-        <div className="item" data-value="amex">
-          <i className="amex icon"></i>
-          American Express
-        </div>
-        <div className="item" data-value="discover">
-          <i className="discover icon"></i>
-          Discover
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="fields">
-    <div className="seven wide field">
-      <label>Card Number</label>
-      <input type="text" name="card[number]" maxlength="16" placeholder="Card #"></input>
-    </div>
-    <div className="three wide field">
-      <label>CVC</label>
-      <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC"></input>
-    </div>
-    <div className="six wide field">
-      <label>Expiration</label>
-      <div className="two fields">
-        <div className="field">
-          <select className="ui fluid search dropdown" name="card[expire-month]">
-            <option value="">Month</option>
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
-        </div>
-        <div className="field">
-          <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year"></input>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="ui submit button">Submit</div> */}
-    {/* </div> */}
 </form>
 </div>
       </div>
     )
-    } 
-    else { return (
-    <div>hi </div>
-    )}  
+    } else if (this.state.firstPartComplete == true) 
+    //second page starts here
+        { return (
+            <div className="ui container grid">
+            <div className="ui row">
+      <form className="ui form">
+            <h4 className="ui dividing header">About Me</h4>
+  <div className="field">
+    <label>What I'm Looking For: </label>
+    <div className="fields">
+      <div className="field">
+        <select className="ui fluid dropdown">
+    <option value=""></option>
+    <option value="Business/Networking">Business/Networking</option>
+    <option value="Companion">Companion</option>
+    <option value="Dating">Dating</option>
+    <option value="Friendship">Friendship</option>
+    <option value="Hookups">Hookups</option>
+    <option value="Long-Term Relationshp">Long-Term Relationshp</option>
+    <option value="Marriage">Marriage</option>
+    <option value="Not Sure">Not Sure</option>
+    <option value="Unspecified">Unspecified</option>
+        </select>
+    </div>
+    </div>
+    </div>
+
+    <div className="field">
+    <label>The religion I most strongly identify with: </label>
+    <div className="fields">
+      <div className="field">
+        <select className="ui fluid dropdown">
+    <option value=""></option>
+    <option value="Agnostic">Agnostic</option>
+    <option value="Atheist">Atheist</option>
+    <option value="Buddhist">Buddhist</option>
+    <option value="Catholic">Catholic</option>
+    <option value="Christian">Christian</option>
+    <option value="Hindu">Hindu</option>
+    <option value="Jewish">Jewish</option>
+    <option value="Other">Other</option>
+    <option value="Spiritual">Spiritual</option>
+    <option value="Prefer Not to Say">Prefer Not to Say</option>
+        </select>
+    </div>
+    </div>
+    </div>
+
+    <div className="field">
+    <label>Politically, my views are: </label>
+    <div className="fields">
+      <div className="field">
+        <select className="ui fluid dropdown">
+    <option value=""></option>
+    <option value="Conservative">Conservative</option>
+    <option value="Liberal">Liberal</option>
+    <option value="Moderate">Moderate</option>
+    <option value="Other">Other</option>
+    <option value="Prefer Not to Say">Prefer Not to Say</option>
+        </select>
+    </div>
+    </div>
+    </div>
+
+    <div className="field">
+    <label>My highest level of education attained is: </label>
+    <div className="fields">
+      <div className="field">
+        <select className="ui fluid dropdown">
+    <option value=""></option>
+    <option value="Some High School">Some High School</option>
+    <option value="High School Diploma/GED">High School Diploma/GED</option>
+    <option value="Some College">Some College</option>
+    <option value="Associate's Degree">Associate's Degree</option>
+    <option value="Bachelor's Degree">Bachelor's Degree</option>
+    <option value="Master's Degree or Higher">Master's Degree or Higher</option>
+        </select>
+    </div>
+    </div>
+    </div>
+
+
+
+
+            
+        <button className="ui basic button right floated" onClick={this.goToThirdPage}>
+        Next Page
+        </button>
+        </form>
+        </div>
+        </div>
+
+
+
+        )}
+
+//second page ends here
+
+
+
+
+    // else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true) 
+    // { return (
+    // <div>ho </div>
+    // )}  
     
     
-    
+
   }
 }
 
@@ -209,4 +259,7 @@ class ProfileForm extends React.Component {
 // }
 
 export default ProfileForm;
-// connect(mapStateToProps)(ProfileForm);
+// connect(mapStateToProps)(ProfileForm);  
+
+//submit button, to be used eventually
+{/* <div className="ui submit button">Submit</div>  */}
