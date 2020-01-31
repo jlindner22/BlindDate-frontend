@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 class NavBar extends React.Component {
 
-    // <Link style={NavStyle} to="/cards"> All Cards </Link>
     render() {
         return (
             <div>
