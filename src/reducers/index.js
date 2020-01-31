@@ -26,10 +26,19 @@ const likeProfileReducer = (likedProfiles = [], action) => {
     return likedProfiles;
 }
 
+const seeMoreInfoReducer = (defaultState = false, action) => {
+    if (action.type === 'SEE_MORE_INFO'){
+        return action
+        //{...defaultState, default: !defaultState }
+    }
+    return defaultState
+}
+
 export default combineReducers({
     profiles: profilesReducer,
     selectedProfile: selectProfileReducer,
-    likeProfile: likeProfileReducer
+    likeProfile: likeProfileReducer,
+    seeMoreInfo: seeMoreInfoReducer
 })
 
 // let defaultState = {

@@ -14,6 +14,12 @@ export const likeProfile = profile => {
     };
 };
 
+export const seeMoreInfo = () => {
+    return {
+        type: 'SEE_MORE_INFO',
+    };
+};
+
 // export const getAllUsers = (users) => {
 //     console.log('ARE WE HERE', users)
 //     console.log("users", users)
