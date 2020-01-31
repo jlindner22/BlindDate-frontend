@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { viewProfile } from '../actions';
+import { Link } from 'react-router-dom';
 
 
 class UserContainer extends React.Component {
@@ -15,18 +16,18 @@ class UserContainer extends React.Component {
         <div className="content">
           <a className="header">{profile.name}</a>
           <div className="meta">
-            <span className="date">Age {profile.age} {profile.gender}
+            <span className="date">Age {profile.age} 
       </span>
           </div>
           <div className="description">
             {profile.name} lives in {profile.city}, {profile.state}.
           </div>
         </div>
-        <div className="extra content">
+        <div className="extra content"><Link to={`/users/${profile.id}`}> 
           <button onClick={() => this.props.viewProfile(profile)}
                   className="ui pink basic button">
                     View Profile!
-          </button>
+          </button></Link>
           <div className="ui right floated">
           {profile.gender !== "Female" ? <a><i className="mars icon" ></i> </a> :  <i className="venus icon"></i> }
           </div>

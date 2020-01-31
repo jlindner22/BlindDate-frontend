@@ -1,7 +1,6 @@
 //Action creator
 
 export const viewProfile = profile => {
-    //return an action
     return {
         type: 'VIEW_PROFILE',
         payload: profile
@@ -9,7 +8,6 @@ export const viewProfile = profile => {
 };
 
 export const likeProfile = profile => {
-    //return an action
     return {
         type: 'LIKE_PROFILE',
         payload: profile
@@ -31,7 +29,7 @@ return (dispatch) => {
        .then(response => response.json())
         .then(users => {
             dispatch(
-                {type: 'GET_ALL_USERS',payload: users })
+                {type: 'GET_ALL_USERS', payload: users })
         })
     }
 }

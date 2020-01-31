@@ -1,13 +1,10 @@
 //return list
 //allows for selecting specific thing
-
 import { combineReducers } from 'redux';
-
 
 //static
 const profilesReducer = (users = [], action) => {
-    // console.log("ARE WE IN REDUCER")
-    // console.log("action", action)
+    console.log("action", action)
     if (action.type === 'GET_ALL_USERS') {
         return action.payload;
     }
@@ -22,11 +19,11 @@ const selectProfileReducer = (profile = null, action) => {
     return profile;
 }
 
-const likeProfileReducer = (profile = [], action) => {
+const likeProfileReducer = (likedProfiles = [], action) => {
     if (action.type === 'LIKE_PROFILE') {
         return action.payload;
     }
-    return profile;
+    return likedProfiles;
 }
 
 export default combineReducers({
