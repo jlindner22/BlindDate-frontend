@@ -11,7 +11,7 @@ class UserContainer extends React.Component {
         return (
           <div className="card">
         <div className="image">
-          <img src={profile.avatar} alt="Try again later!" />
+          <img className="ui image" src={profile.avatar} alt="Try again later!" />
         </div>
         <div className="content">
           <a className="header">{profile.name}</a>

@@ -31,3 +31,28 @@ export default combineReducers({
     selectedProfile: selectProfileReducer,
     likeProfile: likeProfileReducer
 })
+
+// let defaultState = {
+//     profile: null,
+//     likedProfiles: [],
+//     users: [],
+//   }
+
+// let reducers = (prevState=defaultState, action) => {
+//     switch(action.type){
+//         case 'GET_ALL_USERS': 
+//           return {...prevState, users: action.payload}
+//         case 'VIEW_PROFILE': 
+//           return {...prevState, profile: action.payload}
+//         case 'LIKE_PROFILE': 
+//           return {...prevState, likedProfiles: action.payload }
+//         // case 'HANDLE_CHANGE': 
+//           // return {...prevState, ...action.payload }
+//           // DO YOUR CALCULATIONS HERE
+//         //   return {...prevState, text: action.payload.text }
+//         default: 
+//           return {...prevState}
+//     }
+// }
+
+// export default reducers;

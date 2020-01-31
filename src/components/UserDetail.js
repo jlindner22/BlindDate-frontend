@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { likeProfile } from '../actions';
+// import { viewProfile } from '../actions';
 
 
 class UserDetail extends React.Component {
@@ -35,9 +36,23 @@ class UserDetail extends React.Component {
 
   render() {
     console.log("props 2", this.props)
+    console.log("selected", this.props.selectedProfile)
+
     return (
       <div>
-         This is a profile!
+           <div className="ui container grid">
+        <div className="ui row">
+          <div className="column twelve wide">
+      
+         <b>Meet {this.props.selectedProfile.name}!</b>
+            <br></br>
+            <br></br>
+            <br></br>
+
+         <img className="ui centered medium image" src={this.props.selectedProfile.avatar}/>
+         </div>
+        </div>
+      </div>
       </div>
     )
   }
@@ -47,7 +62,8 @@ class UserDetail extends React.Component {
 
 
 const mapStateToProps = state => {
-  return { likeProfile: state.likeProfile }
+  return { selectedProfile: state.selectedProfile }
+//   return { likeProfile: state.likeProfile }
 }
 
 export default connect(mapStateToProps)(UserDetail);

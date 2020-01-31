@@ -12,18 +12,8 @@ import MessagesContainer from './MessagesContainer';
 
 class App extends React.Component {
   
-  // componentDidMount() {
-  //   fetch('http://localhost:3000/api/v1/users')
-  //   .then((response) => {
-  //     return response.json();
-  //   })
-  //   .then((users) => {
-  //     console.log(users);
-  //     this.props.getAllUsers(users)
-  //   })
-  // }
-  
   render() {
+    console.log("get all users", this.props)
     console.log(this.props.getAllUsers)
     return (
       <Router>
