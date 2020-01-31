@@ -8,6 +8,7 @@ import NavBar from './NavBar';
 import Home from './Home';
 import MatchesContainer from './MatchesContainer';
 import MessagesContainer from './MessagesContainer';
+import ProfileForm from './ProfileForm';
 
 
 class App extends React.Component {
@@ -26,7 +27,7 @@ class App extends React.Component {
         </div>
       </div>
         <Switch>
-      <Route exact path="/" render={(routerProps) => <Home {...routerProps}/>}/>
+      <Route exact path="/" render={(routerProps) => <ProfileForm {...routerProps}/>}/>
       <Route exact path="/users" render={(routerProps) => <UserContainer {...routerProps}/>}/>
       <Route exact path="/matches" render={(routerProps) => <MatchesContainer {...routerProps}/>}/>
       <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>
