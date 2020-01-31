@@ -1,12 +1,14 @@
 import React from 'react';
-// import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserContainer from './UserContainer';
 import { viewProfile } from '../actions';
 import UserDetail from './UserDetail';
 import { getAllUsers } from '../actions';
 import { connect } from 'react-redux';
 import NavBar from './NavBar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './Home';
+import MatchesContainer from './MatchesContainer';
+import MessagesContainer from './MessagesContainer';
 
 
 class App extends React.Component {
@@ -26,22 +28,22 @@ class App extends React.Component {
     console.log(this.props.getAllUsers)
     return (
       <Router>
-      <div>
         <NavBar/>
         <body>
+        <Switch>
+      <Route exact path="/" render={(routerProps) => <Home {...routerProps}/>}/>
+      <Route exact path="/users" render={(routerProps) => <UserContainer {...routerProps}/>}/>
+      <Route exact path="/matches" render={(routerProps) => <MatchesContainer {...routerProps}/>}/>
+      <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>
+      <Route exact path="/users/:id" render={(routerProps) => <UserDetail {...routerProps}/>}/>
+    </Switch>
       <div className="ui container grid">
         <div className="ui row">
           <div className="column twelve wide">
-        <UserContainer 
-        />
          </div>
-         {/* <div className="column eight wide"> */}
-           {/* <UserDetail/> */}
-         {/* </div> */}
         </div>
       </div>
       </body>
-    </div>
     </Router>
     )
   }

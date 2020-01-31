@@ -8,7 +8,7 @@ class UserContainer extends React.Component {
     renderList() {
       return this.props.profiles.map(profile => {
         return (
-          <div class="card">
+          <div className="card">
         <div className="image">
           <img src={profile.avatar} alt="Try again later!" />
         </div>
@@ -24,10 +24,12 @@ class UserContainer extends React.Component {
         </div>
         <div className="extra content">
           <button onClick={() => this.props.viewProfile(profile)}
-                  className="ui button primary">
+                  className="ui pink basic button">
                     View Profile!
           </button>
+          <div className="ui right floated">
           {profile.gender !== "Female" ? <a><i className="mars icon" ></i> </a> :  <i className="venus icon"></i> }
+          </div>
         </div>
       </div>
         );
@@ -35,10 +37,9 @@ class UserContainer extends React.Component {
     };
 
     render() {
-      console.log("props 2", this.props)
+      console.log("propsss", this.props)
       return (
         <div>
-           Profiles
         <div className="ui link cards">
           {this.renderList()}
         </div>

@@ -1,28 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class NavBar extends React.Component {
 
+    // <Link style={NavStyle} to="/cards"> All Cards </Link>
     render() {
         return (
             <div>
-            <div class="ui secondary pointing menu">
-            <a class="active item">
+            <div className="ui secondary pointing menu">
+            <Link to='/'> <a className="active item">
                 Home
-            </a>
-            <a class="item">
+            </a></Link>
+            <Link to='/users'><a className="item">
+                Browse
+            </a></Link>
+            <Link to='/matches'><a className="item">
                 Matches
-            </a>
-            <a class="item">
+            </a></Link>
+            <Link to='/messages'><a className="item">
                 Messages
-            </a>
-            <div class="right menu">
-                <a class="ui item">
+            </a></Link>
+            <div className="right menu">
+                <a className="ui item">
                 Logout
                 </a>
             </div>
             </div>
-            <div class="ui segment">
+            <div className="ui segment">
             <p></p>
             </div>
             </div>
