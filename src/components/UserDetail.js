@@ -1,23 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { likeProfile, seeMoreInfo } from '../actions';
+import { likeProfile } from '../actions';
 
 
 class UserDetail extends React.Component {
+
+    state = {
+        clickedInfoButton: false
+    }
 
     componentDidMount() {
         window.scrollTo(0, 0)
       }
 
+      toggleInfo = () => {
+        this.setState({
+            clickedInfoButton: !this.state.clickedInfoButton
+        })
+        // , ()=>console.log("button clicked", this.state.clickedInfoButton))
+      }
+
   render() {
-    console.log("props 2", this.props)
-    console.log("selected", this.props.selectedProfile)
+    // console.log("props 2", this.props)
+    // console.log("selected", this.props.selectedProfile)
 
 let props = this.props.selectedProfile
 
 let noCollege = "Some High School" || "High School Diploma/GED"
 
-console.log("see info", this.props.seeMoreInfo)
     return (
       <div>
         <div className="ui container grid">
@@ -51,15 +61,21 @@ console.log("see info", this.props.seeMoreInfo)
             <br></br>
             My diet is {props.diet}
             <br></br>
+            <br></br>
+
             <button className="ui pink button"
-            onClick={this.props.seeMoreInfo}
-            > See more about me! </button>
+            onClick={this.toggleInfo}> See more about me! </button>
             <br></br>
-            Morning or night person: {props.morning_night}
-            <br></br>
+          
+            <div>
+            {this.state.clickedInfoButton === false ? null :
+            <div>
+                <br></br>
+            Morning or night: {props.morning_night}
             How I dress: {props.dress_style}
             <br></br>
             Neat or messy: {props.messy_neat}
+            <br></br>
             <br></br>
             My planning style:             
             <br></br>
@@ -79,7 +95,7 @@ console.log("see info", this.props.seeMoreInfo)
             <br></br>
             Summer or winter: {props.summer_winter}
             <br></br>
-            Where I'd like to live: {props.city_country_suburbs}
+            Where I would like to live: {props.city_country_suburbs}
             <br></br>
             Beach or mountains: {props.beach_mountain}
             <br></br>
@@ -90,6 +106,8 @@ console.log("see info", this.props.seeMoreInfo)
             My favorite kind of music: {props.music}
             <br></br>
             {props.play_instrument === true ? "I can play an instrument" : null }
+            
+            </div> }
             <br></br>
             Habits: 
             <br></br>
@@ -101,6 +119,8 @@ console.log("see info", this.props.seeMoreInfo)
             <br></br>
             Other drugs: {props.drugs}
             <br></br>
+            <br></br>
+
             <button 
             // onClick={() => this.props.likeProfile(likedProfiles)}
                   className="ui pink button">
@@ -110,13 +130,15 @@ console.log("see info", this.props.seeMoreInfo)
         </div>
       </div>
       </div>
+      </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  return { selectedProfile: state.selectedProfile, seeMoreInfo: state.seeMoreInfo }
+    console.log("detail state", state)
+  return { selectedProfile: state.selectedProfile }
 //   return { likeProfile: state.likeProfile }
 }
 
-export default connect(mapStateToProps, {seeMoreInfo})(UserDetail);
+export default connect(mapStateToProps)(UserDetail);

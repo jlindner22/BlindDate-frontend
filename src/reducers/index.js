@@ -1,5 +1,7 @@
 //return list
 //allows for selecting specific thing
+//return state + action
+
 import { combineReducers } from 'redux';
 
 //static
@@ -26,19 +28,10 @@ const likeProfileReducer = (likedProfiles = [], action) => {
     return likedProfiles;
 }
 
-const seeMoreInfoReducer = (defaultState = false, action) => {
-    if (action.type === 'SEE_MORE_INFO'){
-        return action
-        //{...defaultState, default: !defaultState }
-    }
-    return defaultState
-}
-
 export default combineReducers({
     profiles: profilesReducer,
     selectedProfile: selectProfileReducer,
     likeProfile: likeProfileReducer,
-    seeMoreInfo: seeMoreInfoReducer
 })
 
 // let defaultState = {
