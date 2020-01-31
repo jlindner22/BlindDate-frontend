@@ -22,6 +22,7 @@ class ProfileForm extends React.Component {
 
       goToThirdPage = () => {
         this.setState({
+            firstPartComplete: true,
             secondPartComplete: true
         })
       }
@@ -223,10 +224,68 @@ class ProfileForm extends React.Component {
     </div>
     </div>
 
+    <div className="field">
+    <label>My type of employment is: </label>
+    <div className="fields">
+      <div className="field">
+        <select className="ui fluid dropdown">
+    <option value=""></option>
+    <option value="Employed Full-Time">Employed Full-Time</option>
+    <option value="Employed Part-Time">Employed Part-Time</option>
+    <option value="Student">Student</option>
+    <option value="Unemployed">Unemployed</option>
+    <option value="Other">Other</option>
+        </select>
+    </div>
+    </div>
+    </div>
+
+    <div className="field">
+    <label>My diet is: </label>
+    <div className="fields">
+      <div className="field">
+        <select className="ui fluid dropdown">
+    <option value=""></option>
+    <option value="Gluten-free">Gluten-free</option>
+    <option value="Kosher">Kosher</option>
+    <option value="Nothing special, I'll eat anything">Nothing special, I'll eat anything</option>
+    <option value="Pescatarian">Pescatarian</option>
+    <option value="Vegetarian">Vegetarian</option>
+    <option value="Vegan">Vegan</option>
+        </select>
+    </div>
+    </div>
+    </div>
+
+    <div className="field">
+    <label>Any children: </label>
+    <div className="fields">
+      <div className="field">
+        <select className="ui fluid dropdown">
+    <option value=""></option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+        </select>
+    </div>
+    </div>
+    </div>
+
+    <div className="field">
+    <label>Any pets owned: </label>
+    <div className="fields">
+      <div className="field">
+        <select className="ui fluid dropdown">
+    <option value=""></option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+    <option value="Not right now, maybe in the future">Not right now, maybe in the future</option>
+        </select>
+    </div>
+    </div>
+    </div>
 
 
 
-            
         <button className="ui basic button right floated" onClick={this.goToThirdPage}>
         Next Page
         </button>
@@ -243,10 +302,10 @@ class ProfileForm extends React.Component {
 
 
 
-    // else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true) 
-    // { return (
-    // <div>ho </div>
-    // )}  
+    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true) 
+    { return (
+    <div>ho </div>
+    )}  
     
     
 
