@@ -8,8 +8,11 @@ class NavBar extends React.Component {
         return (
             <div>
             <div className="ui secondary pointing menu">
-            <Link to='/'> <a className="active item">
+            <Link to='/'> <a className="item">
                 Home
+            </a></Link>
+            <Link to='/myprofile'> <a className="item">
+                MyProfile
             </a></Link>
             <Link to='/users'><a className="item">
                 Browse

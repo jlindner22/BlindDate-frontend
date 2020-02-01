@@ -106,7 +106,6 @@ let noCollege = "Some High School" || "High School Diploma/GED"
             My favorite kind of music: {props.music}
             <br></br>
             {props.play_instrument === true ? "I can play an instrument" : null }
-            
             </div> }
             <br></br>
             Habits: 
