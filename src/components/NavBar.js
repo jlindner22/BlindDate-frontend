@@ -12,7 +12,7 @@ class NavBar extends React.Component {
                 Home
             </a></Link>
             <Link to='/myprofile'> <a className="item">
-                MyProfile
+                My Profile
             </a></Link>
             <Link to='/users'><a className="item">
                 Browse
