@@ -221,9 +221,12 @@ class ProfileForm extends React.Component {
                                 </div>
                                 </div>
                             </div>
-
-                            {/* Add College field here */}
-
+                            <div class="field">
+                                <label>Which college(s) did you attend?</label>
+                                <div class="field">
+                                    <input type="text" name="college" placeholder="College Name"></input>
+                                </div>
+                            </div>
                             <div className="field">
                                 <label>My type of employment is: </label>
                                 <div className="fields">
@@ -356,7 +359,7 @@ class ProfileForm extends React.Component {
                 <form className="ui form">
                     <h4 className="ui dividing header">More About Me!</h4>
                         <div className="field">
-                            <div className="two fields">
+                            <div className="field">
                                 <label>Are you a morning or night person? </label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -367,7 +370,7 @@ class ProfileForm extends React.Component {
                         </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label>How do you usually dress? </label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -378,7 +381,7 @@ class ProfileForm extends React.Component {
                         </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label>Do do you prefer summer or winter?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -390,7 +393,7 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label>Where would you most like to live? </label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -402,7 +405,7 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label>Beach or mountain?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -414,9 +417,8 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label>What's your love language? </label>
-                                {/* Link to love language site */}
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
                                     <option value="Acts of Service">Acts of Service</option>
@@ -426,10 +428,11 @@ class ProfileForm extends React.Component {
                                     <option value="Words of Affirmation">Words of Affirmation</option>
                                     <option value="Not Sure">Not Sure</option>
                                 </select>
+                                <a href='https://www.5lovelanguages.com/quizzes/' target="_blank">Take the quiz here</a> 
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label>Are you an extrovert or an introvert?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -440,11 +443,18 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>
-
-                    {/* Do you play an instrument */}
-
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
+                                <label>Do you play any instruments?</label>
+                                <select className="ui fluid dropdown">
+                                    <option value="">Please answer</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div className="field">
+                            <div className="field">
                                 <label>What's your ideal Friday night?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -460,9 +470,8 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>
-
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label>Would you rather spend your night in or out?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -474,7 +483,7 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label> What's your planning style like?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -485,7 +494,7 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label> How would you plan for a vacation?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -496,7 +505,7 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label> Are you a cat person or a dog person?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -508,7 +517,7 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label> Do you prefer coffee or tea?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -520,19 +529,18 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
-                                <label> Do you prefer coffee or tea?</label>
+                            <div className="field">
+                                <label>Would you describe yourself as messy or neat?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
-                                    <option value="Coffee">Coffee</option>
-                                    <option value="Tea">Tea</option>
-                                    <option value="Both">Both</option>
-                                    <option value="Neither">Neither</option>
+                                    <option value="Messy">Messy</option>
+                                    <option value="Neat">Neat</option>
+                                    <option value="Somewhere in the middle">Somewhere in the middle</option>
                                 </select>
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
+                            <div className="field">
                                 <label> What's your favorite type of music?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
@@ -566,8 +574,8 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>
                     <div className="field">
-                            <div className="fields">
-                                <label> What's your favorite type of music?</label>
+                            <div className="field">
+                                <label> What's your ideal type of vacation?</label>
                                 <select className="ui fluid dropdown">
                                     <option value="">Please answer</option>
                                     <option value="Beach">Beach</option>
@@ -602,6 +610,3 @@ class ProfileForm extends React.Component {
 
 export default ProfileForm;
 // connect(mapStateToProps)(ProfileForm);  
-
-
-{/* <input type="text" name="name" placeholder="First Name"></input> */}
