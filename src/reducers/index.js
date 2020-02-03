@@ -13,6 +13,14 @@ const profilesReducer = (users = [], action) => {
     return users;
 }
 
+// const newUserReducer = (user = null, action) => {
+//     console.log("action", action)
+//     if (action.type === 'ADD_PROFILE') {
+//         return action.payload;
+//     }
+//     return user;
+// }
+
 //dynamic
 const selectProfileReducer = (profile = null, action) => {
     if (action.type === 'VIEW_PROFILE') {
@@ -32,6 +40,7 @@ export default combineReducers({
     profiles: profilesReducer,
     selectedProfile: selectProfileReducer,
     likeProfile: likeProfileReducer,
+    // newUser: newUserReducer
 })
 
 // let defaultState = {

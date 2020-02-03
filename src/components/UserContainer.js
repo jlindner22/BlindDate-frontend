@@ -47,19 +47,9 @@ class UserContainer extends React.Component {
       )
     }
   }
-  
-  // <div><Link to={`/users/${user.id}`}> <button 
-  //         className="ui button primary" onClick={this.props.viewProfile(profile)}>View Profile! </button> </Link></div>
-
-//   const userDetail = ({selectedProfile}) => {
-//     console.log("selected", selectedProfile)
-//     if (!selectedProfile) {
-//     return <div> Select a profile </div> 
-//     } return <div> {selectedProfile.name} </div>
-// }
 
   const mapStateToProps = state => {
-    console.log("state", state)
+    // console.log("state", state)
     return  { profiles: state.profiles,
               selectedProfile: state.selectedProfile};
   }

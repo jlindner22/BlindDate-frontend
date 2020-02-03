@@ -1,4 +1,6 @@
 import React from 'react';
+// import { newUser } from '../actions';
+// import { connect } from 'react-redux';
 
 class ProfileForm extends React.Component {
 
@@ -7,13 +9,47 @@ class ProfileForm extends React.Component {
       }
     
       state = {
-        name: '',
-        age: '',
-        gender: '',
-        city: '',
-        state: '', 
         firstPartComplete: false,
         secondPartComplete: false,
+        name: '',
+        email: '',
+        avatar: '',
+        gender: '',
+        age: '',
+        phone_number: '',
+        city: '',
+        state: '', 
+        smokes: '',
+        drinks: '',
+        weed: '',
+        drugs: '',
+        religion: '',
+        occupation: '',
+        college: '',
+        education_level: '',
+        kids: '',
+        relationship_type: '',
+        politics: '',
+        have_pets: '',
+        morning_night: '',
+        dress_style: '',
+        messy_neat: '',
+        general_planning: '',
+        vacation_planning: '',
+        vacation_type: '',
+        cat_dog: '',
+        coffee_tea: '',
+        summer_winter: '',
+        city_country_suburbs: '',
+        beach_mountain: '',
+        night_out_in: '',
+        diet: '',
+        extrovert_introvert: '',
+        love_language: '',
+        music: '',
+        play_instrument: '',
+        ideal_friday: '',
+        myProfile: []
     }
 
     goToSecondPage = () => {
@@ -31,10 +67,78 @@ class ProfileForm extends React.Component {
       handleText = (e) => {
         this.setState({
             [e.target.name]: e.target.value
-        },()=>console.log("target", this.state.value))
+        },()=>console.log("target age", this.state.age, this.state.phone_number))
       }
 
+    //   handleSubmit = (e) => {
+    //       e.preventDefault()
+    //       newUser()
+    //   }
+
+    //   handleSubmit = (e) => {
+    //     e.preventDefault()
+    //      fetch('http://localhost:3000/api/v1/users', {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         "Accepts": "application/json",
+    //       },
+    //         body: JSON.stringify({
+    //         name: this.state.name,
+    //         email: this.state.email,
+    //         avatar: this.state.avatar,
+    //         gender: this.state.gender,
+    //         age: this.state.age,
+    //         phone_number: this.state.phone_number,
+    //         city: this.state.city,
+    //         state: this.state.state, 
+    //         smokes: this.state.smokes,
+    //         drinks: this.state.drinks,
+    //         weed: this.state.weed,
+    //         drugs: this.state.drugs,
+    //         religion: this.state.religion,
+    //         occupation: this.state.occupation,
+    //         college: this.state.college,
+    //         education_level: this.state.education_level,
+    //         kids: this.state.kids,
+    //         relationship_type: this.state.relationship_type,
+    //         politics: this.state.politics,
+    //         have_pets: this.state.have_pets,
+    //         morning_night: this.state.morning_night,
+    //         dress_style: this.state.dress_style,
+    //         messy_neat: this.state.messy_neat,
+    //         general_planning: this.state.general_planning,
+    //         vacation_planning: this.state.vacation_planning,
+    //         vacation_type: this.state.vacation_type,
+    //         cat_dog: this.state.cat_dog,
+    //         coffee_tea: this.state.coffee_tea,
+    //         summer_winter: this.state.summer_winter,
+    //         city_country_suburbs: this.state.city_country_suburbs,
+    //         beach_mountain: this.state.beach_mountain,
+    //         night_out_in: this.state.night_out_in,
+    //         diet: this.state.diet,
+    //         extrovert_introvert: this.state.extrovert_introvert,
+    //         love_language: this.state.love_language,
+    //         music: this.state.music,
+    //         play_instrument: this.state.play_instrument,
+    //         ideal_friday: this.state.ideal_friday
+    //         })
+    //       })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //         this.setState ({
+    //             myProfile: [...this.state.myProfile, data]
+    //         })
+    //             this.props.history.push('/myprofile');
+    //     }
+    //   )}
+
+
+
   render() {
+
+    console.log("my profile props", this.props)
+    console.log("new user", this.props.newUser)
     // console.log("first", this.state.firstPartComplete)
     // console.log("second", this.state.secondPartComplete)
       if (this.state.firstPartComplete == false) {
@@ -46,12 +150,12 @@ class ProfileForm extends React.Component {
                         <div className="field">
                             <div className="two fields">
                                 <div className="field">
-                                 <input onChange={this.handleText} type="text" name="name" placeholder="First Name" value={this.state.value}></input>
+                                 <input onChange={this.handleText} type="text" name="name" placeholder="First Name" value={this.state.name}></input>
                                 </div>
                                 <div className="field">
-                                 <input type="text" name="age" placeholder="Age" value={this.state.value} onChange={this.handleText}></input>
+                                 <input type="text" name="age" placeholder="Age" value={this.state.age} onChange={this.handleText}></input>
                                 </div>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" name="gender" onChange={this.handleText} value={this.state.gender}>
                                 <option value="">Gender</option>
                                 <option value="Female">Female</option>
                                 <option value="Male">Male</option>
@@ -62,10 +166,10 @@ class ProfileForm extends React.Component {
                          <label>Contact Information</label>
                             <div className="fields">
                                 <div className="ten wide field">
-                                    <input type="text" name="email" placeholder="Email" value={this.state.value} onChange={this.handleText}></input>
+                                    <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleText}></input>
                                 </div>
                                 <div className="ten wide field">
-                                    <input type="text" name="phone_number" placeholder="Phone Number (no spaces or symbols)" value={this.state.value} onChange={this.handleText}></input>
+                                    <input type="text" name="phone_number" placeholder="Phone Number (no spaces or symbols)" value={this.state.phone_number} onChange={this.handleText}></input>
                                 </div>
                             </div>
                         </div>
@@ -73,9 +177,9 @@ class ProfileForm extends React.Component {
                          <label>Current Location</label>
                             <div className="fields">
                             <div className="eight wide field">
-                                <input type="text" name="city" placeholder="City" value={this.state.value} onChange={this.handleText}></input>
+                                <input type="text" name="city" placeholder="City" value={this.state.city} onChange={this.handleText}></input>
                             </div>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" name="state" onChange={this.handleText} value={this.state.state}>
                                 <option value="">State</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -131,6 +235,17 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>
+                <div className="field">
+                    <br></br>
+                <h4 className="ui dividing header">Choose An Avatar!</h4>
+                         {/* <label>Choose an avatar!</label> */}
+                            <div className="fields">
+                            <div className="eight wide field">
+                                <input type="text" name="avatar" placeholder="Paste URL Here" value={this.state.avatar} onChange={this.handleText}></input>
+                            </div>
+                            </div>
+                </div>
+
                 <button className="ui basic button right floated" onClick={this.goToSecondPage}>
                     Next Page
                 </button>
@@ -149,7 +264,7 @@ class ProfileForm extends React.Component {
                                 <label>What I'm Looking For: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" name="relationship_type" onChange={this.handleText} value={this.state.relationship_type}>
                                         <option value="">Please answer</option>
                                         <option value="Business/Networking">Business/Networking</option>
                                         <option value="Companion">Companion</option>
@@ -168,7 +283,7 @@ class ProfileForm extends React.Component {
                                 <label>The religion I most strongly identify with is: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="religion" value={this.state.religion}>
                                         <option value="">Please answer</option>
                                         <option value="Agnostic">Agnostic</option>
                                         <option value="Atheist">Atheist</option>
@@ -188,7 +303,7 @@ class ProfileForm extends React.Component {
                                 <label>Politically, my views are: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="politics" value={this.state.politics}>
                                         <option value="">Please answer</option>
                                         <option value="Conservative">Conservative</option>
                                         <option value="Liberal">Liberal</option>
@@ -203,7 +318,7 @@ class ProfileForm extends React.Component {
                                 <label>My highest level of education attained is: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="education_level" value={this.state.education_level}>
                                         <option value="">Please answer</option>
                                         <option value="Some High School">Some High School</option>
                                         <option value="High School Diploma/GED">High School Diploma/GED</option>
@@ -218,14 +333,14 @@ class ProfileForm extends React.Component {
                             <div class="field">
                                 <label>Which college(s) did you attend?</label>
                                 <div class="field">
-                                    <input type="text" name="college" placeholder="College Name" value={this.state.value} onChange={this.handleText}></input>
+                                    <input type="text" name="college" placeholder="College Name" value={this.state.college} onChange={this.handleText}></input>
                                 </div>
                             </div>
                             <div className="field">
                                 <label>My type of employment is: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="occupation" value={this.state.occupation}>
                                         <option value="">Please answer</option>
                                         <option value="Employed Full-Time">Employed Full-Time</option>
                                         <option value="Employed Part-Time">Employed Part-Time</option>
@@ -240,7 +355,7 @@ class ProfileForm extends React.Component {
                                 <label>My diet is: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="diet" value={this.state.diet}>
                                         <option value="">Please answer</option>
                                         <option value="Gluten-free">Gluten-free</option>
                                         <option value="Kosher">Kosher</option>
@@ -256,7 +371,7 @@ class ProfileForm extends React.Component {
                                 <label>Any children: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="kids" value={this.state.kids}>
                                         <option value="">Please answer</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -268,7 +383,7 @@ class ProfileForm extends React.Component {
                                 <label>Any pets owned: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="have_pets" value={this.state.have_pets}>
                                         <option value="">Please answer</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -282,7 +397,7 @@ class ProfileForm extends React.Component {
                                 <label>Drinking: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="drinks" value={this.state.drinks}>
                                         <option value="">Please answer</option>
                                         <option value="A few times a week">A few times a week</option>
                                         <option value="Socially">Socially</option>
@@ -297,7 +412,7 @@ class ProfileForm extends React.Component {
                                 <label>Smoking: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="smokes" value={this.state.smokes}>
                                         <option value="">Please answer</option>
                                         <option value="Often">Often</option>
                                         <option value="Sometimes">Sometimes</option>
@@ -312,7 +427,7 @@ class ProfileForm extends React.Component {
                                 <label>4/20 Friendly: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="weed" value={this.state.weed}>
                                         <option value="">Please answer</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -324,7 +439,7 @@ class ProfileForm extends React.Component {
                                 <label>Other drugs: </label>
                                 <div className="fields">
                                 <div className="field">
-                                    <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                    <select className="ui fluid dropdown" onChange={this.handleText} name="drugs" value={this.state.drugs}>
                                         <option value="">Please answer</option>
                                         <option value="Often">Often</option>
                                         <option value="Socially">Socially</option>
@@ -355,7 +470,7 @@ class ProfileForm extends React.Component {
                         <div className="field">
                             <div className="field">
                                 <label>Are you a morning or night person? </label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="morning_night" value={this.state.morning_night}>
                                     <option value="">Please answer</option>
                                     <option value="Morning person">Morning person</option>
                                     <option value="Night owl">Night owl</option>
@@ -366,7 +481,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label>How do you usually dress? </label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="dress_style" value={this.state.dress_style}>
                                     <option value="">Please answer</option>
                                     <option value="Casual and comfortable, nothing too exciting">Casual and comfortable, nothing too exciting</option>
                                     <option value="Bold, I like to stand out">Bold, I like to stand out</option>
@@ -377,7 +492,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label>Do do you prefer summer or winter?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="summer_winter" value={this.state.summer_winter}>
                                     <option value="">Please answer</option>
                                     <option value="Summer">Summer</option>
                                     <option value="Winter">Winter</option>
@@ -389,7 +504,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label>Where would you most like to live? </label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="city_country_suburbs" value={this.state.city_country_suburbs}>
                                     <option value="">Please answer</option>
                                     <option value="City">City</option>
                                     <option value="Country">Country</option>
@@ -401,7 +516,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label>Beach or mountain?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="beach_mountain" value={this.state.beach_mountain}>
                                     <option value="">Please answer</option>
                                     <option value="Beach">Beach</option>
                                     <option value="Mountain">Mountain</option>
@@ -413,7 +528,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label>What's your love language? </label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="love_language" value={this.state.love_language}>
                                     <option value="">Please answer</option>
                                     <option value="Acts of Service">Acts of Service</option>
                                     <option value="Physical Touch">Physical Touch</option>
@@ -428,7 +543,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label>Are you an extrovert or an introvert?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="extrovert_introvert" value={this.state.extrovert_introvert}>
                                     <option value="">Please answer</option>
                                     <option value="A little of both">A little of both</option>
                                     <option value="Extrovert">Extrovert</option>
@@ -440,7 +555,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label>Do you play any instruments?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="play_instrument" value={this.state.play_instrument}>
                                     <option value="">Please answer</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -450,7 +565,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label>What's your ideal Friday night?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="ideal_friday" value={this.state.ideal_friday}>
                                     <option value="">Please answer</option>
                                     <option value="Going out to a bar">Going out to a bar</option>
                                     <option value="Staying in to watch a movie">Staying in to watch a movie</option>
@@ -467,7 +582,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label>Would you rather spend your night in or out?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="night_out_in" value={this.state.night_out_in}>
                                     <option value="">Please answer</option>
                                     <option value="Going Out">Going Out</option>
                                     <option value="Staying In">Staying In</option>
@@ -479,7 +594,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label> What's your planning style like?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="general_planning" value={this.state.general_planning}>
                                     <option value="">Please answer</option>
                                     <option value="I’m definitely more of a planner">I’m definitely more of a planner</option>
                                     <option value="I just let things work themselves out, I like to be spontaneous">I just let things work themselves out, I like to be spontaneous</option>
@@ -490,7 +605,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label> How would you plan for a vacation?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="vacation_planning" value={this.state.vacation_planning}>
                                     <option value="">Please answer</option>
                                     <option value="As little as possible, I want to pack and go">As little as possible, I want to pack and go</option>
                                     <option value="I plan them far in advance and schedule everything">I plan them far in advance and schedule everything</option>
@@ -501,7 +616,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label> Are you a cat person or a dog person?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="cat_dog" value={this.state.cat_dog}>
                                     <option value="">Please answer</option>
                                     <option value="Cat">Cat</option>
                                     <option value="Dog">Dog</option>
@@ -513,7 +628,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label> Do you prefer coffee or tea?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="coffee_tea" value={this.state.coffee_tea}>
                                     <option value="">Please answer</option>
                                     <option value="Coffee">Coffee</option>
                                     <option value="Tea">Tea</option>
@@ -525,7 +640,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label>Would you describe yourself as messy or neat?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="messy_neat" value={this.state.messy_neat}>
                                     <option value="">Please answer</option>
                                     <option value="Messy">Messy</option>
                                     <option value="Neat">Neat</option>
@@ -536,7 +651,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label> What's your favorite type of music?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="music" value={this.state.music}>
                                     <option value="">Please answer</option>
                                     <option value="Musicals">Musicals</option>
                                     <option value="Opera">Opera</option>
@@ -570,7 +685,7 @@ class ProfileForm extends React.Component {
                     <div className="field">
                             <div className="field">
                                 <label> What's your ideal type of vacation?</label>
-                                <select className="ui fluid dropdown" onChange={this.handleText} value={this.state.value}>
+                                <select className="ui fluid dropdown" onChange={this.handleText} name="vacation_type" value={this.state.vacation_type}>
                                     <option value="">Please answer</option>
                                     <option value="Beach">Beach</option>
                                     <option value="Educational tour">Educational tour</option>
@@ -588,7 +703,7 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>
-                        <div className="ui submit button right floated">Submit</div> 
+                        <div className="ui submit button right floated" onClick={this.handleSubmit}>Submit</div> 
                 </form>
             </div>
         </div>        
@@ -596,11 +711,10 @@ class ProfileForm extends React.Component {
   }
 }
 
-
 // const mapStateToProps = state => {
-//     console.log("detail state", state)
-//   return { selectedProfile: state.selectedProfile }
-// }
+//     console.log("state", state)
+//     return  { newUser: state.newUser};
+//   }
 
-export default ProfileForm;
-// connect(mapStateToProps)(ProfileForm);  
+  export default ProfileForm;
+//   export default connect(mapStateToProps, newUser)(ProfileForm);
