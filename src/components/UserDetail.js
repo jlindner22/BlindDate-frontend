@@ -21,7 +21,6 @@ class UserDetail extends React.Component {
       }
 
   render() {
-    // console.log("props 2", this.props)
     // console.log("selected", this.props.selectedProfile)
 
 let props = this.props.selectedProfile

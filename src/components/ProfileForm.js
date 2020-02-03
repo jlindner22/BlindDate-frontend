@@ -7,8 +7,8 @@ class ProfileForm extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
-        console.log("name:", this.state.name)
-        console.log("age:", this.state.age)
+        // console.log("name:", this.state.name)
+        // console.log("age:", this.state.age)
       }
     
     state = {
@@ -68,8 +68,8 @@ class ProfileForm extends React.Component {
       }
 
       handleText = (e) => {
-        console.log("handle name", e.target.name)
-        console.log("handle value", e.target.value)
+        // console.log("handle name", e.target.name)
+        // console.log("handle value", e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         }
@@ -86,8 +86,8 @@ class ProfileForm extends React.Component {
 
   render() {
 
-    console.log("my profile props", this.props)
-    console.log("new user", this.state)
+    // console.log("my profile props", this.props)
+    // console.log("new user", this.state)
 
       if (this.state.firstPartComplete === false) {
         return (
@@ -277,9 +277,9 @@ class ProfileForm extends React.Component {
                                 </div>
                                 </div>
                             </div>
-                            <div class="field">
+                            <div className="field">
                                 <label>Which college(s) did you attend?</label>
-                                <div class="field">
+                                <div className="field">
                                     <input type="text" name="college" placeholder="College Name" value={this.state.college} onChange={this.handleText}></input>
                                 </div>
                             </div>
@@ -409,7 +409,8 @@ class ProfileForm extends React.Component {
 //second page ends here, third page starts
 
     else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true) 
-    { return (  
+    { return  (  
+       
         <div className="ui container grid">
             <div className="ui row">
                 <form className="ui form">

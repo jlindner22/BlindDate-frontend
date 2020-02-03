@@ -5,7 +5,6 @@
 import { combineReducers } from 'redux';
 
 const profilesReducer = (users = [], action) => {
-    console.log("action", action)
     if (action.type === 'GET_ALL_USERS') {
         return action.payload;
     }
