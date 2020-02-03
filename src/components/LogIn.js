@@ -2,22 +2,42 @@ import React from 'react';
 
 class LogIn extends React.Component {
 
-    render() {
+    state = {
+        email: '',
+        password: '',
+    }
+
+    handleChange = (e) => {
+        console.log("handle name", e.target.name)
+        console.log("handle value", e.target.value)
+        this.setState({
+            [e.target.name]: e.target.value
+        }
+        )}    
+
+
+      render() {
      
         return (
-            <div>
-                <form class="ui form">
-                    <div class="field">
-                        <label>First Name</label>
-                            <input type="text" name="first-name" placeholder="First Name"></input>
+                <div className="ui container grid">
+                <div className="ui centered row">
+                <form className="ui form">
+                   <b> Log in to BlindDate</b>
+                    <div className="field">
+                        <br></br>
+                        <br></br>
+                        <label>Email</label>
+                            <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange}></input>
                     </div>
-                    <div class="field">
-                            <label>Last Name</label>
-                                <input type="text" name="last-name" placeholder="Last Name"></input>
+                    <div className="field">
+                            <label>Password</label>
+                                <input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
                     </div>
-                    <button class="ui button" type="submit">Submit</button>
+    
+                    <button className="ui pink button" type="submit">Log In</button>
                 </form>
-            </div>
+                </div>
+                </div>
         )
     }
 }

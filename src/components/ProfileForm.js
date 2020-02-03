@@ -71,9 +71,8 @@ class ProfileForm extends React.Component {
         console.log("handle value", e.target.value)
         this.setState({
             [e.target.name]: e.target.value
-        },
-        )
-      }
+        }
+        )}
 
       handleSubmit = (e, user) => {
         // console.log("handle submit")  
@@ -199,7 +198,7 @@ class ProfileForm extends React.Component {
             </div>
         </div>
         )
-    } else if (this.state.firstPartComplete == true && this.state.secondPartComplete == false) 
+    } else if (this.state.firstPartComplete === true && this.state.secondPartComplete === false) 
     //second page starts here
         { return (
             <div className="ui container grid">

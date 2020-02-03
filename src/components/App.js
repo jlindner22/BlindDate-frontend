@@ -9,13 +9,14 @@ import MyProfile from './MyProfile';
 import MatchesContainer from './MatchesContainer';
 import MessagesContainer from './MessagesContainer';
 import ProfileForm from './ProfileForm';
-import LogIn from './LogIn'
+import LogIn from './LogIn';
+import Home from './Home';
 
 class App extends React.Component {
   
   render() {
     console.log("get all users", this.props)
-    console.log(this.props.getAllUsers)
+    // console.log(this.props.getAllUsers)
     return (
       <Router>
         <NavBar/>
@@ -28,7 +29,8 @@ class App extends React.Component {
       </div>
         <Switch>
       <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps}/>}/>
-      <Route exact path="/" render={(routerProps) => <ProfileForm {...routerProps}/>}/>
+      <Route exact path="/" render={(routerProps) => <Home {...routerProps}/>}/>
+      <Route exact path="/signup" render={(routerProps) => <ProfileForm {...routerProps}/>}/>
       <Route exact path="/myprofile" render={(routerProps) => <MyProfile {...routerProps}/>}/>
       <Route exact path="/users" render={(routerProps) => <UserContainer {...routerProps}/>}/>
       <Route exact path="/matches" render={(routerProps) => <MatchesContainer {...routerProps}/>}/>

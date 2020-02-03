@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { connect } from 'react-redux';
 
 class NavBar extends React.Component {
 
@@ -24,9 +23,9 @@ class NavBar extends React.Component {
                 Messages
             </a></Link>
             <div className="right menu">
-                <a className="ui item">
+            <Link to='/'>  <a className="ui item">
                 Logout
-                </a>
+                </a></Link>
             </div>
             </div>
             <div className="ui segment">
