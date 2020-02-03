@@ -12,7 +12,7 @@ const profilesReducer = (users = [], action) => {
 }
 
 const newUserReducer = (user = [], action) => {
-    console.log("action", action)
+    // console.log("action", action)
     if (action.type === 'ADD_PROFILE') {
         return action.payload;
     }
@@ -28,7 +28,7 @@ const selectProfileReducer = (profile = null, action) => {
 
 const likeProfileReducer = (likedProfiles = [], action) => {
     if (action.type === 'LIKE_PROFILE') {
-        return action.payload;
+        return [...likedProfiles, action.payload]
     }
     return likedProfiles;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { likeProfile } from '../actions';
+import { matchProfile } from '../actions';
 
 
 class UserDetail extends React.Component {
@@ -16,11 +16,12 @@ class UserDetail extends React.Component {
       toggleInfo = () => {
         this.setState({
             clickedInfoButton: !this.state.clickedInfoButton
-        })
-        // , ()=>console.log("button clicked", this.state.clickedInfoButton))
-      }
+        }
+        // , ()=>console.log("button clicked", this.state.clickedInfoButton)
+        )}
 
   render() {
+    console.log("user detail props", this.props)
     // console.log("selected", this.props.selectedProfile)
 
 let props = this.props.selectedProfile
@@ -105,6 +106,7 @@ let noCollege = "Some High School" || "High School Diploma/GED"
             My favorite kind of music: {props.music}
             <br></br>
             {props.play_instrument === true ? "I can play an instrument" : null }
+            
             </div> }
             <br></br>
             Habits: 
@@ -120,7 +122,7 @@ let noCollege = "Some High School" || "High School Diploma/GED"
             <br></br>
 
             <button 
-            // onClick={() => this.props.likeProfile(likedProfiles)}
+            onClick={() => this.props.matchProfile(props)}
                   className="ui pink button">
                     Match with {props.name}!
           </button>
@@ -135,8 +137,8 @@ let noCollege = "Some High School" || "High School Diploma/GED"
 
 const mapStateToProps = state => {
     console.log("detail state", state)
-  return { selectedProfile: state.selectedProfile }
-//   return { likeProfile: state.likeProfile }
+  return { selectedProfile: state.selectedProfile, 
+            likeProfile: state.likeProfile }
 }
 
-export default connect(mapStateToProps)(UserDetail);
+export default connect(mapStateToProps, {matchProfile})(UserDetail);

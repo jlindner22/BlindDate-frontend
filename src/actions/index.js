@@ -7,7 +7,7 @@ export const viewProfile = profile => {
     };
 };
 
-export const likeProfile = profile => {
+export const matchProfile = profile => {
     return {
         type: 'LIKE_PROFILE',
         payload: profile
@@ -78,29 +78,6 @@ export const newUser = (user) => {
             .then( data => dispatch({type : 'ADD_PROFILE', payload : data}))
     }
 }
-
-
-
-// .then(res => res.json())
-// .then(data => {
-    //       this.setState ({
-        //           myProfile: [...this.state.myProfile, data]
-        //       })
-        //           this.props.history.push('/myprofile');
-        //   }
-        // )}
-
-
-// export const newProfile = (someValue) => {
-//     return (dispatch, getState) => {
-//         dispatch({type : "REQUEST_STARTED"});
-
-//         myAjaxLib.post("/someEndpoint", {data : someValue})
-//             .then(
-//                 response => dispatch({type : "REQUEST_SUCCEEDED", payload : response}),
-//             );    
-//     };
-// }
 
 
 
