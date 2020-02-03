@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class LogIn extends React.Component {
 
@@ -33,8 +35,9 @@ class LogIn extends React.Component {
                             <label>Password</label>
                                 <input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
                     </div>
-    
+                    <Link to={'/users'}>
                     <button className="ui pink button" type="submit">Log In</button>
+                    </Link>
                 </form>
                 </div>
                 </div>

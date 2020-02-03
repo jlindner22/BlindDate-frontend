@@ -1,6 +1,7 @@
 import React from 'react';
 import { newUser } from '../actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class ProfileForm extends React.Component {
 
@@ -80,6 +81,7 @@ class ProfileForm extends React.Component {
         // console.log("user",user)  
         e.preventDefault()
           this.props.newUser(user)
+          this.props.history.push('/myprofile')
       }
 
   render() {
@@ -648,7 +650,9 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>
-                        <div className="ui submit button right floated" onClick={(e) => this.handleSubmit(e,this.state)}>Submit</div> 
+                    {/* <Link to='/myprofile'> */}
+                        <div className="ui submit button right floated" onClick={(e) => this.handleSubmit(e,this.state)}>Submit</div>
+                        {/* </Link> */}
                 </form>
             </div>
         </div>        
