@@ -25,60 +25,59 @@ export const getAllUsers = () => {
     }
 }
 
-// export const newUser = () => {
-//     return (dispatch) => {
-//         fetch('http://localhost:3000/api/v1/users', {
-//             method: "POST",
-//             headers: {
-//               "Content-Type": "application/json",
-//               "Accepts": "application/json",
-//             },             
-//             body: JSON.stringify({ 
-//                 name: this.props.name,
-// email: this.props.email,
-// avatar: this.props.avatar,
-// gender: this.props.gender,
-// age: this.props.age,
-// phone_number: this.props.phone_number,
-// city: this.props.city,
-// state: this.props.state, 
-// smokes: this.props.smokes,
-// drinks: this.props.drinks,
-// weed: this.props.weed,
-// drugs: this.props.drugs,
-// religion: this.props.religion,
-// occupation: this.props.occupation,
-// college: this.props.college,
-// education_level: this.props.education_level,
-// kids: this.props.kids,
-// relationship_type: this.props.relationship_type,
-// politics: this.props.politics,
-// have_pets: this.props.have_pets,
-// morning_night: this.props.morning_night,
-// dress_style: this.props.dress_style,
-// messy_neat: this.props.messy_neat,
-// general_planning: this.props.general_planning,
-// vacation_planning: this.props.vacation_planning,
-// vacation_type: this.props.vacation_type,
-// cat_dog: this.props.cat_dog,
-// coffee_tea: this.props.coffee_tea,
-// summer_winter: this.props.summer_winter,
-// city_country_suburbs: this.props.city_country_suburbs,
-// beach_mountain: this.props.beach_mountain,
-// night_out_in: this.props.night_out_in,
-// diet: this.props.diet,
-// extrovert_introvert: this.props.extrovert_introvert,
-// love_language: this.props.love_language,
-// music: this.props.music,
-// play_instrument: this.props.play_instrument,
-// ideal_friday: this.props.ideal_friday
-//              })
-//             .then(
-//                 response => dispatch({type : 'ADD_PROFILE', payload : response}),
-//             )  
-//         })
-//     }
-// }
+export const newUser = (user) => {
+    return (dispatch) => {
+        fetch('http://localhost:3000/api/v1/users', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accepts": "application/json",
+            },             
+            body: JSON.stringify({ 
+                name: user.name,
+                email: user.email,
+                avatar: user.avatar,
+                gender: user.gender,
+                age: user.age,
+                phone_number: user.phone_number,
+                city: user.city,
+                state: user.state, 
+                smokes: user.smokes,
+                drinks: user.drinks,
+                weed: user.weed,
+                drugs: user.drugs,
+                religion: user.religion,
+                occupation: user.occupation,
+                college: user.college,
+                education_level: user.education_level,
+                kids: user.kids,
+                relationship_type: user.relationship_type,
+                politics: user.politics,
+                have_pets: user.have_pets,
+                morning_night: user.morning_night,
+                dress_style: user.dress_style,
+                messy_neat: user.messy_neat,
+                general_planning: user.general_planning,
+                vacation_planning: user.vacation_planning,
+                vacation_type: user.vacation_type,
+                cat_dog: user.cat_dog,
+                coffee_tea: user.coffee_tea,
+                summer_winter: user.summer_winter,
+                city_country_suburbs: user.city_country_suburbs,
+                beach_mountain: user.beach_mountain,
+                night_out_in: user.night_out_in,
+                diet: user.diet,
+                extrovert_introvert: user.extrovert_introvert,
+                love_language: user.love_language,
+                music: user.music,
+                play_instrument: user.play_instrument,
+                ideal_friday: user.ideal_friday
+            })   
+            })
+            .then( response => response.json())
+            .then( data => dispatch({type : 'ADD_PROFILE', payload : data}))
+    }
+}
 
 
 

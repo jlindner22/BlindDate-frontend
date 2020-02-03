@@ -1,14 +1,16 @@
 import React from 'react';
-// import { newUser } from '../actions';
-// import { connect } from 'react-redux';
+import { newUser } from '../actions';
+import { connect } from 'react-redux';
 
 class ProfileForm extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
+        console.log("name:", this.state.name)
+        console.log("age:", this.state.age)
       }
     
-      state = {
+    state = {
         firstPartComplete: false,
         secondPartComplete: false,
         name: '',
@@ -65,83 +67,28 @@ class ProfileForm extends React.Component {
       }
 
       handleText = (e) => {
+        console.log("handle name", e.target.name)
+        console.log("handle value", e.target.value)
         this.setState({
             [e.target.name]: e.target.value
-        },()=>console.log("target age", this.state.age, this.state.phone_number))
+        },
+        )
       }
 
-    //   handleSubmit = (e) => {
-    //       e.preventDefault()
-    //       newUser()
-    //   }
-
-    //   handleSubmit = (e) => {
-    //     e.preventDefault()
-    //      fetch('http://localhost:3000/api/v1/users', {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         "Accepts": "application/json",
-    //       },
-    //         body: JSON.stringify({
-    //         name: this.state.name,
-    //         email: this.state.email,
-    //         avatar: this.state.avatar,
-    //         gender: this.state.gender,
-    //         age: this.state.age,
-    //         phone_number: this.state.phone_number,
-    //         city: this.state.city,
-    //         state: this.state.state, 
-    //         smokes: this.state.smokes,
-    //         drinks: this.state.drinks,
-    //         weed: this.state.weed,
-    //         drugs: this.state.drugs,
-    //         religion: this.state.religion,
-    //         occupation: this.state.occupation,
-    //         college: this.state.college,
-    //         education_level: this.state.education_level,
-    //         kids: this.state.kids,
-    //         relationship_type: this.state.relationship_type,
-    //         politics: this.state.politics,
-    //         have_pets: this.state.have_pets,
-    //         morning_night: this.state.morning_night,
-    //         dress_style: this.state.dress_style,
-    //         messy_neat: this.state.messy_neat,
-    //         general_planning: this.state.general_planning,
-    //         vacation_planning: this.state.vacation_planning,
-    //         vacation_type: this.state.vacation_type,
-    //         cat_dog: this.state.cat_dog,
-    //         coffee_tea: this.state.coffee_tea,
-    //         summer_winter: this.state.summer_winter,
-    //         city_country_suburbs: this.state.city_country_suburbs,
-    //         beach_mountain: this.state.beach_mountain,
-    //         night_out_in: this.state.night_out_in,
-    //         diet: this.state.diet,
-    //         extrovert_introvert: this.state.extrovert_introvert,
-    //         love_language: this.state.love_language,
-    //         music: this.state.music,
-    //         play_instrument: this.state.play_instrument,
-    //         ideal_friday: this.state.ideal_friday
-    //         })
-    //       })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //         this.setState ({
-    //             myProfile: [...this.state.myProfile, data]
-    //         })
-    //             this.props.history.push('/myprofile');
-    //     }
-    //   )}
-
-
+      handleSubmit = (e, user) => {
+        // console.log("handle submit")  
+        // console.log("e",e)  
+        // console.log("user",user)  
+        e.preventDefault()
+          this.props.newUser(user)
+      }
 
   render() {
 
     console.log("my profile props", this.props)
-    console.log("new user", this.props.newUser)
-    // console.log("first", this.state.firstPartComplete)
-    // console.log("second", this.state.secondPartComplete)
-      if (this.state.firstPartComplete == false) {
+    console.log("new user", this.state)
+
+      if (this.state.firstPartComplete === false) {
         return (
         <div className="ui container grid">
             <div className="ui row">
@@ -238,7 +185,6 @@ class ProfileForm extends React.Component {
                 <div className="field">
                     <br></br>
                 <h4 className="ui dividing header">Choose An Avatar!</h4>
-                         {/* <label>Choose an avatar!</label> */}
                             <div className="fields">
                             <div className="eight wide field">
                                 <input type="text" name="avatar" placeholder="Paste URL Here" value={this.state.avatar} onChange={this.handleText}></input>
@@ -703,7 +649,7 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>
-                        <div className="ui submit button right floated" onClick={this.handleSubmit}>Submit</div> 
+                        <div className="ui submit button right floated" onClick={(e) => this.handleSubmit(e,this.state)}>Submit</div> 
                 </form>
             </div>
         </div>        
@@ -711,10 +657,16 @@ class ProfileForm extends React.Component {
   }
 }
 
-// const mapStateToProps = state => {
-//     console.log("state", state)
-//     return  { newUser: state.newUser};
-//   }
+const mapStateToProps = state => {
+    console.log("state", state)
+    return  { newUser: state.newUser};
+  }
 
-  export default ProfileForm;
-//   export default connect(mapStateToProps, newUser)(ProfileForm);
+  const mapDispatchToProps = dispatch => {
+    return  {
+        newUser: (user) => dispatch(newUser(user))
+    };
+  }
+
+//   export default ProfileForm;
+  export default connect(mapStateToProps, mapDispatchToProps)(ProfileForm);

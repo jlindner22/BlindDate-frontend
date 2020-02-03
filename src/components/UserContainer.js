@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 class UserContainer extends React.Component {
   
     renderList() {
-      return this.props.profiles.map(profile => {
+      // console.log("true?", this.props.profiles && this.props.profiles)
+      return (this.props.profiles && this.props.profiles.map(profile => {
         return (
           <div className="card">
         <div className="image">
@@ -33,7 +34,7 @@ class UserContainer extends React.Component {
         </div>
       </div>
         );
-      });
+      }))
     };
 
     render() {

@@ -9,7 +9,7 @@ import MyProfile from './MyProfile';
 import MatchesContainer from './MatchesContainer';
 import MessagesContainer from './MessagesContainer';
 import ProfileForm from './ProfileForm';
-
+import LogIn from './LogIn'
 
 class App extends React.Component {
   
@@ -27,6 +27,7 @@ class App extends React.Component {
         </div>
       </div>
         <Switch>
+      <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps}/>}/>
       <Route exact path="/" render={(routerProps) => <ProfileForm {...routerProps}/>}/>
       <Route exact path="/myprofile" render={(routerProps) => <MyProfile {...routerProps}/>}/>
       <Route exact path="/users" render={(routerProps) => <UserContainer {...routerProps}/>}/>

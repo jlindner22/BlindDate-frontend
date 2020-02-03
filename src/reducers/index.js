@@ -4,7 +4,6 @@
 
 import { combineReducers } from 'redux';
 
-//static
 const profilesReducer = (users = [], action) => {
     console.log("action", action)
     if (action.type === 'GET_ALL_USERS') {
@@ -13,15 +12,14 @@ const profilesReducer = (users = [], action) => {
     return users;
 }
 
-// const newUserReducer = (user = null, action) => {
-//     console.log("action", action)
-//     if (action.type === 'ADD_PROFILE') {
-//         return action.payload;
-//     }
-//     return user;
-// }
+const newUserReducer = (user = [], action) => {
+    console.log("action", action)
+    if (action.type === 'ADD_PROFILE') {
+        return action.payload;
+    }
+    return user;
+}
 
-//dynamic
 const selectProfileReducer = (profile = null, action) => {
     if (action.type === 'VIEW_PROFILE') {
         return action.payload;
@@ -40,30 +38,5 @@ export default combineReducers({
     profiles: profilesReducer,
     selectedProfile: selectProfileReducer,
     likeProfile: likeProfileReducer,
-    // newUser: newUserReducer
+    newUser: newUserReducer
 })
-
-// let defaultState = {
-//     profile: null,
-//     likedProfiles: [],
-//     users: [],
-//   }
-
-// let reducers = (prevState=defaultState, action) => {
-//     switch(action.type){
-//         case 'GET_ALL_USERS': 
-//           return {...prevState, users: action.payload}
-//         case 'VIEW_PROFILE': 
-//           return {...prevState, profile: action.payload}
-//         case 'LIKE_PROFILE': 
-//           return {...prevState, likedProfiles: action.payload }
-//         // case 'HANDLE_CHANGE': 
-//           // return {...prevState, ...action.payload }
-//           // DO YOUR CALCULATIONS HERE
-//         //   return {...prevState, text: action.payload.text }
-//         default: 
-//           return {...prevState}
-//     }
-// }
-
-// export default reducers;
