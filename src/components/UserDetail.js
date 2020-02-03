@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { matchProfile } from '../actions';
+import { Link } from 'react-router-dom';
 
 
 class UserDetail extends React.Component {
@@ -25,7 +26,7 @@ class UserDetail extends React.Component {
     // console.log("selected", this.props.selectedProfile)
 
 let props = this.props.selectedProfile
-
+console.log("props var", props.id)
 let noCollege = "Some High School" || "High School Diploma/GED"
 
     return (
@@ -120,11 +121,17 @@ let noCollege = "Some High School" || "High School Diploma/GED"
             Other drugs: {props.drugs}
             <br></br>
             <br></br>
-
+            <Link to={`/users`}>
+            <button className="ui basic pink button">
+                    Go Back 
+          </button>
+          </Link>
+          {/* remove Match button if already matched */}
+          {/* {this.props.likeProfile.includes(props.id == this.props.id) ? "Match" : "No Match"} */}
             <button 
             onClick={() => this.props.matchProfile(props)}
                   className="ui pink button">
-                    Match with {props.name}!
+                    Match with {props.name}! <a><i className="heart red icon"></i></a>
           </button>
          </div>
         </div>

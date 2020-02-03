@@ -30,7 +30,7 @@ class MyProfile extends React.Component {
         <div className="ui container grid">
             <div className="ui row">
                 <div className="column twelve wide">
-         <b>Meet {props.name}!</b>
+            <b>Meet {props.name}!</b>
             <br></br>
             Age {props.age}
             <br></br>
@@ -116,12 +116,6 @@ class MyProfile extends React.Component {
             Other drugs: {props.drugs}
             <br></br>
             <br></br>
-
-            <button 
-            // onClick={() => this.props.likeProfile(likedProfiles)}
-                  className="ui pink button">
-                    Match with {props.name}!
-          </button>
          </div>
         </div>
       </div>
@@ -133,8 +127,7 @@ class MyProfile extends React.Component {
 
 const mapStateToProps = state => {
     console.log("my profile state", state)
-    console.log("new user email", state.newUser.email)
-
+    // console.log("new user email", state.newUser.email)
     // debugger
     return  { newUser: state.newUser};
   }

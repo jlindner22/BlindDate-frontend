@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 
 class UserContainer extends React.Component {
   
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
     renderList() {
       // console.log("true?", this.props.profiles && this.props.profiles)
       return (this.props.profiles && this.props.profiles.map(profile => {
