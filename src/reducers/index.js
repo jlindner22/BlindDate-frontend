@@ -33,9 +33,18 @@ const likeProfileReducer = (likedProfiles = [], action) => {
     return likedProfiles;
 }
 
+const logInReducer = (currentUser = 5, action) => {
+        console.log("action", action)
+    if (action.type === 'LOG_IN') {
+        return action.payload
+    }
+    return currentUser;
+}
+
 export default combineReducers({
     profiles: profilesReducer,
     selectedProfile: selectProfileReducer,
     likeProfile: likeProfileReducer,
-    newUser: newUserReducer
+    newUser: newUserReducer,
+    currentUser: logInReducer
 })

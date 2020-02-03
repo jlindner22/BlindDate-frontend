@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { matchProfile } from '../actions';
+import { matchProfile, viewProfile, loggedIn } from '../actions';
 import { Link } from 'react-router-dom';
-import { viewProfile } from '../actions';
 
 
 class MatchesContainer extends React.Component {
@@ -59,7 +58,7 @@ class MatchesContainer extends React.Component {
             </div>
         <Link to={`/users`}>
             <button className="ui basic pink button left floated">
-                    Go Back 
+                    Go Back to Browser
           </button>
           </Link>
         </div>
@@ -72,8 +71,10 @@ class MatchesContainer extends React.Component {
     // console.log("state", state)
     return  { profiles: state.profiles,
               selectedProfile: state.selectedProfile,
-              likeProfile: state.likeProfile};
+              likeProfile: state.likeProfile,
+              currentUser: state.currentUser
+            };
   }
 
 // export default MatchesContainer;
-export default connect(mapStateToProps, {viewProfile, matchProfile})(MatchesContainer);
+export default connect(mapStateToProps, {viewProfile, matchProfile, loggedIn})(MatchesContainer);

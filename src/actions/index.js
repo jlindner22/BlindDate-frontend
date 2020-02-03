@@ -7,12 +7,37 @@ export const viewProfile = profile => {
     };
 };
 
-export const matchProfile = profile => {
+export const loggedIn = (profile) => {
     return {
-        type: 'LIKE_PROFILE',
+        type: 'LOG_IN',
         payload: profile
     };
 };
+
+// export const matchProfile = profile => {
+//     return {
+//         type: 'LIKE_PROFILE',
+//         payload: profile
+//     };
+// };
+
+export const matchProfile = profile => {
+    return (dispatch) => {
+        fetch('http://localhost:3000/api/v1/matches', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accepts": "application/json",
+            },             
+            body: JSON.stringify({ 
+                user_id: profile.id,
+                potential_match_id: profile.id
+            })   
+            })
+            .then( response => response.json())
+            .then( data => dispatch({type : 'LIKE_PROFILE', payload : data}))
+    }
+}
 
 export const getAllUsers = () => {
     return (dispatch) => {
@@ -21,6 +46,17 @@ export const getAllUsers = () => {
         .then(users => {
             dispatch(
                 {type: 'GET_ALL_USERS', payload: users })
+        })
+    }
+}
+
+export const getMyMatches = () => {
+    return (dispatch) => {
+    fetch('http://localhost:3000/api/v1/matches')
+       .then(response => response.json())
+        .then(matches => {
+            dispatch(
+                {type: 'GET_MY_MATCHES', payload: matches })
         })
     }
 }
