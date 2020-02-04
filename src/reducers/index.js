@@ -1,5 +1,3 @@
-//return state + action
-
 import { combineReducers } from 'redux';
 
 const profilesReducer = (profiles = [], action) => {
@@ -10,7 +8,7 @@ const profilesReducer = (profiles = [], action) => {
 }
 
 const matchesReducer = (matches = [], action) => {
-        console.log("match action", action)
+        console.log("action", action)
     if (action.type === 'GET_MY_MATCHES') {
         return action.payload;
         // return [...matches, action.payload]
@@ -19,7 +17,6 @@ const matchesReducer = (matches = [], action) => {
 }
 
 const newUserReducer = (user = [], action) => {
-    // console.log("action", action)
     if (action.type === 'ADD_PROFILE') {
         return action.payload;
     }
@@ -43,7 +40,6 @@ const likeProfileReducer = (likedProfiles = [], action) => {
 const logInReducer = (currentUser = 5, action) => {
     if (action.type === 'LOG_IN') {
         return {...currentUser, [action.payload.id]: action.payload}
-        // return action.payload
     }
     return currentUser;
 }

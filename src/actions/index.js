@@ -1,5 +1,3 @@
-//Action creators
-
 export const viewProfile = profile => {
     return {
         type: 'VIEW_PROFILE',

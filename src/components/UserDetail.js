@@ -13,34 +13,34 @@ class UserDetail extends React.Component {
         window.scrollTo(0, 0)
       }
 
-      toggleInfo = () => {
+    toggleInfo = () => {
         this.setState({
             clickedInfoButton: !this.state.clickedInfoButton
         }
-        // , ()=>console.log("button clicked", this.state.clickedInfoButton)
-        )}
+    )}
 
   render() {
-    console.log("user detail props", this.props)
-    console.log("user detail current user", this.props.currentUser)
+    // console.log("user detail props", this.props)
+    // console.log("user detail current user", this.props.currentUser)
     // console.log("selected", this.props.selectedProfile)
+    // console.log("potential match id", profile.id)
     
     let profile = this.props.selectedProfile
-    let noCollege = "Some High School" || "High School Diploma/GED"
-    
-    console.log("potential match id", profile.id)
-    // return (this.props.profile && this.props.profile.map(profile => {
-    return (
+    let someHighSchool = "Some High School"
+    let diploma = "High School Diploma/GED"
+
+    if (profile) {return (
       <div>
         <div className="ui container grid">
             <div className="ui row">
                 <div className="column twelve wide">
-         <b>Meet {profile.name}!</b>
-            <br></br>
-            Age {profile.age}
+         <h1><b>Meet {profile.name}!</b></h1>
+            {profile.age} years old
             <br></br>
            Currently living in {profile.city}, {profile.state}            
+           <br></br>          
            <br></br>
+
          <img className="ui centered medium bordered image" src={profile.avatar} alt="Oops, this image is broken!"/>
             <br></br>
             About me:
@@ -55,7 +55,7 @@ class UserDetail extends React.Component {
             <br></br>
             Education Level: {profile.education_level}
             <br></br>
-            {profile.education_level === noCollege ? null : `College: ${profile.college}`}
+            {profile.education_level === diploma || profile.education_level == someHighSchool ? null : `College: ${profile.college}`}
             <br></br>
             My political views: {profile.politics}
             <br></br>
@@ -77,7 +77,6 @@ class UserDetail extends React.Component {
             How I dress: {profile.dress_style}
             <br></br>
             Neat or messy: {profile.messy_neat}
-            <br></br>
             <br></br>
             My planning style:             
             <br></br>
@@ -124,24 +123,27 @@ class UserDetail extends React.Component {
             <br></br>
             <Link to={`/users`}>
             <button className="ui basic pink button">
-                    Browse all profiles 
+            <a><i className="arrow alternate circle left pink icon"></i></a>   Browse all profiles 
           </button>
           </Link>
-          {/* remove Match button if already matched */}
-          {this.props.matches.map(match => match.potential_match_id).includes(profile.id) ? null :   <button 
+          {this.props.matches.map(match => match.potential_match_id).includes(profile.id) ? null :   
+          <button 
             onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
                   className="ui pink button">
                     Match with {profile.name}! <a><i className="heart red icon"></i></a>
           </button>}
-          
          </div>
         </div>
       </div>
       </div>
       </div>
     )}
-    // ))}
-    
+    else {return <Link to={`/users`}>
+    <button className="ui basic pink button">
+    <a><i className="arrow alternate circle left pink icon"></i></a>   Browse all profiles 
+    </button>
+    </Link>}
+        }
 }
 
 const mapStateToProps = state => {
@@ -150,7 +152,7 @@ const mapStateToProps = state => {
             likeProfile: state.likeProfile,
             currentUser: state.currentUser,
             matches: state.matches
-        }
+    }
 }
 
 export default connect(mapStateToProps, {matchProfile, loggedIn})(UserDetail);

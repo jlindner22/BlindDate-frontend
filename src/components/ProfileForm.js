@@ -76,7 +76,6 @@ class ProfileForm extends React.Component {
         )}
 
       handleSubmit = (e, user) => {
-        // console.log("handle submit")  
         // console.log("e",e)  
         // console.log("user",user)  
         e.preventDefault()
@@ -673,5 +672,4 @@ const mapDispatchToProps = dispatch => {
     };
   }
 
-//   export default ProfileForm;
   export default connect(mapStateToProps, mapDispatchToProps)(ProfileForm);

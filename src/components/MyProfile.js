@@ -19,24 +19,22 @@ class MyProfile extends React.Component {
       }
 
     render() {
-
+      console.log("my profile props", this.props)
         let props = this.props.newUser
-
-        // console.log("my profile props", this.props)
-        let noCollege = "Some High School" || "High School Diploma/GED"
+        let noCollege = "Some High School" || "High School Diploma/GED";
 
     return (
       <div>
         <div className="ui container grid">
             <div className="ui row">
                 <div className="column twelve wide">
-            <b>Meet {props.name}!</b>
+            <h1> <b>Meet {props.name}!</b> </h1>
             <br></br>
             Age {props.age}
             <br></br>
            Currently living in {props.city}, {props.state}            
            <br></br>
-         <img className="ui centered medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
+            <img className="ui centered medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
             <br></br>
             About me:
             <br></br>
@@ -59,11 +57,9 @@ class MyProfile extends React.Component {
             My diet is {props.diet}
             <br></br>
             <br></br>
-
             <button className="ui pink button"
             onClick={this.toggleInfo}> See more about me! </button>
             <br></br>
-          
             <div>
             {this.state.moreButton === false ? null :
             <div>
@@ -132,11 +128,4 @@ const mapStateToProps = state => {
     return  { newUser: state.newUser};
   }
 
-//   const mapDispatchToProps = dispatch => {
-//     return  {
-//         newUser: (user) => dispatch(newUser(user))
-//     };
-//   }
-
-//   export default MyProfile
 export default connect(mapStateToProps)(MyProfile);

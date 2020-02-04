@@ -35,7 +35,7 @@ class MatchesContainer extends React.Component {
       </span>
           </div>
           <div className="description">
-            {profile.user_id} lives in {profile.city}, {profile.state}.
+            {profile.name} lives in {profile.city}, {profile.state}.
           </div>
         </div>
         <div className="extra content">
@@ -73,11 +73,18 @@ class MatchesContainer extends React.Component {
             <br></br>
             </div>
             </div>
+            <br></br>
+            <br></br>
+
         <Link to={`/users`}>
             <button className="ui basic pink button left floated">
-                    Go Back to Browse
-          </button>
+                <a><i className="arrow alternate circle left pink icon"></i></a> Browse
+            </button>
           </Link>
+          <br></br>
+          <br></br> <br></br>
+          <br></br> <br></br>
+          <br></br>
         </div>
 
       )
@@ -94,8 +101,4 @@ class MatchesContainer extends React.Component {
             };
   }
 
-// export default MatchesContainer;
 export default connect(mapStateToProps, {viewProfile, loggedIn, getMyMatches})(MatchesContainer);
-// export default connect(mapStateToProps, actionCreators)(MatchesContainer);
-// export default connect(mapStateToProps, mapDispatchToProps)(MatchesContainer);
-// export default connect(mapStateToProps, getMyMatches)(MatchesContainer);
