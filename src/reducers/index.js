@@ -2,11 +2,11 @@
 
 import { combineReducers } from 'redux';
 
-const profilesReducer = (users = [], action) => {
+const profilesReducer = (profiles = [], action) => {
     if (action.type === 'GET_ALL_USERS') {
         return action.payload;
     }
-    return users;
+    return profiles;
 }
 
 const matchesReducer = (matches = [], action) => {
