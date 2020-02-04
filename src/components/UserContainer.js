@@ -55,7 +55,8 @@ class UserContainer extends React.Component {
   const mapStateToProps = state => {
     // console.log("state", state)
     return  { profiles: state.profiles,
-              selectedProfile: state.selectedProfile};
+              selectedProfile: state.selectedProfile,
+            };
   }
 
   export default connect(mapStateToProps, {viewProfile})(UserContainer);

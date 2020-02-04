@@ -38,8 +38,7 @@ export const getMyMatches = () => {
     return (dispatch) => {
     fetch('http://localhost:3000/api/v1/matches')
        .then(response => response.json())
-        .then(matches => {
-            dispatch({type: 'GET_MY_MATCHES', payload: matches })})
+        .then(matches => {dispatch({type: 'GET_MY_MATCHES', payload: matches })})
     }
 }
 
@@ -47,8 +46,7 @@ export const getAllUsers = () => {
     return (dispatch) => {
     fetch('http://localhost:3000/api/v1/users')
        .then(response => response.json())
-        .then(users => {
-            dispatch({type: 'GET_ALL_USERS', payload: users })})
+        .then(users => {dispatch({type: 'GET_ALL_USERS', payload: users })})
     }
 }
 
@@ -101,56 +99,7 @@ export const newUser = (user) => {
                 ideal_friday: user.ideal_friday
             })   
             })
-            .then( response => response.json())
-            .then( data => dispatch({type : 'ADD_PROFILE', payload : data}))
+            .then(response => response.json())
+            .then(data => dispatch({type : 'ADD_PROFILE', payload : data}))
     }
 }
-
-
-
-// export const matchProfile = profile => {
-//     return {
-//         type: 'LIKE_PROFILE',
-//         payload: profile
-//     };
-// };
-
-
-// name: this.state.name,
-// email: this.state.email,
-// avatar: this.state.avatar,
-// gender: this.state.gender,
-// age: this.state.age,
-// phone_number: this.state.phone_number,
-// city: this.state.city,
-// state: this.state.state, 
-// smokes: this.state.smokes,
-// drinks: this.state.drinks,
-// weed: this.state.weed,
-// drugs: this.state.drugs,
-// religion: this.state.religion,
-// occupation: this.state.occupation,
-// college: this.state.college,
-// education_level: this.state.education_level,
-// kids: this.state.kids,
-// relationship_type: this.state.relationship_type,
-// politics: this.state.politics,
-// have_pets: this.state.have_pets,
-// morning_night: this.state.morning_night,
-// dress_style: this.state.dress_style,
-// messy_neat: this.state.messy_neat,
-// general_planning: this.state.general_planning,
-// vacation_planning: this.state.vacation_planning,
-// vacation_type: this.state.vacation_type,
-// cat_dog: this.state.cat_dog,
-// coffee_tea: this.state.coffee_tea,
-// summer_winter: this.state.summer_winter,
-// city_country_suburbs: this.state.city_country_suburbs,
-// beach_mountain: this.state.beach_mountain,
-// night_out_in: this.state.night_out_in,
-// diet: this.state.diet,
-// extrovert_introvert: this.state.extrovert_introvert,
-// love_language: this.state.love_language,
-// music: this.state.music,
-// play_instrument: this.state.play_instrument,
-// ideal_friday: this.state.ideal_friday

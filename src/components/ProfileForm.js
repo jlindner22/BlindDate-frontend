@@ -666,7 +666,7 @@ const mapStateToProps = state => {
     return  { newUser: state.newUser};
   }
 
-  const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
     return  {
         newUser: (user) => dispatch(newUser(user))
     };

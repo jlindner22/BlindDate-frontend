@@ -8,15 +8,16 @@ class MatchesContainer extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
+        this.props.getMyMatches()
     }
     
    renderMatches = (profiles) => {
       let matches = this.props.matches.filter(match => match.user_id == this.props.currentUser)
-      console.log("matches",matches)
+    //   console.log("matches",matches)
       let matchIDs = matches.map(match => match.potential_match_id)
-      console.log("matches IDs",matchIDs)
-      console.log("profiles", profiles)
-      console.log("match profiles", profiles.filter(profile => matchIDs.includes(profile.id)))
+    //   console.log("matches IDs",matchIDs)
+    //   console.log("profiles", profiles)
+    //   console.log("match profiles", profiles.filter(profile => matchIDs.includes(profile.id)))
       return profiles.filter(profile => matchIDs.includes(profile.id))
    }
     // componentDidUpdate() {
@@ -42,7 +43,8 @@ class MatchesContainer extends React.Component {
         </div>
         <div className="extra content">
             <Link to={`/users/${profile.id}`}> 
-          <button onClick={() => this.props.viewProfile(profile)}
+          <button 
+          onClick={() => this.props.viewProfile(profile)}
                   className="ui pink basic button">
                     View Profile!
           </button></Link>
@@ -59,11 +61,8 @@ class MatchesContainer extends React.Component {
       console.log("matches container props", this.props)
       console.log("matches profiles props", this.props.profiles)
       
-
-    //   if (this.props.matches == true) {console.log("testing", this.props.matches[0].potential_match_id ) }
-    //   == this.props.profiles.map(profile => profile.id == 4))
-      console.log("matches match props", this.props.matches.map(match => match.potential_match_id))
-      console.log("potential match ids", this.props.likeProfile.map( match => match.potential_match_id))
+    //   console.log("matches match props", this.props.matches.map(match => match.potential_match_id))
+    //   console.log("potential match ids", this.props.likeProfile.map( match => match.potential_match_id))
     //   console.log("get matches", this.props.getMyMatches)
       return (
         <div>
@@ -82,7 +81,6 @@ class MatchesContainer extends React.Component {
                     Go Back to Browse
           </button>
           </Link>
-          {/* {this.props.matches.filter(match => match.user_id == this.props.currentUser)} */}
         </div>
 
       )
@@ -95,10 +93,12 @@ class MatchesContainer extends React.Component {
               selectedProfile: state.selectedProfile,
               likeProfile: state.likeProfile,
               currentUser: state.currentUser,
-              matches: state.matches
+              matches: state.matches,
             };
   }
 
 // export default MatchesContainer;
-// export default connect(mapStateToProps, {viewProfile, loggedIn, getMyMatches})(MatchesContainer);
-export default connect(mapStateToProps, getMyMatches)(MatchesContainer);
+export default connect(mapStateToProps, {viewProfile, loggedIn, getMyMatches})(MatchesContainer);
+// export default connect(mapStateToProps, actionCreators)(MatchesContainer);
+// export default connect(mapStateToProps, mapDispatchToProps)(MatchesContainer);
+// export default connect(mapStateToProps, getMyMatches)(MatchesContainer);
