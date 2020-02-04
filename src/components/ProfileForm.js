@@ -6,9 +6,7 @@ import { connect } from 'react-redux';
 class ProfileForm extends React.Component {
 
     componentDidMount() {
-        window.scrollTo(0, 0)
-        // console.log("name:", this.state.name)
-        // console.log("age:", this.state.age)
+        this.windowScroll()
       }
     
     state = {
@@ -56,37 +54,32 @@ class ProfileForm extends React.Component {
     }
 
     goToSecondPage = () => {
-        this.setState({
-            firstPartComplete: true
-        })
-      }
+        this.setState({firstPartComplete: true})
+    }
 
-      goToThirdPage = () => {
-        this.setState({
-            secondPartComplete: true
-        })
-      }
+    goToThirdPage = () => {
+        this.setState({secondPartComplete: true})
+    }
 
-      handleText = (e) => {
-        // console.log("handle name", e.target.name)
-        // console.log("handle value", e.target.value)
-        this.setState({
-            [e.target.name]: e.target.value
-        }
-        )}
+    windowScroll = () => {
+        window.scrollTo(0, 0)
+    }
 
-      handleSubmit = (e, user) => {
-        // console.log("e",e)  
-        // console.log("user",user)  
+    handleText = (e) => {
+    // console.log("handle name", e.target.name)
+    // console.log("handle value", e.target.value)
+    this.setState({[e.target.name]: e.target.value})
+    }
+
+    handleSubmit = (e, user) => {
+    // console.log("e",e)  
+    // console.log("user",user)  
         e.preventDefault()
-          this.props.newUser(user)
-          this.props.history.push('/myprofile')
-      }
+        this.props.newUser(user)
+        this.props.history.push('/myprofile')
+    }
 
   render() {
-
-    // console.log("my profile props", this.props)
-    // console.log("new user", this.state)
 
       if (this.state.firstPartComplete === false) {
         return (
@@ -191,7 +184,6 @@ class ProfileForm extends React.Component {
                             </div>
                             </div>
                 </div>
-
                 <button className="ui basic button right floated" onClick={this.goToSecondPage}>
                     Next Page
                 </button>
@@ -395,8 +387,6 @@ class ProfileForm extends React.Component {
                                 </div>
                                 </div>
                             </div>
-                            
-
                         <button className="ui basic button right floated" onClick={this.goToThirdPage}>
                             Next Page
                         </button>
@@ -404,12 +394,10 @@ class ProfileForm extends React.Component {
                 </div>
             </div>
         )}
-
 //second page ends here, third page starts
-
     else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true) 
-    { return  (  
-       
+    { {this.windowScroll()}             
+    return  (  
         <div className="ui container grid">
             <div className="ui row">
                 <form className="ui form">
@@ -651,9 +639,7 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>
-                    {/* <Link to='/myprofile'> */}
                         <div className="ui submit button right floated" onClick={(e) => this.handleSubmit(e,this.state)}>Submit</div>
-                        {/* </Link> */}
                 </form>
             </div>
         </div>        
