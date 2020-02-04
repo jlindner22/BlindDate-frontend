@@ -1,7 +1,7 @@
 import React from 'react';
 import { newUser } from '../actions';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class ProfileForm extends React.Component {
 
@@ -496,6 +496,7 @@ class ProfileForm extends React.Component {
                                     <option value="A little of both">A little of both</option>
                                     <option value="Extrovert">Extrovert</option>
                                     <option value="Introvert">Introvert</option>
+                                    <option value="Depends on who you ask">Depends on who you ask</option>
                                     <option value="Somewhere in the middle">Somewhere in the middle</option>
                                 </select>
                             </div>
