@@ -10,7 +10,6 @@ class UserContainer extends React.Component {
   }
 
     renderList() {
-      // console.log("true?", this.props.profiles && this.props.profiles)
       return (this.props.profiles && this.props.profiles.map(profile => {
         return (
           <div className="card">

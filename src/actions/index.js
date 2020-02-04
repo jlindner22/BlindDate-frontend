@@ -21,7 +21,9 @@ export const loggedIn = (profile) => {
 //     };
 // };
 
-export const matchProfile = profile => {
+export const matchProfile = (profile, currentUser) => {
+    console.log("USER MATCH", currentUser)
+    console.log("USER PROFILE", profile)
     return (dispatch) => {
         fetch('http://localhost:3000/api/v1/matches', {
             method: "POST",
@@ -30,14 +32,16 @@ export const matchProfile = profile => {
               "Accepts": "application/json",
             },             
             body: JSON.stringify({ 
-                user_id: profile.id,
-                potential_match_id: profile.id
+                user_id: currentUser,
+                potential_match_id: profile
             })   
             })
             .then( response => response.json())
             .then( data => dispatch({type : 'LIKE_PROFILE', payload : data}))
     }
 }
+
+
 
 export const getAllUsers = () => {
     return (dispatch) => {

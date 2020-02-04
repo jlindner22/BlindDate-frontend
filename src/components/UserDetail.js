@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { matchProfile } from '../actions';
+import { matchProfile, loggedIn, getMyMatches } from '../actions';
 import { Link } from 'react-router-dom';
 
 
@@ -23,44 +23,48 @@ class UserDetail extends React.Component {
 
   render() {
     console.log("user detail props", this.props)
-    // console.log("selected", this.props.selectedProfile)
+    console.log("user detail current user", this.props.currentUser)
 
-let props = this.props.selectedProfile
-console.log("props var", props.id)
-let noCollege = "Some High School" || "High School Diploma/GED"
+    // console.log("selected", this.props.selectedProfile)
+    
+    let profile = this.props.selectedProfile
+    let noCollege = "Some High School" || "High School Diploma/GED"
+    
+    console.log("potential match id", profile.id)
+    console.log("all info", this.props)
 
     return (
       <div>
         <div className="ui container grid">
             <div className="ui row">
                 <div className="column twelve wide">
-         <b>Meet {props.name}!</b>
+         <b>Meet {profile.name}!</b>
             <br></br>
-            Age {props.age}
+            Age {profile.age}
             <br></br>
-           Currently living in {props.city}, {props.state}            
+           Currently living in {profile.city}, {profile.state}            
            <br></br>
-         <img className="ui centered medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
+         <img className="ui centered medium bordered image" src={profile.avatar} alt="Oops, this image is broken!"/>
             <br></br>
             About me:
             <br></br>
-            I'm looking for: {props.relationship_type}
+            I'm looking for: {profile.relationship_type}
             <br></br>
-            {props.kids === true ? "I am a parent" : "I am not a parent"}
+            {profile.kids === true ? "I am a parent" : "I am not a parent"}
             <br></br>
-            Religion: {props.religion}
+            Religion: {profile.religion}
             <br></br>
-            Employment type: {props.occupation}
+            Employment type: {profile.occupation}
             <br></br>
-            Education Level: {props.education_level}
+            Education Level: {profile.education_level}
             <br></br>
-            {props.education_level === noCollege ? null : `College: ${props.college}`}
+            {profile.education_level === noCollege ? null : `College: ${profile.college}`}
             <br></br>
-            My political views: {props.politics}
+            My political views: {profile.politics}
             <br></br>
-            Pets: {props.have_pets}
+            Pets: {profile.have_pets}
             <br></br>
-            My diet is {props.diet}
+            My diet is {profile.diet}
             <br></br>
             <br></br>
 
@@ -72,53 +76,53 @@ let noCollege = "Some High School" || "High School Diploma/GED"
             {this.state.clickedInfoButton === false ? null :
             <div>
                 <br></br>
-            Morning or night: {props.morning_night}
-            How I dress: {props.dress_style}
+            Morning or night: {profile.morning_night}
+            How I dress: {profile.dress_style}
             <br></br>
-            Neat or messy: {props.messy_neat}
+            Neat or messy: {profile.messy_neat}
             <br></br>
             <br></br>
             My planning style:             
             <br></br>
-            In general: {props.general_planning}
+            In general: {profile.general_planning}
             <br></br>
-            For a vacation: {props.vacation_planning}
+            For a vacation: {profile.vacation_planning}
             <br></br>
-            My ideal vacation: {props.vacation_type}
+            My ideal vacation: {profile.vacation_type}
             <br></br>
-            Stay in or night out: {props.night_out_in}
+            Stay in or night out: {profile.night_out_in}
             <br></br>
-            Cats or dogs: {props.cat_dog}
+            Cats or dogs: {profile.cat_dog}
             <br></br>
-            How I like to spend my Friday nights: {props.ideal_friday}
+            How I like to spend my Friday nights: {profile.ideal_friday}
             <br></br>
-            Coffee or tea: {props.coffee_tea}
+            Coffee or tea: {profile.coffee_tea}
             <br></br>
-            Summer or winter: {props.summer_winter}
+            Summer or winter: {profile.summer_winter}
             <br></br>
-            Where I would like to live: {props.city_country_suburbs}
+            Where I would like to live: {profile.city_country_suburbs}
             <br></br>
-            Beach or mountains: {props.beach_mountain}
+            Beach or mountains: {profile.beach_mountain}
             <br></br>
-            My personality type: {props.extrovert_introvert}
+            My personality type: {profile.extrovert_introvert}
             <br></br>
-            My love language: {props.love_language}
+            My love language: {profile.love_language}
             <br></br>
-            My favorite kind of music: {props.music}
+            My favorite kind of music: {profile.music}
             <br></br>
-            {props.play_instrument === true ? "I can play an instrument" : null }
+            {profile.play_instrument === true ? "I can play an instrument" : null }
             
             </div> }
             <br></br>
             Habits: 
             <br></br>
-            Drinking: {props.drinks}
+            Drinking: {profile.drinks}
             <br></br>
-            Smoking: {props.smokes}
+            Smoking: {profile.smokes}
             <br></br>
-            4/20 Friendly: {props.weed === "True" ? "Yes" : "No"}
+            4/20 Friendly: {profile.weed === "True" ? "Yes" : "No"}
             <br></br>
-            Other drugs: {props.drugs}
+            Other drugs: {profile.drugs}
             <br></br>
             <br></br>
             <Link to={`/users`}>
@@ -129,9 +133,9 @@ let noCollege = "Some High School" || "High School Diploma/GED"
           {/* remove Match button if already matched */}
           {/* {this.props.likeProfile.includes(props.id == this.props.id) ? "Match" : "No Match"} */}
             <button 
-            onClick={() => this.props.matchProfile(props)}
+            onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
                   className="ui pink button">
-                    Match with {props.name}! <a><i className="heart red icon"></i></a>
+                    Match with {profile.name}! <a><i className="heart red icon"></i></a>
           </button>
          </div>
         </div>
@@ -145,7 +149,9 @@ let noCollege = "Some High School" || "High School Diploma/GED"
 const mapStateToProps = state => {
     console.log("detail state", state)
   return { selectedProfile: state.selectedProfile, 
-            likeProfile: state.likeProfile }
+            likeProfile: state.likeProfile,
+            currentUser: state.currentUser,
+            matches: state.matches}
 }
 
-export default connect(mapStateToProps, {matchProfile})(UserDetail);
+export default connect(mapStateToProps, {matchProfile, loggedIn, getMyMatches})(UserDetail);

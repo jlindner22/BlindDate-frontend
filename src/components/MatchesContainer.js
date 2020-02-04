@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { matchProfile, viewProfile, loggedIn } from '../actions';
+import { matchProfile, viewProfile, loggedIn, getMyMatches } from '../actions';
 import { Link } from 'react-router-dom';
 
 
@@ -58,7 +58,7 @@ class MatchesContainer extends React.Component {
             </div>
         <Link to={`/users`}>
             <button className="ui basic pink button left floated">
-                    Go Back to Browser
+                    Go Back to Browse
           </button>
           </Link>
         </div>
@@ -68,13 +68,14 @@ class MatchesContainer extends React.Component {
   }
 
   const mapStateToProps = state => {
-    // console.log("state", state)
+    console.log("matches state", state)
     return  { profiles: state.profiles,
               selectedProfile: state.selectedProfile,
               likeProfile: state.likeProfile,
-              currentUser: state.currentUser
+              currentUser: state.currentUser,
+              matches: state.matches
             };
   }
 
 // export default MatchesContainer;
-export default connect(mapStateToProps, {viewProfile, matchProfile, loggedIn})(MatchesContainer);
+export default connect(mapStateToProps, {viewProfile, getMyMatches, matchProfile, loggedIn})(MatchesContainer);
