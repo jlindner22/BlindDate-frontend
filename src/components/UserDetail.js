@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { matchProfile, loggedIn, getMyMatches } from '../actions';
+import { matchProfile, loggedIn } from '../actions';
 import { Link } from 'react-router-dom';
-
 
 class UserDetail extends React.Component {
 
@@ -24,15 +23,13 @@ class UserDetail extends React.Component {
   render() {
     console.log("user detail props", this.props)
     console.log("user detail current user", this.props.currentUser)
-
     // console.log("selected", this.props.selectedProfile)
     
     let profile = this.props.selectedProfile
     let noCollege = "Some High School" || "High School Diploma/GED"
     
     console.log("potential match id", profile.id)
-    console.log("all info", this.props)
-
+    // return (this.props.profile && this.props.profile.map(profile => {
     return (
       <div>
         <div className="ui container grid">
@@ -142,8 +139,9 @@ class UserDetail extends React.Component {
       </div>
       </div>
       </div>
-    )
-  }
+    )}
+    // ))}
+    
 }
 
 const mapStateToProps = state => {
@@ -151,7 +149,8 @@ const mapStateToProps = state => {
   return { selectedProfile: state.selectedProfile, 
             likeProfile: state.likeProfile,
             currentUser: state.currentUser,
-            matches: state.matches}
+            matches: state.matches
+        }
 }
 
-export default connect(mapStateToProps, {matchProfile, loggedIn, getMyMatches})(UserDetail);
+export default connect(mapStateToProps, {matchProfile, loggedIn})(UserDetail);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { matchProfile, viewProfile, loggedIn, getMyMatches } from '../actions';
+import { viewProfile, loggedIn, getMyMatches } from '../actions';
 import { Link } from 'react-router-dom';
 
 
@@ -8,19 +8,23 @@ class MatchesContainer extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
-      }
-
+    }
+    
+    componentDidUpdate() {
+        if (this.props.matches == true) {console.log("testing", this.props.matches[0].potential_match_id ) }
+    }
+   
       renderList() {
-   return (this.props.likeProfile && this.props.likeProfile.map(profile => {
+   return (this.props.matches && this.props.matches.map(profile => {
         return (
           <div className="card">
         <div className="image">
           <img className="ui image" src={profile.avatar} alt="Try again later!" />
         </div>
         <div className="content">
-          <a className="header">{profile.name}</a>
+          <a className="header">{profile.id}</a>
           <div className="meta">
-            <span className="date">Age {profile.age} 
+            <span className="date">Age {profile.potential_match_id} 
       </span>
           </div>
           <div className="description">
@@ -35,21 +39,26 @@ class MatchesContainer extends React.Component {
           </button></Link>
           <div className="ui right floated">
           {profile.gender !== "Female" ? <a><i className="mars icon" ></i> </a> :  <i className="venus icon"></i> }
-          </div>
-        </div>
+          </div> 
+        </div> 
       </div>
         );
       }))
     };
 
     render() {
-      console.log("propsss", this.props)
+      console.log("matches container props", this.props)
+    //   if (this.props.matches == true) {console.log("testing", this.props.matches[0].potential_match_id ) }
+    //   == this.props.profiles.map(profile => profile.id == 4))
+      console.log("matches match props", this.props.matches.map(match => match.potential_match_id))
+      console.log("potential match ids", this.props.likeProfile.map( match => match.potential_match_id))
+    //   console.log("get matches", this.props.getMyMatches)
       return (
         <div>
             <div className="ui container grid">
             <div className="ui row">
             <div className="ui link cards">
-            {this.props.likeProfile == false ? "You currently have no matches." :
+            {this.props.matches == false ? "You currently have no matches." :
           this.renderList()}
             </div>
             <br></br>
@@ -78,4 +87,5 @@ class MatchesContainer extends React.Component {
   }
 
 // export default MatchesContainer;
-export default connect(mapStateToProps, {viewProfile, getMyMatches, matchProfile, loggedIn})(MatchesContainer);
+// export default connect(mapStateToProps, {viewProfile, loggedIn, getMyMatches})(MatchesContainer);
+export default connect(mapStateToProps, getMyMatches)(MatchesContainer);

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserContainer from './UserContainer';
 import UserDetail from './UserDetail';
-import { getAllUsers, getMyMatches } from '../actions';
+import { getAllUsers } from '../actions';
 import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import MyProfile from './MyProfile';
@@ -15,8 +15,9 @@ import Home from './Home';
 class App extends React.Component {
   
   render() {
-    console.log("get all users", this.props)
+    console.log("app props", this.props)
     // console.log(this.props.getAllUsers)
+
     return (
       <Router>
         <NavBar/>
@@ -49,5 +50,4 @@ const mapStateToProps = state => {
             matches: state.matches};
 }
 
-// export default App;
-export default connect(mapStateToProps, getAllUsers, getMyMatches)(App);
+export default connect(mapStateToProps, getAllUsers)(App);

@@ -14,13 +14,6 @@ export const loggedIn = (profile) => {
     };
 };
 
-// export const matchProfile = profile => {
-//     return {
-//         type: 'LIKE_PROFILE',
-//         payload: profile
-//     };
-// };
-
 export const matchProfile = (profile, currentUser) => {
     console.log("USER MATCH", currentUser)
     console.log("USER PROFILE", profile)
@@ -36,21 +29,8 @@ export const matchProfile = (profile, currentUser) => {
                 potential_match_id: profile
             })   
             })
-            .then( response => response.json())
-            .then( data => dispatch({type : 'LIKE_PROFILE', payload : data}))
-    }
-}
-
-
-
-export const getAllUsers = () => {
-    return (dispatch) => {
-    fetch('http://localhost:3000/api/v1/users')
-       .then(response => response.json())
-        .then(users => {
-            dispatch(
-                {type: 'GET_ALL_USERS', payload: users })
-        })
+            .then(response => response.json())
+            .then(data => dispatch({type : 'LIKE_PROFILE', payload : data}))
     }
 }
 
@@ -59,9 +39,16 @@ export const getMyMatches = () => {
     fetch('http://localhost:3000/api/v1/matches')
        .then(response => response.json())
         .then(matches => {
-            dispatch(
-                {type: 'GET_MY_MATCHES', payload: matches })
-        })
+            dispatch({type: 'GET_MY_MATCHES', payload: matches })})
+    }
+}
+
+export const getAllUsers = () => {
+    return (dispatch) => {
+    fetch('http://localhost:3000/api/v1/users')
+       .then(response => response.json())
+        .then(users => {
+            dispatch({type: 'GET_ALL_USERS', payload: users })})
     }
 }
 
@@ -120,6 +107,13 @@ export const newUser = (user) => {
 }
 
 
+
+// export const matchProfile = profile => {
+//     return {
+//         type: 'LIKE_PROFILE',
+//         payload: profile
+//     };
+// };
 
 
 // name: this.state.name,
