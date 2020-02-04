@@ -10,8 +10,8 @@ class LogIn extends React.Component {
     }
 
     handleChange = (e) => {
-        console.log("handle name", e.target.name)
-        console.log("handle value", e.target.value)
+        // console.log("handle name", e.target.name)
+        // console.log("handle value", e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         }
@@ -37,6 +37,12 @@ class LogIn extends React.Component {
                     </div>
                     <Link to={'/users'}>
                     <button className="ui pink button" type="submit">Log In</button>
+                    </Link>
+
+                    <Link to={`/`}>
+                    <button className="ui basic pink button left floated">
+                                Go Back
+                    </button>
                     </Link>
                 </form>
                 </div>

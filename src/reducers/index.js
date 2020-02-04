@@ -1,14 +1,21 @@
-//return list
-//allows for selecting specific thing
 //return state + action
 
 import { combineReducers } from 'redux';
 
-const profilesReducer = (users = [], action) => {
+const profilesReducer = (profiles = [], action) => {
     if (action.type === 'GET_ALL_USERS') {
         return action.payload;
     }
-    return users;
+    return profiles;
+}
+
+const matchesReducer = (matches = [], action) => {
+        console.log("match action", action)
+    if (action.type === 'GET_MY_MATCHES') {
+        return action.payload;
+        // return [...matches, action.payload]
+    }
+    return matches;
 }
 
 const newUserReducer = (user = [], action) => {
@@ -33,9 +40,19 @@ const likeProfileReducer = (likedProfiles = [], action) => {
     return likedProfiles;
 }
 
+const logInReducer = (currentUser = 5, action) => {
+    if (action.type === 'LOG_IN') {
+        return {...currentUser, [action.payload.id]: action.payload}
+        // return action.payload
+    }
+    return currentUser;
+}
+
 export default combineReducers({
     profiles: profilesReducer,
     selectedProfile: selectProfileReducer,
     likeProfile: likeProfileReducer,
-    newUser: newUserReducer
+    newUser: newUserReducer,
+    currentUser: logInReducer,
+    matches: matchesReducer
 })

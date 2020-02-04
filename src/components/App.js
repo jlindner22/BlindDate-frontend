@@ -15,8 +15,8 @@ import Home from './Home';
 class App extends React.Component {
   
   render() {
-    console.log("get all users", this.props)
-    // console.log(this.props.getAllUsers)
+    console.log("app props", this.props)
+
     return (
       <Router>
         <NavBar/>
@@ -44,9 +44,9 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("state", state)
-  return  { profiles: state.profiles};
+  console.log("app state", state)
+  return  { profiles: state.profiles,
+            matches: state.matches};
 }
 
-// export default App;
 export default connect(mapStateToProps, getAllUsers)(App);

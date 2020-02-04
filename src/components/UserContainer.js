@@ -10,7 +10,6 @@ class UserContainer extends React.Component {
   }
 
     renderList() {
-      // console.log("true?", this.props.profiles && this.props.profiles)
       return (this.props.profiles && this.props.profiles.map(profile => {
         return (
           <div className="card">
@@ -56,7 +55,8 @@ class UserContainer extends React.Component {
   const mapStateToProps = state => {
     // console.log("state", state)
     return  { profiles: state.profiles,
-              selectedProfile: state.selectedProfile};
+              selectedProfile: state.selectedProfile,
+            };
   }
 
   export default connect(mapStateToProps, {viewProfile})(UserContainer);
