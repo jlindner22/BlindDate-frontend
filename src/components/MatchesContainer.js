@@ -20,10 +20,7 @@ class MatchesContainer extends React.Component {
     //   console.log("match profiles", profiles.filter(profile => matchIDs.includes(profile.id)))
       return profiles.filter(profile => matchIDs.includes(profile.id))
    }
-    // componentDidUpdate() {
-    //     if (this.props.matches == true) {console.log("testing", this.props.matches[0].potential_match_id ) }
-    // }
-   
+
       renderList() {
    return (this.props.matches && this.renderMatches(this.props.profiles).map(profile => {
         return (
