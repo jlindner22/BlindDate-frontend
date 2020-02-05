@@ -9,12 +9,38 @@ const profilesReducer = (profiles = [], action) => {
 
 const matchesReducer = (matches = [], action) => {
         console.log("action", action)
+        // console.log("reducer state", matches)
     if (action.type === 'GET_MY_MATCHES') {
         return action.payload;
-        // return [...matches, action.payload]
     }
     return matches;
 }
+
+const deleteMatchReducer = (state = [], action) => {
+    if (action.type === 'DELETE_MATCH') {
+        console.log("matches", state)
+	return state.filter(match => match.id !== action.payload)
+    }	
+    return state
+}
+
+// const deleteMatchReducer = (state = {matches: [],}, action) => {
+//     if (action.type === 'DELETE_MATCH') {
+//         console.log("matches", state)
+//     return state.matches.filter(match => match.id !== action.payload)
+//     }	
+//     return state
+// }
+// const deleteMatchReducer  = (match = [], action) => {
+//     console.log("reducer state", action)
+
+//     if (action.type === 'DELETE_MATCH') {
+//   return action.payload;
+// //   {...match, match: [match.filter(matches => matches.id !== action.id)]}
+//     }
+//     return match
+// }
+
 
 const newUserReducer = (user = [], action) => {
     if (action.type === 'ADD_PROFILE') {
@@ -50,5 +76,6 @@ export default combineReducers({
     likeProfile: likeProfileReducer,
     newUser: newUserReducer,
     currentUser: logInReducer,
-    matches: matchesReducer
+    matches: matchesReducer,
+    deleteMatch: deleteMatchReducer
 })

@@ -472,7 +472,7 @@ class ProfileForm extends React.Component {
                                     <option value="Words of Affirmation">Words of Affirmation</option>
                                     <option value="Not Sure">Not Sure</option>
                                 </select>
-                                <a href='https://www.5lovelanguages.com/quizzes/' target="_blank">Take the quiz here</a> 
+                                <a href='https://www.5lovelanguages.com/quizzes/' >Take the quiz here</a> 
                             </div>
                     </div>
                     <div className="field">
