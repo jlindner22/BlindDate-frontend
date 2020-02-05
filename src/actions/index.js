@@ -32,15 +32,6 @@ export const matchProfile = (profile, currentUser) => {
     }
 }
 
-export const deleteMatch = (match) => {
-    return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/matches/${match}`, {
-          method: 'DELETE',
-        }).then(response => response.json())
-        .then(match => {dispatch({type: 'DELETE_MATCH', payload: match })})
-    }
-}
-
 export const getMyMatches = () => {
     return (dispatch) => {
     fetch('http://localhost:3000/api/v1/matches')
@@ -108,5 +99,14 @@ export const newUser = (user) => {
             })
             .then(response => response.json())
             .then(data => dispatch({type : 'ADD_PROFILE', payload : data}))
+    }
+}
+
+export const deleteMatch = (match) => {
+    return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/matches/${match}`, {
+          method: 'DELETE',
+        }).then(response => response.json())
+        .then(match => {dispatch({type: 'DELETE_MATCH', payload: match })})
     }
 }
