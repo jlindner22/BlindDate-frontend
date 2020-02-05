@@ -11,9 +11,16 @@ const matchesReducer = (matches = [], action) => {
         console.log("action", action)
     if (action.type === 'GET_MY_MATCHES') {
         return action.payload;
-        // return [...matches, action.payload]
     }
     return matches;
+}
+
+const deleteMatchReducer = (state = [], action) => {
+    if (action.type === 'DELETE_MATCH') {
+        console.log("matches", state)
+	return state.filter(match => match !== action.payload)
+    }	
+    return state
 }
 
 const newUserReducer = (user = [], action) => {
@@ -50,5 +57,6 @@ export default combineReducers({
     likeProfile: likeProfileReducer,
     newUser: newUserReducer,
     currentUser: logInReducer,
-    matches: matchesReducer
+    matches: matchesReducer,
+    deleteMatch: deleteMatchReducer
 })
