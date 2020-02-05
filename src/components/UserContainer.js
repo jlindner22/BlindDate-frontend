@@ -32,7 +32,7 @@ class UserContainer extends React.Component {
                   View Profile!
         </button></Link>
         <div className="ui right floated">
-        {profile.gender !== "Female" ? <i className="mars icon" ></i>  :  <i className="venus icon"></i> }
+        {profile.gender !== "Female" ? <i className="mars icon"></i>  :  <i className="venus icon"></i> }
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@ class UserContainer extends React.Component {
     render() {
       console.log("user container props", this.props)
       return (
-        <div>
+        <div className="ui container grid">
           <div className="ui link cards">
           {this.renderList()}
           </div>
