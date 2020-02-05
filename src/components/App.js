@@ -10,11 +10,16 @@ import MessagesContainer from './MessagesContainer';
 import ProfileForm from './ProfileForm';
 import LogIn from './LogIn';
 import Home from './Home';
-import { getAllUsers } from '../actions';
+import { getAllUsers, getMyMatches } from '../actions';
 
 class App extends React.Component {
   
-  
+  componentDidMount() {
+    window.scrollTo(0, 0)
+    this.props.getAllUsers()
+    this.props.getMyMatches()
+}
+
   render() {
     console.log("app props", this.props)
 
@@ -50,4 +55,4 @@ const mapStateToProps = state => {
             matches: state.matches};
 }
 
-export default connect(mapStateToProps, getAllUsers)(App);
+export default connect(mapStateToProps, {getAllUsers, getMyMatches})(App);

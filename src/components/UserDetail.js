@@ -126,7 +126,7 @@ class UserDetail extends React.Component {
             <button className="ui basic pink button">
             <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
             </button>
-            </Link> 
+            </Link>
             {this.props.matches.map(match => match.potential_match.id).includes(profile.id) ? <b>          You're a match!</b> :   
             <button 
               onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}

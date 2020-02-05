@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 class LogIn extends React.Component {
 
     state = {
@@ -16,7 +15,6 @@ class LogIn extends React.Component {
             [e.target.name]: e.target.value
         }
     )}    
-
 
       render() {
         return (
@@ -50,5 +48,4 @@ class LogIn extends React.Component {
     }
 }
 
-
-  export default LogIn
+  export default LogIn;

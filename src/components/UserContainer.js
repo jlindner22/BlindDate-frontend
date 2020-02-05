@@ -32,7 +32,7 @@ class UserContainer extends React.Component {
                   View Profile!
         </button></Link>
         <div className="ui right floated">
-        {profile.gender !== "Female" ? <a><i className="mars icon" ></i> </a> :  <i className="venus icon"></i> }
+        {profile.gender !== "Female" ? <i className="mars icon" ></i>  :  <i className="venus icon"></i> }
         </div>
       </div>
     </div>
