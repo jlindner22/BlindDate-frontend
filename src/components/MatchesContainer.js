@@ -11,22 +11,22 @@ class MatchesContainer extends React.Component {
     }
 
     componentDidUpdate() {
-      getMyMatches()
+      this.props.getMyMatches()
       }
 
-    deleteMatch = (match) => {
-        let matches = this.props.matches.map(match => match)
-        let matchIDs = this.props.matches.map(match => match.id)
-        let potentialMatchIDs = this.props.matches.map(profile => profile.potential_match_id)
-        let profileIDs = this.props.profiles.map(profile => profile.id)
-        console.log("MATCHES", matches)
+    // deleteMatch = (match) => {
+    //     let matches = this.props.matches.map(match => match)
+    //     let matchIDs = this.props.matches.map(match => match.id)
+    //     let potentialMatchIDs = this.props.matches.map(profile => profile.potential_match_id)
+    //     let profileIDs = this.props.profiles.map(profile => profile.id)
+    //     console.log("MATCHES", matches)
         // console.log("working?", this.props.matches.includes(match.id && matchIDs))
         // console.log("profile IDs", profileIDs)
         // console.log("potential match IDs", potentialMatchIDs)
         // console.log("match IDs", matchIDs)
         // console.log("MATCH", match.id)
         // debugger
-    }
+    // }
 
    renderMatches = () => {
       let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser)

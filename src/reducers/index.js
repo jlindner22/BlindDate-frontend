@@ -19,11 +19,12 @@ const matchesReducer = (matches = [], action) => {
 const deleteMatchReducer = (state = [], action) => {
     if (action.type === 'DELETE_MATCH') {
         console.log("matches", state)
-	return state.filter(match => match.id !== action.payload)
+	return state.filter(match => match !== action.payload)
     }	
     return state
 }
 
+// same as above
 // const deleteMatchReducer = (state = {matches: [],}, action) => {
 //     if (action.type === 'DELETE_MATCH') {
 //         console.log("matches", state)
@@ -31,6 +32,8 @@ const deleteMatchReducer = (state = [], action) => {
 //     }	
 //     return state
 // }
+
+
 // const deleteMatchReducer  = (match = [], action) => {
 //     console.log("reducer state", action)
 
