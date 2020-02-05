@@ -10,20 +10,9 @@ class MatchesContainer extends React.Component {
         this.props.getMyMatches()
     }
 
-    state = {
-      allMatches: this.props.matches.map(match => match.id)
-    }
-
-  //   deleteMatch = (match) => {
-  //     fetch(`http://localhost:3000/matches/${match.id}`, {
-  //       method: 'DELETE',
-  //     })
-  //         this.setState({
-  //             allMatches: [...this.props.matches].filter(deleteMatch => match.id !== deleteMatch)
-  //         })
-  //         // console.log("state of matches", this.state.allMatches)
-  // }
-
+    componentDidUpdate() {
+      getMyMatches()
+      }
 
     deleteMatch = (match) => {
         let matches = this.props.matches.map(match => match)
@@ -37,47 +26,36 @@ class MatchesContainer extends React.Component {
         // console.log("match IDs", matchIDs)
         // console.log("MATCH", match.id)
         // debugger
-
-        // console.log("HI JEN", matchIDs.filter(profile => matchIDs.includes(profile.id)))
-        // return match.filter(profile => matchIDs.includes(profile.id))
     }
 
-   renderMatches = (profiles) => {
+   renderMatches = () => {
       let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser)
-      
-      console.log("matches",matches)
-      let matchIDs = matches.map(match => match.potential_match.id)
-    //   console.log("matches IDs",matchIDs)
-    //   console.log("profiles", profiles)
-    //   console.log("match profiles", profiles.filter(profile => matchIDs.includes(profile.id)))
-      // return profiles.filter(profile => matchIDs.includes(profile.id))
       return matches
    }
 
     renderList() {
       return (this.props.matches && this.renderMatches(this.props.profiles).map(profile => { 
-        console.log("profile in renderList", profile)
+        console.log("profile in renderList", profile.potential_match)
         console.log("profile match id",profile.match_id)
-      //  let matchId = this.props.matches.map(match => match.id)
         return (
           <div className="card">
         <div className="image">
-          <img className="ui image" src={profile.avatar} alt="Try again later!" />
+          <img className="ui image" src={profile.potential_match.avatar} alt="Try again later!" />
         </div>
         <div className="content">
-          <a className="header">{profile.name}</a>
+          <a className="header">{profile.potential_match.name}</a>
           <div className="meta">
-            <span className="date">Age {profile.age} 
+            <span className="date">Age {profile.potential_match.age} 
             </span>
           </div>
           <div className="description">
-            {profile.name} lives in {profile.city}, {profile.state}.
+            {profile.potential_match.name} lives in {profile.potential_match.city}, {profile.potential_match.state}.
           </div>
         </div>
         <div className="extra content">
-            <Link to={`/users/${profile.id}`}> 
+            <Link to={`/users/${profile.potential_match.id}`}> 
           <button 
-          onClick={() => this.props.viewProfile(profile)}
+          onClick={() => this.props.viewProfile(profile.potential_match)}
                   className="ui pink basic button">
                     View Profile!
           </button></Link>
@@ -96,14 +74,8 @@ class MatchesContainer extends React.Component {
     };
 
     render() {
-      console.log("HI JEN, THESE ARE MATCHES", this.props.matches)
-      // console.log("MATCHES???", this.state.allMatches)
+      console.log("THESE ARE MATCHES", this.props.matches)
       console.log("matches container props", this.props)
-      console.log("matches profiles props", this.props.profiles)
-      console.log("LOOK HERE JEN", this.props.matches.map(match => match.id))    
-    //   console.log("matches match props", this.props.matches.map(match => match.potential_match_id))
-    //   console.log("potential match ids", this.props.likeProfile.map( match => match.potential_match_id))
-    //   console.log("get matches", this.props.getMyMatches)
       return (
         <div>
             <div className="ui container grid">
