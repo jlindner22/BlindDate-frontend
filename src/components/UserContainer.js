@@ -43,7 +43,7 @@ class UserContainer extends React.Component {
     render() {
       console.log("user container props", this.props)
       return (
-        <div>
+        <div className="ui container grid">
           <div className="ui link cards">
           {this.renderList()}
           </div>

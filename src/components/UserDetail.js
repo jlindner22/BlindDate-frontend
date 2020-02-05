@@ -1,26 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { matchProfile, loggedIn } from '../actions';
+import { matchProfile, loggedIn, getMyMatches } from '../actions';
 import { Link } from 'react-router-dom';
 
 class UserDetail extends React.Component {
 
-    state = {
-        clickedInfoButton: false
-    }
+  componentDidMount() {
+    window.scrollTo(0, 0)
+    this.props.getMyMatches()
+  }
+    
+  state = {
+      clickedInfoButton: false
+  }
 
-    componentDidMount() {
-        window.scrollTo(0, 0)
-      }
-
-    toggleInfo = () => {
-        this.setState({
-            clickedInfoButton: !this.state.clickedInfoButton
-        }
-    )}
+  toggleInfo = () => {
+    this.setState({ clickedInfoButton: !this.state.clickedInfoButton })
+  }
 
   render() {
-    // console.log("user detail props", this.props)
+    console.log("user detail props", this.props)
     // console.log("user detail current user", this.props.currentUser)
     // console.log("selected", this.props.selectedProfile)
     // console.log("potential match id", profile.id)
@@ -40,7 +39,6 @@ class UserDetail extends React.Component {
            Currently living in {profile.city}, {profile.state}            
            <br></br>          
            <br></br>
-
          <img className="ui centered medium bordered image" src={profile.avatar} alt="Oops, this image is broken!"/>
             <br></br>
             About me:
@@ -64,15 +62,13 @@ class UserDetail extends React.Component {
             My diet is {profile.diet}
             <br></br>
             <br></br>
-
             <button className="ui pink button"
             onClick={this.toggleInfo}> See more about me! </button>
-            <br></br>
-          
+            <br></br>       
             <div>
             {this.state.clickedInfoButton === false ? null :
             <div>
-                <br></br>
+            <br></br>
             Morning or night: {profile.morning_night}
             How I dress: {profile.dress_style}
             <br></br>
@@ -106,8 +102,7 @@ class UserDetail extends React.Component {
             <br></br>
             My favorite kind of music: {profile.music}
             <br></br>
-            {profile.play_instrument === true ? "I can play an instrument" : null }
-            
+            {profile.play_instrument === true ? "I can play an instrument" : null }           
             </div> }
             <br></br>
             Habits: 
@@ -121,17 +116,23 @@ class UserDetail extends React.Component {
             Other drugs: {profile.drugs}
             <br></br>
             <br></br>
+            {this.props.matches.length > 0 ? 
+            <Link to={`/matches`}> 
+            <button className="ui basic pink button">
+            <i className="arrow alternate circle left pink icon"></i> Browse your matches 
+            </button>
+            </Link> : null}
             <Link to={`/users`}>
             <button className="ui basic pink button">
-            <a><i className="arrow alternate circle left pink icon"></i></a>   Browse all profiles 
-          </button>
-          </Link>
-          {this.props.matches.map(match => match.potential_match_id).includes(profile.id) ? null :   
-          <button 
-            onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
-                  className="ui pink button">
-                    Match with {profile.name}! <a><i className="heart red icon"></i></a>
-          </button>}
+            <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
+            </button>
+            </Link> 
+            {this.props.matches.map(match => match.potential_match.id).includes(profile.id) ? <b>          You're a match!</b> :   
+            <button 
+              onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
+                    className="ui pink button">
+                      Match with {profile.name}! <i className="heart red icon"></i>
+            </button>}
          </div>
         </div>
       </div>
@@ -140,7 +141,7 @@ class UserDetail extends React.Component {
     )}
     else {return <Link to={`/users`}>
     <button className="ui basic pink button">
-    <a><i className="arrow alternate circle left pink icon"></i></a>   Browse all profiles 
+    <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
     </button>
     </Link>}
         }
@@ -155,4 +156,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {matchProfile, loggedIn})(UserDetail);
+export default connect(mapStateToProps, {matchProfile, loggedIn, getMyMatches})(UserDetail);
