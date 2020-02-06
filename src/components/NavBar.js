@@ -22,10 +22,12 @@ class NavBar extends React.Component {
             <Link to='/messages'><a className="item">
                 Messages
             </a></Link>
-            <div className="right menu">
-            <Link to='/'>  <a className="ui item">
+            <div className="right menu" onClick={this.props.logout}>
+            <Link to='/'>  
+            <a className="ui item">
                 Logout
-                </a></Link>
+                </a>
+                </Link>
             </div>
             </div>
             <div className="ui segment">

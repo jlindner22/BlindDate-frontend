@@ -1,7 +1,6 @@
 import React from 'react';
 import { newUser } from '../actions';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 
 class ProfileForm extends React.Component {
 
@@ -10,6 +9,9 @@ class ProfileForm extends React.Component {
       }
     
     state = {
+        username: '',
+        password: '',
+        password_confirmation: '',
         firstPartComplete: false,
         secondPartComplete: false,
         name: '',
@@ -75,13 +77,18 @@ class ProfileForm extends React.Component {
     // console.log("e",e)  
     // console.log("user",user)  
         e.preventDefault()
+        console.log("password", this.state.password)
+
+        // if (this.state.password == this.state.password_confirmation) {
         this.props.newUser(user)
-        this.props.history.push('/myprofile')
+        // this.props.setUser()
+        // this.props.history.push('/myprofile')
+        // } else 
+        //     {alert("Passwords do not match. Please try again")}
     }
 
   render() {
-
-      if (this.state.firstPartComplete === false) {
+       if (this.state.firstPartComplete === false) {
         return (
         <div className="ui container grid">
             <div className="ui row">
@@ -103,10 +110,23 @@ class ProfileForm extends React.Component {
                             </div>
                         </div>
                         <div className="field">
-                         <label>Contact Information</label>
+                         <label>Account Information</label>
+                         <div className="fields">
+                                <div className="ten wide field">
+                                    <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleText}></input>
+                                </div>
+                            </div>
                             <div className="fields">
                                 <div className="ten wide field">
+                                    <input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.handleText}></input>
+                                </div>
+                                <div className="ten wide field">
                                     <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleText}></input>
+                                </div>
+                            </div>
+                            <div className="fields">
+                                <div className="ten wide field">
+                                    <input type="text" name="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.handleText}></input>
                                 </div>
                                 <div className="ten wide field">
                                     <input type="text" name="phone_number" placeholder="Phone Number (no spaces or symbols)" value={this.state.phone_number} onChange={this.handleText}></input>

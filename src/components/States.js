@@ -38,3 +38,41 @@
         // music: music.sample,
         // play_instrument: Faker::Boolean.boolean,
         // ideal_friday: friday.sample
+
+
+       // preferences attributes
+       //  user_id
+       //  gender
+       //  age
+       //  city
+       //  state
+       //  smokes
+       //  drinks
+       //  weed
+       //  drugs
+       //  religion
+       //  education_level
+       //  kids
+       //  relationship_type
+       //  politics
+       //  have_pets
+       //  diet
+
+
+       // preferences attributes
+       //  t.integer "user_id"
+       //  t.string "gender"
+       //  t.integer "age"
+       //  t.string "city"
+       //  t.string "state"
+       //  t.string "smokes"
+       //  t.string "drinks"
+       //  t.boolean "weed"
+       //  t.string "drugs"
+       //  t.string "religion"
+       //  t.string "education_level"
+       //  t.boolean "kids"
+       //  t.string "relationship_type"
+       //  t.string "politics"
+       //  t.string "have_pets"
+       //  t.string "diet"
