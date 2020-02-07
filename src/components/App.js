@@ -31,6 +31,7 @@ class App extends React.Component {
         if (response.errors) {alert(response.errors)}
       else {
         this.setState({ currentUser: response })
+        // this.props.getAllUsers()
         this.props.getMyMatches()
       }
     }

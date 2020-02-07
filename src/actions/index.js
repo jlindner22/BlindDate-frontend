@@ -52,7 +52,7 @@ export const newUser = (user) => {
     console.log("USER", user)
     return (dispatch) => {
         if (user.password == user.password_confirmation){
-        fetch('http://localhost:3000/api/v1/users', {
+        fetch('http://localhost:3000/api/v1/login', {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

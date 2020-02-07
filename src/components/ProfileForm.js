@@ -73,21 +73,55 @@ class ProfileForm extends React.Component {
     this.setState({[e.target.name]: e.target.value})
     }
 
-    handleSubmit = (e, user) => {
-    // console.log("e",e)  
-    // console.log("user",user)  
-        e.preventDefault()
-        console.log("password", this.state.password)
+    // handleSubmit = (e, user) => {
+    // // console.log("e",e)  
+    // // console.log("user",user)  
+    //     e.preventDefault()
+    //     console.log("password", this.state.password)
 
-        // if (this.state.password == this.state.password_confirmation) {
-        this.props.newUser(user)
-        // this.props.setUser()
-        // this.props.history.push('/myprofile')
-        // } else 
-        //     {alert("Passwords do not match. Please try again")}
-    }
+    //     // if (this.state.password == this.state.password_confirmation) {
+    //     this.props.newUser(user)
+    //     // this.props.setUser()
+    //     // this.props.history.push('/myprofile')
+    //     // } else 
+    //     //     {alert("Passwords do not match. Please try again")}
+    // }
+
+    handleSubmit = (e) => { 
+            e.preventDefault()
+            console.log("password", this.state.password)
+            if (this.state.password == this.state.password_confirmation) {
+            fetch('http://localhost:3000/api/v1/signup', {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Accepts": "application/json",
+                },             
+                body: JSON.stringify({ 
+                    username: this.state.username,
+                    password: this.state.password })   
+                })
+                .then(response => response.json())
+                .then(response => {
+                    this.props.setUser(response)
+                }
+                    )
+                } else { alert("Passwords don't match")}
+                // {dispatch({type : 'ADD_PROFILE', payload : data}) }
+                // )} else { alert("Passwords don't match")
+    
+                }
+            // if (this.state.password == this.state.password_confirmation) {
+            // this.props.newUser(user)
+            // this.props.setUser()
+            // this.props.history.push('/myprofile')
+            // } else 
+            //     {alert("Passwords do not match. Please try again")}
+        // }
 
   render() {
+    console.log("username", this.state.username)
+      console.log("password", this.state.password)
        if (this.state.firstPartComplete === false) {
         return (
         <div className="ui container grid">
@@ -416,7 +450,8 @@ class ProfileForm extends React.Component {
         )}
 //second page ends here, third page starts
     else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true) 
-    { {this.windowScroll()}             
+    { 
+        // {this.windowScroll()}             
     return  (  
         <div className="ui container grid">
             <div className="ui row">
@@ -659,7 +694,9 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>
-                        <div className="ui submit button right floated" onClick={(e) => this.handleSubmit(e,this.state)}>Submit</div>
+                        <div className="ui submit button right floated" onClick={this.handleSubmit}
+                        // onClick={(e) => this.handleSubmit(e,this.state)}
+                        >Submit</div>
                 </form>
             </div>
         </div>        
