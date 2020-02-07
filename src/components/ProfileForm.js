@@ -1,6 +1,7 @@
 import React from 'react';
 // import { userBasicInfo } from '../actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 class ProfileForm extends React.Component {
 
@@ -61,11 +62,11 @@ class ProfileForm extends React.Component {
     }
 
     goToThirdPage = () => {
-        this.setState({secondPartComplete: true})
+        this.setState({secondPartComplete: true, firstPartComplete: true})
     }
 
     goToFourthPage = () => {
-        this.setState({thirdPartComplete: true})
+        this.setState({thirdPartComplete: true, secondPartComplete: true, firstPartComplete: true})
     }
 
     windowScroll = () => {
@@ -92,44 +93,40 @@ class ProfileForm extends React.Component {
     //     //     {alert("Passwords do not match. Please try again")}
     // }
 
-    handleSubmit = (e) => { 
-            e.preventDefault()
-            console.log("password", this.state.password)
-            if (this.state.password === this.state.password_confirmation) {
-            fetch('http://localhost:3000/api/v1/signup', {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  "Accepts": "application/json",
-                },             
-                body: JSON.stringify({ 
-                    username: this.state.username,
-                    password: this.state.password })   
-                })
-                .then(response => response.json())
-                .then(response => {
-                    this.props.setUser(response)
-                }
-                    )
-                } else { alert("Passwords don't match")}
-                // {dispatch({type : 'ADD_PROFILE', payload : data}) }
-                // )} else { alert("Passwords don't match")
+    // handleSubmit = (e) => { 
+    //         e.preventDefault()
+    //         console.log("password", this.state.password)
+    //         if (this.state.password === this.state.password_confirmation) {
+    //         fetch('http://localhost:3000/api/v1/signup', {
+    //             method: "POST",
+    //             headers: {
+    //               "Content-Type": "application/json",
+    //               "Accepts": "application/json",
+    //             },             
+    //             body: JSON.stringify({ 
+    //                 username: this.state.username,
+    //                 password: this.state.password })   
+    //             })
+    //             .then(response => response.json())
+    //             .then(response => {
+    //                 this.props.setUser(response)
+    //             }
+    //                 )
+    //             } else { alert("Passwords don't match")}
+    //             // {dispatch({type : 'ADD_PROFILE', payload : data}) }
+    //             // )} else { alert("Passwords don't match")
     
-                }
-            // if (this.state.password == this.state.password_confirmation) {
-            // this.props.newUser(user)
-            // this.props.setUser()
-            // this.props.history.push('/myprofile')
-            // } else 
-            //     {alert("Passwords do not match. Please try again")}
-        // }
+    //             }
+    //         // if (this.state.password == this.state.password_confirmation) {
+    //         // this.props.newUser(user)
+    //         // this.props.setUser()
+    //         // this.props.history.push('/myprofile')
+    //         // } else 
+    //         //     {alert("Passwords do not match. Please try again")}
+    //     // }
 
     userBasicInfo = (user) => {
         console.log("LOOK HERE", user)
-        // debugger
-        // e.preventDefault()
-        // console.log("ACTIONS BUT NOT ACTION FOR USER", user)
-    // return (dispatch) => {
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -144,41 +141,13 @@ class ProfileForm extends React.Component {
                 age: this.state.age,
                 phone_number: this.state.phone_number,
                 city: this.state.city,
-                state: this.state.state, 
-                // morning_night: user.morning_night,
-                // dress_style: user.dress_style,
-                // messy_neat: user.messy_neat,
-                // general_planning: user.general_planning,
-                // vacation_planning: user.vacation_planning,
-                // vacation_type: user.vacation_type,
-                // cat_dog: user.cat_dog,
-                // coffee_tea: user.coffee_tea,
-                // summer_winter: user.summer_winter,
-                // city_country_suburbs: user.city_country_suburbs,
-                // beach_mountain: user.beach_mountain,
-                // night_out_in: user.night_out_in,
-                // diet: user.diet,
-                // extrovert_introvert: user.extrovert_introvert,
-                // love_language: user.love_language,
-                // music: user.music,
-                // play_instrument: user.play_instrument,
-                // ideal_friday: user.ideal_friday
+                state: this.state.state
             })   
-            })
-            // .then(response => response.json())
-            // .then(data => console.log(data)
-            // )
-            // debugger
-            console.log("LOOK HERE FOR FORM USER", user)
-            console.log("NAME", this.state.name)
-            console.log("ID", user.id)
-        // }
+        })
     }
 
     userPageTwoInfo = (user) => {
         console.log("LOOK HERE", user)
-        // debugger
-        // e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -199,13 +168,11 @@ class ProfileForm extends React.Component {
                 politics: this.state.politics,
                 have_pets: this.state.have_pets
             })   
-            })
+        })
     }
 
     userPageThreeInfo = (user) => {
         console.log("LOOK HERE", user)
-        // e.preventDefault()
-
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -223,13 +190,11 @@ class ProfileForm extends React.Component {
                 play_instrument: this.state.play_instrument,
                 ideal_friday: this.state.ideal_friday
             })   
-            })
+        })
     }
 
     userPageFourInfo = (user) => {
         console.log("LOOK HERE", user)
-        // e.preventDefault()
-
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -247,7 +212,7 @@ class ProfileForm extends React.Component {
                 diet: this.state.diet,
                 music: this.state.music
             })   
-            })
+        })
     }
 
   render() {
@@ -716,7 +681,7 @@ class ProfileForm extends React.Component {
     return  (  
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form">
+                <form className="ui form" onSubmit={() => this.userPageFourInfo(this.props.user)}>
                     <h4 className="ui dividing header">More About Me!</h4>
                         <div className="field"></div>
 
@@ -843,10 +808,12 @@ class ProfileForm extends React.Component {
                                     <option value="Food tour">Food tour</option>
                                 </select>
                             </div>
-                    </div>
-                        {/* <div className="ui submit button right floated" onClick={this.handleSubmit}
-                        >Submit</div> */}
+                    </div> 
+                    {/* <Link to={'/profiles'}> */}
+                        <div className="ui submit button right floated"
+                        >Submit</div>
                      <input type="submit" value="Submit" />
+                     {/* </Link> */}
                 </form>
             </div>
         </div>        
