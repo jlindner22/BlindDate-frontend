@@ -11,7 +11,8 @@ import ProfileForm from './ProfileForm';
 import LogIn from './LogIn';
 import Home from './Home';
 import Filter from './Filter';
-import { getAllUsers, getMyMatches } from '../actions';
+import { getAllUsers, getMyMatches, loggedIn } from '../actions';
+import Signup from './Signup';
 // import Footer from './Footer';
 
 class App extends React.Component {
@@ -46,8 +47,8 @@ class App extends React.Component {
     this.setState({ currentUser: user}
       , () => { 
         localStorage.user_id = user.id
-        // this.state.currentUser}
       })
+      this.props.loggedIn(user)
   }
 
   logout = () => {
@@ -63,7 +64,7 @@ class App extends React.Component {
 
     return (
       <Router>
-        <NavBar logout={this.logout}/>
+        <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
         <body>
           <div className="ui container grid">
             <div className="ui row">
@@ -74,13 +75,14 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps} setUser={this.setUser}/>}/>
               <Route exact path="/" render={(routerProps) => <Home {...routerProps}/>}/>
-              <Route exact path="/signup" render={(routerProps) => <ProfileForm setUser={this.setUser} {...routerProps}/>}/>
+              <Route exact path="/signup" render={(routerProps) => <Signup setUser={this.setUser} {...routerProps}/>}/>
               <Route exact path="/myprofile" render={(routerProps) => <MyProfile {...routerProps}/>}/>
               <Route exact path="/users" render={(routerProps) => <UserContainer {...routerProps}/>}/>
               <Route exact path="/matches" render={(routerProps) => <MatchesContainer {...routerProps}/>}/>
               <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>
               <Route exact path="/users/:id" render={(routerProps) => <UserDetail {...routerProps}/>}/>
               <Route exact path="/filter" render={(routerProps) => <Filter {...routerProps}/>}/>
+              <Route exact path="/profileform" render={(routerProps) => <ProfileForm setUser={this.setUser} user={this.state.currentUser}{...routerProps}/>}/>
           </Switch>
       </body>
       {/* <Footer/> */}
@@ -95,4 +97,4 @@ const mapStateToProps = state => {
             matches: state.matches};
 }
 
-export default connect(mapStateToProps, {getAllUsers, getMyMatches})(App);
+export default connect(mapStateToProps, {getAllUsers, getMyMatches, loggedIn})(App);

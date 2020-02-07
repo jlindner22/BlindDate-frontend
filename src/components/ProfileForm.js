@@ -90,7 +90,7 @@ class ProfileForm extends React.Component {
     handleSubmit = (e) => { 
             e.preventDefault()
             console.log("password", this.state.password)
-            if (this.state.password == this.state.password_confirmation) {
+            if (this.state.password === this.state.password_confirmation) {
             fetch('http://localhost:3000/api/v1/signup', {
                 method: "POST",
                 headers: {
@@ -122,6 +122,7 @@ class ProfileForm extends React.Component {
   render() {
     console.log("username", this.state.username)
       console.log("password", this.state.password)
+      console.log("USER", this.props.user)
        if (this.state.firstPartComplete === false) {
         return (
         <div className="ui container grid">

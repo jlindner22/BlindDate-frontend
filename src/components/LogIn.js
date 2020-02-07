@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loggedIn } from '../actions';
 
 class LogIn extends React.Component {
 
@@ -68,4 +70,9 @@ class LogIn extends React.Component {
     }
 }
 
-  export default LogIn;
+const mapStateToProps = state => {
+    return  { currentUser: state.currentUser
+            };
+  }
+
+  export default connect(mapStateToProps, {loggedIn})(LogIn);
