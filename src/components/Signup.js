@@ -39,14 +39,13 @@ class Signup extends React.Component {
             .then(response => {
                 this.props.setUser(response)
                 this.props.loggedIn(response)
-                // console.log(response)
+                this.props.history.push('/profileform')
             }
                 )
-            } else { alert("Passwords don't match")}
-            }
+        } else { alert("Passwords don't match")}
+    }
 
       render() {
-        //   console.log(user_id)
             return (
             <div className="ui container grid">
             <div className="ui centered row">

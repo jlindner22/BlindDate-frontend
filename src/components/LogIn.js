@@ -33,7 +33,9 @@ class LogIn extends React.Component {
             if (response.errors){alert(response.errors)
             } else {
         this.props.setUser(response)
-        this.props.history.push('/myprofile')
+        this.props.loggedIn(response)
+        this.props.history.push('/profileform')
+        // this.props.history.push('/myprofile')
         }
     })
     }

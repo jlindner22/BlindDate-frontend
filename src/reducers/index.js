@@ -23,12 +23,12 @@ const deleteMatchReducer = (state = [], action) => {
     return state
 }
 
-const newUserReducer = (user = [], action) => {
-    if (action.type === 'ADD_PROFILE') {
-        return action.payload;
-    }
-    return user;
-}
+// const userBasicInfoReducer = (user = [], action) => {
+//     if (action.type === 'ADD_PROFILE') {
+//         return action.payload;
+//     }
+//     return user;
+// }
 
 const selectProfileReducer = (profile = null, action) => {
     if (action.type === 'VIEW_PROFILE') {
@@ -56,7 +56,7 @@ export default combineReducers({
     profiles: profilesReducer,
     selectedProfile: selectProfileReducer,
     likeProfile: likeProfileReducer,
-    newUser: newUserReducer,
+    // userBasicInfo: userBasicInfoReducer,
     currentUser: logInReducer,
     matches: matchesReducer,
     deleteMatch: deleteMatchReducer
