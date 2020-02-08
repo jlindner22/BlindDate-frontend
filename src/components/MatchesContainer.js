@@ -11,14 +11,14 @@ class MatchesContainer extends React.Component {
   }
 
   //add condition to stop from infinite loop, still allowing for page refresh on delete
-  componentDidUpdate() {
-    // if (this.props.deleteMatch()) {
-    this.props.getMyMatches() 
-  //  }
-  }
+  // componentDidUpdate() {
+  //   // if (this.props.deleteMatch()) {
+  //   this.props.getMyMatches() 
+  // //  }
+  // }
 
   renderMatches = () => {
-    let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser)
+    let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return matches
   }
 
