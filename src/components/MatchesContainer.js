@@ -11,14 +11,14 @@ class MatchesContainer extends React.Component {
   }
 
   //add condition to stop from infinite loop, still allowing for page refresh on delete
-  componentDidUpdate() {
-    // if (this.props.deleteMatch()) {
-    this.props.getMyMatches() 
-  //  }
-  }
+  // componentDidUpdate() {
+  //   // if (this.props.deleteMatch()) {
+  //   this.props.getMyMatches() 
+  // //  }
+  // }
 
   renderMatches = () => {
-    let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser)
+    let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return matches
   }
 
@@ -42,12 +42,11 @@ class MatchesContainer extends React.Component {
         </div>
       </div>
       <div className="extra content">
-          <Link to={`/users/${profile.potential_match.id}`}> 
-        <button 
-        onClick={() => this.props.viewProfile(profile.potential_match)}
+          <Link to={`/users/${profile.potential_match.id}`}> <button 
+            onClick={() => this.props.viewProfile(profile.potential_match)}
                 className="ui pink basic button">
                   View Profile!
-        </button></Link>
+          </button></Link>
         <div className="ui right floated">
           <button 
           onClick={() => this.props.deleteMatch(profile.match_id)}
@@ -64,13 +63,13 @@ class MatchesContainer extends React.Component {
 
   render() {
     console.log("THESE ARE MATCHES", this.props.matches)
-    console.log("matches container props", this.props)
+  console.log("matches container props", this.props)
     return (
       <div>
           <div className="ui container grid">
           <div className="ui row">
           <div className="ui link cards">
-          {this.props.matches === false ? "You currently have no matches." :
+          {this.props.matches < 1 ? "You currently have no matches." :
         this.renderList()}
           </div>
           <br></br>

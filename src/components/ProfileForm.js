@@ -1,7 +1,7 @@
 import React from 'react';
-import { newUser } from '../actions';
+// import { userBasicInfo } from '../actions';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 class ProfileForm extends React.Component {
 
@@ -10,8 +10,12 @@ class ProfileForm extends React.Component {
       }
     
     state = {
+        username: '',
+        password: '',
+        password_confirmation: '',
         firstPartComplete: false,
         secondPartComplete: false,
+        thirdPartComplete: false,
         name: '',
         email: '',
         avatar: '',
@@ -58,7 +62,11 @@ class ProfileForm extends React.Component {
     }
 
     goToThirdPage = () => {
-        this.setState({secondPartComplete: true})
+        this.setState({secondPartComplete: true, firstPartComplete: true})
+    }
+
+    goToFourthPage = () => {
+        this.setState({thirdPartComplete: true, secondPartComplete: true, firstPartComplete: true})
     }
 
     windowScroll = () => {
@@ -71,21 +79,150 @@ class ProfileForm extends React.Component {
     this.setState({[e.target.name]: e.target.value})
     }
 
-    handleSubmit = (e, user) => {
-    // console.log("e",e)  
-    // console.log("user",user)  
-        e.preventDefault()
-        this.props.newUser(user)
-        this.props.history.push('/myprofile')
+    // handleSubmit = (e, user) => {
+    // // console.log("e",e)  
+    // // console.log("user",user)  
+    //     e.preventDefault()
+    //     console.log("password", this.state.password)
+
+    //     // if (this.state.password == this.state.password_confirmation) {
+    //     this.props.newUser(user)
+    //     // this.props.setUser()
+    //     // this.props.history.push('/myprofile')
+    //     // } else 
+    //     //     {alert("Passwords do not match. Please try again")}
+    // }
+
+    // handleSubmit = (e) => { 
+    //         e.preventDefault()
+    //         console.log("password", this.state.password)
+    //         if (this.state.password === this.state.password_confirmation) {
+    //         fetch('http://localhost:3000/api/v1/signup', {
+    //             method: "POST",
+    //             headers: {
+    //               "Content-Type": "application/json",
+    //               "Accepts": "application/json",
+    //             },             
+    //             body: JSON.stringify({ 
+    //                 username: this.state.username,
+    //                 password: this.state.password })   
+    //             })
+    //             .then(response => response.json())
+    //             .then(response => {
+    //                 this.props.setUser(response)
+    //             }
+    //                 )
+    //             } else { alert("Passwords don't match")}
+    //             // {dispatch({type : 'ADD_PROFILE', payload : data}) }
+    //             // )} else { alert("Passwords don't match")
+    
+    //             }
+    //         // if (this.state.password == this.state.password_confirmation) {
+    //         // this.props.newUser(user)
+    //         // this.props.setUser()
+    //         // this.props.history.push('/myprofile')
+    //         // } else 
+    //         //     {alert("Passwords do not match. Please try again")}
+    //     // }
+
+    userBasicInfo = (user) => {
+        console.log("LOOK HERE", user)
+        fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "Accepts": "application/json",
+            },             
+            body: JSON.stringify({ 
+                name: this.state.name,
+                email: this.state.email,
+                avatar: this.state.avatar,
+                gender: this.state.gender,
+                age: this.state.age,
+                phone_number: this.state.phone_number,
+                city: this.state.city,
+                state: this.state.state
+            })   
+        })
+    }
+
+    userPageTwoInfo = (user) => {
+        console.log("LOOK HERE", user)
+        fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "Accepts": "application/json",
+            },             
+            body: JSON.stringify({ 
+                smokes: this.state.smokes,
+                drinks: this.state.drinks,
+                weed: this.state.weed,
+                drugs: this.state.drugs,
+                religion: this.state.religion,
+                occupation: this.state.occupation,
+                college: this.state.college,
+                education_level: this.state.education_level,
+                kids: this.state.kids,
+                relationship_type: this.state.relationship_type,
+                politics: this.state.politics,
+                have_pets: this.state.have_pets
+            })   
+        })
+    }
+
+    userPageThreeInfo = (user) => {
+        console.log("LOOK HERE", user)
+        fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "Accepts": "application/json",
+            },             
+            body: JSON.stringify({ 
+                morning_night: this.state.morning_night,
+                dress_style: this.state.dress_style,
+                summer_winter: this.state.summer_winter,
+                city_country_suburbs: this.state.city_country_suburbs,
+                beach_mountain: this.state.beach_mountain,
+                love_language: this.state.love_language,
+                extrovert_introvert: this.state.extrovert_introvert,
+                play_instrument: this.state.play_instrument,
+                ideal_friday: this.state.ideal_friday
+            })   
+        })
+    }
+
+    userPageFourInfo = (user) => {
+        console.log("LOOK HERE", user)
+        fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "Accepts": "application/json",
+            },             
+            body: JSON.stringify({ 
+                messy_neat: this.state.messy_neat,
+                general_planning: this.state.general_planning,
+                vacation_planning: this.state.vacation_planning,
+                vacation_type: this.state.vacation_type,
+                cat_dog: this.state.cat_dog,
+                coffee_tea: this.state.coffee_tea,
+                night_out_in: this.state.night_out_in,
+                diet: this.state.diet,
+                music: this.state.music
+            })   
+        })
     }
 
   render() {
-
-      if (this.state.firstPartComplete === false) {
+      console.log("USER", this.props.user)
+      console.log(this.state.name)
+       if (this.state.firstPartComplete === false) {
         return (
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form">
+                <form className="ui form" onSubmit={() => this.userBasicInfo(this.props.user)}>
                     <h4 className="ui dividing header">Basic Information</h4>
                         <div className="field">
                             <div className="two fields">
@@ -103,11 +240,13 @@ class ProfileForm extends React.Component {
                             </div>
                         </div>
                         <div className="field">
-                         <label>Contact Information</label>
+                         <label>Account Information</label>
                             <div className="fields">
                                 <div className="ten wide field">
                                     <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleText}></input>
                                 </div>
+                            </div>
+                            <div className="fields">
                                 <div className="ten wide field">
                                     <input type="text" name="phone_number" placeholder="Phone Number (no spaces or symbols)" value={this.state.phone_number} onChange={this.handleText}></input>
                                 </div>
@@ -184,19 +323,28 @@ class ProfileForm extends React.Component {
                             </div>
                             </div>
                 </div>
-                <button className="ui basic button right floated" onClick={this.goToSecondPage}>
+                <button className="ui basic button right floated" type="submit" 
+                onClick={this.goToSecondPage}
+                >
                     Next Page
                 </button>
+                <input type="submit" value="Submit" />
+
                 </form>
             </div>
         </div>
         )
-    } else if (this.state.firstPartComplete === true && this.state.secondPartComplete === false) 
+    } 
+    
+    //end of first page
+    
+    
+    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === false) 
     //second page starts here
         { return (
             <div className="ui container grid">
                 <div className="ui row">
-                    <form className="ui form">
+                    <form className="ui form" onSubmit={() => this.userPageTwoInfo(this.props.user)}>
                         <h4 className="ui dividing header">About Me</h4>
                             <div className="field">
                                 <label>What I'm Looking For: </label>
@@ -390,17 +538,19 @@ class ProfileForm extends React.Component {
                         <button className="ui basic button right floated" onClick={this.goToThirdPage}>
                             Next Page
                         </button>
+                        <input type="submit" value="Submit" />
                     </form>
                 </div>
             </div>
         )}
 //second page ends here, third page starts
-    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true) 
-    { {this.windowScroll()}             
+    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true && this.state.thirdPartComplete === false) 
+    { 
+        // {this.windowScroll()}             
     return  (  
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form">
+                <form className="ui form" onSubmit={() => this.userPageThreeInfo(this.props.user)}>
                     <h4 className="ui dividing header">More About Me!</h4>
                         <div className="field">
                             <div className="field">
@@ -515,6 +665,26 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>
+
+                        <button className="ui basic button right floated" onClick={this.goToFourthPage}>
+                            Next Page
+                        </button>
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>
+            </div>
+        )}
+//second page ends here, third page starts
+    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true && this.state.thirdPartComplete === true) 
+    { 
+        // {this.windowScroll()}             
+    return  (  
+        <div className="ui container grid">
+            <div className="ui row">
+                <form className="ui form" onSubmit={() => this.userPageFourInfo(this.props.user)}>
+                    <h4 className="ui dividing header">More About Me!</h4>
+                        <div className="field"></div>
+
                     <div className="field">
                             <div className="field">
                                 <label>Would you rather spend your night in or out?</label>
@@ -638,8 +808,12 @@ class ProfileForm extends React.Component {
                                     <option value="Food tour">Food tour</option>
                                 </select>
                             </div>
-                    </div>
-                        <div className="ui submit button right floated" onClick={(e) => this.handleSubmit(e,this.state)}>Submit</div>
+                    </div> 
+                    {/* <Link to={'/profiles'}> */}
+                        <div className="ui submit button right floated"
+                        >Submit</div>
+                     <input type="submit" value="Submit" />
+                     {/* </Link> */}
                 </form>
             </div>
         </div>        
@@ -648,14 +822,17 @@ class ProfileForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log("state", state)
-    return  { newUser: state.newUser};
+    console.log("Profile form state", state)
+    return  { 
+        // userBasicInfo: state.userBasicInfo,
+                currentUser: state.currentUser};
   }
 
-const mapDispatchToProps = dispatch => {
-    return  {
-        newUser: (user) => dispatch(newUser(user))
-    };
-  }
+// const mapDispatchToProps = dispatch => {
+//     return  {
+//         userBasicInfo: (user) => dispatch(userBasicInfo(user))
+//     };
+//   }
 
-  export default connect(mapStateToProps, mapDispatchToProps)(ProfileForm);
+  export default connect(mapStateToProps)(ProfileForm);
+    // , mapDispatchToProps

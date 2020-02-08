@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { viewProfile } from '../actions';
+import { viewProfile, loggedIn } from '../actions';
 import { Link } from 'react-router-dom';
 
 class UserContainer extends React.Component {
@@ -55,7 +55,8 @@ class UserContainer extends React.Component {
   const mapStateToProps = state => {
     return  { profiles: state.profiles,
               selectedProfile: state.selectedProfile,
+              currentUser: state.currentUser
             };
   }
 
-  export default connect(mapStateToProps, {viewProfile})(UserContainer);
+  export default connect(mapStateToProps, {viewProfile, loggedIn})(UserContainer);

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { newUser } from '../actions';
 import { connect } from 'react-redux';
 
 class MyProfile extends React.Component {
@@ -10,6 +9,7 @@ class MyProfile extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
+
       }
 
       toggleInfo = () => {
@@ -20,7 +20,7 @@ class MyProfile extends React.Component {
 
     render() {
       console.log("my profile props", this.props)
-        let props = this.props.newUser
+        let props = this.props.currentUser
         let noCollege = "Some High School" || "High School Diploma/GED";
 
     return (
@@ -123,9 +123,7 @@ class MyProfile extends React.Component {
 
 const mapStateToProps = state => {
     console.log("my profile state", state)
-    // console.log("new user email", state.newUser.email)
-    // debugger
-    return  { newUser: state.newUser};
+    return  { currentUser: state.currentUser};
   }
 
 export default connect(mapStateToProps)(MyProfile);
