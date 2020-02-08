@@ -144,6 +144,7 @@ class ProfileForm extends React.Component {
                 state: this.state.state
             })   
         })
+        this.goToSecondPage()
     }
 
     userPageTwoInfo = (user) => {
@@ -169,6 +170,7 @@ class ProfileForm extends React.Component {
                 have_pets: this.state.have_pets
             })   
         })
+        this.goToThirdPage()
     }
 
     userPageThreeInfo = (user) => {
@@ -191,6 +193,7 @@ class ProfileForm extends React.Component {
                 ideal_friday: this.state.ideal_friday
             })   
         })
+        this.goToFourthPage()
     }
 
     userPageFourInfo = (user) => {
@@ -222,7 +225,9 @@ class ProfileForm extends React.Component {
         return (
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form" onSubmit={() => this.userBasicInfo(this.props.user)}>
+                <form className="ui form" 
+                // onSubmit={() => this.userBasicInfo(this.props.user)}
+                >
                     <h4 className="ui dividing header">Basic Information</h4>
                         <div className="field">
                             <div className="two fields">
@@ -324,11 +329,11 @@ class ProfileForm extends React.Component {
                             </div>
                 </div>
                 <button className="ui basic button right floated" type="submit" 
-                onClick={this.goToSecondPage}
+                onClick={() => this.userBasicInfo(this.props.user)}
                 >
                     Next Page
                 </button>
-                <input type="submit" value="Submit" />
+                {/* <input type="submit" value="Submit" /> */}
 
                 </form>
             </div>
@@ -344,7 +349,9 @@ class ProfileForm extends React.Component {
         { return (
             <div className="ui container grid">
                 <div className="ui row">
-                    <form className="ui form" onSubmit={() => this.userPageTwoInfo(this.props.user)}>
+                    <form className="ui form" 
+                    // onSubmit={() => this.userPageTwoInfo(this.props.user)}
+                    >
                         <h4 className="ui dividing header">About Me</h4>
                             <div className="field">
                                 <label>What I'm Looking For: </label>
@@ -535,10 +542,10 @@ class ProfileForm extends React.Component {
                                 </div>
                                 </div>
                             </div>
-                        <button className="ui basic button right floated" onClick={this.goToThirdPage}>
+                        <button className="ui basic button right floated" onClick={() => this.userPageTwoInfo(this.props.user)}>
                             Next Page
                         </button>
-                        <input type="submit" value="Submit" />
+                        {/* <input type="submit" value="Submit" /> */}
                     </form>
                 </div>
             </div>
