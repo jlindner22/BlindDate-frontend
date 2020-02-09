@@ -1,5 +1,4 @@
 import React from 'react';
-// import { userBasicInfo } from '../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
@@ -16,6 +15,7 @@ class ProfileForm extends React.Component {
         firstPartComplete: false,
         secondPartComplete: false,
         thirdPartComplete: false,
+        fourthPartComplete: false,
         name: '',
         email: '',
         avatar: '',
@@ -66,7 +66,8 @@ class ProfileForm extends React.Component {
     }
 
     goToFourthPage = () => {
-        this.setState({thirdPartComplete: true, secondPartComplete: true, firstPartComplete: true})
+        this.setState({thirdPartComplete: true, secondPartComplete: true, firstPartComplete: true
+        })
     }
 
     windowScroll = () => {
@@ -74,56 +75,8 @@ class ProfileForm extends React.Component {
     }
 
     handleText = (e) => {
-    // console.log("handle name", e.target.name)
-    // console.log("handle value", e.target.value)
     this.setState({[e.target.name]: e.target.value})
     }
-
-    // handleSubmit = (e, user) => {
-    // // console.log("e",e)  
-    // // console.log("user",user)  
-    //     e.preventDefault()
-    //     console.log("password", this.state.password)
-
-    //     // if (this.state.password == this.state.password_confirmation) {
-    //     this.props.newUser(user)
-    //     // this.props.setUser()
-    //     // this.props.history.push('/myprofile')
-    //     // } else 
-    //     //     {alert("Passwords do not match. Please try again")}
-    // }
-
-    // handleSubmit = (e) => { 
-    //         e.preventDefault()
-    //         console.log("password", this.state.password)
-    //         if (this.state.password === this.state.password_confirmation) {
-    //         fetch('http://localhost:3000/api/v1/signup', {
-    //             method: "POST",
-    //             headers: {
-    //               "Content-Type": "application/json",
-    //               "Accepts": "application/json",
-    //             },             
-    //             body: JSON.stringify({ 
-    //                 username: this.state.username,
-    //                 password: this.state.password })   
-    //             })
-    //             .then(response => response.json())
-    //             .then(response => {
-    //                 this.props.setUser(response)
-    //             }
-    //                 )
-    //             } else { alert("Passwords don't match")}
-    //             // {dispatch({type : 'ADD_PROFILE', payload : data}) }
-    //             // )} else { alert("Passwords don't match")
-    
-    //             }
-    //         // if (this.state.password == this.state.password_confirmation) {
-    //         // this.props.newUser(user)
-    //         // this.props.setUser()
-    //         // this.props.history.push('/myprofile')
-    //         // } else 
-    //         //     {alert("Passwords do not match. Please try again")}
-    //     // }
 
     userBasicInfo = (user) => {
         console.log("LOOK HERE", user)
@@ -174,7 +127,6 @@ class ProfileForm extends React.Component {
     }
 
     userPageThreeInfo = (user) => {
-        console.log("LOOK HERE", user)
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -197,7 +149,6 @@ class ProfileForm extends React.Component {
     }
 
     userPageFourInfo = (user) => {
-        console.log("LOOK HERE", user)
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -220,15 +171,25 @@ class ProfileForm extends React.Component {
     }
 
   render() {
+      console.log("page 1 complete", this.state.firstPartComplete)
+      console.log("page 2 complete", this.state.secondPartComplete)
+      console.log("page 3 complete", this.state.thirdPartComplete)
+      console.log("page 4 complete", this.state.fourthPartComplete)
       console.log("USER", this.props.user)
       console.log(this.state.name)
-       if (this.state.firstPartComplete === false) {
+       if (this.state.firstPartComplete === false && this.state.secondPartComplete === false && this.state.thirdPartComplete === false && this.state.fourthPartComplete === false) {
         return (
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form" 
-                // onSubmit={() => this.userBasicInfo(this.props.user)}
-                >
+                <form className="ui form" >
+                     <button className="ui basic button right floated" onClick={this.goToFourthPage}> Go to fourth page
+                     </button>              
+                     <button className="ui basic button right floated" onClick={this.goToThirdPage}> Go to third page
+                     </button> 
+                     <button className="ui basic button right floated" onClick={this.goToSecondPage}> Go to second page
+                     </button>   
+                     <br></br>
+                     <br></br>
                     <h4 className="ui dividing header">Basic Information</h4>
                         <div className="field">
                             <div className="two fields">
@@ -330,20 +291,20 @@ class ProfileForm extends React.Component {
                             </div>
                 </div>
                 <button className="ui basic button right floated" type="submit" 
-                onClick={() => this.userBasicInfo(this.props.user)}
-                >
-                    Next Page
+                onClick={() => this.userBasicInfo(this.props.user)}>
+                Next Page
                 </button>
-                {/* <input type="submit" value="Submit" /> */}
-
+                <Link to={`/`}>
+                <button className="ui basic pink button left floated">
+                Go Back
+                </button>
+                </Link>
                 </form>
             </div>
         </div>
-        )
-    } 
+        )} 
     
     //end of first page
-    
     
     else if (this.state.firstPartComplete === true && this.state.secondPartComplete === false) 
     //second page starts here
@@ -543,7 +504,7 @@ class ProfileForm extends React.Component {
                                 </div>
                                 </div>
                             </div>
-                        <button className="ui basic button right floated" onClick={() => this.userPageTwoInfo(this.props.user)}>
+                        <button className="ui basic button right floated" type="submit" onClick={() => this.userPageTwoInfo(this.props.user)}>
                             Next Page
                         </button>
                         {/* <input type="submit" value="Submit" /> */}
@@ -675,16 +636,15 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>
-
-                        <button className="ui basic button right floated" onClick={this.userPageThreeInfo(this.props.user)}>
+                        <button className="ui basic button right floated" type="submit" onClick={() => this.userPageThreeInfo(this.props.user)}>
                             Next Page
                         </button>
                     </form>
                 </div>
             </div>
         )}
-//second page ends here, third page starts
-    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true && this.state.thirdPartComplete === true) 
+//third page ends here, fourth page starts
+    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true && this.state.thirdPartComplete === true && this.state.fourthPartComplete === false) 
     { 
         // {this.windowScroll()}             
     return  (  

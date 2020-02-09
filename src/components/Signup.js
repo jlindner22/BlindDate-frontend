@@ -67,11 +67,8 @@ class Signup extends React.Component {
                 </div>
                 <br></br>
                     <br></br>
-                {/* <Link to={'/profileform'}> */}
                 <button className="ui pink button" type="submit"
                 >Sign Up</button>
-                {/* </Link> */}
-
                 <Link to={`/`}>
                 <button className="ui basic pink button left floated">
                             Go Back
