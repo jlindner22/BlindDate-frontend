@@ -43,10 +43,18 @@ class UserContainer extends React.Component {
     render() {
       console.log("user container props", this.props)
       return (
+        <div>
+          <Link to= "/filter">
+          <button className="ui basic pink button left floated" >
+          Set Filters
+        </button>
+        </Link>
         <div className="ui container grid">
+        <br></br>
           <div className="ui link cards">
           {this.renderList()}
           </div>
+        </div>
         </div>
       )
     }
