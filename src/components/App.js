@@ -76,7 +76,7 @@ class App extends React.Component {
               <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps} setUser={this.setUser}/>}/>
               <Route exact path="/" render={(routerProps) => <Home {...routerProps}/>}/>
               <Route exact path="/signup" render={(routerProps) => <Signup setUser={this.setUser} {...routerProps}/>}/>
-              <Route exact path="/myprofile" render={(routerProps) => <MyProfile {...routerProps}/>}/>
+              <Route exact path="/myprofile" render={(routerProps) => <MyProfile currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/users" render={(routerProps) => <UserContainer {...routerProps}/>}/>
               <Route exact path="/matches" render={(routerProps) => <MatchesContainer {...routerProps}/>}/>
               <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>

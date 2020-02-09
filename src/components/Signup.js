@@ -59,11 +59,11 @@ class Signup extends React.Component {
                 </div>
                 <div className="field">
                         <label>Password</label>
-                            <input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
+                            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
                 </div>
                 <div className="field">
                         <label>Confirm Password</label>
-                            <input type="text" name="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.handleChange}></input>
+                            <input type="password" name="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.handleChange}></input>
                 </div>
                 <br></br>
                     <br></br>

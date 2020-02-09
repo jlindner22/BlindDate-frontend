@@ -54,7 +54,7 @@ class LogIn extends React.Component {
                 </div>
                 <div className="field">
                         <label>Password</label>
-                            <input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
+                            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
                 </div>
                 {/* <Link to={'/users'}> */}
                 <button className="ui pink button" type="submit">Log In</button>

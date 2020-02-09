@@ -216,6 +216,7 @@ class ProfileForm extends React.Component {
                 music: this.state.music
             })   
         })
+        // this.props.history.push('/myprofile')
     }
 
   render() {
@@ -557,7 +558,9 @@ class ProfileForm extends React.Component {
     return  (  
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form" onSubmit={() => this.userPageThreeInfo(this.props.user)}>
+                <form className="ui form" 
+                // onSubmit={() => this.userPageThreeInfo(this.props.user)}
+                >
                     <h4 className="ui dividing header">More About Me!</h4>
                         <div className="field">
                             <div className="field">
@@ -673,10 +676,9 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>
 
-                        <button className="ui basic button right floated" onClick={this.goToFourthPage}>
+                        <button className="ui basic button right floated" onClick={this.userPageThreeInfo(this.props.user)}>
                             Next Page
                         </button>
-                        <input type="submit" value="Submit" />
                     </form>
                 </div>
             </div>
@@ -688,7 +690,7 @@ class ProfileForm extends React.Component {
     return  (  
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form" onSubmit={() => this.userPageFourInfo(this.props.user)}>
+                <form className="ui form"> 
                     <h4 className="ui dividing header">More About Me!</h4>
                         <div className="field"></div>
 
@@ -815,12 +817,11 @@ class ProfileForm extends React.Component {
                                     <option value="Food tour">Food tour</option>
                                 </select>
                             </div>
-                    </div> 
-                    {/* <Link to={'/profiles'}> */}
-                        <div className="ui submit button right floated"
-                        >Submit</div>
-                     <input type="submit" value="Submit" />
-                     {/* </Link> */}
+                    </div>     
+                     <button className="ui basic button right floated" type="submit" 
+                        onClick={() => this.userPageFourInfo(this.props.user)}>
+                    Submit Profile
+                </button>
                 </form>
             </div>
         </div>        
