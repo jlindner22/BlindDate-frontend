@@ -96,11 +96,17 @@ class App extends React.Component {
         relationship_type: preference.diet,
         id: preference.id
       })
+      
   }
 
-  ageRangeChange = (e) => {
+  minRangeChange = (e) => {
     this.setState({
-      minimum_age: e.target.value,
+      minimum_age: e.target.value
+    })
+  }
+
+  maxRangeChange = (e) => {
+    this.setState({
       maximum_age: e.target.value
     })
   }
@@ -171,17 +177,78 @@ class App extends React.Component {
     })
   }
 
-  weedChange = () => {
+  weedChange = (e) => {
     this.setState({
-      weed: !this.state.weed
+      weed: e.target.value
     })
   }
 
-  kidsChange = () => {
+  kidsChange = (e) => {
     this.setState({
-      kids: !this.state.kids
+      kids: e.target.value
     })
   }
+
+  handlePreferenceChanges = (newPreference) => {
+if (newPreference.id) {
+    fetch(`http://localhost:3000/api/v1/preferences/${newPreference.id}`,{
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+              gender: this.state.gender,
+              minimum_age: this.state.minimum_age,
+              maximum_age: this.state.maximum_age,
+              // city: this.state.city,
+              state: this.state.state,
+              smokes: this.state.smokes,
+              drinks: this.state.drinks,
+              weed: this.state.weed,
+              drugs: this.state.drugs,
+              religion: this.state.religion,
+              education_level: this.state.education_level,
+              kids: this.state.kids,
+              relationship_type: this.state.relationship_type,
+              politics: this.state.politics,
+              have_pets: this.state.have_pets,
+              diet: this.state.diet
+      }),
+    })
+  } else {
+    fetch('http://localhost:3000/api/v1/preferences',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+              user_id: this.state.currentUser.id,
+              gender: this.state.gender,
+              minimum_age: this.state.minimum_age,
+              maximum_age: this.state.maximum_age,
+              // city: this.state.city,
+              state: this.state.state,
+              smokes: this.state.smokes,
+              drinks: this.state.drinks,
+              weed: this.state.weed,
+              drugs: this.state.drugs,
+              religion: this.state.religion,
+              education_level: this.state.education_level,
+              kids: this.state.kids,
+              relationship_type: this.state.relationship_type,
+              politics: this.state.politics,
+              have_pets: this.state.have_pets,
+              diet: this.state.diet
+      }),
+    })
+      .then(response => response.json())
+      .then(response => {
+      console.log(response)
+  })
+  }
+}
 
 
   render() {
@@ -206,9 +273,26 @@ class App extends React.Component {
               <Route exact path="/matches" render={(routerProps) => <MatchesContainer {...routerProps}/>}/>
               <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>
               <Route exact path="/users/:id" render={(routerProps) => <UserDetail {...routerProps}/>}/>
-              <Route exact path="/filter" render={(routerProps) => <Filter {...routerProps}/>}/>
-              <Route exact path="/editfilters" render={(routerProps) => <FilterForm editPreferences={this.editPreferences} currentUser={this.state.currentUser}{...routerProps}/>}/>
+              <Route exact path="/filter" render={(routerProps) => <Filter {...routerProps} editPreferences={this.editPreferences}
+              minRangeChange={this.minRangeChange}maxRangeChange={this.maxRangeChange}stateChange={this.stateChange}smokesChange={this.smokesChange}drinksChange={this.drinksChange}
+              genderChange={this.genderChange}drugsChange={this.drugsChange}religionChange={this.religionChange}educationLevelChange={this.educationLevelChange}
+              relationshipTypeChange={this.relationshipTypeChange}havePetsChange={this.havePetsChange}politicsChange={this.politicsChange}dietChange={this.dietChange}
+              weedChange={this.weedChange}kidsChange={this.kidsChange}
+              gender={this.state.gender}minimum_age={this.state.minimum_age}maximum_age={this.state.maximum_age}politics={this.state.politics}
+              state={this.state.state}smokes={this.state.smokes}drinks={this.state.drinks}weed={this.state.weed}drugs={this.state.drugs}religion={this.state.religion}education_level={this.state.education_level}kids={this.state.kids}
+              have_pets={this.state.have_pets}diet={this.state.diet}relationship_type={this.state.relationship_type}id={this.state.id}
+              currentUser={this.state.currentUser}{...routerProps}handlePreferenceChanges={this.handlePreferenceChanges}
+              />}/>
               <Route exact path="/profileform" render={(routerProps) => <ProfileForm setUser={this.setUser} user={this.state.currentUser}{...routerProps}/>}/>
+              <Route exact path="/editfilters" render={(routerProps) => <FilterForm editPreferences={this.editPreferences} 
+              minRangeChange={this.minRangeChange}maxRangeChange={this.maxRangeChange}stateChange={this.stateChange}smokesChange={this.smokesChange}drinksChange={this.drinksChange}
+              genderChange={this.genderChange}drugsChange={this.drugsChange}religionChange={this.religionChange}educationLevelChange={this.educationLevelChange}
+              relationshipTypeChange={this.relationshipTypeChange}havePetsChange={this.havePetsChange}politicsChange={this.politicsChange}dietChange={this.dietChange}
+              weedChange={this.weedChange}kidsChange={this.kidsChange}
+              gender={this.state.gender}minimum_age={this.state.minimum_age}maximum_age={this.state.maximum_age}politics={this.state.politics}
+              state={this.state.state}smokes={this.state.smokes}drinks={this.state.drinks}weed={this.state.weed}drugs={this.state.drugs}religion={this.state.religion}education_level={this.state.education_level}kids={this.state.kids}
+              have_pets={this.state.have_pets}diet={this.state.diet}relationship_type={this.state.relationship_type}id={this.state.id}
+              currentUser={this.state.currentUser}{...routerProps}handlePreferenceChanges={this.handlePreferenceChanges}/>}/>
           </Switch>
       </body>
       {/* <Footer/> */}
@@ -220,8 +304,9 @@ class App extends React.Component {
 const mapStateToProps = state => {
   console.log("app state", state)
   return  { profiles: state.profiles,
-            matches: state.matches};
+            matches: state.matches,
+            preferences: state.preferences
+          };
 }
 
 export default connect(mapStateToProps, {getAllUsers, getMyMatches, loggedIn})(App);
-
