@@ -34,6 +34,8 @@ class MyProfile extends React.Component {
             <br></br>
            Currently living in {props.city}, {props.state}            
            <br></br>
+           <br></br>
+
             <img className="ui centered medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
             <br></br>
             About me:

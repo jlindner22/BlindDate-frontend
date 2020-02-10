@@ -40,25 +40,27 @@ class App extends React.Component {
   )}
 }
 
+preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
+
   state = {
     currentUser: null,
-    gender: '',
-    minimum_age: '',
-    maximum_age: '',
-    city: '',
-    state: '',
-    smokes: '',
-    drinks: '',
-    weed: '',
-    drugs: '',
-    religion: '',
-    education_level: '',
-    kids: '',
-    relationship_type: '',
-    politics: '',
-    have_pets: '',
-    diet: '',
-    id: ''
+    gender: this.preferences.gender,
+    minimum_age: this.preferences.minimum_age,
+    maximum_age: this.preferences.maximum_age,
+    city: this.preferences.city,
+    state: this.preferences.state,
+    smokes: this.preferences.smokes,
+    drinks: this.preferences.drinks,
+    weed: this.preferences.weed,
+    drugs: this.preferences.drugs,
+    religion: this.preferences.religion,
+    education_level: this.preferences.education_level,
+    kids: this.preferences.kids,
+    relationship_type: this.preferences.relationship_type,
+    politics: this.preferences.politics,
+    have_pets: this.preferences.have_pets,
+    diet: this.preferences.diet,
+    id: this.preferences.id
   }
 
   setUser = (user) => {
@@ -93,11 +95,17 @@ class App extends React.Component {
         kids: preference.kids,
         have_pets: preference.have_pets,
         diet: preference.diet,
-        relationship_type: preference.diet,
+        relationship_type: preference.relationship_type,
         id: preference.id
       })
       
   }
+
+  // handleChange = e => {
+  //   this.setState({
+  //       [e.target.name]: e.target.value
+  //     })
+  // }
 
   minRangeChange = (e) => {
     this.setState({
