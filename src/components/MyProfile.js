@@ -119,7 +119,7 @@ class MyProfile extends React.Component {
       </div>
         )
     } else {return "Please log in to view your profile"}
-}
+  }
 }
 
 const mapStateToProps = state => {

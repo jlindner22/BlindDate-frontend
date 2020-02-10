@@ -803,4 +803,3 @@ const mapStateToProps = state => {
 //   }
 
   export default connect(mapStateToProps)(ProfileForm);
-    // , mapDispatchToProps

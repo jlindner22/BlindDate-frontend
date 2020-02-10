@@ -44,9 +44,10 @@ class UserContainer extends React.Component {
       console.log("user container props", this.props)
       return (
         <div>
+          <br></br>
           <Link to= "/filter">
           <button className="ui basic pink button left floated" >
-          Set Filters
+          View/Set Preferences
         </button>
         </Link>
         <div className="ui container grid">

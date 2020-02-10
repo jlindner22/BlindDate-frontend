@@ -43,7 +43,8 @@
        // preferences attributes
        //  user_id
        //  gender
-       //  age
+       //  minimum_age
+       //  maximum_age
        //  city
        //  state
        //  smokes

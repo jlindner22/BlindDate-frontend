@@ -18,8 +18,9 @@ class MatchesContainer extends React.Component {
   // }
 
   renderMatches = () => {
+    if (this.props.matches) {
     let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
-    return matches
+    return matches } else {return "Log in to view your matches"}
   }
 
   renderList() {
@@ -63,7 +64,8 @@ class MatchesContainer extends React.Component {
   render() {
   console.log("THESE ARE MATCHES", this.props.matches)
   console.log("matches container props", this.props)
-  let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+    if (this.props.matches){
+    let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return (
       <div>
           <div className="ui container grid">
@@ -89,6 +91,7 @@ class MatchesContainer extends React.Component {
         <br></br>
       </div>
     )
+    } else {return "Log in to view your matches"}
   }
 }
 

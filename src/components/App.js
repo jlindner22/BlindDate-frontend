@@ -13,6 +13,7 @@ import Home from './Home';
 import Filter from './Filter';
 import { getAllUsers, getMyMatches, loggedIn } from '../actions';
 import Signup from './Signup';
+import FilterForm from './FilterForm';
 // import Footer from './Footer';
 
 class App extends React.Component {
@@ -40,7 +41,24 @@ class App extends React.Component {
 }
 
   state = {
-    currentUser: null
+    currentUser: null,
+    gender: '',
+    minimum_age: '',
+    maximum_age: '',
+    city: '',
+    state: '',
+    smokes: '',
+    drinks: '',
+    weed: '',
+    drugs: '',
+    religion: '',
+    education_level: '',
+    kids: '',
+    relationship_type: '',
+    politics: '',
+    have_pets: '',
+    diet: '',
+    id: ''
   }
 
   setUser = (user) => {
@@ -58,6 +76,113 @@ class App extends React.Component {
       console.log("PROPS YO", this.props)}
     )
   }
+
+  editPreferences = (preference) => {
+    this.setState({
+        gender: preference.gender,
+        minimum_age: preference.minimum_age,
+        maximum_age: preference.maximum_age,
+        politics: preference.politics,
+        state: preference.state,
+        smokes: preference.smokes,
+        drinks: preference.drinks,
+        weed: preference.weed,
+        drugs: preference.drugs,
+        religion: preference.religion,
+        education_level: preference.education_level,
+        kids: preference.kids,
+        have_pets: preference.have_pets,
+        diet: preference.diet,
+        relationship_type: preference.diet,
+        id: preference.id
+      })
+  }
+
+  ageRangeChange = (e) => {
+    this.setState({
+      minimum_age: e.target.value,
+      maximum_age: e.target.value
+    })
+  }
+
+  stateChange = (e) => {
+    this.setState({
+      state: e.target.value
+    })
+  }
+
+  smokesChange = (e) => {
+    this.setState({
+      smokes: e.target.value
+    })
+  }
+
+  drinksChange = (e) => {
+    this.setState({
+      drinks: e.target.value
+    })
+  }
+
+  genderChange = (e) => {
+    this.setState({
+      gender: e.target.value
+    })
+  }
+
+  drugsChange = (e) => {
+    this.setState({
+      drugs: e.target.value
+    })
+  }
+
+  religionChange = (e) => {
+    this.setState({
+      religion: e.target.value
+    })
+  }
+
+  educationLevelChange = (e) => {
+    this.setState({
+      education_level: e.target.value
+    })
+  }
+
+  relationshipTypeChange = (e) => {
+    this.setState({
+      relationship_type: e.target.value
+    })
+  }
+
+  politicsChange = (e) => {
+    this.setState({
+      politics: e.target.value
+    })
+  }
+  
+  havePetsChange = (e) => {
+    this.setState({
+      have_pets: e.target.value
+    })
+  }
+
+  dietChange = (e) => {
+    this.setState({
+      diet: e.target.value
+    })
+  }
+
+  weedChange = () => {
+    this.setState({
+      weed: !this.state.weed
+    })
+  }
+
+  kidsChange = () => {
+    this.setState({
+      kids: !this.state.kids
+    })
+  }
+
 
   render() {
     console.log("app props", this.props)
@@ -82,6 +207,7 @@ class App extends React.Component {
               <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>
               <Route exact path="/users/:id" render={(routerProps) => <UserDetail {...routerProps}/>}/>
               <Route exact path="/filter" render={(routerProps) => <Filter {...routerProps}/>}/>
+              <Route exact path="/editfilters" render={(routerProps) => <FilterForm editPreferences={this.editPreferences} currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/profileform" render={(routerProps) => <ProfileForm setUser={this.setUser} user={this.state.currentUser}{...routerProps}/>}/>
           </Switch>
       </body>
