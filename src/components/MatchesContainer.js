@@ -53,7 +53,6 @@ class MatchesContainer extends React.Component {
                   className="ui pink basic button">
                       Delete Match
           </button>
-        {/* {profile.gender !== "Female" ? <i className="mars icon" ></i> :  <i className="venus icon"></i> } */}
         </div> 
       </div> 
     </div>
@@ -62,14 +61,15 @@ class MatchesContainer extends React.Component {
   };
 
   render() {
-    console.log("THESE ARE MATCHES", this.props.matches)
+  console.log("THESE ARE MATCHES", this.props.matches)
   console.log("matches container props", this.props)
+  let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return (
       <div>
           <div className="ui container grid">
           <div className="ui row">
           <div className="ui link cards">
-          {this.props.matches < 1 ? "You currently have no matches." :
+          {myMatches < 1 ? "You currently have no matches." :
         this.renderList()}
           </div>
           <br></br>

@@ -27,6 +27,8 @@ class UserDetail extends React.Component {
     let profile = this.props.selectedProfile
     let someHighSchool = "Some High School"
     let diploma = "High School Diploma/GED"
+    let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+
 
     if (profile) {return (
       <div>
@@ -70,6 +72,7 @@ class UserDetail extends React.Component {
             <div>
             <br></br>
             Morning or night: {profile.morning_night}
+            <br></br>
             How I dress: {profile.dress_style}
             <br></br>
             Neat or messy: {profile.messy_neat}
@@ -116,7 +119,7 @@ class UserDetail extends React.Component {
             Other drugs: {profile.drugs}
             <br></br>
             <br></br>
-            {this.props.matches.length > 0 ? 
+            {myMatches > 0 ? 
             <Link to={`/matches`}> 
             <button className="ui basic pink button">
             <i className="arrow alternate circle left pink icon"></i> Browse your matches 
@@ -127,7 +130,7 @@ class UserDetail extends React.Component {
             <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
             </button>
             </Link>
-            {this.props.matches.map(match => match.potential_match.id).includes(profile.id) ? <b>          You're a match!</b> :   
+            {myMatches.map(match => match.potential_match.id).includes(profile.id) ?  <b>          You're a match!</b> :   
             <button 
               onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
                     className="ui pink button">

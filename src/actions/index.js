@@ -40,6 +40,14 @@ export const getMyMatches = () => {
     }
 }
 
+export const getPreferences = () => {
+    return (dispatch) => {
+    fetch('http://localhost:3000/api/v1/preferences')
+       .then(response => response.json())
+        .then(data => {dispatch({type: 'FILTER', payload: data })})
+    }
+}
+
 export const getAllUsers = () => {
     return (dispatch) => {
     fetch('http://localhost:3000/api/v1/users')

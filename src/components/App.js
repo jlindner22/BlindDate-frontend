@@ -98,3 +98,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {getAllUsers, getMyMatches, loggedIn})(App);
+

@@ -37,6 +37,13 @@ const selectProfileReducer = (profile = null, action) => {
     return profile;
 }
 
+const filterReducer = (filters = [], action) => {
+    if (action.type === 'FILTER') {
+        return action.payload;
+    }
+    return filters;
+}
+
 const likeProfileReducer = (likedProfiles = [], action) => {
     if (action.type === 'LIKE_PROFILE') {
         return [...likedProfiles, action.payload]
@@ -59,5 +66,6 @@ export default combineReducers({
     // userBasicInfo: userBasicInfoReducer,
     currentUser: logInReducer,
     matches: matchesReducer,
-    deleteMatch: deleteMatchReducer
+    deleteMatch: deleteMatchReducer,
+    preferences: filterReducer
 })

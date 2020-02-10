@@ -9,7 +9,6 @@ class MyProfile extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
-
       }
 
       toggleInfo = () => {
@@ -22,7 +21,8 @@ class MyProfile extends React.Component {
       console.log("my profile props", this.props)
         let props = this.props.currentUser
         let noCollege = "Some High School" || "High School Diploma/GED";
-
+      console.log("Hi JEN", props)
+        if (props) {
     return (
       <div>
         <div className="ui container grid">
@@ -118,7 +118,8 @@ class MyProfile extends React.Component {
       </div>
       </div>
         )
-    }
+    } else {return "Please log in to view your profile"}
+}
 }
 
 const mapStateToProps = state => {
