@@ -64,7 +64,7 @@ class MatchesContainer extends React.Component {
 
   render() {
   console.log("THESE ARE MATCHES", this.props.matches)
-  console.log("matches container props", this.props)
+  // console.log("matches container props", this.props)
     if (this.props.matches){
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return (
