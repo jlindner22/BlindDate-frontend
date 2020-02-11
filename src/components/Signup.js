@@ -47,12 +47,12 @@ class Signup extends React.Component {
 
       render() {
             return (
+            <div className="down">
             <div className="ui container grid">
             <div className="ui centered row">
             <form className="ui form" onSubmit={this.handleSubmit}>
-                <b> Sign up for BlindDate!</b>
+                <h2><b> Sign up for BlindDate!</b></h2>
                 <div className="field">
-                    <br></br>
                     <br></br>
                     <label>Username</label>
                         <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}></input>
@@ -76,6 +76,26 @@ class Signup extends React.Component {
                 </Link>
             </form>
             </div>
+            </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             </div>
         )
     }

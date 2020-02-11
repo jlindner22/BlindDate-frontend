@@ -15,7 +15,7 @@ class FilterContainer extends React.Component {
         return preferences
       }
 
-      renderList() {
+    renderList() {
         return (this.props.preferences && this.renderPreferences(this.props.preferences).map(preference => { 
         return (
             <div className="ui middle aligned divided list">
@@ -123,7 +123,8 @@ class FilterContainer extends React.Component {
             <Link to="/editfilters">
                 <button className="ui button" 
             onClick={() => this.props.editPreferences(preference)}>Edit</button>
-              </Link>              </div>
+              </Link>
+              </div>
               <div className="content">
               <u><b>Habits</b></u>
                 <br></br>

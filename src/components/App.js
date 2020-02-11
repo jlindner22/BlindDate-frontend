@@ -11,7 +11,7 @@ import ProfileForm from './ProfileForm';
 import LogIn from './LogIn';
 import Home from './Home';
 import Filter from './Filter';
-import { getAllUsers, getMyMatches, loggedIn } from '../actions';
+import { getAllUsers, getMyMatches, loggedIn, getPreferences } from '../actions';
 import Signup from './Signup';
 import FilterForm from './FilterForm';
 // import Footer from './Footer';
@@ -35,6 +35,7 @@ class App extends React.Component {
         this.setState({ currentUser: response })
         // this.props.getAllUsers()
         this.props.getMyMatches()
+        this.props.getPreferences()
       }
     }
   )}
@@ -317,4 +318,4 @@ const mapStateToProps = state => {
           };
 }
 
-export default connect(mapStateToProps, {getAllUsers, getMyMatches, loggedIn})(App);
+export default connect(mapStateToProps, {getAllUsers, getMyMatches, loggedIn, getPreferences})(App);

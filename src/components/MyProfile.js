@@ -26,96 +26,93 @@ class MyProfile extends React.Component {
     return (
       <div>
         <div className="ui container grid">
-            <div className="ui row">
+            <div className="ui center row">
                 <div className="column twelve wide">
             <h1> <b>Meet {props.name}!</b> </h1>
+            <h2>About Me</h2>
+            <b>Age:</b> {props.age}
             <br></br>
-            Age {props.age}
+            <b>Currently living in:</b> {props.city}, {props.state}            
             <br></br>
-           Currently living in {props.city}, {props.state}            
-           <br></br>
-           <br></br>
-
-            <img className="ui centered medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
-            <br></br>
-            About me:
-            <br></br>
-            I'm looking for: {props.relationship_type}
+            <b>I'm looking for: </b>{props.relationship_type}
             <br></br>
             {props.kids === true ? "I am a parent" : "I am not a parent"}
             <br></br>
-            Religion: {props.religion}
+            <b>Religion:</b> {props.religion}
             <br></br>
-            Employment type: {props.occupation}
+            <b>Employment type:</b> {props.occupation}
             <br></br>
-            Education Level: {props.education_level}
+            <b>Education Level:</b> {props.education_level}
             <br></br>
             {props.education_level === noCollege ? null : `College: ${props.college}`}
             <br></br>
-            My political views: {props.politics}
+            <b>My political views:</b> {props.politics}
             <br></br>
-            Pets: {props.have_pets}
+            <b>Pets:</b> {props.have_pets}
             <br></br>
-            My diet is {props.diet}
+            <b>My diet is:</b> {props.diet}
             <br></br>
             <br></br>
             <button className="ui pink button"
             onClick={this.toggleInfo}> See more about me! </button>
             <br></br>
+            <br></br>
             <div>
             {this.state.moreButton === false ? null :
             <div>
-                <br></br>
-            Morning or night: {props.morning_night}
-            How I dress: {props.dress_style}
+           <b> Morning or night:</b> {props.morning_night}
             <br></br>
-            Neat or messy: {props.messy_neat}
+           <b>How I dress:</b> {props.dress_style}
             <br></br>
+           <b>Neat or messy:</b> {props.messy_neat}
             <br></br>
-            My planning style:             
+            <b>My ideal vacation:</b> {props.vacation_type}
             <br></br>
-            In general: {props.general_planning}
+            <b>Stay in or night out:</b> {props.night_out_in}
             <br></br>
-            For a vacation: {props.vacation_planning}
+            <b>Cats or dogs:</b> {props.cat_dog}
             <br></br>
-            My ideal vacation: {props.vacation_type}
+            <b>How I like to spend my Friday nights:</b> {props.ideal_friday}
             <br></br>
-            Stay in or night out: {props.night_out_in}
+            <b>Coffee or tea:</b> {props.coffee_tea}
             <br></br>
-            Cats or dogs: {props.cat_dog}
+            <b>Summer or winter:</b> {props.summer_winter}
             <br></br>
-            How I like to spend my Friday nights: {props.ideal_friday}
+            <b>Where I would like to live:</b> {props.city_country_suburbs}
             <br></br>
-            Coffee or tea: {props.coffee_tea}
+            <b>Beach or mountains:</b> {props.beach_mountain}
             <br></br>
-            Summer or winter: {props.summer_winter}
+            <b>My personality type:</b> {props.extrovert_introvert}
             <br></br>
-            Where I would like to live: {props.city_country_suburbs}
+            <b>My love language:</b> {props.love_language}
             <br></br>
-            Beach or mountains: {props.beach_mountain}
-            <br></br>
-            My personality type: {props.extrovert_introvert}
-            <br></br>
-            My love language: {props.love_language}
-            <br></br>
-            My favorite kind of music: {props.music}
+            <b>My favorite kind of music:</b> {props.music}
             <br></br>
             {props.play_instrument === true ? "I can play an instrument" : null }
-            </div> }
             <br></br>
-            Habits: 
             <br></br>
-            Drinking: {props.drinks}
+            <u>My planning style</u>             
             <br></br>
-            Smoking: {props.smokes}
+            <b>In general:</b> {props.general_planning}
             <br></br>
-            4/20 Friendly: {props.weed === "True" ? "Yes" : "No"}
+            <b>For a vacation:</b> {props.vacation_planning}
             <br></br>
-            Other drugs: {props.drugs}
+        </div>}
+           <h3> <u>Habits </u></h3>
+           <b>Drinking:</b>  {props.drinks}
+            <br></br>
+            <b>Smoking:</b>  {props.smokes}
+            <br></br>
+            <b>4/20 Friendly:</b>  {props.weed === "True" ? "Yes" : "No"}
+            <br></br>
+            <b>Other drugs:</b>  {props.drugs}
             <br></br>
             <br></br>
          </div>
         </div>
+      </div>
+      <div className="profilepic">
+      <img className="ui centered large bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
       </div>
       </div>
       </div>

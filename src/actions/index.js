@@ -13,8 +13,8 @@ export const loggedIn = (profile) => {
 };
 
 export const matchProfile = (profile, currentUser) => {
-    console.log("USER MATCH", currentUser.id)
-    console.log("USER PROFILE", profile)
+    // console.log("USER MATCH", currentUser.id)
+    // console.log("USER PROFILE", profile)
     return (dispatch) => {
         fetch('http://localhost:3000/api/v1/matches', {
             method: "POST",
