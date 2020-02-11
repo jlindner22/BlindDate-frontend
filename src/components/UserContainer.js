@@ -4,50 +4,18 @@ import { viewProfile, loggedIn, getPreferences } from '../actions';
 import { Link } from 'react-router-dom';
 
 class UserContainer extends React.Component {
-  
-  state = {
-    allProfiles: [],
-    filteredProfiles: []
-  }
 
   componentDidMount() {
     window.scrollTo(0, 0)
     this.props.getPreferences()
-    this.setState({ allProfiles: this.props.profiles })
   }
-
-  females = this.props.profiles.filter(prof => prof.gender == "Female")
-
-  // myPreferences = this.props.preferences.filter(pref => pref.user_id.id === this.props.currentUser.id)
-
-  // myPreferences = () => {
-  //   if (this.props.preferences) {
-  //   let preferences = this.props.preferences.filter(pref => pref.user_id.id === this.props.currentUser.id)
-  //   return preferences } else {return "Log in to view your preferences"}
-  // }
-
-  renderPreferredProfiles = () => {
-    // // if (this.props.preferences) {
-    //   let preferred = this.props.profiles.filter(pref => pref.state === this.myPreferences.state)
-    //   console.log(preferred)
-      // return preferred 
-      let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
-     let prefState = myPreferences[0]
-    // } else {return this.props.profiles}
-    // }
-  }
-
-  // renderPreferredProfiles()
 
   renderList() {
     let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
+    if (myPreferences){
     let prefState = myPreferences[0]
-    let females = this.props.profiles.filter(prof => prof.gender == "Female")
-// debugger
-   //  let preferred = this.props.profiles.filter(pref => pref.state === this.myPreferences.state)
-     console.log("Preferred State", myPreferences[0])
-     console.log("Pref State", prefState)
-     console.log("females", females)
+    let filtersOn = this.props.profiles.filter(prof => prof.gender == prefState.gender && prof.age <= prefState.maximum_age && prof.age >= prefState.minimum_age && prof.diet === prefState.diet && prof.religion === prefState.religion && prof.education_level === prefState.education_level && prof.kids === prefState.kids && prof.relationship_type === prefState.relationship_type && prof.politics === prefState.politics && prof.have_pets === prefState.have_pets && prof.smokes === prefState.smokes && prof.drinks === prefState.drinks && prof.weed === prefState.weed && prof.drugs === prefState.drugs && prof.state == prefState.state)
+     console.log("filtered profs", filtersOn)
      console.log("user container props", this.props)
     return (this.props.profiles && this.props.profiles.map(profile => {
       return (
@@ -78,7 +46,9 @@ class UserContainer extends React.Component {
       );
     }))
   };
+  }
 
+  
     render() {
 //      let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
 //      let prefState = myPreferences[0]
@@ -99,6 +69,12 @@ class UserContainer extends React.Component {
           View/Set Preferences
         </button>
         </Link>
+        <Link to= "/filteredprofiles">
+        <button className="ui pink button">
+          See who fits your preferences!
+        </button>
+        </Link>
+
         <br></br>
         <br></br>
         <br></br>

@@ -54,7 +54,6 @@ class ProfileForm extends React.Component {
         music: '',
         play_instrument: '',
         ideal_friday: '',
-        myProfile: []
     }
 
     goToSecondPage = () => {
@@ -115,6 +114,7 @@ class ProfileForm extends React.Component {
                 drugs: this.state.drugs,
                 religion: this.state.religion,
                 occupation: this.state.occupation,
+                diet: this.state.diet,
                 college: this.state.college,
                 education_level: this.state.education_level,
                 kids: this.state.kids,
@@ -163,7 +163,6 @@ class ProfileForm extends React.Component {
                 cat_dog: this.state.cat_dog,
                 coffee_tea: this.state.coffee_tea,
                 night_out_in: this.state.night_out_in,
-                diet: this.state.diet,
                 music: this.state.music
             })   
         })
