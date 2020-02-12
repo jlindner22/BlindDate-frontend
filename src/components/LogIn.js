@@ -11,10 +11,8 @@ class LogIn extends React.Component {
     }
 
     handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        }
-    )}    
+        this.setState({ [e.target.name]: e.target.value})
+    }    
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -37,7 +35,7 @@ class LogIn extends React.Component {
     })
     }
 
-      render() {
+    render() {
         return (
             <div className="down">
             <div className="ui container grid">
@@ -87,8 +85,7 @@ class LogIn extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return  { currentUser: state.currentUser
-            };
-  }
+    return  { currentUser: state.currentUser };
+}
 
   export default connect(mapStateToProps, {loggedIn})(LogIn);

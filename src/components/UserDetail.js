@@ -28,9 +28,7 @@ class UserDetail extends React.Component {
     let someHighSchool = "Some High School"
     let diploma = "High School Diploma/GED"
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
-
-
-    if (profile) {return (
+      if (profile) {return (
       <div>
         <div className="ui container grid">
             <div className="ui row">
@@ -141,22 +139,20 @@ class UserDetail extends React.Component {
     </div>
       </div>
       </div>
-    )}
-    else {return <Link to={`/users`}>
+    )} else {return <Link to={`/users`}>
     <button className="ui basic pink button">
     <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
     </button>
     </Link>}
-        }
+  }
 }
 
 const mapStateToProps = state => {
-    console.log("detail state", state)
+    // console.log("detail state", state)
   return { selectedProfile: state.selectedProfile, 
             likeProfile: state.likeProfile,
             currentUser: state.currentUser,
-            matches: state.matches
-    }
+            matches: state.matches }
 }
 
 export default connect(mapStateToProps, {matchProfile, loggedIn, getMyMatches})(UserDetail);

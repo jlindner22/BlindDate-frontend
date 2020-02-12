@@ -23,30 +23,28 @@ class Signup extends React.Component {
 
     handleSubmit = (e) => { 
         e.preventDefault()
-        console.log("password", this.state.password)
         if (this.state.password === this.state.password_confirmation) {
-        fetch('http://localhost:3000/api/v1/signup', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "Accepts": "application/json",
-            },             
-            body: JSON.stringify({ 
-                username: this.state.username,
-                password: this.state.password })   
-            })
-            .then(response => response.json())
-            .then(response => {
-                this.props.setUser(response)
-                this.props.loggedIn(response)
-                this.props.history.push('/profileform')
-            }
-                )
+            fetch('http://localhost:3000/api/v1/signup', {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json",
+                },             
+                body: JSON.stringify({ 
+                    username: this.state.username,
+                    password: this.state.password })   
+                })
+                .then(response => response.json())
+                .then(response => {
+                    this.props.setUser(response)
+                    this.props.loggedIn(response)
+                    this.props.history.push('/profileform')
+                })
         } else { alert("Passwords don't match")}
     }
 
-      render() {
-            return (
+    render() {
+        return (
             <div className="down">
             <div className="ui container grid">
             <div className="ui centered row">
@@ -102,8 +100,7 @@ class Signup extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return  { currentUser: state.currentUser
-            };
+    return { currentUser: state.currentUser };
   }
 
   export default connect(mapStateToProps, {loggedIn})(Signup);

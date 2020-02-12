@@ -34,15 +34,12 @@ class NavBar extends React.Component {
             </div> 
             <div className="ui segment">
             <p></p>
-            
-            </div>
-                
+            </div> 
             </div>
                 }
             </React.Fragment>  
-
         )
-      }
     }
+}
   
 export default NavBar;

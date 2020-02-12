@@ -42,8 +42,6 @@ class UserContainer extends React.Component {
     }))
   };
   
-
-  
     render() {
       return (
         <div>
@@ -60,11 +58,9 @@ class UserContainer extends React.Component {
           See who fits your preferences!
         </button>
         </Link>
-
         <br></br>
         <br></br>
         <br></br>
-
           <div className="ui link cards">
           {this.renderList()}
           </div>
@@ -74,12 +70,11 @@ class UserContainer extends React.Component {
     }
   }
 
-  const mapStateToProps = state => {
-    return  { profiles: state.profiles,
-              selectedProfile: state.selectedProfile,
-              currentUser: state.currentUser,
-              preferences: state.preferences
-            };
-  }
+const mapStateToProps = state => {
+  return { profiles: state.profiles,
+           selectedProfile: state.selectedProfile,
+           currentUser: state.currentUser,
+           preferences: state.preferences };
+}
 
-  export default connect(mapStateToProps, {viewProfile, getPreferences, loggedIn})(UserContainer);
+export default connect(mapStateToProps, {viewProfile, getPreferences, loggedIn})(UserContainer);

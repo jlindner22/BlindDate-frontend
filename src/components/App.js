@@ -24,7 +24,6 @@ class App extends React.Component {
     this.props.getAllUsers()
     this.props.getPreferences()
     const user_id = localStorage.getItem('user_id')
-  
     if (user_id) {
       fetch('http://localhost:3000/api/v1/auto_login', {
           headers: {
@@ -38,12 +37,12 @@ class App extends React.Component {
         this.setState({ currentUser: response })
         this.props.loggedIn(response)
         this.props.getMyMatches()
+        }
       }
-    }
-  )}
-}
+    )}
+  }
 
-preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
+  preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
 
   state = {
     currentUser: null,
@@ -100,8 +99,7 @@ preferences = this.props.preferences.filter(preference => preference.user_id ===
         diet: preference.diet,
         relationship_type: preference.relationship_type,
         id: preference.id
-      })
-      
+      }) 
   }
 
   // handleChange = e => {
@@ -111,93 +109,63 @@ preferences = this.props.preferences.filter(preference => preference.user_id ===
   // }
 
   minRangeChange = (e) => {
-    this.setState({
-      minimum_age: e.target.value
-    })
+    this.setState({ minimum_age: e.target.value })
   }
 
   maxRangeChange = (e) => {
-    this.setState({
-      maximum_age: e.target.value
-    })
+    this.setState({ maximum_age: e.target.value })
   }
 
   stateChange = (e) => {
-    this.setState({
-      state: e.target.value
-    })
+    this.setState({ state: e.target.value })
   }
 
   smokesChange = (e) => {
-    this.setState({
-      smokes: e.target.value
-    })
+    this.setState({ smokes: e.target.value })
   }
 
   drinksChange = (e) => {
-    this.setState({
-      drinks: e.target.value
-    })
+    this.setState({ drinks: e.target.value })
   }
 
   genderChange = (e) => {
-    this.setState({
-      gender: e.target.value
-    })
+    this.setState({ gender: e.target.value })
   }
 
   drugsChange = (e) => {
-    this.setState({
-      drugs: e.target.value
-    })
+    this.setState({ drugs: e.target.value })
   }
 
   religionChange = (e) => {
-    this.setState({
-      religion: e.target.value
-    })
+    this.setState({ religion: e.target.value })
   }
 
   educationLevelChange = (e) => {
-    this.setState({
-      education_level: e.target.value
-    })
+    this.setState({ education_level: e.target.value })
   }
 
   relationshipTypeChange = (e) => {
-    this.setState({
-      relationship_type: e.target.value
-    })
+    this.setState({ relationship_type: e.target.value })
   }
 
   politicsChange = (e) => {
-    this.setState({
-      politics: e.target.value
-    })
+    this.setState({ politics: e.target.value })
   }
   
   havePetsChange = (e) => {
-    this.setState({
-      have_pets: e.target.value
-    })
+    this.setState({ have_pets: e.target.value })
   }
 
   dietChange = (e) => {
-    this.setState({
-      diet: e.target.value
-    })
+    this.setState({ diet: e.target.value })
   }
 
   weedChange = (e) => {
-    this.setState({
-      diet: e.target.value
-    })
-    }
+    this.setState({ weed: e.target.value })
+  }
 
   kidsChange = (e) => {
-    this.setState({
-      diet: e.target.value
-    })
+    this.setState({ kids: e.target.value})
   }
 
   handlePreferenceChanges = (newPreference) => {
@@ -209,21 +177,21 @@ preferences = this.props.preferences.filter(preference => preference.user_id ===
         'Accept': 'application/json',
       },
       body: JSON.stringify({
-              gender: this.state.gender,
-              minimum_age: this.state.minimum_age,
-              maximum_age: this.state.maximum_age,
-              state: this.state.state,
-              smokes: this.state.smokes,
-              drinks: this.state.drinks,
-              weed: this.state.weed,
-              drugs: this.state.drugs,
-              religion: this.state.religion,
-              education_level: this.state.education_level,
-              kids: this.state.kids,
-              relationship_type: this.state.relationship_type,
-              politics: this.state.politics,
-              have_pets: this.state.have_pets,
-              diet: this.state.diet
+        gender: this.state.gender,
+        minimum_age: this.state.minimum_age,
+        maximum_age: this.state.maximum_age,
+        state: this.state.state,
+        smokes: this.state.smokes,
+        drinks: this.state.drinks,
+        weed: this.state.weed,
+        drugs: this.state.drugs,
+        religion: this.state.religion,
+        education_level: this.state.education_level,
+        kids: this.state.kids,
+        relationship_type: this.state.relationship_type,
+        politics: this.state.politics,
+        have_pets: this.state.have_pets,
+        diet: this.state.diet
       }),
     })
   } else {
@@ -234,22 +202,22 @@ preferences = this.props.preferences.filter(preference => preference.user_id ===
         'Accept': 'application/json',
       },
       body: JSON.stringify({
-              user_id: this.state.currentUser.id,
-              gender: this.state.gender,
-              minimum_age: this.state.minimum_age,
-              maximum_age: this.state.maximum_age,
-              state: this.state.state,
-              smokes: this.state.smokes,
-              drinks: this.state.drinks,
-              weed: this.state.weed,
-              drugs: this.state.drugs,
-              religion: this.state.religion,
-              education_level: this.state.education_level,
-              kids: this.state.kids,
-              relationship_type: this.state.relationship_type,
-              politics: this.state.politics,
-              have_pets: this.state.have_pets,
-              diet: this.state.diet
+        user_id: this.state.currentUser.id,
+        gender: this.state.gender,
+        minimum_age: this.state.minimum_age,
+        maximum_age: this.state.maximum_age,
+        state: this.state.state,
+        smokes: this.state.smokes,
+        drinks: this.state.drinks,
+        weed: this.state.weed,
+        drugs: this.state.drugs,
+        religion: this.state.religion,
+        education_level: this.state.education_level,
+        kids: this.state.kids,
+        relationship_type: this.state.relationship_type,
+        politics: this.state.politics,
+        have_pets: this.state.have_pets,
+        diet: this.state.diet
       }),
     })
       .then(response => response.json())

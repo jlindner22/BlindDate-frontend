@@ -14,8 +14,6 @@ class MatchesContainer extends React.Component {
       oldMatchesLength: this.props.matches.length
     }
 
-
-
   // //add condition to stop from infinite loop, still allowing for page refresh on delete
   componentDidUpdate() {
    if (this.state.oldMatchesLength !== this.props.matches.length){
@@ -71,7 +69,6 @@ class MatchesContainer extends React.Component {
 
   render() {
   console.log("THESE ARE MATCHES", this.props.matches)
-  // console.log("matches container props", this.props)
     if (this.props.matches){
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return (
@@ -103,15 +100,13 @@ class MatchesContainer extends React.Component {
   }
 }
 
-  const mapStateToProps = state => {
-    console.log("matches state", state)
-    return  { profiles: state.profiles,
-              selectedProfile: state.selectedProfile,
-              likeProfile: state.likeProfile,
-              currentUser: state.currentUser,
-              matches: state.matches,
-              deleteMatch: state.deleteMatch
-            };
-  }
+const mapStateToProps = state => {
+  return { profiles: state.profiles,
+            selectedProfile: state.selectedProfile,
+            likeProfile: state.likeProfile,
+            currentUser: state.currentUser,
+            matches: state.matches,
+            deleteMatch: state.deleteMatch };
+}
 
 export default connect(mapStateToProps, {viewProfile, loggedIn, getMyMatches, deleteMatch})(MatchesContainer);

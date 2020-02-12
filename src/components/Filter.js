@@ -8,15 +8,15 @@ class FilterContainer extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
         this.props.getPreferences()
-      }
+    }
 
     renderPreferences = () => {
         let preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
         return preferences
-      }
+    }
 
     renderList() {
-        return (this.props.preferences && this.renderPreferences(this.props.preferences).map(preference => { 
+      return (this.props.preferences && this.renderPreferences(this.props.preferences).map(preference => { 
         return (
             <div className="ui middle aligned divided list">
             <div className="item">
@@ -140,37 +140,36 @@ class FilterContainer extends React.Component {
           </div>
           </div>
             )
-        }))
-      };
+      }))
+    };
 
-    render() {
-        if (this.props.currentUser) {
-        let myPreferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
-        console.log("Look at dem props", this.props)
-        return (
-            <div className="ui container grid">
-                <div className="ui row">
-                <div className="column eight wide">
-                   <h1>PREFERENCES</h1> 
-                {myPreferences < 1 ? <Link to="/editfilters">
-                <button className="ui pink basic button" 
-                onClick={() => this.props.editPreferences(myPreferences)}>
-                Set your filters </button> </Link> :
-                this.renderList()}
-            </div>
-            </div>
-            </div>
-        )
-        } else {return "Log in to view/set your filters"}
-    }
+  render() {
+    if (this.props.currentUser) {
+      let myPreferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
+      console.log("Look at dem props", this.props)
+      return (
+          <div className="ui container grid">
+              <div className="ui row">
+              <div className="column eight wide">
+                  <h1>PREFERENCES</h1> 
+              {myPreferences < 1 ? <Link to="/editfilters">
+              <button className="ui pink basic button" 
+              onClick={() => this.props.editPreferences(myPreferences)}>
+              Set your filters </button> </Link> :
+              this.renderList()}
+          </div>
+          </div>
+          </div>
+      )
+      } else {return "Log in to view/set your filters"}
+  }
 }
 
 const mapStateToProps = state => {
     console.log("filters state", state)
     return  { profiles: state.profiles,
               currentUser: state.currentUser,
-              preferences: state.preferences,
-            };
-  }
+              preferences: state.preferences };
+}
 
-  export default connect(mapStateToProps, {getPreferences})(FilterContainer);
+export default connect(mapStateToProps, {getPreferences})(FilterContainer);
