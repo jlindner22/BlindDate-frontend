@@ -45,7 +45,7 @@ class MyProfile extends React.Component {
             <br></br>
             <b>I'm looking for: </b>{props.relationship_type}
             <br></br>
-            {props.kids === true ? "I am a parent" : "I am not a parent"}
+            <b>Parent:</b> {props.kids}
             <br></br>
             <b>Religion:</b> {props.religion}
             <br></br>
@@ -112,7 +112,7 @@ class MyProfile extends React.Component {
             <br></br>
             <b>Smoking:</b>  {props.smokes}
             <br></br>
-            <b>4/20 Friendly:</b>  {props.weed === "True" ? "Yes" : "No"}
+            <b>4/20 Friendly:</b>  {props.weed}
             <br></br>
             <b>Other drugs:</b>  {props.drugs}
             <br></br>

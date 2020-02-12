@@ -43,7 +43,7 @@ class UserDetail extends React.Component {
             <br></br>
             <b>I'm looking for: </b>{profile.relationship_type}
             <br></br>
-            {profile.kids === true ? "I am a parent" : "I am not a parent"}
+            <b>Parent:</b> {profile.kids}
             <br></br>
             <b>Religion:</b> {profile.religion}
             <br></br>
@@ -111,7 +111,7 @@ class UserDetail extends React.Component {
             <br></br>
             <b>Smoking:</b>  {profile.smokes}
             <br></br>
-            <b>4/20 Friendly:</b>  {profile.weed === "True" ? "Yes" : "No"}
+            <b>4/20 Friendly:</b>  {profile.weed}
             <br></br>
             <b>Other drugs:</b>  {profile.drugs}
             <br></br>

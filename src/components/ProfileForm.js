@@ -191,7 +191,6 @@ class ProfileForm extends React.Component {
         .then(response => response.json())
         .then(response => console.log(response))
         this.props.history.push('/users')
-        // this.props.loggedIn(this.props.user.id)
     }
 
   render() {
@@ -209,6 +208,11 @@ class ProfileForm extends React.Component {
                      </button> 
                      <button className="ui basic button right floated" type="button" onClick={this.goToSecondPage}> Go to second page
                      </button>   
+                     <Link to={`/`}>
+                    <button className="ui basic pink button left floated" type="button">
+                    Go Back
+                    </button>
+                </Link>
                      <br></br>
                      <br></br>
                     <h4 className="ui dividing header">Basic Information</h4>
@@ -311,17 +315,13 @@ class ProfileForm extends React.Component {
                             </div>
                             </div>
                 </div>
-                <input type="submit" value="Submit" ></input>
+                <input className="ui basic pink button right floated" type="submit" value="Next Page" ></input>
                 </form>
                 {/* <button className="ui basic button right floated" type="button" 
                 onClick={this.goToSecondPage}>
                 Next Page
                 </button> */}
-                <Link to={`/`}>
-                <button className="ui basic pink button left floated" type="button">
-                Go Back
-                </button>
-                </Link>
+               
             </div>
         </div>
         )} 
@@ -526,15 +526,15 @@ class ProfileForm extends React.Component {
                                 </div>
                                 </div>
                             </div>
-                            <input type="submit" value="Submit" ></input>
+                            <input className="ui basic pink button right floated" type="submit" value="Next Page" ></input>
 
                         {/* <button className="ui basic button right floated" type="submit" onClick={this.goToThirdPage}>
                             Next Page
                         </button> */}
                         </form>
-                        <button className="ui basic pink button left floated" type="button" onClick={this.goToFirstPage}>
+                        {/* <button className="ui basic pink button left floated" type="button" onClick={this.goToFirstPage}>
                         Go Back
-                        </button>
+                        </button> */}
                 </div>
             </div>
         )}
@@ -666,11 +666,11 @@ class ProfileForm extends React.Component {
                         {/* <button className="ui basic button right floated" type="submit" onClick={this.goToFourthPage}>
                             Next Page
                         </button> */}
-                        <input type="submit" value="Submit"/>
+                        <input className="ui basic pink button right floated" type="submit" value="Next Page"/>
                      </form>
-                        <button className="ui basic pink button left floated" type="button" onClick={this.goToSecondPage}>
+                        {/* <button className="ui basic pink button left floated" type="button" onClick={this.goToSecondPage}>
                         Go Back
-                        </button>
+                        </button> */}
             </div>
             </div>
         )}
@@ -682,9 +682,9 @@ class ProfileForm extends React.Component {
     return  (  
         <div className="ui container grid">
             <div className="ui row">
-            <button className="ui basic pink button left floated" type="button" onClick={this.goToThirdPage}>
+            {/* <button className="ui basic pink button left floated" type="button" onClick={this.goToThirdPage}>
                 Go Back
-                </button>
+                </button> */}
                 <form className="ui form" onSubmit={(e) => this.userPageFourInfo(this.props.user, e)}> 
                     <h4 className="ui dividing header">More About Me!</h4>
                         <div className="field"></div>
@@ -828,15 +828,8 @@ class ProfileForm extends React.Component {
 const mapStateToProps = state => {
     console.log("Profile form state", state)
     return  { 
-        // userBasicInfo: state.userBasicInfo,
                 currentUser: state.currentUser,
                 };
   }
-
-// const mapDispatchToProps = dispatch => {
-//     return  {
-//         userBasicInfo: (user) => dispatch(userBasicInfo(user))
-//     };
-//   }
 
   export default connect(mapStateToProps, {loggedIn})(ProfileForm);
