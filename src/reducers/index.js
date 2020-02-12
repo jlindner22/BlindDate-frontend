@@ -52,7 +52,7 @@ const likeProfileReducer = (likedProfiles = [], action) => {
 }
 
 const logInReducer = (currentUser = null, action) => {
-    console.log("current user", currentUser)
+    // console.log("current user", currentUser)
     if (action.type === 'LOG_IN') {
         return action.payload
     }

@@ -23,7 +23,8 @@ class App extends React.Component {
     window.scrollTo(0, 0)
     this.props.getAllUsers()
     this.props.getPreferences()
-    const user_id = localStorage.user_id
+    const user_id = localStorage.getItem('user_id')
+  
     if (user_id) {
       fetch('http://localhost:3000/api/v1/auto_login', {
           headers: {
@@ -35,6 +36,7 @@ class App extends React.Component {
         if (response.errors) {alert(response.errors)}
       else {
         this.setState({ currentUser: response })
+        this.props.loggedIn(response)
         this.props.getMyMatches()
       }
     }
@@ -76,7 +78,7 @@ preferences = this.props.preferences.filter(preference => preference.user_id ===
     this.setState({ currentUser: null}
       , () => {
         localStorage.removeItem("user_id")
-      console.log("PROPS YO", this.props)}
+     }
     )
   }
 
@@ -188,18 +190,18 @@ preferences = this.props.preferences.filter(preference => preference.user_id ===
 
   weedChange = (e) => {
     this.setState({
-      weed: e.target.value
+      diet: e.target.value
     })
-  }
+    }
 
   kidsChange = (e) => {
     this.setState({
-      kids: e.target.value
+      diet: e.target.value
     })
   }
 
   handlePreferenceChanges = (newPreference) => {
-if (newPreference.id) {
+    if (newPreference.id) {
     fetch(`http://localhost:3000/api/v1/preferences/${newPreference.id}`,{
       method: 'PATCH',
       headers: {
@@ -257,10 +259,8 @@ if (newPreference.id) {
   }
 }
 
-
   render() {
     console.log("app props", this.props)
-
     return (
       <Router>
         <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
@@ -313,7 +313,8 @@ const mapStateToProps = state => {
   console.log("app state", state)
   return  { profiles: state.profiles,
             matches: state.matches,
-            preferences: state.preferences
+            preferences: state.preferences,
+            currentUser: state.currentUser
           };
 }
 

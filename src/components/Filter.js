@@ -45,7 +45,7 @@ class FilterContainer extends React.Component {
             <Link to="/editfilters">
                 <button className="ui button" 
             onClick={() => this.props.editPreferences(preference)}>Edit</button>
-              </Link>              </div>
+              </Link></div>
               <div className="content">
               <b>Location:</b> {preference.state ? preference.state : "No preference set"}
               </div>
@@ -55,7 +55,7 @@ class FilterContainer extends React.Component {
             <Link to="/editfilters">
                 <button className="ui button" 
             onClick={() => this.props.editPreferences(preference)}>Edit</button>
-              </Link>              </div>
+              </Link></div>
               <div className="content">
               <b>Religion:</b> {preference.religion ? preference.religion : "No preference set"}
               </div>
@@ -65,7 +65,7 @@ class FilterContainer extends React.Component {
             <Link to="/editfilters">
                 <button className="ui button" 
             onClick={() => this.props.editPreferences(preference)}>Edit</button>
-              </Link>              </div>
+              </Link></div>
               <div className="content">
               <b>Education Level:</b> {preference.education_level ? preference.education_level : "No preference set"}
               </div>
@@ -75,9 +75,9 @@ class FilterContainer extends React.Component {
             <Link to="/editfilters">
                 <button className="ui button" 
             onClick={() => this.props.editPreferences(preference)}>Edit</button>
-              </Link>              </div>
+              </Link></div>
               <div className="content">
-              <b>Parent:</b> {preference.kids === true ? "Yes" : "No"}
+              <b>Parent:</b> {preference.kids ? preference.kids : "No preference set"}
               </div>
             </div>
             <div className="item">
@@ -85,7 +85,7 @@ class FilterContainer extends React.Component {
             <Link to="/editfilters">
                 <button className="ui button" 
             onClick={() => this.props.editPreferences(preference)}>Edit</button>
-              </Link>              </div>
+              </Link></div>
               <div className="content">
               <b>Relationship Type:</b> {preference.relationship_type ? preference.relationship_type : "No preference set"}
               </div>
@@ -103,9 +103,9 @@ class FilterContainer extends React.Component {
             <Link to="/editfilters">
                 <button className="ui button" 
             onClick={() => this.props.editPreferences(preference)}>Edit</button>
-              </Link>              </div>
+              </Link></div>
               <div className="content">
-              <b>Owns pets:</b> {preference.have_pets === true ? "Yes" : "No"}
+              <b>Owns pets:</b> {preference.have_pets ? preference.have_pets : "No preference set"}
               </div>
             </div>
             <div className="item">
@@ -113,7 +113,7 @@ class FilterContainer extends React.Component {
             <Link to="/editfilters">
                 <button className="ui button" 
             onClick={() => this.props.editPreferences(preference)}>Edit</button>
-              </Link>              </div>
+              </Link></div>
               <div className="content">
               <b>Diet:</b> {preference.diet ? preference.diet : "No preference set"}
               </div>
@@ -133,7 +133,7 @@ class FilterContainer extends React.Component {
                 <br></br>
                 <b>Drinking:</b> {preference.drinks ? preference.drinks : "No preference set"}
                 <br></br>
-                <b>4/20 Friendly:</b> {preference.weed === true ? "Yes" : "No"}
+                <b>4/20 Friendly:</b> {preference.weed ? preference.weed : "No preference set"}
                 <br></br>
                 <b>Other drugs:</b> {preference.drugs ? preference.drugs : "No preference set"}
               </div>

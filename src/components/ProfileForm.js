@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { loggedIn } from '../actions';
+
 
 class ProfileForm extends React.Component {
 
@@ -12,10 +14,7 @@ class ProfileForm extends React.Component {
         username: '',
         password: '',
         password_confirmation: '',
-        firstPartComplete: false,
-        secondPartComplete: false,
-        thirdPartComplete: false,
-        fourthPartComplete: false,
+        page: 1,
         name: '',
         email: '',
         avatar: '',
@@ -56,16 +55,20 @@ class ProfileForm extends React.Component {
         ideal_friday: '',
     }
 
+    goToFirstPage = () => {
+        this.setState({page: 1 })
+        }
+
     goToSecondPage = () => {
-        this.setState({firstPartComplete: true})
+        this.setState({page: 2})
     }
 
     goToThirdPage = () => {
-        this.setState({secondPartComplete: true, firstPartComplete: true})
+        this.setState({page: 3})
     }
 
     goToFourthPage = () => {
-        this.setState({thirdPartComplete: true, secondPartComplete: true, firstPartComplete: true
+        this.setState({page: 4
         })
     }
 
@@ -74,11 +77,13 @@ class ProfileForm extends React.Component {
     }
 
     handleText = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+        this.setState({[e.target.name]: e.target.value}, console.log(e.target.value))
     }
 
-    userBasicInfo = (user) => {
+    userBasicInfo = (user, e) => {
         console.log("LOOK HERE", user)
+        console.log(this.state)
+        e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -96,11 +101,15 @@ class ProfileForm extends React.Component {
                 state: this.state.state
             })   
         })
+        .then(response => response.json())
+        .then(response => console.log(response))
         this.goToSecondPage()
-    }
+        }
 
-    userPageTwoInfo = (user) => {
+    userPageTwoInfo = (user, e) => {
         console.log("LOOK HERE", user)
+        console.log(this.state)
+        e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -123,10 +132,16 @@ class ProfileForm extends React.Component {
                 have_pets: this.state.have_pets
             })   
         })
+        .then(response => response.json())
+        .then(response => console.log(response))
         this.goToThirdPage()
+
     }
 
-    userPageThreeInfo = (user) => {
+    userPageThreeInfo = (user, e) => {
+        console.log(this.state)
+        console.log("LOOK HERE", user)
+        e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -145,10 +160,17 @@ class ProfileForm extends React.Component {
                 ideal_friday: this.state.ideal_friday
             })   
         })
+        .then(response => response.json())
+        .then(response => console.log(response))
         this.goToFourthPage()
+        // this.props.setUser(this.props.user)
+        // this.goToFourthPage()
+        // debugger
     }
 
-    userPageFourInfo = (user) => {
+    userPageFourInfo = (user, e) => {
+        e.preventDefault()
+        console.log(this.state)
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -166,26 +188,26 @@ class ProfileForm extends React.Component {
                 music: this.state.music
             })   
         })
-        // this.props.history.push('/myprofile')
+        .then(response => response.json())
+        .then(response => console.log(response))
+        this.props.history.push('/users')
+        // this.props.loggedIn(this.props.user.id)
     }
 
   render() {
-      console.log("page 1 complete", this.state.firstPartComplete)
-      console.log("page 2 complete", this.state.secondPartComplete)
-      console.log("page 3 complete", this.state.thirdPartComplete)
-      console.log("page 4 complete", this.state.fourthPartComplete)
       console.log("USER", this.props.user)
-      console.log(this.state.name)
-       if (this.state.firstPartComplete === false && this.state.secondPartComplete === false && this.state.thirdPartComplete === false && this.state.fourthPartComplete === false) {
+      console.log("PROFILE FORM PROPS",this.props)
+    //   console.log(this.state.name)
+       if (this.state.page === 1) {
         return (
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form" >
-                     <button className="ui basic button right floated" onClick={this.goToFourthPage}> Go to fourth page
+                <form className="ui form" onSubmit={(e) => this.userBasicInfo(this.props.user, e)}>
+                     <button className="ui basic button right floated" type="button" onClick={this.goToFourthPage}> Go to fourth page
                      </button>              
-                     <button className="ui basic button right floated" onClick={this.goToThirdPage}> Go to third page
+                     <button className="ui basic button right floated" type="button" onClick={this.goToThirdPage}> Go to third page
                      </button> 
-                     <button className="ui basic button right floated" onClick={this.goToSecondPage}> Go to second page
+                     <button className="ui basic button right floated" type="button" onClick={this.goToSecondPage}> Go to second page
                      </button>   
                      <br></br>
                      <br></br>
@@ -289,29 +311,30 @@ class ProfileForm extends React.Component {
                             </div>
                             </div>
                 </div>
-                <button className="ui basic button right floated" type="submit" 
-                onClick={() => this.userBasicInfo(this.props.user)}>
+                <input type="submit" value="Submit" ></input>
+                </form>
+                {/* <button className="ui basic button right floated" type="button" 
+                onClick={this.goToSecondPage}>
                 Next Page
-                </button>
+                </button> */}
                 <Link to={`/`}>
-                <button className="ui basic pink button left floated">
+                <button className="ui basic pink button left floated" type="button">
                 Go Back
                 </button>
                 </Link>
-                </form>
             </div>
         </div>
         )} 
     
     //end of first page
     
-    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === false) 
+    else if (this.state.page === 2) 
     //second page starts here
         { return (
             <div className="ui container grid">
                 <div className="ui row">
                     <form className="ui form" 
-                    // onSubmit={() => this.userPageTwoInfo(this.props.user)}
+                    onSubmit={(e) => this.userPageTwoInfo(this.props.user, e)}
                     >
                         <h4 className="ui dividing header">About Me</h4>
                             <div className="field">
@@ -325,7 +348,7 @@ class ProfileForm extends React.Component {
                                         <option value="Dating">Dating</option>
                                         <option value="Friendship">Friendship</option>
                                         <option value="Hookups">Hookups</option>
-                                        <option value="Long-Term Relationshp">Long-Term Relationshp</option>
+                                        <option value="Long-Term Relationship">Long-Term Relationship</option>
                                         <option value="Marriage">Marriage</option>
                                         <option value="Not Sure">Not Sure</option>
                                         <option value="Unspecified">Unspecified</option>
@@ -503,23 +526,27 @@ class ProfileForm extends React.Component {
                                 </div>
                                 </div>
                             </div>
-                        <button className="ui basic button right floated" type="submit" onClick={() => this.userPageTwoInfo(this.props.user)}>
+                            <input type="submit" value="Submit" ></input>
+
+                        {/* <button className="ui basic button right floated" type="submit" onClick={this.goToThirdPage}>
                             Next Page
+                        </button> */}
+                        </form>
+                        <button className="ui basic pink button left floated" type="button" onClick={this.goToFirstPage}>
+                        Go Back
                         </button>
-                        {/* <input type="submit" value="Submit" /> */}
-                    </form>
                 </div>
             </div>
         )}
 //second page ends here, third page starts
-    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true && this.state.thirdPartComplete === false) 
+    else if (this.state.page === 3) 
     { 
         // {this.windowScroll()}             
     return  (  
         <div className="ui container grid">
             <div className="ui row">
                 <form className="ui form" 
-                // onSubmit={() => this.userPageThreeInfo(this.props.user)}
+                onSubmit={(e) => this.userPageThreeInfo(this.props.user, e)}
                 >
                     <h4 className="ui dividing header">More About Me!</h4>
                         <div className="field">
@@ -600,11 +627,11 @@ class ProfileForm extends React.Component {
                                 <label>Are you an extrovert or an introvert?</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="extrovert_introvert" value={this.state.extrovert_introvert}>
                                     <option value="">Please answer</option>
-                                    <option value="A little of both">A little of both</option>
                                     <option value="Extrovert">Extrovert</option>
                                     <option value="Introvert">Introvert</option>
                                     <option value="Depends on who you ask">Depends on who you ask</option>
                                     <option value="Somewhere in the middle">Somewhere in the middle</option>
+                                    <option value="Not sure">Not sure</option>
                                 </select>
                             </div>
                     </div>
@@ -633,23 +660,32 @@ class ProfileForm extends React.Component {
                                     <option value="Trying a new restaurant">Trying a new restaurant</option>
                                     <option value="Game night">Game night</option>
                                 </select>
-                            </div>
-                    </div>
-                        <button className="ui basic button right floated" type="submit" onClick={() => this.userPageThreeInfo(this.props.user)}>
+                            </div> 
+                            </div> 
+
+                        {/* <button className="ui basic button right floated" type="submit" onClick={this.goToFourthPage}>
                             Next Page
+                        </button> */}
+                        <input type="submit" value="Submit"/>
+                     </form>
+                        <button className="ui basic pink button left floated" type="button" onClick={this.goToSecondPage}>
+                        Go Back
                         </button>
-                    </form>
-                </div>
+            </div>
             </div>
         )}
-//third page ends here, fourth page starts
-    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true && this.state.thirdPartComplete === true && this.state.fourthPartComplete === false) 
+//third page ends here, fourth page starts 
+    else if 
+    (this.state.page === 4) 
     { 
         // {this.windowScroll()}             
     return  (  
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form"> 
+            <button className="ui basic pink button left floated" type="button" onClick={this.goToThirdPage}>
+                Go Back
+                </button>
+                <form className="ui form" onSubmit={(e) => this.userPageFourInfo(this.props.user, e)}> 
                     <h4 className="ui dividing header">More About Me!</h4>
                         <div className="field"></div>
 
@@ -778,7 +814,8 @@ class ProfileForm extends React.Component {
                             </div>
                     </div>     
                      <button className="ui basic button right floated" type="submit" 
-                        onClick={() => this.userPageFourInfo(this.props.user)}>
+                        // onClick={() => this.userPageFourInfo(this.props.user)}
+                        >
                     Submit Profile
                 </button>
                 </form>
@@ -792,7 +829,8 @@ const mapStateToProps = state => {
     console.log("Profile form state", state)
     return  { 
         // userBasicInfo: state.userBasicInfo,
-                currentUser: state.currentUser};
+                currentUser: state.currentUser,
+                };
   }
 
 // const mapDispatchToProps = dispatch => {
@@ -801,4 +839,4 @@ const mapStateToProps = state => {
 //     };
 //   }
 
-  export default connect(mapStateToProps)(ProfileForm);
+  export default connect(mapStateToProps, {loggedIn})(ProfileForm);

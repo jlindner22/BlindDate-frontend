@@ -61,7 +61,7 @@ class UserDetail extends React.Component {
             <br></br>
             <br></br>
             <button className="ui pink button"
-            onClick={this.toggleInfo}> See more about me! </button>
+            onClick={this.toggleInfo}> {this.state.clickedInfoButton === false ? "See more about me!" : "See less about me!"}</button>
             <br></br>    
             <br></br>          
             <div>

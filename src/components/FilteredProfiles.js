@@ -14,7 +14,7 @@ class FilteredProfiles extends React.Component {
         let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
         if (myPreferences.length > 0){
         let prefState = myPreferences[0]
-        let filtersOn = this.props.profiles.filter(prof => prof.gender == prefState.gender && prof.age <= prefState.maximum_age && prof.age >= prefState.minimum_age && prof.diet === prefState.diet && prof.religion === prefState.religion && prof.education_level === prefState.education_level && prof.kids === prefState.kids && prof.relationship_type === prefState.relationship_type && prof.politics === prefState.politics && prof.have_pets === prefState.have_pets && prof.smokes === prefState.smokes && prof.drinks === prefState.drinks && prof.weed === prefState.weed && prof.drugs === prefState.drugs && prof.state == prefState.state)
+        let filtersOn = this.props.profiles.filter(prof => prof.gender === prefState.gender && prof.age <= prefState.maximum_age && prof.age >= prefState.minimum_age && prof.diet === prefState.diet && prof.religion === prefState.religion && prof.education_level === prefState.education_level && prof.kids === prefState.kids && prof.relationship_type === prefState.relationship_type && prof.politics === prefState.politics && prof.have_pets === prefState.have_pets && prof.smokes === prefState.smokes && prof.drinks === prefState.drinks && prof.weed === prefState.weed && prof.drugs === prefState.drugs && prof.state === prefState.state)
         if (filtersOn.length > 0) {
     return (this.props.preferences && filtersOn.map(profile => {
         return (

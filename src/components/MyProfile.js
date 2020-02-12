@@ -1,25 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { loggedIn } from '../actions';
+
 
 class MyProfile extends React.Component {
 
     state = {
-        moreButton: false
+        moreButton: false,
+        profileInfo: this.props.currentUser
     }
 
     componentDidMount() {
-        window.scrollTo(0, 0)
+      window.scrollTo(0, 0)
+      // this.props.getAllUsers()
+      if (this.props.currentUser){
+      fetch(`http://localhost:3000/api/v1/users/${this.props.currentUser.id}`)
+       .then(response => response.json())
+       .then(response => this.setState({ profileInfo: response}))
+      } else {return null}
       }
 
-      toggleInfo = () => {
-        this.setState({
-            moreButton: !this.state.moreButton
-        })
-      }
+    toggleInfo = () => {
+      this.setState({
+          moreButton: !this.state.moreButton
+      })
+    }
 
     render() {
       console.log("my profile props", this.props)
-        let props = this.props.currentUser
+        let props = this.state.profileInfo
         let noCollege = "Some High School" || "High School Diploma/GED";
       console.log("Hi JEN", props)
         if (props) {
@@ -54,7 +63,7 @@ class MyProfile extends React.Component {
             <br></br>
             <br></br>
             <button className="ui pink button"
-            onClick={this.toggleInfo}> See more about me! </button>
+            onClick={this.toggleInfo}> {this.state.moreButton === false ? "See more about me!" : "See less about me!"}</button>
             <br></br>
             <br></br>
             <div>
@@ -123,7 +132,8 @@ class MyProfile extends React.Component {
 
 const mapStateToProps = state => {
     console.log("my profile state", state)
-    return  { currentUser: state.currentUser};
+    return  { currentUser: state.currentUser,
+              profiles: state.profiles};
   }
 
-export default connect(mapStateToProps)(MyProfile);
+export default connect(mapStateToProps, { loggedIn})(MyProfile);

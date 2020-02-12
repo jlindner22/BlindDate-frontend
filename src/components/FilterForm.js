@@ -11,39 +11,38 @@ class FilterForm extends React.Component {
     preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
 
     state = {
-        gender: '',
-        minimum_age: '',
-        maximum_age: '',
-        city: '',
-        state: '',
-        smokes: '',
-        drinks: '',
-        weed: '',
-        drugs: '',
-        religion: '',
-        education_level: '',
-        kids: '',
-        relationship_type: '',
-        politics: '',
-        have_pets: '',
-        diet: '',
+        gender: 'All',
+        minimum_age: 'All',
+        maximum_age: 'All',
+        city: 'All',
+        state: 'All',
+        smokes: 'All',
+        drinks: 'All',
+        weed: 'All',
+        drugs: 'All',
+        religion: 'All',
+        education_level: 'All',
+        kids: 'All',
+        relationship_type: 'All',
+        politics: 'All',
+        have_pets: 'All',
+        diet: 'All',
         id: ''
       }
 
-      handleChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-          })
-      }
+      // handleChange = e => {
+      //   this.setState({
+      //       [e.target.name]: e.target.value
+      //     })
+      // }
 
     renderPreferences = () => {
         let preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
         return preferences
     }
 
-
     render() {
-    console.log("filter form state", this.state.gender)
+    console.log("filter form state", this.props.gender)
     console.log("filter form props", this.props)
     if (this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id).length > 0) {
     return (this.props.preferences && this.renderPreferences(this.props.preferences).map(preference => { 
@@ -54,10 +53,10 @@ class FilterForm extends React.Component {
                    <h1>Select your Preferences</h1> 
               <br></br>
               Gender:
-              <select className="ui fluid dropdown" name="gender" onChange={this.props.genderChange} value={this.props.gender}>
-                                <option value="All">All</option>
-                                <option value="Female">Female</option>
-                                <option value="Male">Male</option>
+              <select className="ui fluid dropdown" name="gender" onChange={this.props.genderChange} value={this.props.gender} >
+                  <option defaultChecked value ="All">All</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
                 </select>
                 <br></br>
               Minimum Age:
@@ -69,170 +68,170 @@ class FilterForm extends React.Component {
                   <br></br>
               State:
               <select className="ui fluid dropdown" name="state" onChange={this.props.stateChange} value={this.props.state}>
-                                <option value="All">All</option>
-                                <option value="Alabama">Alabama</option>
-                                <option value="Alaska">Alaska</option>
-                                <option value="Arizona">Arizona</option>
-                                <option value="Arkansas">Arkansas</option>
-                                <option value="California">California</option>
-                                <option value="Colorado">Colorado</option>
-                                <option value="Connecticut">Connecticut</option>
-                                <option value="Delaware">Delaware</option>
-                                <option value="District Of Columbia">District Of Columbia</option>
-                                <option value="Florida">Florida</option>
-                                <option value="Georgia">Georgia</option>
-                                <option value="Hawaii">Hawaii</option>
-                                <option value="Idaho">Idaho</option>
-                                <option value="Illinois">Illinois</option>
-                                <option value="Indiana">Indiana</option>
-                                <option value="Iowa">Iowa</option>
-                                <option value="Kansas">Kansas</option>
-                                <option value="Kentucky">Kentucky</option>
-                                <option value="Louisiana">Louisiana</option>
-                                <option value="Maine">Maine</option>
-                                <option value="Maryland">Maryland</option>
-                                <option value="Massachusetts">Massachusetts</option>
-                                <option value="Michigan">Michigan</option>
-                                <option value="Minnesota">Minnesota</option>
-                                <option value="Mississippi">Mississippi</option>
-                                <option value="Missouri">Missouri</option>
-                                <option value="Montana">Montana</option>
-                                <option value="Nebraska">Nebraska</option>
-                                <option value="Nevada">Nevada</option>
-                                <option value="New Hampshire">New Hampshire</option>
-                                <option value="New Jersey">New Jersey</option>
-                                <option value="New Mexico">New Mexico</option>
-                                <option value="New York">New York</option>
-                                <option value="North Carolina">North Carolina</option>
-                                <option value="orth Dakota">North Dakota</option>
-                                <option value="Ohio">Ohio</option>
-                                <option value="Oklahoma">Oklahoma</option>
-                                <option value="Oregon">Oregon</option>
-                                <option value="Pennsylvania">Pennsylvania</option>
-                                <option value="hode Island">Rhode Island</option>
-                                <option value="South Carolina">South Carolina</option>
-                                <option value="South Dakota">South Dakota</option>
-                                <option value="Tennessee">Tennessee</option>
-                                <option value="Texas">Texas</option>
-                                <option value="Utah">Utah</option>
-                                <option value="Vermont">Vermont</option>
-                                <option value="Virginia">Virginia</option>
-                                <option value="Washington">Washington</option>
-                                <option value="West Virginia">West Virginia</option>
-                                <option value="Wisconsin">Wisconsin</option>
-                                <option value="Wyoming">Wyoming</option>
+                  <option value="All">All</option>
+                  <option value="Alabama">Alabama</option>
+                  <option value="Alaska">Alaska</option>
+                  <option value="Arizona">Arizona</option>
+                  <option value="Arkansas">Arkansas</option>
+                  <option value="California">California</option>
+                  <option value="Colorado">Colorado</option>
+                  <option value="Connecticut">Connecticut</option>
+                  <option value="Delaware">Delaware</option>
+                  <option value="District Of Columbia">District Of Columbia</option>
+                  <option value="Florida">Florida</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Hawaii">Hawaii</option>
+                  <option value="Idaho">Idaho</option>
+                  <option value="Illinois">Illinois</option>
+                  <option value="Indiana">Indiana</option>
+                  <option value="Iowa">Iowa</option>
+                  <option value="Kansas">Kansas</option>
+                  <option value="Kentucky">Kentucky</option>
+                  <option value="Louisiana">Louisiana</option>
+                  <option value="Maine">Maine</option>
+                  <option value="Maryland">Maryland</option>
+                  <option value="Massachusetts">Massachusetts</option>
+                  <option value="Michigan">Michigan</option>
+                  <option value="Minnesota">Minnesota</option>
+                  <option value="Mississippi">Mississippi</option>
+                  <option value="Missouri">Missouri</option>
+                  <option value="Montana">Montana</option>
+                  <option value="Nebraska">Nebraska</option>
+                  <option value="Nevada">Nevada</option>
+                  <option value="New Hampshire">New Hampshire</option>
+                  <option value="New Jersey">New Jersey</option>
+                  <option value="New Mexico">New Mexico</option>
+                  <option value="New York">New York</option>
+                  <option value="North Carolina">North Carolina</option>
+                  <option value="orth Dakota">North Dakota</option>
+                  <option value="Ohio">Ohio</option>
+                  <option value="Oklahoma">Oklahoma</option>
+                  <option value="Oregon">Oregon</option>
+                  <option value="Pennsylvania">Pennsylvania</option>
+                  <option value="hode Island">Rhode Island</option>
+                  <option value="South Carolina">South Carolina</option>
+                  <option value="South Dakota">South Dakota</option>
+                  <option value="Tennessee">Tennessee</option>
+                  <option value="Texas">Texas</option>
+                  <option value="Utah">Utah</option>
+                  <option value="Vermont">Vermont</option>
+                  <option value="Virginia">Virginia</option>
+                  <option value="Washington">Washington</option>
+                  <option value="West Virginia">West Virginia</option>
+                  <option value="Wisconsin">Wisconsin</option>
+                  <option value="Wyoming">Wyoming</option>
                 </select>
                 <br></br>
                 Religion:
                 <select className="ui fluid dropdown" name="religion" onChange={this.props.religionChange} value={this.props.religion}>
-                                <option value="All">All</option>
-                                <option value="Agnostic">Agnostic</option>
-                                <option value="Atheist">Atheist</option>
-                                <option value="Buddhist">Buddhist</option>
-                                <option value="Catholic">Catholic</option>
-                                <option value="Christian">Christian</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Jewish">Jewish</option>
-                                <option value="Other">Other</option>
-                                <option value="Spiritual">Spiritual</option>
-                                <option value="Prefer Not to Say">Prefer Not to Say</option>
+                  <option value="All">All</option>
+                  <option value="Agnostic">Agnostic</option>
+                  <option value="Atheist">Atheist</option>
+                  <option value="Buddhist">Buddhist</option>
+                  <option value="Catholic">Catholic</option>
+                  <option value="Christian">Christian</option>
+                  <option value="Hindu">Hindu</option>
+                  <option value="Jewish">Jewish</option>
+                  <option value="Other">Other</option>
+                  <option value="Spiritual">Spiritual</option>
+                  <option value="Prefer Not to Say">Prefer Not to Say</option>
                   </select>
                   <br></br>
               Education level:
               <select className="ui fluid dropdown" name="education_level" onChange={this.props.educationLevelChange} value={this.props.education_level}>
-                                <option value="All">All</option>
-                                <option value="Some High School">Some High School</option>
-                                <option value="High School Diploma/GED">High School Diploma/GED</option>
-                                <option value="Some College">Some College</option>
-                                <option value="Associate's Degree">Associate's Degree</option>
-                                <option value="Bachelor's Degree">Bachelor's Degree</option>
-                                <option value="Master's Degree or Higher">Master's Degree or Higher</option>
+                  <option value="All">All</option>
+                  <option value="Some High School">Some High School</option>
+                  <option value="High School Diploma/GED">High School Diploma/GED</option>
+                  <option value="Some College">Some College</option>
+                  <option value="Associate's Degree">Associate's Degree</option>
+                  <option value="Bachelor's Degree">Bachelor's Degree</option>
+                  <option value="Master's Degree or Higher">Master's Degree or Higher</option>
                 </select>
                 <br></br>
                 Parent:
                 <select className="ui fluid dropdown" name="kids" onChange={this.props.kidsChange} value={this.props.kids}>
-                                  <option value="All">All</option>
-                                  <option value="Yes">Yes</option>
-                                  <option value="No">No</option>
+                  <option value="All">All</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
                   </select>
                   <br></br>
               Relationship Type:
               <select className="ui fluid dropdown" name="relationship_type" onChange={this.props.relationshipTypeChange} value={this.props.relationship_type}>
-                                <option value="All">All</option>
-                                <option value="Business/Networking">Business/Networking</option>
-                                <option value="Companion">Companion</option>
-                                <option value="Dating">Dating</option>
-                                <option value="Friendship">Friendship</option>
-                                <option value="Hookups">Hookups</option>
-                                <option value="Long-Term Relationshp">Long-Term Relationshp</option>
-                                <option value="Marriage">Marriage</option>
-                                <option value="Not Sure">Not Sure</option>
-                                <option value="Unspecified">Unspecified</option>
+                  <option value="All">All</option>
+                  <option value="Business/Networking">Business/Networking</option>
+                  <option value="Companion">Companion</option>
+                  <option value="Dating">Dating</option>
+                  <option value="Friendship">Friendship</option>
+                  <option value="Hookups">Hookups</option>
+                  <option value="Long-Term Relationshp">Long-Term Relationshp</option>
+                  <option value="Marriage">Marriage</option>
+                  <option value="Not Sure">Not Sure</option>
+                  <option value="Unspecified">Unspecified</option>
                 </select>
                 <br></br>
                 Political Views:
                 <select className="ui fluid dropdown" name="politics" onChange={this.props.politicsChange} value={this.props.politics}>
-                                <option value="All">All</option>
-                                <option value="Conservative">Conservative</option>
-                                <option value="Liberal">Liberal</option>
-                                <option value="Moderate">Moderate</option>
-                                <option value="Other">Other</option>
-                                <option value="Prefer Not to Say">Prefer Not to Say</option>
+                  <option value="All">All</option>
+                  <option value="Conservative">Conservative</option>
+                  <option value="Liberal">Liberal</option>
+                  <option value="Moderate">Moderate</option>
+                  <option value="Other">Other</option>
+                  <option value="Prefer Not to Say">Prefer Not to Say</option>
                   </select>
                   <br></br>
               Owns pets:
               <select className="ui fluid dropdown" name="have_pets" onChange={this.props.havePetsChange} value={this.props.have_pets}>
-                                <option value="All">All</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                                <option value="Not right now, maybe in the future">Not right now, maybe in the future</option>
+                  <option value="All">All</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Not right now, maybe in the future">Not right now, maybe in the future</option>
                 </select>
                 <br></br>
                 Diet:
                 <select className="ui fluid dropdown" name="diet" onChange={this.props.dietChange} value={this.props.diet}>
-                                <option value="All">All</option>
-                                <option value="Gluten-free">Gluten-free</option>
-                                <option value="Kosher">Kosher</option>
-                                <option value="Nothing special, I'll eat anything">Nothing special, I'll eat anything</option>
-                                <option value="Pescatarian">Pescatarian</option>
-                                <option value="Vegetarian">Vegetarian</option>
-                                <option value="Vegan">Vegan</option>
+                  <option value="All">All</option>
+                  <option value="Gluten-free">Gluten-free</option>
+                  <option value="Kosher">Kosher</option>
+                  <option value="Nothing special, I'll eat anything">Nothing special, I'll eat anything</option>
+                  <option value="Pescatarian">Pescatarian</option>
+                  <option value="Vegetarian">Vegetarian</option>
+                  <option value="Vegan">Vegan</option>
                   </select>
                   <br></br>
                 Smoking:
                 <select className="ui fluid dropdown" name="smokes" onChange={this.props.smokesChange} value={this.props.smokes}>
-                                <option value="All">All</option>
-                                <option value="Often">Often</option>
-                                <option value="Sometimes">Sometimes</option>
-                                <option value="Trying to quit">Trying to quit</option>
-                                <option value="Never">Never</option>
-                                <option value="Prefer Not to Say">Prefer Not to Say</option>
+                  <option value="All">All</option>
+                  <option value="Often">Often</option>
+                  <option value="Sometimes">Sometimes</option>
+                  <option value="Trying to quit">Trying to quit</option>
+                  <option value="Never">Never</option>
+                  <option value="Prefer Not to Say">Prefer Not to Say</option>
                   </select>
                   <br></br>
                 Drinking:
                 <select className="ui fluid dropdown" name="drinks" onChange={this.props.drinksChange} value={this.props.drinks}>
-                                <option value="All">All</option>
-                                <option value="A few times a week">A few times a week</option>
-                                <option value="Socially">Socially</option>
-                                <option value="Rarely">Rarely</option>
-                                <option value="Never">Never</option>
-                                <option value="Prefer Not to Say">Prefer Not to Say</option>
+                  <option value="All">All</option>
+                  <option value="A few times a week">A few times a week</option>
+                  <option value="Socially">Socially</option>
+                  <option value="Rarely">Rarely</option>
+                  <option value="Never">Never</option>
+                  <option value="Prefer Not to Say">Prefer Not to Say</option>
                   </select>
                   <br></br>
                 4/20 Friendly:
                 <select className="ui fluid dropdown" name="weed" onChange={this.props.weedChange} value={this.props.weed}>
-                                <option value="All">All</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
+                  <option value="All">All</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
                   </select>
                   <br></br>
                 Other Drugs:
                 <select className="ui fluid dropdown" name="drugs" onChange={this.props.drugsChange} value={this.props.drugs}>
-                                <option value="All">All</option>
-                                <option value="Often">Often</option>
-                                <option value="Socially">Socially</option>
-                                <option value="Never">Never</option>
-                                <option value="Prefer Not to Say">Prefer Not to Say</option>
+                  <option value="All">All</option>
+                  <option value="Often">Often</option>
+                  <option value="Socially">Socially</option>
+                  <option value="Never">Never</option>
+                  <option value="Prefer Not to Say">Prefer Not to Say</option>
                   </select>
                     <br></br>
                     <br></br>
@@ -255,9 +254,9 @@ class FilterForm extends React.Component {
               <br></br>
               Gender:
               <select className="ui fluid dropdown" name="gender" onChange={this.props.genderChange} value={this.props.gender}>
-                                <option value="All">All</option>
-                                <option value="Female">Female</option>
-                                <option value="Male">Male</option>
+                  <option value="All">All</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
                 </select>
                 <br></br>
                 Minimum Age:
@@ -269,32 +268,32 @@ class FilterForm extends React.Component {
                   <br></br>
               State:
               <select className="ui fluid dropdown" name="state" onChange={this.props.stateChange} value={this.props.state}>
-                                <option value="All">All</option>
-                                <option value="AL">Alabama</option>
-                                <option value="AK">Alaska</option>
-                                <option value="AZ">Arizona</option>
-                                <option value="AR">Arkansas</option>
-                                <option value="CA">California</option>
-                                <option value="CO">Colorado</option>
-                                <option value="CT">Connecticut</option>
-                                <option value="DE">Delaware</option>
-                                <option value="DC">District Of Columbia</option>
-                                <option value="FL">Florida</option>
-                                <option value="GA">Georgia</option>
-                                <option value="HI">Hawaii</option>
-                                <option value="ID">Idaho</option>
-                                <option value="IL">Illinois</option>
-                                <option value="IN">Indiana</option>
-                                <option value="IA">Iowa</option>
-                                <option value="KS">Kansas</option>
-                                <option value="KY">Kentucky</option>
-                                <option value="LA">Louisiana</option>
-                                <option value="ME">Maine</option>
-                                <option value="MD">Maryland</option>
-                                <option value="MA">Massachusetts</option>
-                                <option value="MI">Michigan</option>
-                                <option value="MN">Minnesota</option>
-                                <option value="MS">Mississippi</option>
+                  <option value="All">All</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
                                 <option value="MO">Missouri</option>
                                 <option value="MT">Montana</option>
                                 <option value="NE">Nebraska</option>
