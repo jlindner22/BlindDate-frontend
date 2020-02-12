@@ -1,21 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { loggedIn } from '../actions';
+
 
 class ProfileForm extends React.Component {
 
     componentDidMount() {
-        this.windowScroll()
-      }
+        window.scrollTo(0, 0)
+    }
     
     state = {
         username: '',
         password: '',
         password_confirmation: '',
-        firstPartComplete: false,
-        secondPartComplete: false,
-        thirdPartComplete: false,
-        fourthPartComplete: false,
+        page: 1,
         name: '',
         email: '',
         avatar: '',
@@ -54,32 +53,36 @@ class ProfileForm extends React.Component {
         music: '',
         play_instrument: '',
         ideal_friday: '',
-        myProfile: []
+    }
+
+    goToFirstPage = () => {
+        this.setState({page: 1 })
+        window.scrollTo(0, 0)
     }
 
     goToSecondPage = () => {
-        this.setState({firstPartComplete: true})
+        this.setState({page: 2})
+        window.scrollTo(0, 0)
     }
 
     goToThirdPage = () => {
-        this.setState({secondPartComplete: true, firstPartComplete: true})
+        this.setState({page: 3})
+        window.scrollTo(0, 0)
     }
 
     goToFourthPage = () => {
-        this.setState({thirdPartComplete: true, secondPartComplete: true, firstPartComplete: true
-        })
-    }
-
-    windowScroll = () => {
+        this.setState({page: 4})
         window.scrollTo(0, 0)
     }
 
     handleText = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+        this.setState({[e.target.name]: e.target.value}, console.log(e.target.value))
     }
 
-    userBasicInfo = (user) => {
+    userBasicInfo = (user, e) => {
         console.log("LOOK HERE", user)
+        console.log(this.state)
+        e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -97,11 +100,15 @@ class ProfileForm extends React.Component {
                 state: this.state.state
             })   
         })
-        this.goToSecondPage()
-    }
+            .then(response => response.json())
+            .then(response => console.log(response))
+            this.goToSecondPage()
+        }
 
-    userPageTwoInfo = (user) => {
+    userPageTwoInfo = (user, e) => {
         console.log("LOOK HERE", user)
+        console.log(this.state)
+        e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -115,6 +122,7 @@ class ProfileForm extends React.Component {
                 drugs: this.state.drugs,
                 religion: this.state.religion,
                 occupation: this.state.occupation,
+                diet: this.state.diet,
                 college: this.state.college,
                 education_level: this.state.education_level,
                 kids: this.state.kids,
@@ -123,10 +131,15 @@ class ProfileForm extends React.Component {
                 have_pets: this.state.have_pets
             })   
         })
-        this.goToThirdPage()
+            .then(response => response.json())
+            .then(response => console.log(response))
+            this.goToThirdPage()
     }
 
-    userPageThreeInfo = (user) => {
+    userPageThreeInfo = (user, e) => {
+        console.log(this.state)
+        console.log("LOOK HERE", user)
+        e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -145,10 +158,13 @@ class ProfileForm extends React.Component {
                 ideal_friday: this.state.ideal_friday
             })   
         })
-        this.goToFourthPage()
+            .then(response => response.json())
+            .then(response => console.log(response))
+            this.goToFourthPage()
     }
 
-    userPageFourInfo = (user) => {
+    userPageFourInfo = (user, e) => {
+        e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -163,31 +179,33 @@ class ProfileForm extends React.Component {
                 cat_dog: this.state.cat_dog,
                 coffee_tea: this.state.coffee_tea,
                 night_out_in: this.state.night_out_in,
-                diet: this.state.diet,
                 music: this.state.music
             })   
         })
-        // this.props.history.push('/myprofile')
+            .then(response => response.json())
+            .then(response => console.log(response))
+            this.props.history.push('/users')
     }
 
   render() {
-      console.log("page 1 complete", this.state.firstPartComplete)
-      console.log("page 2 complete", this.state.secondPartComplete)
-      console.log("page 3 complete", this.state.thirdPartComplete)
-      console.log("page 4 complete", this.state.fourthPartComplete)
       console.log("USER", this.props.user)
-      console.log(this.state.name)
-       if (this.state.firstPartComplete === false && this.state.secondPartComplete === false && this.state.thirdPartComplete === false && this.state.fourthPartComplete === false) {
+      console.log("PROFILE FORM PROPS",this.props)
+       if (this.state.page === 1) {
         return (
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form" >
-                     <button className="ui basic button right floated" onClick={this.goToFourthPage}> Go to fourth page
+                <form className="ui form" onSubmit={(e) => this.userBasicInfo(this.props.user, e)}>
+                     <button className="ui basic button right floated" type="button" onClick={this.goToFourthPage}> Go to fourth page
                      </button>              
-                     <button className="ui basic button right floated" onClick={this.goToThirdPage}> Go to third page
+                     <button className="ui basic button right floated" type="button" onClick={this.goToThirdPage}> Go to third page
                      </button> 
-                     <button className="ui basic button right floated" onClick={this.goToSecondPage}> Go to second page
+                     <button className="ui basic button right floated" type="button" onClick={this.goToSecondPage}> Go to second page
                      </button>   
+                     <Link to={`/`}>
+                    <button className="ui basic pink button left floated" type="button">
+                    Go Back
+                    </button>
+                </Link>
                      <br></br>
                      <br></br>
                     <h4 className="ui dividing header">Basic Information</h4>
@@ -227,57 +245,57 @@ class ProfileForm extends React.Component {
                             </div>
                                 <select className="ui fluid dropdown" name="state" onChange={this.handleText} value={this.state.state}>
                                 <option value="">State</option>
-                                <option value="AL">Alabama</option>
-                                <option value="AK">Alaska</option>
-                                <option value="AZ">Arizona</option>
-                                <option value="AR">Arkansas</option>
-                                <option value="CA">California</option>
-                                <option value="CO">Colorado</option>
-                                <option value="CT">Connecticut</option>
-                                <option value="DE">Delaware</option>
-                                <option value="DC">District Of Columbia</option>
-                                <option value="FL">Florida</option>
-                                <option value="GA">Georgia</option>
-                                <option value="HI">Hawaii</option>
-                                <option value="ID">Idaho</option>
-                                <option value="IL">Illinois</option>
-                                <option value="IN">Indiana</option>
-                                <option value="IA">Iowa</option>
-                                <option value="KS">Kansas</option>
-                                <option value="KY">Kentucky</option>
-                                <option value="LA">Louisiana</option>
-                                <option value="ME">Maine</option>
-                                <option value="MD">Maryland</option>
-                                <option value="MA">Massachusetts</option>
-                                <option value="MI">Michigan</option>
-                                <option value="MN">Minnesota</option>
-                                <option value="MS">Mississippi</option>
-                                <option value="MO">Missouri</option>
-                                <option value="MT">Montana</option>
-                                <option value="NE">Nebraska</option>
-                                <option value="NV">Nevada</option>
-                                <option value="NH">New Hampshire</option>
-                                <option value="NJ">New Jersey</option>
-                                <option value="NM">New Mexico</option>
-                                <option value="NY">New York</option>
-                                <option value="NC">North Carolina</option>
-                                <option value="ND">North Dakota</option>
-                                <option value="OH">Ohio</option>
-                                <option value="OK">Oklahoma</option>
-                                <option value="OR">Oregon</option>
-                                <option value="PA">Pennsylvania</option>
-                                <option value="RI">Rhode Island</option>
-                                <option value="SC">South Carolina</option>
-                                <option value="SD">South Dakota</option>
-                                <option value="TN">Tennessee</option>
-                                <option value="TX">Texas</option>
-                                <option value="UT">Utah</option>
-                                <option value="VT">Vermont</option>
-                                <option value="VA">Virginia</option>
-                                <option value="WA">Washington</option>
-                                <option value="WV">West Virginia</option>
-                                <option value="WI">Wisconsin</option>
-                                <option value="WY">Wyoming</option>
+                                <option value="Alabama">Alabama</option>
+                                <option value="Alaska">Alaska</option>
+                                <option value="Arizona">Arizona</option>
+                                <option value="Arkansas">Arkansas</option>
+                                <option value="California">California</option>
+                                <option value="Colorado">Colorado</option>
+                                <option value="Connecticut">Connecticut</option>
+                                <option value="Delaware">Delaware</option>
+                                <option value="District Of Columbia">District Of Columbia</option>
+                                <option value="Florida">Florida</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Hawaii">Hawaii</option>
+                                <option value="Idaho">Idaho</option>
+                                <option value="Illinois">Illinois</option>
+                                <option value="Indiana">Indiana</option>
+                                <option value="Iowa">Iowa</option>
+                                <option value="Kansas">Kansas</option>
+                                <option value="Kentucky">Kentucky</option>
+                                <option value="Louisiana">Louisiana</option>
+                                <option value="Maine">Maine</option>
+                                <option value="Maryland">Maryland</option>
+                                <option value="Massachusetts">Massachusetts</option>
+                                <option value="Michigan">Michigan</option>
+                                <option value="Minnesota">Minnesota</option>
+                                <option value="Mississippi">Mississippi</option>
+                                <option value="Missouri">Missouri</option>
+                                <option value="Montana">Montana</option>
+                                <option value="Nebraska">Nebraska</option>
+                                <option value="Nevada">Nevada</option>
+                                <option value="New Hampshire">New Hampshire</option>
+                                <option value="New Jersey">New Jersey</option>
+                                <option value="New Mexico">New Mexico</option>
+                                <option value="New York">New York</option>
+                                <option value="North Carolina">North Carolina</option>
+                                <option value="orth Dakota">North Dakota</option>
+                                <option value="Ohio">Ohio</option>
+                                <option value="Oklahoma">Oklahoma</option>
+                                <option value="Oregon">Oregon</option>
+                                <option value="Pennsylvania">Pennsylvania</option>
+                                <option value="hode Island">Rhode Island</option>
+                                <option value="South Carolina">South Carolina</option>
+                                <option value="South Dakota">South Dakota</option>
+                                <option value="Tennessee">Tennessee</option>
+                                <option value="Texas">Texas</option>
+                                <option value="Utah">Utah</option>
+                                <option value="Vermont">Vermont</option>
+                                <option value="Virginia">Virginia</option>
+                                <option value="Washington">Washington</option>
+                                <option value="West Virginia">West Virginia</option>
+                                <option value="Wisconsin">Wisconsin</option>
+                                <option value="Wyoming">Wyoming</option>
                                 </select>
                             </div>
                     </div>
@@ -290,29 +308,23 @@ class ProfileForm extends React.Component {
                             </div>
                             </div>
                 </div>
-                <button className="ui basic button right floated" type="submit" 
-                onClick={() => this.userBasicInfo(this.props.user)}>
-                Next Page
-                </button>
-                <Link to={`/`}>
-                <button className="ui basic pink button left floated">
-                Go Back
-                </button>
-                </Link>
+                <input className="ui basic pink button right floated" type="submit" value="Next Page" ></input>
                 </form>
+                {/* <button className="ui basic button right floated" type="button" 
+                onClick={this.goToSecondPage}>
+                Next Page
+                </button> */}
             </div>
         </div>
         )} 
-    
     //end of first page
-    
-    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === false) 
+    else if (this.state.page === 2) 
     //second page starts here
         { return (
             <div className="ui container grid">
                 <div className="ui row">
                     <form className="ui form" 
-                    // onSubmit={() => this.userPageTwoInfo(this.props.user)}
+                    onSubmit={(e) => this.userPageTwoInfo(this.props.user, e)}
                     >
                         <h4 className="ui dividing header">About Me</h4>
                             <div className="field">
@@ -326,7 +338,7 @@ class ProfileForm extends React.Component {
                                         <option value="Dating">Dating</option>
                                         <option value="Friendship">Friendship</option>
                                         <option value="Hookups">Hookups</option>
-                                        <option value="Long-Term Relationshp">Long-Term Relationshp</option>
+                                        <option value="Long-Term Relationship">Long-Term Relationship</option>
                                         <option value="Marriage">Marriage</option>
                                         <option value="Not Sure">Not Sure</option>
                                         <option value="Unspecified">Unspecified</option>
@@ -504,23 +516,18 @@ class ProfileForm extends React.Component {
                                 </div>
                                 </div>
                             </div>
-                        <button className="ui basic button right floated" type="submit" onClick={() => this.userPageTwoInfo(this.props.user)}>
-                            Next Page
-                        </button>
-                        {/* <input type="submit" value="Submit" /> */}
-                    </form>
+                            <input className="ui basic pink button right floated" type="submit" value="Next Page" ></input>
+                        </form>
                 </div>
             </div>
         )}
 //second page ends here, third page starts
-    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true && this.state.thirdPartComplete === false) 
-    { 
-        // {this.windowScroll()}             
+    else if (this.state.page === 3) { 
     return  (  
         <div className="ui container grid">
             <div className="ui row">
                 <form className="ui form" 
-                // onSubmit={() => this.userPageThreeInfo(this.props.user)}
+                onSubmit={(e) => this.userPageThreeInfo(this.props.user, e)}
                 >
                     <h4 className="ui dividing header">More About Me!</h4>
                         <div className="field">
@@ -601,11 +608,11 @@ class ProfileForm extends React.Component {
                                 <label>Are you an extrovert or an introvert?</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="extrovert_introvert" value={this.state.extrovert_introvert}>
                                     <option value="">Please answer</option>
-                                    <option value="A little of both">A little of both</option>
                                     <option value="Extrovert">Extrovert</option>
                                     <option value="Introvert">Introvert</option>
                                     <option value="Depends on who you ask">Depends on who you ask</option>
                                     <option value="Somewhere in the middle">Somewhere in the middle</option>
+                                    <option value="Not sure">Not sure</option>
                                 </select>
                             </div>
                     </div>
@@ -634,26 +641,21 @@ class ProfileForm extends React.Component {
                                     <option value="Trying a new restaurant">Trying a new restaurant</option>
                                     <option value="Game night">Game night</option>
                                 </select>
-                            </div>
-                    </div>
-                        <button className="ui basic button right floated" type="submit" onClick={() => this.userPageThreeInfo(this.props.user)}>
-                            Next Page
-                        </button>
-                    </form>
-                </div>
+                            </div> 
+                            </div> 
+                        <input className="ui basic pink button right floated" type="submit" value="Next Page"/>
+                     </form>
+            </div>
             </div>
         )}
-//third page ends here, fourth page starts
-    else if (this.state.firstPartComplete === true && this.state.secondPartComplete === true && this.state.thirdPartComplete === true && this.state.fourthPartComplete === false) 
-    { 
-        // {this.windowScroll()}             
-    return  (  
+//third page ends here, fourth page starts 
+    else if (this.state.page === 4) { 
+        return  (  
         <div className="ui container grid">
             <div className="ui row">
-                <form className="ui form"> 
+                <form className="ui form" onSubmit={(e) => this.userPageFourInfo(this.props.user, e)}> 
                     <h4 className="ui dividing header">More About Me!</h4>
                         <div className="field"></div>
-
                     <div className="field">
                             <div className="field">
                                 <label>Would you rather spend your night in or out?</label>
@@ -778,8 +780,7 @@ class ProfileForm extends React.Component {
                                 </select>
                             </div>
                     </div>     
-                     <button className="ui basic button right floated" type="submit" 
-                        onClick={() => this.userPageFourInfo(this.props.user)}>
+                     <button className="ui basic button right floated" type="submit">
                     Submit Profile
                 </button>
                 </form>
@@ -791,16 +792,7 @@ class ProfileForm extends React.Component {
 
 const mapStateToProps = state => {
     console.log("Profile form state", state)
-    return  { 
-        // userBasicInfo: state.userBasicInfo,
-                currentUser: state.currentUser};
-  }
+    return { currentUser: state.currentUser};
+}
 
-// const mapDispatchToProps = dispatch => {
-//     return  {
-//         userBasicInfo: (user) => dispatch(userBasicInfo(user))
-//     };
-//   }
-
-  export default connect(mapStateToProps)(ProfileForm);
-    // , mapDispatchToProps
+export default connect(mapStateToProps, {loggedIn})(ProfileForm);

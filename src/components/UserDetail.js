@@ -27,96 +27,94 @@ class UserDetail extends React.Component {
     let profile = this.props.selectedProfile
     let someHighSchool = "Some High School"
     let diploma = "High School Diploma/GED"
-
-    if (profile) {return (
+    let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+      if (profile) {return (
       <div>
         <div className="ui container grid">
             <div className="ui row">
                 <div className="column twelve wide">
-         <h1><b>Meet {profile.name}!</b></h1>
-            {profile.age} years old
+            <h1><b>Meet {profile.name}!</b></h1>
+            <h2>About Me</h2>
+            <b>Age:</b> {profile.age}
             <br></br>
-           Currently living in {profile.city}, {profile.state}            
-           <br></br>          
-           <br></br>
-         <img className="ui centered medium bordered image" src={profile.avatar} alt="Oops, this image is broken!"/>
+            <b>Currently living in:</b> {profile.city}, {profile.state}            
             <br></br>
-            About me:
+            <b>I'm looking for: </b>{profile.relationship_type}
             <br></br>
-            I'm looking for: {profile.relationship_type}
+            <b>Parent:</b> {profile.kids}
             <br></br>
-            {profile.kids === true ? "I am a parent" : "I am not a parent"}
+            <b>Religion:</b> {profile.religion}
             <br></br>
-            Religion: {profile.religion}
+            <b>Employment type:</b> {profile.occupation}
             <br></br>
-            Employment type: {profile.occupation}
-            <br></br>
-            Education Level: {profile.education_level}
+            <b>Education Level:</b> {profile.education_level}
             <br></br>
             {profile.education_level === diploma || profile.education_level === someHighSchool ? null : `College: ${profile.college}`}
             <br></br>
-            My political views: {profile.politics}
+            <b>My political views:</b> {profile.politics}
             <br></br>
-            Pets: {profile.have_pets}
+            <b>Pets:</b> {profile.have_pets}
             <br></br>
-            My diet is {profile.diet}
+            <b>My diet is:</b> {profile.diet}
             <br></br>
             <br></br>
             <button className="ui pink button"
-            onClick={this.toggleInfo}> See more about me! </button>
-            <br></br>       
+            onClick={this.toggleInfo}> {this.state.clickedInfoButton === false ? "See more about me!" : "See less about me!"}</button>
+            <br></br>    
+            <br></br>          
             <div>
             {this.state.clickedInfoButton === false ? null :
             <div>
             <br></br>
-            Morning or night: {profile.morning_night}
-            How I dress: {profile.dress_style}
+            <b> Morning or night:</b> {profile.morning_night}
             <br></br>
-            Neat or messy: {profile.messy_neat}
+           <b>How I dress:</b> {profile.dress_style}
             <br></br>
-            My planning style:             
+           <b>Neat or messy:</b> {profile.messy_neat}
             <br></br>
-            In general: {profile.general_planning}
+            <b>My ideal vacation:</b> {profile.vacation_type}
             <br></br>
-            For a vacation: {profile.vacation_planning}
+            <b>Stay in or night out:</b> {profile.night_out_in}
             <br></br>
-            My ideal vacation: {profile.vacation_type}
+            <b>Cats or dogs:</b> {profile.cat_dog}
             <br></br>
-            Stay in or night out: {profile.night_out_in}
+            <b>How I like to spend my Friday nights:</b> {profile.ideal_friday}
             <br></br>
-            Cats or dogs: {profile.cat_dog}
+            <b>Coffee or tea:</b> {profile.coffee_tea}
             <br></br>
-            How I like to spend my Friday nights: {profile.ideal_friday}
+            <b>Summer or winter:</b> {profile.summer_winter}
             <br></br>
-            Coffee or tea: {profile.coffee_tea}
+            <b>Where I would like to live:</b> {profile.city_country_suburbs}
             <br></br>
-            Summer or winter: {profile.summer_winter}
+            <b>Beach or mountains:</b> {profile.beach_mountain}
             <br></br>
-            Where I would like to live: {profile.city_country_suburbs}
+            <b>My personality type:</b> {profile.extrovert_introvert}
             <br></br>
-            Beach or mountains: {profile.beach_mountain}
+            <b>My love language:</b> {profile.love_language}
             <br></br>
-            My personality type: {profile.extrovert_introvert}
-            <br></br>
-            My love language: {profile.love_language}
-            <br></br>
-            My favorite kind of music: {profile.music}
+            <b>My favorite kind of music:</b> {profile.music}
             <br></br>
             {profile.play_instrument === true ? "I can play an instrument" : null }           
+            <br></br>
+            <br></br>
+            <u>My planning style</u>             
+            <br></br>
+            <b>In general:</b> {profile.general_planning}
+            <br></br>
+            <b>For a vacation:</b> {profile.vacation_planning}
+            <br></br>
             </div> }
+            <h3> <u>Habits </u></h3>
+           <b>Drinking:</b>  {profile.drinks}
             <br></br>
-            Habits: 
+            <b>Smoking:</b>  {profile.smokes}
             <br></br>
-            Drinking: {profile.drinks}
+            <b>4/20 Friendly:</b>  {profile.weed}
             <br></br>
-            Smoking: {profile.smokes}
-            <br></br>
-            4/20 Friendly: {profile.weed === "True" ? "Yes" : "No"}
-            <br></br>
-            Other drugs: {profile.drugs}
+            <b>Other drugs:</b>  {profile.drugs}
             <br></br>
             <br></br>
-            {this.props.matches.length > 0 ? 
+            {myMatches > 0 ? 
             <Link to={`/matches`}> 
             <button className="ui basic pink button">
             <i className="arrow alternate circle left pink icon"></i> Browse your matches 
@@ -127,7 +125,7 @@ class UserDetail extends React.Component {
             <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
             </button>
             </Link>
-            {this.props.matches.map(match => match.potential_match.id).includes(profile.id) ? <b>          You're a match!</b> :   
+            {myMatches.map(match => match.potential_match.id).includes(profile.id) ?  <b>          You're a match!</b> :   
             <button 
               onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
                     className="ui pink button">
@@ -136,24 +134,25 @@ class UserDetail extends React.Component {
          </div>
         </div>
       </div>
+      <div className="profilepic">
+      <img className="ui centered large bordered image" src={profile.avatar} alt="Oops, this image is broken!"/>
+    </div>
       </div>
       </div>
-    )}
-    else {return <Link to={`/users`}>
+    )} else {return <Link to={`/users`}>
     <button className="ui basic pink button">
     <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
     </button>
     </Link>}
-        }
+  }
 }
 
 const mapStateToProps = state => {
-    console.log("detail state", state)
+    // console.log("detail state", state)
   return { selectedProfile: state.selectedProfile, 
             likeProfile: state.likeProfile,
             currentUser: state.currentUser,
-            matches: state.matches
-    }
+            matches: state.matches }
 }
 
 export default connect(mapStateToProps, {matchProfile, loggedIn, getMyMatches})(UserDetail);

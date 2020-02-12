@@ -1,15 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { viewProfile, loggedIn } from '../actions';
+import { viewProfile, loggedIn, getPreferences } from '../actions';
 import { Link } from 'react-router-dom';
 
 class UserContainer extends React.Component {
-  
+
   componentDidMount() {
     window.scrollTo(0, 0)
+    this.props.getPreferences()
   }
 
   renderList() {
+     console.log("user container props", this.props)
     return (this.props.profiles && this.props.profiles.map(profile => {
       return (
         <div className="card">
@@ -20,7 +22,7 @@ class UserContainer extends React.Component {
         <a className="header">{profile.name}</a>
         <div className="meta">
           <span className="date">Age {profile.age} 
-    </span>
+        </span>
         </div>
         <div className="description">
           {profile.name} lives in {profile.city}, {profile.state}.
@@ -39,24 +41,40 @@ class UserContainer extends React.Component {
       );
     }))
   };
-
+  
     render() {
-      console.log("user container props", this.props)
       return (
+        <div>
+        <br></br>
         <div className="ui container grid">
+          <br></br>
+          <Link to= "/filter">
+          <button className="ui pink button">
+          View/Set Preferences
+        </button>
+        </Link>
+        <Link to= "/filteredprofiles">
+        <button className="ui pink button">
+          See who fits your preferences!
+        </button>
+        </Link>
+        <br></br>
+        <br></br>
+        <br></br>
           <div className="ui link cards">
           {this.renderList()}
           </div>
+        </div>
         </div>
       )
     }
   }
 
-  const mapStateToProps = state => {
-    return  { profiles: state.profiles,
-              selectedProfile: state.selectedProfile,
-              currentUser: state.currentUser
-            };
-  }
+const mapStateToProps = state => {
+  return { profiles: state.profiles,
+           selectedProfile: state.selectedProfile,
+           currentUser: state.currentUser,
+           preferences: state.preferences };
+}
 
-  export default connect(mapStateToProps, {viewProfile, loggedIn})(UserContainer);
+export default connect(mapStateToProps, {viewProfile, getPreferences, loggedIn})(UserContainer);

@@ -10,16 +10,23 @@ class MatchesContainer extends React.Component {
     this.props.getMyMatches()
   }
 
-  //add condition to stop from infinite loop, still allowing for page refresh on delete
-  // componentDidUpdate() {
-  //   // if (this.props.deleteMatch()) {
-  //   this.props.getMyMatches() 
-  // //  }
-  // }
+  state = {
+      oldMatchesLength: this.props.matches.length
+    }
+
+  // //add condition to stop from infinite loop, still allowing for page refresh on delete
+  componentDidUpdate() {
+   if (this.state.oldMatchesLength !== this.props.matches.length){
+    this.props.getMyMatches()
+    this.setState({oldMatchesLength: this.props.matches.length}) 
+    } else { return null }
+    console.log("LOOK HERE", this.props)
+  }
 
   renderMatches = () => {
+    if (this.props.matches) {
     let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
-    return matches
+    return matches } else {return "Log in to view your matches"}
   }
 
   renderList() {
@@ -53,7 +60,6 @@ class MatchesContainer extends React.Component {
                   className="ui pink basic button">
                       Delete Match
           </button>
-        {/* {profile.gender !== "Female" ? <i className="mars icon" ></i> :  <i className="venus icon"></i> } */}
         </div> 
       </div> 
     </div>
@@ -62,14 +68,15 @@ class MatchesContainer extends React.Component {
   };
 
   render() {
-    console.log("THESE ARE MATCHES", this.props.matches)
-  console.log("matches container props", this.props)
+  console.log("THESE ARE MATCHES", this.props.matches)
+    if (this.props.matches){
+    let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return (
       <div>
           <div className="ui container grid">
           <div className="ui row">
           <div className="ui link cards">
-          {this.props.matches < 1 ? "You currently have no matches." :
+          {myMatches < 1 ? "You currently have no matches." :
         this.renderList()}
           </div>
           <br></br>
@@ -89,18 +96,17 @@ class MatchesContainer extends React.Component {
         <br></br>
       </div>
     )
+    } else {return "Log in to view your matches"}
   }
 }
 
-  const mapStateToProps = state => {
-    console.log("matches state", state)
-    return  { profiles: state.profiles,
-              selectedProfile: state.selectedProfile,
-              likeProfile: state.likeProfile,
-              currentUser: state.currentUser,
-              matches: state.matches,
-              deleteMatch: state.deleteMatch
-            };
-  }
+const mapStateToProps = state => {
+  return { profiles: state.profiles,
+            selectedProfile: state.selectedProfile,
+            likeProfile: state.likeProfile,
+            currentUser: state.currentUser,
+            matches: state.matches,
+            deleteMatch: state.deleteMatch };
+}
 
 export default connect(mapStateToProps, {viewProfile, loggedIn, getMyMatches, deleteMatch})(MatchesContainer);

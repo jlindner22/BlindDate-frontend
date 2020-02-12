@@ -5,10 +5,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(244,193,246);
-background: radial-gradient(circle, rgba(244,193,246,1) 40%, rgba(252,205,227,1) 76%);}
+  background: rgb(251,211,249);
+  background: radial-gradient(circle, rgba(251,211,249,1) 32%, rgba(252,171,228,1) 75%);
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.down  {
+  margin-top: 7%;
+}
+
+.right  {
+  margin-top: 1%;
+  left: 10px
+}
+
+.profilepic {
+position: relative;
+margin-top: -530px;
+left: 50%
 }

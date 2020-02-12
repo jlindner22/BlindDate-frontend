@@ -11,10 +11,8 @@ class LogIn extends React.Component {
     }
 
     handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        }
-    )}    
+        this.setState({ [e.target.name]: e.target.value})
+    }    
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -37,14 +35,14 @@ class LogIn extends React.Component {
     })
     }
 
-      render() {
+    render() {
         return (
+            <div className="down">
             <div className="ui container grid">
             <div className="ui centered row">
             <form className="ui form" onSubmit={this.handleSubmit}>
-                <b> Log in to BlindDate</b>
+            <h2><b> Log in to BlindDate!</b></h2>
                 <div className="field">
-                    <br></br>
                     <br></br>
                     <label>Username</label>
                         <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}></input>
@@ -62,13 +60,32 @@ class LogIn extends React.Component {
             </form>
             </div>
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            </div>
         )
     }
 }
 
 const mapStateToProps = state => {
-    return  { currentUser: state.currentUser
-            };
-  }
+    return  { currentUser: state.currentUser };
+}
 
   export default connect(mapStateToProps, {loggedIn})(LogIn);
