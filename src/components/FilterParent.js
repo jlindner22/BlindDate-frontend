@@ -1,47 +1,17 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import {withRouter } from 'react-router-dom';
+import React from 'react';
 import { connect } from 'react-redux';
-import NavBar from './NavBar';
-import UserContainer from './UserContainer';
-import UserDetail from './UserDetail';
-import MyProfile from './MyProfile';
-import MatchesContainer from './MatchesContainer';
-import MessagesContainer from './MessagesContainer';
-import ProfileForm from './ProfileForm';
-import LogIn from './LogIn';
-import Home from './Home';
+import { getAllUsers, loggedIn, getPreferences } from '../actions';
+import { Link } from 'react-router-dom'
 import Filter from './Filter';
-import { getAllUsers, getMyMatches, loggedIn, getPreferences } from '../actions';
-import Signup from './Signup';
 import FilterForm from './FilterForm';
 import FilteredProfiles from './FilteredProfiles';
 
-// import Footer from './Footer';
-
-class App extends React.Component {
+class FilterParent extends React.Component {
   
   componentDidMount() {
     window.scrollTo(0, 0)
     this.props.getAllUsers()
     this.props.getPreferences()
-    const user_id = localStorage.getItem('user_id')
-    if (user_id) {
-      fetch('http://localhost:3000/api/v1/auto_login', {
-          headers: {
-            "Authorization": user_id
-          }
-      })
-      .then(res => res.json())
-      .then(response => {
-        if (response.errors) {alert(response.errors)}
-      else {
-        this.setState({ currentUser: response })
-        this.props.loggedIn(response)
-        this.props.getMyMatches()
-        }
-      }
-    )}
   }
 
   preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
@@ -65,22 +35,6 @@ class App extends React.Component {
     have_pets: this.preferences.have_pets,
     diet: this.preferences.diet,
     id: this.preferences.id
-  }
-
-  setUser = (user) => {
-    this.setState({ currentUser: user}
-      , () => { 
-        localStorage.user_id = user.id
-      })
-      this.props.loggedIn(user)
-  }
-
-  logout = () => {
-    this.setState({ currentUser: null}
-      , () => {
-        localStorage.removeItem("user_id")
-     }
-    )
   }
 
   editPreferences = (preference) => {
@@ -227,6 +181,7 @@ class App extends React.Component {
       .then(response => response.json())
       .then(response => {
       console.log(response)
+      this.props.history.push('filteredprofiles')
   })
   }
 }
@@ -235,7 +190,7 @@ class App extends React.Component {
     console.log("app props", this.props)
     return (
       <Router>
-        <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
+        {/* <NavBar logout={this.logout} currentUser={this.state.currentUser}/> */}
         <body>
           <div className="ui container grid">
             <div className="ui row">
@@ -244,14 +199,6 @@ class App extends React.Component {
            </div>
           </div>
             <Switch>
-              <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps} setUser={this.setUser}/>}/>
-              <Route exact path="/" render={(routerProps) => <Home currentUser={this.state.currentUser}{...routerProps}/>}/>
-              <Route exact path="/signup" render={(routerProps) => <Signup setUser={this.setUser} {...routerProps}/>}/>
-              <Route exact path="/myprofile" render={(routerProps) => <MyProfile currentUser={this.state.currentUser}{...routerProps}/>}/>
-              <Route exact path="/users" render={(routerProps) => <UserContainer currentUser={this.state.currentUser}{...routerProps}/>}/>
-              <Route exact path="/matches" render={(routerProps) => <MatchesContainer {...routerProps}/>}/>
-              <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>
-              <Route exact path="/users/:id" render={(routerProps) => <UserDetail {...routerProps}/>}/>
               <Route exact path="/filteredprofiles" render={(routerProps) => <FilteredProfiles currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/filters" render={(routerProps) => <Filter {...routerProps} editPreferences={this.editPreferences}
               minRangeChange={this.minRangeChange}maxRangeChange={this.maxRangeChange}stateChange={this.stateChange}smokesChange={this.smokesChange}drinksChange={this.drinksChange}
@@ -263,7 +210,6 @@ class App extends React.Component {
               have_pets={this.state.have_pets}diet={this.state.diet}relationship_type={this.state.relationship_type}id={this.state.id}
               currentUser={this.state.currentUser}{...routerProps}handlePreferenceChanges={this.handlePreferenceChanges}
               />}/>
-              <Route exact path="/profileform" render={(routerProps) => <ProfileForm setUser={this.setUser} user={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/editfilters" render={(routerProps) => <FilterForm editPreferences={this.editPreferences} 
               minRangeChange={this.minRangeChange}maxRangeChange={this.maxRangeChange}stateChange={this.stateChange}smokesChange={this.smokesChange}drinksChange={this.drinksChange}
               genderChange={this.genderChange}drugsChange={this.drugsChange}religionChange={this.religionChange}educationLevelChange={this.educationLevelChange}
@@ -275,19 +221,16 @@ class App extends React.Component {
               currentUser={this.state.currentUser}{...routerProps}handlePreferenceChanges={this.handlePreferenceChanges}/>}/>
           </Switch>
       </body>
-      {/* <Footer/> */}
     </Router>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log("app state", state)
-  return  { profiles: state.profiles,
-            matches: state.matches,
-            preferences: state.preferences,
-            currentUser: state.currentUser
-          };
+    console.log("filters state", state)
+    return  { profiles: state.profiles,
+              currentUser: state.currentUser,
+              preferences: state.preferences };
 }
 
-export default connect(mapStateToProps, {getAllUsers, getMyMatches, loggedIn, getPreferences})(App);
+export default connect(mapStateToProps, {getPreferences})(FilterParent);

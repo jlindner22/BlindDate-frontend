@@ -232,13 +232,13 @@ class FilterForm extends React.Component {
                   </select>
                     <br></br>
                     <br></br>
-                 <button className="ui button right floated" type="submit" onClick={()=> this.props.handlePreferenceChanges(preference)}>Submit changes </button>
+                 <button className="ui pink button right floated" type="submit" onClick={()=> this.props.handlePreferenceChanges(preference)}>Submit changes </button>
                   <Link to="/filters">
-                <button className="ui button left floated">View Preferences </button>
+                <button className="ui pink button left floated">View Preferences </button>
                  </Link>
-                 <Link to="/filteredprofiles">
+                 {/* <Link to="/filteredprofiles">
                 <button className="ui pink button left floated">See who matches these preferences!</button>
-                 </Link>
+                 </Link> */}
                  <br></br>
                  <br></br>
                  <br></br>
@@ -446,7 +446,7 @@ class FilterForm extends React.Component {
                   <Link to="/filters">
                 <button className="ui button left floated">Go back </button>
                  </Link>
-                 <button className="ui button left floated" type="submit" onClick={()=> this.props.handlePreferenceChanges(this.props)}>Submit preferences </button>
+                 <button className="ui pink button left floated" type="submit" onClick={()=> this.props.handlePreferenceChanges(this.props)}>Submit preferences </button>
                   </div>
                 </div>
             </div>

@@ -183,7 +183,7 @@ class ProfileForm extends React.Component {
         })
             .then(response => response.json())
             .then(response => console.log(response))
-            this.props.history.push('/users')
+            this.props.history.push('/filteredprofiles')
     }
 
   render() {
