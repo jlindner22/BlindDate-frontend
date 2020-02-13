@@ -183,7 +183,7 @@ class ProfileForm extends React.Component {
         })
             .then(response => response.json())
             .then(response => console.log(response))
-            this.props.history.push('/filteredprofiles')
+            this.props.history.push('/users')
     }
 
   render() {
@@ -308,11 +308,29 @@ class ProfileForm extends React.Component {
                             </div>
                 </div>
                 <input className="ui basic pink button right floated" type="submit" value="Next Page" ></input>
+                <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
                 </form>
                 {/* <button className="ui basic button right floated" type="button" 
                 onClick={this.goToSecondPage}>
                 Next Page
                 </button> */}
+
+          
             </div>
         </div>
         )} 
@@ -516,6 +534,8 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <input className="ui basic pink button right floated" type="submit" value="Next Page" ></input>
+                            <br></br>
+                            <br></br>
                         </form>
                 </div>
             </div>
@@ -599,7 +619,7 @@ class ProfileForm extends React.Component {
                                     <option value="Words of Affirmation">Words of Affirmation</option>
                                     <option value="Not Sure">Not Sure</option>
                                 </select>
-                                <a href='https://www.5lovelanguages.com/quizzes/' >Take the quiz here</a> 
+                                <a href='https://www.5lovelanguages.com/quizzes/' target="_blank">Take the quiz here</a> 
                             </div>
                     </div>
                     <div className="field">
@@ -643,6 +663,8 @@ class ProfileForm extends React.Component {
                             </div> 
                             </div> 
                         <input className="ui basic pink button right floated" type="submit" value="Next Page"/>
+                        <br></br>
+                        <br></br>
                      </form>
             </div>
             </div>
@@ -782,6 +804,8 @@ class ProfileForm extends React.Component {
                      <button className="ui basic button right floated" type="submit">
                     Submit Profile
                 </button>
+                <br></br>
+                <br></br>
                 </form>
             </div>
         </div>        
