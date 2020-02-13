@@ -49,21 +49,21 @@ class FilterForm extends React.Component {
                 <div className="column eight wide">
                    <h1>Select your Preferences</h1> 
               <br></br>
-              Gender:
+              <b>Gender:</b>
               <select className="ui fluid dropdown" name="gender" onChange={this.props.genderChange} value={this.props.gender} >
                   <option defaultChecked value ="All">All</option>
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
                 </select>
                 <br></br>
-              Minimum Age:
+              <b>Minimum Age: </b>
               <input type="text" name="minimum_age" placeholder="Minimum Age" value={this.props.minimum_age} onChange={this.props.minRangeChange}></input>        
                 <br></br>
-              Maximum Age:
+                <b>Maximum Age: </b>
                 <input type="text" name="maximum_age" placeholder="Maximum Age" value={this.props.maximum_age} onChange={this.props.maxRangeChange}></input>
                   <br></br>                 
                   <br></br>
-              State:
+                  <b>State:</b>
               <select className="ui fluid dropdown" name="state" onChange={this.props.stateChange} value={this.props.state}>
                   <option value="All">All</option>
                   <option value="Alabama">Alabama</option>
@@ -119,7 +119,7 @@ class FilterForm extends React.Component {
                   <option value="Wyoming">Wyoming</option>
                 </select>
                 <br></br>
-                Religion:
+                <b>Religion:</b>
                 <select className="ui fluid dropdown" name="religion" onChange={this.props.religionChange} value={this.props.religion}>
                   <option value="All">All</option>
                   <option value="Agnostic">Agnostic</option>
@@ -134,7 +134,7 @@ class FilterForm extends React.Component {
                   <option value="Prefer Not to Say">Prefer Not to Say</option>
                   </select>
                   <br></br>
-              Education level:
+                  <b>Education level:</b>
               <select className="ui fluid dropdown" name="education_level" onChange={this.props.educationLevelChange} value={this.props.education_level}>
                   <option value="All">All</option>
                   <option value="Some High School">Some High School</option>
@@ -145,14 +145,14 @@ class FilterForm extends React.Component {
                   <option value="Master's Degree or Higher">Master's Degree or Higher</option>
                 </select>
                 <br></br>
-                Parent:
+                <b>Parent:</b>
                 <select className="ui fluid dropdown" name="kids" onChange={this.props.kidsChange} value={this.props.kids}>
                   <option value="All">All</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                   </select>
                   <br></br>
-              Relationship Type:
+                  <b>Relationship Type:</b>
               <select className="ui fluid dropdown" name="relationship_type" onChange={this.props.relationshipTypeChange} value={this.props.relationship_type}>
                   <option value="All">All</option>
                   <option value="Business/Networking">Business/Networking</option>
@@ -166,7 +166,7 @@ class FilterForm extends React.Component {
                   <option value="Unspecified">Unspecified</option>
                 </select>
                 <br></br>
-                Political Views:
+                <b>Political Views:</b>
                 <select className="ui fluid dropdown" name="politics" onChange={this.props.politicsChange} value={this.props.politics}>
                   <option value="All">All</option>
                   <option value="Conservative">Conservative</option>
@@ -176,7 +176,7 @@ class FilterForm extends React.Component {
                   <option value="Prefer Not to Say">Prefer Not to Say</option>
                   </select>
                   <br></br>
-                Owns pets:
+                  <b>Owns pets:</b>
                 <select className="ui fluid dropdown" name="have_pets" onChange={this.props.havePetsChange} value={this.props.have_pets}>
                   <option value="All">All</option>
                   <option value="Yes">Yes</option>
@@ -184,7 +184,7 @@ class FilterForm extends React.Component {
                   <option value="Not right now, maybe in the future">Not right now, maybe in the future</option>
                 </select>
                 <br></br>
-                Diet:
+                <b>Diet:</b>
                 <select className="ui fluid dropdown" name="diet" onChange={this.props.dietChange} value={this.props.diet}>
                   <option value="All">All</option>
                   <option value="Gluten-free">Gluten-free</option>
@@ -195,7 +195,7 @@ class FilterForm extends React.Component {
                   <option value="Vegan">Vegan</option>
                   </select>
                   <br></br>
-                Smoking:
+                  <b>Smoking:</b>
                 <select className="ui fluid dropdown" name="smokes" onChange={this.props.smokesChange} value={this.props.smokes}>
                   <option value="All">All</option>
                   <option value="Often">Often</option>
@@ -205,7 +205,7 @@ class FilterForm extends React.Component {
                   <option value="Prefer Not to Say">Prefer Not to Say</option>
                   </select>
                   <br></br>
-                Drinking:
+                  <b>Drinking:</b>
                 <select className="ui fluid dropdown" name="drinks" onChange={this.props.drinksChange} value={this.props.drinks}>
                   <option value="All">All</option>
                   <option value="A few times a week">A few times a week</option>
@@ -215,14 +215,14 @@ class FilterForm extends React.Component {
                   <option value="Prefer Not to Say">Prefer Not to Say</option>
                   </select>
                   <br></br>
-                4/20 Friendly:
+                  <b>4/20 Friendly:</b>
                 <select className="ui fluid dropdown" name="weed" onChange={this.props.weedChange} value={this.props.weed}>
                   <option value="All">All</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                   </select>
                   <br></br>
-                Other Drugs:
+               <b>Other Drugs:</b>
                 <select className="ui fluid dropdown" name="drugs" onChange={this.props.drugsChange} value={this.props.drugs}>
                   <option value="All">All</option>
                   <option value="Often">Often</option>
@@ -232,10 +232,22 @@ class FilterForm extends React.Component {
                   </select>
                     <br></br>
                     <br></br>
+                 <button className="ui button right floated" type="submit" onClick={()=> this.props.handlePreferenceChanges(preference)}>Submit changes </button>
                   <Link to="/filters">
-                <button className="ui button left floated">Go back </button>
+                <button className="ui button left floated">View Preferences </button>
                  </Link>
-                 <button className="ui button left floated" type="submit" onClick={()=> this.props.handlePreferenceChanges(preference)}>Submit changes </button>
+                 <Link to="/filteredprofiles">
+                <button className="ui pink button left floated">See who matches these preferences!</button>
+                 </Link>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
                   </div>
                 </div>
             </div>
@@ -431,7 +443,7 @@ class FilterForm extends React.Component {
                 </select>
                     <br></br>
                     <br></br>
-                  <Link to="/filter">
+                  <Link to="/filters">
                 <button className="ui button left floated">Go back </button>
                  </Link>
                  <button className="ui button left floated" type="submit" onClick={()=> this.props.handlePreferenceChanges(this.props)}>Submit preferences </button>

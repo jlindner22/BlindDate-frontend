@@ -29,7 +29,7 @@ class MyProfile extends React.Component {
       console.log("Hi JEN", props)
         if (props) {
           return (
-            <div clasName="flex_pic">
+            <div className="flex_pic">
               <div className="ui container grid"> 
               <div className="stolenright">
               <img className="ui medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>

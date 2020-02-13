@@ -22,7 +22,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
                 <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui basic pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link>
               </div>
@@ -35,7 +35,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
               <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link> </div>
               <div className="content">
@@ -45,7 +45,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui basic pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
@@ -55,7 +55,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
@@ -65,7 +65,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui basic pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
@@ -75,7 +75,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
@@ -85,7 +85,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui basic pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
@@ -95,7 +95,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
               <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link> 
               </div>
@@ -106,7 +106,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui basic pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
@@ -116,7 +116,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
@@ -126,7 +126,7 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui compact button" 
+                <button className="ui basic pink compact button" 
             onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link>
               </div>
@@ -168,6 +168,7 @@ class FilterContainer extends React.Component {
         </button>
         </Link>
                 <div> <h1>PREFERENCES</h1> </div> 
+                <br></br>
               {myPreferences < 1 ? <Link to="/editfilters">
               <button className="ui pink basic button" 
               onClick={() => this.props.editPreferences(myPreferences)}>
@@ -175,11 +176,6 @@ class FilterContainer extends React.Component {
               this.renderList()}
           </div>
           </div>
-          {/* <Link to= "/filteredprofiles">
-        <button className="ui pink button">
-          See who fits your preferences!
-        </button>
-        </Link> */}
           </div>
       )
       } else {return "Log in to view/set your filters"}

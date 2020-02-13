@@ -39,7 +39,7 @@ class UserDetail extends React.Component {
     let diploma = "High School Diploma/GED"
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
       if (profile) {return (
-        <div clasName="flex_pic">
+        <div className="flex_pic">
         <div className="ui container grid">
         <div className="stolenright">
             <img className="ui medium bordered image" src={profile.avatar} alt="Oops, this image is broken!"/>

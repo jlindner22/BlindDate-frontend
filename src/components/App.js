@@ -16,7 +16,6 @@ import Signup from './Signup';
 import FilterForm from './FilterForm';
 import FilteredProfiles from './FilteredProfiles';
 
-
 // import Footer from './Footer';
 
 class App extends React.Component {
@@ -194,8 +193,9 @@ class App extends React.Component {
         politics: this.state.politics,
         have_pets: this.state.have_pets,
         diet: this.state.diet
-      }),
-    });
+      })
+    }) .then(response => response.json())
+    .then(response => console.log(response))
   } else {
     fetch('http://localhost:3000/api/v1/preferences',{
       method: 'POST',
@@ -230,7 +230,6 @@ class App extends React.Component {
 }
 
   render() {
-    // console.log("history", history)
     console.log("app props", this.props)
     return (
       <Router>
