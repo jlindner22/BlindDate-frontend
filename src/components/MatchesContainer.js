@@ -75,26 +75,29 @@ class MatchesContainer extends React.Component {
       <div>
         <div className="ui container grid">
           <div className="ui row">
-            <div className="ui link cards">
-          {myMatches < 1 ? <h1 className="center aligned content">
-           <br></br> You currently have no matches.</h1> :
-        this.renderList()}
-          </div>
-          <br></br>
-          <br></br>
-          </div>
-          </div>
-          <br></br>
-          <br></br>
-      <Link to={`/users`}>
+            <Link to={`/users`}>
           <button className="ui basic pink button left floated">
-              <i className="arrow alternate circle left pink icon"></i> Browse
+              <i className="arrow alternate circle left pink icon"></i> Keep browsing
           </button>
         </Link>
         <br></br>
-        <br></br> <br></br>
-        <br></br> <br></br>
         <br></br>
+        <br></br>
+            <div className="ui link cards">
+          {myMatches < 1 ? <h1 className="center aligned content">
+           <br></br><br></br> <br></br>  You currently have no matches.</h1> :
+        this.renderList() }
+          </div>
+          <br></br>
+          <br></br>
+          </div>
+          </div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br> <br></br>
+          <br></br> <br></br>
+          <br></br>
       </div>
     )
     } else {return "Log in to view your matches"}

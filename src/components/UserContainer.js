@@ -46,7 +46,7 @@ class UserContainer extends React.Component {
       return (
         <div>
         <br></br>
-        <div className="ui center aligned container">
+        <div className="ui container">
           <br></br>
           <Link to= "/filters">
           <button className="ui pink button">

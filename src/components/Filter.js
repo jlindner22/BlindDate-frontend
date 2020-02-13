@@ -162,15 +162,16 @@ class FilterContainer extends React.Component {
           
               <div className="ui row">
               <div className="column twelve wide">
+              {myPreferences < 1 ? null :
               <Link to= "/filteredprofiles">
-        <button className="ui pink button right floated">
-          See who fits your preferences!
-        </button>
-        </Link>
+              <button className="ui pink button right floated">
+                See who fits your preferences!
+              </button>
+              </Link>}
                 <div> <h1>PREFERENCES</h1> </div> 
                 <br></br>
               {myPreferences < 1 ? <Link to="/editfilters">
-              <button className="ui pink basic button" 
+              <button className="ui pink button" 
               onClick={() => this.props.editPreferences(myPreferences)}>
               Set your filters </button> </Link> :
               this.renderList()}

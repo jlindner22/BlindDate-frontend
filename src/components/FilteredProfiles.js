@@ -87,6 +87,14 @@ class FilteredProfiles extends React.Component {
                 <div>
           <div className="ui container grid">
             <div className="ui row">
+            <Link to={`/users`}>
+          <button className="ui basic pink button left floated">
+              <i className="arrow alternate circle left pink icon"></i> Browse without filters
+          </button>
+          </Link>
+          <br></br>
+          <br></br>
+          <br></br>
           <div className="ui link cards">
                 {this.renderList()}
                 </div>

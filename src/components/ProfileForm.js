@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loggedIn } from '../actions';
 
-
 class ProfileForm extends React.Component {
 
     componentDidMount() {
@@ -195,17 +194,17 @@ class ProfileForm extends React.Component {
         <div className="ui container grid">
             <div className="ui row">
                 <form className="ui form" onSubmit={(e) => this.userBasicInfo(this.props.user, e)}>
-                     <button className="ui basic button right floated" type="button" onClick={this.goToFourthPage}> Go to fourth page
+                     {/* <button className="ui basic button right floated" type="button" onClick={this.goToFourthPage}> Go to fourth page
                      </button>              
                      <button className="ui basic button right floated" type="button" onClick={this.goToThirdPage}> Go to third page
                      </button> 
                      <button className="ui basic button right floated" type="button" onClick={this.goToSecondPage}> Go to second page
-                     </button>   
-                     <Link to={`/`}>
+                     </button>    */}
+                     {/* <Link to={`/`}>
                     <button className="ui basic pink button left floated" type="button">
                     Go Back
                     </button>
-                </Link>
+                    </Link> */}
                      <br></br>
                      <br></br>
                     <h4 className="ui dividing header">Basic Information</h4>
