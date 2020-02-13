@@ -35,6 +35,10 @@ class FilterForm extends React.Component {
         return preferences
     }
 
+    renderFilterContainer = () => {
+      this.props.history.push('/filters')
+    }
+
     render() {
     console.log("filter form props", this.props)
     if (this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id).length > 0) {
@@ -228,7 +232,7 @@ class FilterForm extends React.Component {
                   </select>
                     <br></br>
                     <br></br>
-                  <Link to="/filter">
+                  <Link to="/filters">
                 <button className="ui button left floated">Go back </button>
                  </Link>
                  <button className="ui button left floated" type="submit" onClick={()=> this.props.handlePreferenceChanges(preference)}>Submit changes </button>

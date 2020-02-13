@@ -73,10 +73,11 @@ class MatchesContainer extends React.Component {
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return (
       <div>
-          <div className="ui container grid">
+        <div className="ui container grid">
           <div className="ui row">
-          <div className="ui link cards">
-          {myMatches < 1 ? "You currently have no matches." :
+            <div className="ui link cards">
+          {myMatches < 1 ? <h1 className="center aligned content">
+           <br></br> You currently have no matches.</h1> :
         this.renderList()}
           </div>
           <br></br>

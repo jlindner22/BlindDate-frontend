@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NavBar from './NavBar';
@@ -15,6 +15,8 @@ import { getAllUsers, getMyMatches, loggedIn, getPreferences } from '../actions'
 import Signup from './Signup';
 import FilterForm from './FilterForm';
 import FilteredProfiles from './FilteredProfiles';
+
+
 // import Footer from './Footer';
 
 class App extends React.Component {
@@ -193,7 +195,7 @@ class App extends React.Component {
         have_pets: this.state.have_pets,
         diet: this.state.diet
       }),
-    })
+    });
   } else {
     fetch('http://localhost:3000/api/v1/preferences',{
       method: 'POST',
@@ -228,6 +230,7 @@ class App extends React.Component {
 }
 
   render() {
+    // console.log("history", history)
     console.log("app props", this.props)
     return (
       <Router>
@@ -241,7 +244,7 @@ class App extends React.Component {
           </div>
             <Switch>
               <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps} setUser={this.setUser}/>}/>
-              <Route exact path="/" render={(routerProps) => <Home {...routerProps}/>}/>
+              <Route exact path="/" render={(routerProps) => <Home currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/signup" render={(routerProps) => <Signup setUser={this.setUser} {...routerProps}/>}/>
               <Route exact path="/myprofile" render={(routerProps) => <MyProfile currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/users" render={(routerProps) => <UserContainer currentUser={this.state.currentUser}{...routerProps}/>}/>
@@ -249,7 +252,7 @@ class App extends React.Component {
               <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>
               <Route exact path="/users/:id" render={(routerProps) => <UserDetail {...routerProps}/>}/>
               <Route exact path="/filteredprofiles" render={(routerProps) => <FilteredProfiles currentUser={this.state.currentUser}{...routerProps}/>}/>
-              <Route exact path="/filter" render={(routerProps) => <Filter {...routerProps} editPreferences={this.editPreferences}
+              <Route exact path="/filters" render={(routerProps) => <Filter {...routerProps} editPreferences={this.editPreferences}
               minRangeChange={this.minRangeChange}maxRangeChange={this.maxRangeChange}stateChange={this.stateChange}smokesChange={this.smokesChange}drinksChange={this.drinksChange}
               genderChange={this.genderChange}drugsChange={this.drugsChange}religionChange={this.religionChange}educationLevelChange={this.educationLevelChange}
               relationshipTypeChange={this.relationshipTypeChange}havePetsChange={this.havePetsChange}politicsChange={this.politicsChange}dietChange={this.dietChange}

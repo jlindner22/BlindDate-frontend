@@ -46,9 +46,9 @@ class UserContainer extends React.Component {
       return (
         <div>
         <br></br>
-        <div className="ui container grid">
+        <div className="ui center aligned container">
           <br></br>
-          <Link to= "/filter">
+          <Link to= "/filters">
           <button className="ui pink button">
           View/Set Preferences
         </button>
@@ -61,9 +61,11 @@ class UserContainer extends React.Component {
         <br></br>
         <br></br>
         <br></br>
+        <div className="ui centered row">
           <div className="ui link cards">
           {this.renderList()}
           </div>
+        </div>
         </div>
         </div>
       )

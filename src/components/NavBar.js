@@ -21,9 +21,9 @@ class NavBar extends React.Component {
             <Link to='/matches'><a className="item">
                 Matches
             </a></Link>
-            <Link to='/messages'><a className="item">
+            {/* <Link to='/messages'><a className="item">
                 Messages
-            </a></Link>
+            </a></Link> */}
             <div className="right menu" onClick={this.props.logout}>
             <Link to='/'>  
             <a className="ui item">

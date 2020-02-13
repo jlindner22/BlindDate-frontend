@@ -29,10 +29,14 @@ class MyProfile extends React.Component {
       console.log("Hi JEN", props)
         if (props) {
           return (
-            <div>
-              <div className="ui container grid">
-                  <div className="ui center row">
-                      <div className="column twelve wide">
+            <div clasName="flex_pic">
+              <div className="ui container grid"> 
+              <div className="stolenright">
+              <img className="ui medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
+              </div>
+                  <div>                  
+                      <div className="column twelve wide" >
+                        <br></br>
                   <h1> <b>Meet {props.name}!</b> </h1>
                   <h2>About Me</h2>
                   <b>Age:</b> {props.age}
@@ -112,12 +116,21 @@ class MyProfile extends React.Component {
                   <br></br>
                   <b>Other drugs:</b>  {props.drugs}
                   <br></br>
+                  <br></br>                  
                   <br></br>
+                  <br></br>                  
+                  <br></br>
+                  <br></br>                  
+                  <br></br>
+                  <br></br>                  
+                  <br></br>
+                  <br></br>                  
+                  <br></br>
+                  <br></br>                  
+                  <br></br>
+                  <br></br>                  
               </div>
               </div>
-            </div>
-            <div className="profilepic">
-            <img className="ui centered large bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
             </div>
             </div>
             </div>
@@ -125,6 +138,9 @@ class MyProfile extends React.Component {
           } else {return "Please log in to view your profile"}
         }
       }
+
+      // <img className="ui centered large bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
+
 
 const mapStateToProps = state => {
     console.log("my profile state", state)

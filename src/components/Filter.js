@@ -22,19 +22,21 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
                 <Link to="/editfilters">
-                <button className="ui button" 
-            onClick={() => this.props.editPreferences(preference)}>Edit</button>
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link>
               </div>
               <div className="content">
+                <div className="centered">
               <b>Gender:</b> {preference.gender ? preference.gender : "No preference set"}
+              </div>
               </div>
             </div>
             <div className="item">
               <div className="right floated content">
               <Link to="/editfilters">
-                <button className="ui button" 
-            onClick={() => this.props.editPreferences(preference)}>Edit</button>
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link> </div>
               <div className="content">
               <b>Age Range:</b> {preference.minimum_age} to {preference.maximum_age}
@@ -43,8 +45,8 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui button" 
-            onClick={() => this.props.editPreferences(preference)}>Edit</button>
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
               <b>Location:</b> {preference.state ? preference.state : "No preference set"}
@@ -53,8 +55,8 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui button" 
-            onClick={() => this.props.editPreferences(preference)}>Edit</button>
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
               <b>Religion:</b> {preference.religion ? preference.religion : "No preference set"}
@@ -63,8 +65,8 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui button" 
-            onClick={() => this.props.editPreferences(preference)}>Edit</button>
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
               <b>Education Level:</b> {preference.education_level ? preference.education_level : "No preference set"}
@@ -73,8 +75,8 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui button" 
-            onClick={() => this.props.editPreferences(preference)}>Edit</button>
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
               <b>Parent:</b> {preference.kids ? preference.kids : "No preference set"}
@@ -83,8 +85,8 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui button" 
-            onClick={() => this.props.editPreferences(preference)}>Edit</button>
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
               <b>Relationship Type:</b> {preference.relationship_type ? preference.relationship_type : "No preference set"}
@@ -92,7 +94,10 @@ class FilterContainer extends React.Component {
             </div>
             <div className="item">
               <div className="right floated content">
-               <Link to="/editfilters"><div className="ui button">Edit</div></Link> 
+              <Link to="/editfilters">
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
+              </Link> 
               </div>
               <div className="content">
               <b>Political Views:</b> {preference.politics  ? preference.politics : "No preference set"}
@@ -101,8 +106,8 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui button" 
-            onClick={() => this.props.editPreferences(preference)}>Edit</button>
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
               <b>Owns pets:</b> {preference.have_pets ? preference.have_pets : "No preference set"}
@@ -111,8 +116,8 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui button" 
-            onClick={() => this.props.editPreferences(preference)}>Edit</button>
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link></div>
               <div className="content">
               <b>Diet:</b> {preference.diet ? preference.diet : "No preference set"}
@@ -121,8 +126,8 @@ class FilterContainer extends React.Component {
             <div className="item">
               <div className="right floated content">
             <Link to="/editfilters">
-                <button className="ui button" 
-            onClick={() => this.props.editPreferences(preference)}>Edit</button>
+                <button className="ui compact button" 
+            onClick={() => this.props.editPreferences(preference)}><i className="pencil icon"></i></button>
               </Link>
               </div>
               <div className="content">
@@ -136,6 +141,11 @@ class FilterContainer extends React.Component {
                 <b>4/20 Friendly:</b> {preference.weed ? preference.weed : "No preference set"}
                 <br></br>
                 <b>Other drugs:</b> {preference.drugs ? preference.drugs : "No preference set"}
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+
               </div>
           </div>
           </div>
@@ -149,9 +159,15 @@ class FilterContainer extends React.Component {
       console.log("Look at dem props", this.props)
       return (
           <div className="ui container grid">
+          
               <div className="ui row">
-              <div className="column eight wide">
-                  <h1>PREFERENCES</h1> 
+              <div className="column twelve wide">
+              <Link to= "/filteredprofiles">
+        <button className="ui pink button right floated">
+          See who fits your preferences!
+        </button>
+        </Link>
+                <div> <h1>PREFERENCES</h1> </div> 
               {myPreferences < 1 ? <Link to="/editfilters">
               <button className="ui pink basic button" 
               onClick={() => this.props.editPreferences(myPreferences)}>
@@ -159,6 +175,11 @@ class FilterContainer extends React.Component {
               this.renderList()}
           </div>
           </div>
+          {/* <Link to= "/filteredprofiles">
+        <button className="ui pink button">
+          See who fits your preferences!
+        </button>
+        </Link> */}
           </div>
       )
       } else {return "Log in to view/set your filters"}

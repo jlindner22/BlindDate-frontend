@@ -18,13 +18,54 @@ code {
   margin-top: 7%;
 }
 
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .right  {
   margin-top: 1%;
   left: 10px
+}
+
+.stolenright  {
+  margin-top: 5%;
+  margin-right: 130px;
+}
+
+.profile_text {
+  overflow-wrap: normal;
 }
 
 .profilepic {
 position: relative;
 margin-top: -530px;
 left: 50%
+}
+
+.centerDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.customContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100%;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.flex_pic {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  justify-content: space-between;
+  width: 100vw;
 }
