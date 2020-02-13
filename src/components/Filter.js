@@ -16,7 +16,9 @@ class FilterContainer extends React.Component {
     }
 
     renderList() {
-      return (this.props.preferences && this.renderPreferences(this.props.preferences).map(preference => { 
+      console.log("pref1", this.props.editPreferences)
+      return (this.props.preferences && this.renderPreferences(this.props.preferences).map(preference => {
+        console.log("pref2", this.props.editPreferences) 
         return (
             <div className="ui middle aligned divided list">
             <div className="item">
@@ -154,6 +156,7 @@ class FilterContainer extends React.Component {
     };
 
   render() {
+    console.log("pref3", this.props.editPreferences)
     if (this.props.currentUser) {
       let myPreferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
       console.log("Look at dem props", this.props)

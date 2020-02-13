@@ -21,6 +21,9 @@ class NavBar extends React.Component {
             <Link to='/matches'><a className="item">
                 Matches
             </a></Link>
+            <Link to='/filters'><a className="item">
+                Preferences
+            </a></Link>
             {/* <Link to='/messages'><a className="item">
                 Messages
             </a></Link> */}

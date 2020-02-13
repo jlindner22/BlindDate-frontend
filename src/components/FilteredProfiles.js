@@ -85,7 +85,8 @@ class FilteredProfiles extends React.Component {
         if (myPreferences.length > 0 && filteredProfs.length > 0) {
               return (
                 <div>
-          <div className="ui container grid">
+          <div className="ui container">
+          <br></br>
             <div className="ui row">
             <Link to={`/users`}>
           <button className="ui basic pink button left floated">

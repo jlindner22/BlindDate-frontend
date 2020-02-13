@@ -197,7 +197,7 @@ class App extends React.Component {
       })
     }) .then(response => response.json())
     .then(response => console.log(response))
-    this.props.history.push('/filteredprofiles')
+    alert("Your changes have been submitted!")
   } else {
     fetch('http://localhost:3000/api/v1/preferences',{
       method: 'POST',
@@ -227,6 +227,7 @@ class App extends React.Component {
       .then(response => response.json())
       .then(response => {
       console.log(response)
+      alert("Your preferences have been submitted!")
   })
   }
 }

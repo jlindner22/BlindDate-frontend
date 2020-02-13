@@ -232,13 +232,13 @@ class FilterForm extends React.Component {
                   </select>
                     <br></br>
                     <br></br>
-                 <button className="ui pink button right floated" type="submit" onClick={()=> this.props.handlePreferenceChanges(preference)}>Submit changes </button>
-                  <Link to="/filters">
-                <button className="ui pink button left floated">View Preferences </button>
+                 <Link to="/filteredprofiles">
+                <button className="ui pink button">See who fits!</button>
                  </Link>
-                 {/* <Link to="/filteredprofiles">
-                <button className="ui pink button left floated">See who matches these preferences!</button>
-                 </Link> */}
+                  <Link to="/filters">
+                <button className="ui pink button">View Preferences </button>
+                 </Link>
+                 <button className="ui pink button" type="submit" onClick={()=> this.props.handlePreferenceChanges(preference)}>Submit changes </button>
                  <br></br>
                  <br></br>
                  <br></br>

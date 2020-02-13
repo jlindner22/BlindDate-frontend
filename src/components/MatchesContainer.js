@@ -16,11 +16,11 @@ class MatchesContainer extends React.Component {
 
   // //add condition to stop from infinite loop, still allowing for page refresh on delete
   componentDidUpdate() {
-   if (this.state.oldMatchesLength !== this.props.matches.length){
+  //  if (this.state.oldMatchesLength !== this.props.matches.length){
     this.props.getMyMatches()
-    this.setState({oldMatchesLength: this.props.matches.length}) 
-    } else { return null }
-    console.log("LOOK HERE", this.props)
+    // this.setState({oldMatchesLength: this.props.matches.length}) 
+    // } else { return null }
+    // console.log("LOOK HERE", this.props)
   }
 
   renderMatches = () => {

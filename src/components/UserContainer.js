@@ -10,6 +10,10 @@ class UserContainer extends React.Component {
     this.props.getPreferences()
   }
 
+  filterLink = () => {
+    this.props.history.push('/filters')
+  }
+
   renderList() {
      console.log("user container props", this.props)
     return (this.props.profiles && this.props.profiles.map(profile => {
@@ -48,11 +52,11 @@ class UserContainer extends React.Component {
         <br></br>
         <div className="ui container">
           <br></br>
-          <Link to= "/filters">
-          <button className="ui pink button">
+          {/* <Link to= "/filters"> */}
+          <button className="ui pink button" onClick={this.filterLink}>
           View/Set Preferences
         </button>
-        </Link>
+        {/* </Link> */}
         <Link to= "/filteredprofiles">
         <button className="ui pink button">
           See who fits your preferences!

@@ -19,13 +19,16 @@ class UserDetail extends React.Component {
     this.setState({ clickedInfoButton: !this.state.clickedInfoButton })
   }
 
-  // componentDidUpdate() {
-  // let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
-  // console.log(liked)
-  // // if (myMatches.map(match => match.potential_match.id).includes(this.props.selectedProfile.id))
-  // if (liked === [true])
-  // {this.setState({matched: true}, console.log("new matched state", this.state.matched))} else {return null}
-  // }
+  componentDidUpdate() {
+    this.props.getMyMatches()
+  let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
+  console.log(liked)
+  let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+
+  // if (myMatches.map(match => match.potential_match.id).includes(this.props.selectedProfile.id))
+  if (liked === [true])
+  {this.setState({matched: true}, console.log("new matched state", this.state.matched))} else {return null}
+  }
 
   render() {
 
