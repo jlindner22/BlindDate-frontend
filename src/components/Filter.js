@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom'
 
 class FilterContainer extends React.Component {
 
-    componentDidMount() {
-        window.scrollTo(0, 0)
-        this.props.getPreferences()
-    }
+  componentDidMount() {
+      window.scrollTo(0, 0)
+      this.props.getPreferences()
+  }
 
-    renderPreferences = () => {
-        let preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
-        return preferences
-    }
+  renderPreferences = () => {
+      let preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
+      return preferences
+  }
 
     renderList() {
       console.log("pref1", this.props.editPreferences)
@@ -147,7 +147,6 @@ class FilterContainer extends React.Component {
                 <br></br>
                 <br></br>
                 <br></br>
-
               </div>
           </div>
           </div>
@@ -159,10 +158,9 @@ class FilterContainer extends React.Component {
     console.log("pref3", this.props.editPreferences)
     if (this.props.currentUser) {
       let myPreferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
-      console.log("Look at dem props", this.props)
+      console.log("FilterContainer props", this.props)
       return (
           <div className="ui container grid">
-          
               <div className="ui row">
               <div className="column twelve wide">
               {myPreferences < 1 ? null :
@@ -182,7 +180,9 @@ class FilterContainer extends React.Component {
           </div>
           </div>
       )
-      } else {return "Log in to view/set your filters"}
+      } else {
+          return "Log in to view/set your filters"
+        }
   }
 }
 

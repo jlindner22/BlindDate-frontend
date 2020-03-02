@@ -10,9 +10,6 @@ class ProfileForm extends React.Component {
     }
     
     state = {
-        username: '',
-        password: '',
-        password_confirmation: '',
         page: 1,
         name: '',
         email: '',
@@ -79,8 +76,8 @@ class ProfileForm extends React.Component {
     }
 
     userBasicInfo = (user, e) => {
-        console.log("LOOK HERE", user)
-        console.log(this.state)
+        // console.log("profile form user", user)
+        // console.log(this.state)
         e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
@@ -105,8 +102,8 @@ class ProfileForm extends React.Component {
         }
 
     userPageTwoInfo = (user, e) => {
-        console.log("LOOK HERE", user)
-        console.log(this.state)
+        // console.log("profile form user", user)
+        // console.log(this.state)
         e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
@@ -136,8 +133,7 @@ class ProfileForm extends React.Component {
     }
 
     userPageThreeInfo = (user, e) => {
-        console.log(this.state)
-        console.log("LOOK HERE", user)
+        // console.log(this.state)
         e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",

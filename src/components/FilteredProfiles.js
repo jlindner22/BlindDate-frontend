@@ -62,7 +62,7 @@ class FilteredProfiles extends React.Component {
           }))
     }};
     render() {
-      console.log("HELP ME PLEASE",this.props)
+      console.log("filtered profs props",this.props)
       let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
       if (myPreferences.length > 0){
       let prefState = myPreferences[0]

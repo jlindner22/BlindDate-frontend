@@ -21,20 +21,23 @@ class UserDetail extends React.Component {
 
   componentDidUpdate() {
     this.props.getMyMatches()
-  let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
-  console.log(liked)
-  let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+    let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
+    console.log(liked)
+    let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
 
   // if (myMatches.map(match => match.potential_match.id).includes(this.props.selectedProfile.id))
-  if (liked === [true])
-  {this.setState({matched: true}, console.log("new matched state", this.state.matched))} else {return null}
+    if (liked === [true]) {
+      this.setState({matched: true}, console.log("new matched state", this.state.matched))
+    } else {
+      return null
+    }
   }
 
   render() {
 
    let liked = this.props.likeProfile.map(profile => profile.potential_match_id)[0]
     console.log("state of matched", this.state.matched)
-    console.log("JEN LOOK", this.props)
+    console.log("userdetail props", this.props)
     console.log("liked profile id", liked)
     console.log("selected profile id", this.props.selectedProfile.id)
     let profile = this.props.selectedProfile
@@ -151,18 +154,16 @@ class UserDetail extends React.Component {
                       Match with {profile.name}! <i className="heart red icon"></i>
             </button>}
             <br></br>
-                  <br></br>                  
-                  <br></br>
-                  <br></br>                  
-                  <br></br>
-                  <br></br>                  
-                  <br></br>
-                  <br></br>                  
-                  <br></br>
-                  <br></br>                  
-                  <br></br>
-               
-
+            <br></br>                  
+            <br></br>
+            <br></br>                  
+            <br></br>
+            <br></br>                  
+            <br></br>
+            <br></br>                  
+            <br></br>
+            <br></br>                  
+            <br></br>
          </div>
         </div>
       </div>
