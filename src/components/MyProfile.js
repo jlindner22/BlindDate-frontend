@@ -26,7 +26,7 @@ class MyProfile extends React.Component {
       console.log("my profile props", this.props)
         let props = this.state.profileInfo
         let noCollege = "Some High School" || "High School Diploma/GED";
-      console.log("Hi JEN", props)
+      console.log("my profile props", props)
         if (props) {
           return (
             <div className="flex_pic">
