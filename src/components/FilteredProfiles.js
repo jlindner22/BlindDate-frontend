@@ -50,7 +50,7 @@ class FilteredProfiles extends React.Component {
             <div className="extra content">
                 <Link to={`/users/${profile.id}`}> <button 
                   onClick={() => this.props.viewProfile(profile)}
-                      className="ui pink basic button">
+                      className="ui blue basic button">
                         View Profile!
             </button></Link>
             <div className="ui right floated">
@@ -89,8 +89,8 @@ class FilteredProfiles extends React.Component {
           <br></br>
             <div className="ui row">
             <Link to={`/users`}>
-          <button className="ui basic pink button left floated">
-              <i className="arrow alternate circle left pink icon"></i> Browse without filters
+          <button className="ui basic blue button left floated">
+              <i className="arrow alternate circle left blue icon"></i> Browse without filters
           </button>
           </Link>
           <br></br>
@@ -151,7 +151,7 @@ class FilteredProfiles extends React.Component {
       </div>
       <br></br>
       <Link to="/filters">
-        <button className="ui pink button">Set Preferences </button>
+        <button className="ui blue button">Set Preferences </button>
       </Link>
      <br></br>
     <br></br>

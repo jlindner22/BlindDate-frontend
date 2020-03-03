@@ -62,7 +62,7 @@ class MyProfile extends React.Component {
                   <b>My diet is:</b> {props.diet}
                   <br></br>
                   <br></br>
-                  <button className="ui pink button"
+                  <button className="ui blue button"
                   onClick={this.toggleInfo}> {this.state.moreButton === false ? "See more about me!" : "See less about me!"}</button>
                   <br></br>
                   <br></br>

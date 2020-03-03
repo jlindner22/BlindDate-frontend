@@ -14,11 +14,11 @@ class Home extends React.Component {
                 <div className="ui centered row ">
                     <div className="ui vertical buttons">
                     <Link to={'/login'}>
-                    <button className="ui pink button" type="submit">Log In</button>
+                    <button className="ui blue button" type="submit">Log In</button>
                     </Link>
                     <br></br>
                     <Link to={'/signup'}>
-                    <button className="ui pink button" type="submit">Sign Up</button>
+                    <button className="ui blue button" type="submit">Sign Up</button>
                     </Link>
                     </div>
                 </div> }

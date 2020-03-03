@@ -8,7 +8,7 @@ class NavBar extends React.Component {
             <React.Fragment>  
                 {this.props.currentUser == null ? null :
             <div>
-            <div className="ui secondary pointing menu">
+            <div className="ui teal inverted secondary pointing menu">
             <Link to='/'> <a className="item">
                 Home
             </a></Link>
@@ -35,9 +35,9 @@ class NavBar extends React.Component {
                 </Link>
             </div>
             </div> 
-            <div className="ui segment">
+            {/* <div className="ui segment">
             <p></p>
-            </div> 
+            </div>  */}
             </div>
                 }
             </React.Fragment>  

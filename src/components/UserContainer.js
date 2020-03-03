@@ -84,7 +84,7 @@ class UserContainer extends React.Component {
       </div>
       <div className="extra content"><Link to={`/users/${profile.id}`}> 
         <button onClick={() => this.props.viewProfile(profile)}
-                className="ui pink basic button">
+                className="ui blue basic button">
                   View Profile!
         </button></Link>
         <div className="ui right floated">
@@ -124,7 +124,7 @@ renderReverseNameSortedList = () => {
     </div>
     <div className="extra content"><Link to={`/users/${profile.id}`}> 
       <button onClick={() => this.props.viewProfile(profile)}
-              className="ui pink basic button">
+              className="ui blue basic button">
                 View Profile!
       </button></Link>
       <div className="ui right floated">
@@ -157,7 +157,7 @@ renderReverseNameSortedList = () => {
 //     </div>
 //     <div className="extra content"><Link to={`/users/${profile.id}`}> 
 //       <button onClick={() => this.props.viewProfile(profile)}
-//               className="ui pink basic button">
+//               className="ui blue basic button">
 //                 View Profile!
 //       </button></Link>
 //       <div className="ui right floated">
@@ -197,7 +197,7 @@ renderReverseNameSortedList = () => {
 //     </div>
 //     <div className="extra content"><Link to={`/users/${profile.id}`}> 
 //       <button onClick={() => this.props.viewProfile(profile)}
-//               className="ui pink basic button">
+//               className="ui blue basic button">
 //                 View Profile!
 //       </button></Link>
 //       <div className="ui right floated">
@@ -216,19 +216,19 @@ renderReverseNameSortedList = () => {
       <div className="ui container">
         <br></br>
         {/* <Link to= "/filters"> */}
-        <button className="ui pink button" onClick={this.filterLink}>
+        <button className="ui blue button" onClick={this.filterLink}>
         View/Set Preferences
         </button>
       {/* </Link> */}
       <Link to= "/filteredprofiles">
-      <button className="ui pink button">
+      <button className="ui blue button">
         See who fits your preferences!
       </button>
       </Link>
-      <button className="ui pink button" onClick={this.handleNameSort} >
+      <button className="ui blue button" onClick={this.handleNameSort} >
         {this.state.nameSorted === false ? "Sort Z -> A" : "Sort A -> Z"}
       </button>
-      {/* <button className="ui pink button" onClick={this.handleAgeSort}>
+      {/* <button className="ui blue button" onClick={this.handleAgeSort}>
         {this.state.ageSorted === false ? "Sort age descending" : "Sort age ascending"}
       </button> */}
       <br></br>

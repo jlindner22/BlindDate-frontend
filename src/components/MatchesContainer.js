@@ -51,13 +51,13 @@ class MatchesContainer extends React.Component {
       <div className="extra content">
           <Link to={`/users/${profile.potential_match.id}`}> <button 
             onClick={() => this.props.viewProfile(profile.potential_match)}
-                className="ui pink basic button">
+                className="ui blue basic button">
                   View Profile!
           </button></Link>
         <div className="ui right floated">
           <button 
           onClick={() => this.props.deleteMatch(profile.match_id)}
-                  className="ui pink basic button">
+                  className="ui blue basic button">
                       Delete Match
           </button>
         </div> 
@@ -76,8 +76,8 @@ class MatchesContainer extends React.Component {
         <div className="ui container grid">
           <div className="ui row">
             <Link to={`/users`}>
-          <button className="ui basic pink button left floated">
-              <i className="arrow alternate circle left pink icon"></i> Keep browsing
+          <button className="ui basic blue button left floated">
+              <i className="arrow alternate circle left blue icon"></i> Keep browsing
           </button>
         </Link>
         <br></br>

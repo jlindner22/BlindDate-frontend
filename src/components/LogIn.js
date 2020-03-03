@@ -51,9 +51,9 @@ class LogIn extends React.Component {
                         <label>Password</label>
                             <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
                 </div>
-                <button className="ui pink button" type="submit">Log In</button>
+                <button className="ui teal button" type="submit">Log In</button>
                 <Link to={`/`}>
-                <button className="ui basic pink button left floated">
+                <button className="ui basic teal button left floated">
                             Go Back
                 </button>
                 </Link>
