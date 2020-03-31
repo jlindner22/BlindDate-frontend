@@ -65,10 +65,10 @@ class Signup extends React.Component {
                 </div>
                 <br></br>
                     <br></br>
-                <button className="ui pink button" type="submit"
+                <button className="ui teal button" type="submit"
                 >Sign Up</button>
                 <Link to={`/`}>
-                <button className="ui basic pink button left floated">
+                <button className="ui basic teal button left floated">
                             Go Back
                 </button>
                 </Link>

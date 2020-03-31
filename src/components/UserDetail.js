@@ -11,28 +11,49 @@ class UserDetail extends React.Component {
   }
     
   state = {
-      clickedInfoButton: false
+    clickedInfoButton: false,
+    matched: false
   }
 
   toggleInfo = () => {
     this.setState({ clickedInfoButton: !this.state.clickedInfoButton })
   }
 
+  componentDidUpdate() {
+    this.props.getMyMatches()
+    let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
+    console.log(liked)
+    let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+
+  // if (myMatches.map(match => match.potential_match.id).includes(this.props.selectedProfile.id))
+    if (liked === [true]) {
+      this.setState({matched: true}, console.log("new matched state", this.state.matched))
+    } else {
+      return null
+    }
+  }
+
   render() {
-    console.log("user detail props", this.props)
-    // console.log("user detail current user", this.props.currentUser)
-    // console.log("selected", this.props.selectedProfile)
-    // console.log("potential match id", profile.id)
-    
+
+   let liked = this.props.likeProfile.map(profile => profile.potential_match_id)[0]
+    console.log("state of matched", this.state.matched)
+    console.log("userdetail props", this.props)
+    console.log("liked profile id", liked)
+    console.log("selected profile id", this.props.selectedProfile.id)
     let profile = this.props.selectedProfile
     let someHighSchool = "Some High School"
     let diploma = "High School Diploma/GED"
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
-      if (profile) {return (
-      <div>
+      if (profile) {
+        return (
+        <div className="flex_pic">
         <div className="ui container grid">
-            <div className="ui row">
+        <div className="stolenright">
+            <img className="ui medium bordered image" src={profile.avatar} alt="Oops, this image is broken!"/>
+              </div>
+              <div>
                 <div className="column twelve wide">
+                <br></br>
             <h1><b>Meet {profile.name}!</b></h1>
             <h2>About Me</h2>
             <b>Age:</b> {profile.age}
@@ -114,7 +135,7 @@ class UserDetail extends React.Component {
             <b>Other drugs:</b>  {profile.drugs}
             <br></br>
             <br></br>
-            {myMatches > 0 ? 
+            {myMatches.length > 0 ? 
             <Link to={`/matches`}> 
             <button className="ui basic pink button">
             <i className="arrow alternate circle left pink icon"></i> Browse your matches 
@@ -125,20 +146,30 @@ class UserDetail extends React.Component {
             <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
             </button>
             </Link>
-            {myMatches.map(match => match.potential_match.id).includes(profile.id) ?  <b>          You're a match!</b> :   
+            {/* {this.state.matched === true */}
+              {myMatches.map(match => match.potential_match.id).includes(profile.id) 
+              ?  <b>          You're a match!</b> :   
             <button 
               onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
                     className="ui pink button">
                       Match with {profile.name}! <i className="heart red icon"></i>
             </button>}
+            <br></br>
+            <br></br>                  
+            <br></br>
+            <br></br>                  
+            <br></br>
+            <br></br>                  
+            <br></br>
+            <br></br>                  
+            <br></br>
+            <br></br>                  
+            <br></br>
          </div>
         </div>
       </div>
-      <div className="profilepic">
-      <img className="ui centered large bordered image" src={profile.avatar} alt="Oops, this image is broken!"/>
-    </div>
       </div>
-      </div>
+       </div>
     )} else {return <Link to={`/users`}>
     <button className="ui basic pink button">
     <i className="arrow alternate circle left pink icon"></i> Browse all profiles 

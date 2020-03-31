@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { loggedIn } from '../actions';
 
-
 class ProfileForm extends React.Component {
 
     componentDidMount() {
@@ -11,9 +10,6 @@ class ProfileForm extends React.Component {
     }
     
     state = {
-        username: '',
-        password: '',
-        password_confirmation: '',
         page: 1,
         name: '',
         email: '',
@@ -80,8 +76,8 @@ class ProfileForm extends React.Component {
     }
 
     userBasicInfo = (user, e) => {
-        console.log("LOOK HERE", user)
-        console.log(this.state)
+        // console.log("profile form user", user)
+        // console.log(this.state)
         e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
@@ -106,8 +102,8 @@ class ProfileForm extends React.Component {
         }
 
     userPageTwoInfo = (user, e) => {
-        console.log("LOOK HERE", user)
-        console.log(this.state)
+        // console.log("profile form user", user)
+        // console.log(this.state)
         e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
@@ -137,8 +133,7 @@ class ProfileForm extends React.Component {
     }
 
     userPageThreeInfo = (user, e) => {
-        console.log(this.state)
-        console.log("LOOK HERE", user)
+        // console.log(this.state)
         e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
             method: "PATCH",
@@ -195,17 +190,17 @@ class ProfileForm extends React.Component {
         <div className="ui container grid">
             <div className="ui row">
                 <form className="ui form" onSubmit={(e) => this.userBasicInfo(this.props.user, e)}>
-                     <button className="ui basic button right floated" type="button" onClick={this.goToFourthPage}> Go to fourth page
+                     {/* <button className="ui basic button right floated" type="button" onClick={this.goToFourthPage}> Go to fourth page
                      </button>              
                      <button className="ui basic button right floated" type="button" onClick={this.goToThirdPage}> Go to third page
                      </button> 
                      <button className="ui basic button right floated" type="button" onClick={this.goToSecondPage}> Go to second page
-                     </button>   
-                     <Link to={`/`}>
+                     </button>    */}
+                     {/* <Link to={`/`}>
                     <button className="ui basic pink button left floated" type="button">
                     Go Back
                     </button>
-                </Link>
+                    </Link> */}
                      <br></br>
                      <br></br>
                     <h4 className="ui dividing header">Basic Information</h4>
@@ -309,11 +304,29 @@ class ProfileForm extends React.Component {
                             </div>
                 </div>
                 <input className="ui basic pink button right floated" type="submit" value="Next Page" ></input>
+                <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
                 </form>
                 {/* <button className="ui basic button right floated" type="button" 
                 onClick={this.goToSecondPage}>
                 Next Page
                 </button> */}
+
+          
             </div>
         </div>
         )} 
@@ -517,6 +530,8 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <input className="ui basic pink button right floated" type="submit" value="Next Page" ></input>
+                            <br></br>
+                            <br></br>
                         </form>
                 </div>
             </div>
@@ -600,7 +615,7 @@ class ProfileForm extends React.Component {
                                     <option value="Words of Affirmation">Words of Affirmation</option>
                                     <option value="Not Sure">Not Sure</option>
                                 </select>
-                                <a href='https://www.5lovelanguages.com/quizzes/' >Take the quiz here</a> 
+                                <a href='https://www.5lovelanguages.com/quizzes/' target="_blank">Take the quiz here</a> 
                             </div>
                     </div>
                     <div className="field">
@@ -644,6 +659,8 @@ class ProfileForm extends React.Component {
                             </div> 
                             </div> 
                         <input className="ui basic pink button right floated" type="submit" value="Next Page"/>
+                        <br></br>
+                        <br></br>
                      </form>
             </div>
             </div>
@@ -783,6 +800,8 @@ class ProfileForm extends React.Component {
                      <button className="ui basic button right floated" type="submit">
                     Submit Profile
                 </button>
+                <br></br>
+                <br></br>
                 </form>
             </div>
         </div>        

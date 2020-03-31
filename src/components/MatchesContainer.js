@@ -16,11 +16,11 @@ class MatchesContainer extends React.Component {
 
   // //add condition to stop from infinite loop, still allowing for page refresh on delete
   componentDidUpdate() {
-   if (this.state.oldMatchesLength !== this.props.matches.length){
+  //  if (this.state.oldMatchesLength !== this.props.matches.length){
     this.props.getMyMatches()
-    this.setState({oldMatchesLength: this.props.matches.length}) 
-    } else { return null }
-    console.log("LOOK HERE", this.props)
+    // this.setState({oldMatchesLength: this.props.matches.length}) 
+    // } else { return null }
+    // console.log("LOOK HERE", this.props)
   }
 
   renderMatches = () => {
@@ -51,13 +51,13 @@ class MatchesContainer extends React.Component {
       <div className="extra content">
           <Link to={`/users/${profile.potential_match.id}`}> <button 
             onClick={() => this.props.viewProfile(profile.potential_match)}
-                className="ui pink basic button">
+                className="ui blue basic button">
                   View Profile!
           </button></Link>
         <div className="ui right floated">
           <button 
           onClick={() => this.props.deleteMatch(profile.match_id)}
-                  className="ui pink basic button">
+                  className="ui blue basic button">
                       Delete Match
           </button>
         </div> 
@@ -73,27 +73,31 @@ class MatchesContainer extends React.Component {
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return (
       <div>
-          <div className="ui container grid">
+        <div className="ui container grid">
           <div className="ui row">
-          <div className="ui link cards">
-          {myMatches < 1 ? "You currently have no matches." :
-        this.renderList()}
-          </div>
-          <br></br>
-          <br></br>
-          </div>
-          </div>
-          <br></br>
-          <br></br>
-      <Link to={`/users`}>
-          <button className="ui basic pink button left floated">
-              <i className="arrow alternate circle left pink icon"></i> Browse
+            <Link to={`/users`}>
+          <button className="ui basic blue button left floated">
+              <i className="arrow alternate circle left blue icon"></i> Keep browsing
           </button>
         </Link>
         <br></br>
-        <br></br> <br></br>
-        <br></br> <br></br>
         <br></br>
+        <br></br>
+            <div className="ui link cards">
+          {myMatches < 1 ? <h1 className="center aligned content">
+           <br></br><br></br> <br></br>  You currently have no matches.</h1> :
+        this.renderList() }
+          </div>
+          <br></br>
+          <br></br>
+          </div>
+          </div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br> <br></br>
+          <br></br> <br></br>
+          <br></br>
       </div>
     )
     } else {return "Log in to view your matches"}
