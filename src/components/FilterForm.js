@@ -50,21 +50,21 @@ class FilterForm extends React.Component {
                    <h1>Select Your Preferences</h1> 
               <br></br>
               <b>Gender:</b>
-              <select className="ui fluid dropdown" name="gender" onChange={this.props.genderChange} value={this.props.gender} >
+              <select className="ui fluid dropdown" name="gender" onChange={this.props.handleChange} value={this.props.gender} >
                   <option defaultChecked value ="All">All</option>
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
                 </select>
                 <br></br>
               <b>Minimum Age: </b>
-              <input type="text" name="minimum_age" placeholder="Minimum Age" onChange={this.props.minRangeChange} value={this.props.minimum_age}></input>        
+              <input type="text" name="minimum_age" placeholder="Minimum Age" onChange={this.props.handleChange} value={this.props.minimum_age}></input>        
                 <br></br>
                 <b>Maximum Age: </b>
-                <input type="text" name="maximum_age" placeholder="Maximum Age" onChange={this.props.maxRangeChange} value={this.props.maximum_age}></input>
+                <input type="text" name="maximum_age" placeholder="Maximum Age" onChange={this.props.handleChange} value={this.props.maximum_age}></input>
                   <br></br>                 
                   <br></br>
                   <b>State:</b>
-              <select className="ui fluid dropdown" name="state" onChange={this.props.stateChange} value={this.props.state}>
+              <select className="ui fluid dropdown" name="state" onChange={this.props.handleChange} value={this.props.state}>
                   <option value="All">All</option>
                   <option value="Alabama">Alabama</option>
                   <option value="Alaska">Alaska</option>
@@ -120,7 +120,7 @@ class FilterForm extends React.Component {
                 </select>
                 <br></br>
                 <b>Religion:</b>
-                <select className="ui fluid dropdown" name="religion" onChange={this.props.religionChange} value={this.props.religion}>
+                <select className="ui fluid dropdown" name="religion" onChange={this.props.handleChange} value={this.props.religion}>
                   <option value="All">All</option>
                   <option value="Agnostic">Agnostic</option>
                   <option value="Atheist">Atheist</option>
@@ -135,7 +135,7 @@ class FilterForm extends React.Component {
                   </select>
                   <br></br>
                   <b>Education level:</b>
-              <select className="ui fluid dropdown" name="education_level" onChange={this.props.educationLevelChange} value={this.props.education_level}>
+              <select className="ui fluid dropdown" name="education_level" onChange={this.props.handleChange} value={this.props.education_level}>
                   <option value="All">All</option>
                   <option value="Some High School">Some High School</option>
                   <option value="High School Diploma/GED">High School Diploma/GED</option>
@@ -146,14 +146,14 @@ class FilterForm extends React.Component {
                 </select>
                 <br></br>
                 <b>Parent:</b>
-                <select className="ui fluid dropdown" name="kids" onChange={this.props.kidsChange} value={this.props.kids}>
+                <select className="ui fluid dropdown" name="kids" onChange={this.props.handleChange} value={this.props.kids}>
                   <option value="All">All</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                   </select>
                   <br></br>
                   <b>Relationship Type:</b>
-              <select className="ui fluid dropdown" name="relationship_type" onChange={this.props.relationshipTypeChange} value={this.props.relationship_type}>
+              <select className="ui fluid dropdown" name="relationship_type" onChange={this.props.handleChange} value={this.props.relationship_type}>
                   <option value="All">All</option>
                   <option value="Business/Networking">Business/Networking</option>
                   <option value="Companion">Companion</option>
@@ -167,7 +167,7 @@ class FilterForm extends React.Component {
                 </select>
                 <br></br>
                 <b>Political Views:</b>
-                <select className="ui fluid dropdown" name="politics" onChange={this.props.politicsChange} value={this.props.politics}>
+                <select className="ui fluid dropdown" name="politics" onChange={this.props.handleChange} value={this.props.politics}>
                   <option value="All">All</option>
                   <option value="Conservative">Conservative</option>
                   <option value="Liberal">Liberal</option>
@@ -177,7 +177,7 @@ class FilterForm extends React.Component {
                   </select>
                   <br></br>
                   <b>Owns pets:</b>
-                <select className="ui fluid dropdown" name="have_pets" onChange={this.props.havePetsChange} value={this.props.have_pets}>
+                <select className="ui fluid dropdown" name="have_pets" onChange={this.props.handleChange} value={this.props.have_pets}>
                   <option value="All">All</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
@@ -185,7 +185,7 @@ class FilterForm extends React.Component {
                 </select>
                 <br></br>
                 <b>Diet:</b>
-                <select className="ui fluid dropdown" name="diet" onChange={this.props.dietChange} value={this.props.diet}>
+                <select className="ui fluid dropdown" name="diet" onChange={this.props.handleChange} value={this.props.diet}>
                   <option value="All">All</option>
                   <option value="Gluten-free">Gluten-free</option>
                   <option value="Kosher">Kosher</option>
@@ -196,7 +196,7 @@ class FilterForm extends React.Component {
                   </select>
                   <br></br>
                   <b>Smoking:</b>
-                <select className="ui fluid dropdown" name="smokes" onChange={this.props.smokesChange} value={this.props.smokes}>
+                <select className="ui fluid dropdown" name="smokes" onChange={this.props.handleChange} value={this.props.smokes}>
                   <option value="All">All</option>
                   <option value="Often">Often</option>
                   <option value="Sometimes">Sometimes</option>
@@ -206,7 +206,7 @@ class FilterForm extends React.Component {
                   </select>
                   <br></br>
                   <b>Drinking:</b>
-                <select className="ui fluid dropdown" name="drinks" onChange={this.props.drinksChange} value={this.props.drinks}>
+                <select className="ui fluid dropdown" name="drinks" onChange={this.props.handleChange} value={this.props.drinks}>
                   <option value="All">All</option>
                   <option value="A few times a week">A few times a week</option>
                   <option value="Socially">Socially</option>
@@ -216,14 +216,14 @@ class FilterForm extends React.Component {
                   </select>
                   <br></br>
                   <b>4/20 Friendly:</b>
-                <select className="ui fluid dropdown" name="weed" onChange={this.props.weedChange} value={this.props.weed}>
+                <select className="ui fluid dropdown" name="weed" onChange={this.props.handleChange} value={this.props.weed}>
                   <option value="All">All</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                   </select>
                   <br></br>
                <b>Other Drugs:</b>
-                <select className="ui fluid dropdown" name="drugs" onChange={this.props.drugsChange} value={this.props.drugs}>
+                <select className="ui fluid dropdown" name="drugs" onChange={this.props.handleChange} value={this.props.drugs}>
                   <option value="All">All</option>
                   <option value="Often">Often</option>
                   <option value="Socially">Socially</option>
@@ -261,21 +261,21 @@ class FilterForm extends React.Component {
                    <h1>Select Your Preferences</h1> 
               <br></br>
               Gender:
-              <select className="ui fluid dropdown" name="gender" onChange={this.props.genderChange} value={this.props.gender}>
+              <select className="ui fluid dropdown" name="gender" onChange={this.props.handleChange} value={this.props.gender}>
                   <option value="All">All</option>
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
                 </select>
                 <br></br>
                 Minimum Age:
-              <input type="text" name="minimum_age" placeholder="Minimum Age" value={this.props.minimum_age} onChange={this.props.minRangeChange}></input>        
+              <input type="text" name="minimum_age" placeholder="Minimum Age" value={this.props.minimum_age} onChange={this.props.handleChange}></input>        
                 <br></br>
               Maximum Age:
-                <input type="text" name="maximum_age" placeholder="Maximum Age" value={this.props.maximum_age} onChange={this.props.maxRangeChange}></input>
+                <input type="text" name="maximum_age" placeholder="Maximum Age" value={this.props.maximum_age} onChange={this.props.handleChange}></input>
                   <br></br>                 
                   <br></br>
               State:
-              <select className="ui fluid dropdown" name="state" onChange={this.props.stateChange} value={this.props.state}>
+              <select className="ui fluid dropdown" name="state" onChange={this.props.handleChange} value={this.props.state}>
               <option value="All">All</option>
                   <option value="Alabama">Alabama</option>
                   <option value="Alaska">Alaska</option>
@@ -331,7 +331,7 @@ class FilterForm extends React.Component {
                 </select>
                 <br></br>
                 Religion:
-                <select className="ui fluid dropdown" name="religion" onChange={this.props.religionChange} value={this.props.religion}>
+                <select className="ui fluid dropdown" name="religion" onChange={this.props.handleChange} value={this.props.religion}>
                   <option value="All">All</option>
                   <option value="Agnostic">Agnostic</option>
                   <option value="Atheist">Atheist</option>
@@ -346,7 +346,7 @@ class FilterForm extends React.Component {
                   </select>
                   <br></br>
               Education level:
-              <select className="ui fluid dropdown" name="education_level" onChange={this.props.educationLevelChange} value={this.props.education_level}>
+              <select className="ui fluid dropdown" name="education_level" onChange={this.props.handleChange} value={this.props.education_level}>
                   <option value="All">All</option>
                   <option value="Some High School">Some High School</option>
                   <option value="High School Diploma/GED">High School Diploma/GED</option>
@@ -357,14 +357,14 @@ class FilterForm extends React.Component {
                 </select>
                 <br></br>
                 Parent:
-                <select className="ui fluid dropdown" name="kids" onChange={this.props.kidsChange} value={this.props.kids}>
+                <select className="ui fluid dropdown" name="kids" onChange={this.props.handleChange} value={this.props.kids}>
                   <option value="All">All</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                   </select>
                   <br></br>
               Relationship Type:
-              <select className="ui fluid dropdown" name="relationship_type" onChange={this.props.relationshipTypeChange} value={this.props.relationship_type}>
+              <select className="ui fluid dropdown" name="relationship_type" onChange={this.props.handleChange} value={this.props.relationship_type}>
                   <option value="All">All</option>
                   <option value="Business/Networking">Business/Networking</option>
                   <option value="Companion">Companion</option>
@@ -378,7 +378,7 @@ class FilterForm extends React.Component {
                 </select>
                 <br></br>
                 Political Views:
-                <select className="ui fluid dropdown" name="politics" onChange={this.props.politicsChange} value={this.props.politics}>
+                <select className="ui fluid dropdown" name="politics" onChange={this.props.handleChange} value={this.props.politics}>
                   <option value="All">All</option>
                   <option value="Conservative">Conservative</option>
                   <option value="Liberal">Liberal</option>
@@ -388,7 +388,7 @@ class FilterForm extends React.Component {
                   </select>
                   <br></br>
               Owns pets:
-              <select className="ui fluid dropdown" name="have_pets" onChange={this.props.havePetsChange} value={this.props.have_pets}>
+              <select className="ui fluid dropdown" name="have_pets" onChange={this.props.handleChange} value={this.props.have_pets}>
                   <option value="All">All</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
@@ -396,7 +396,7 @@ class FilterForm extends React.Component {
                 </select>
                 <br></br>
                 Diet:
-                <select className="ui fluid dropdown" name="diet" onChange={this.props.dietChange} value={this.props.diet}>
+                <select className="ui fluid dropdown" name="diet" onChange={this.props.handleChange} value={this.props.diet}>
                   <option value="All">All</option>
                   <option value="Gluten-free">Gluten-free</option>
                   <option value="Kosher">Kosher</option>
@@ -407,7 +407,7 @@ class FilterForm extends React.Component {
                   </select>
                   <br></br>
                 Smoking:
-                <select className="ui fluid dropdown" name="smokes" onChange={this.props.smokesChange} value={this.props.smokes}>
+                <select className="ui fluid dropdown" name="smokes" onChange={this.props.handleChange} value={this.props.smokes}>
                   <option value="All">All</option>
                   <option value="Often">Often</option>
                   <option value="Sometimes">Sometimes</option>
@@ -417,7 +417,7 @@ class FilterForm extends React.Component {
                   </select>
                   <br></br>
                 Drinking:
-                <select className="ui fluid dropdown" name="drinks" onChange={this.props.drinksChange} value={this.props.drinks}>
+                <select className="ui fluid dropdown" name="drinks" onChange={this.props.handleChange} value={this.props.drinks}>
                   <option value="All">All</option>
                   <option value="A few times a week">A few times a week</option>
                   <option value="Socially">Socially</option>
@@ -427,14 +427,14 @@ class FilterForm extends React.Component {
                   </select>
                   <br></br>
                 4/20 Friendly:
-                <select className="ui fluid dropdown" name="weed" onChange={this.props.weedChange} value={this.props.weed}>
+                <select className="ui fluid dropdown" name="weed" onChange={this.props.handleChange} value={this.props.weed}>
                   <option value="All">All</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                   </select>
                   <br></br>
                 Other Drugs:
-                <select className="ui fluid dropdown" name="drugs" onChange={this.props.drugsChange} value={this.props.drugs}>
+                <select className="ui fluid dropdown" name="drugs" onChange={this.props.handleChange} value={this.props.drugs}>
                   <option value="All">All</option>
                   <option value="Often">Often</option>
                   <option value="Socially">Socially</option>
