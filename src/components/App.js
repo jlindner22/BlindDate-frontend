@@ -16,6 +16,7 @@ import { getAllUsers, getMyMatches, loggedIn, getPreferences } from '../actions'
 import Signup from './Signup';
 import FilterForm from './FilterForm';
 import FilteredProfiles from './FilteredProfiles';
+import EditProfile from './EditProfile';
 
 // import Footer from './Footer';
 
@@ -236,7 +237,7 @@ class App extends React.Component {
     console.log("app props", this.props)
     return (
       <Router>
-        <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
+        <NavBar logout={this.logout} currentUser={this.state.currentUser} />
         <body>
           <div className="ui container grid">
             <div className="ui row">
@@ -245,14 +246,15 @@ class App extends React.Component {
            </div>
           </div>
             <Switch>
-              <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps} setUser={this.setUser}/>}/>
+              <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps} setUser={this.setUser} currentUser={this.state.currentUser}/>}/>
               <Route exact path="/" render={(routerProps) => <Home currentUser={this.state.currentUser}{...routerProps}/>}/>
-              <Route exact path="/signup" render={(routerProps) => <Signup setUser={this.setUser} {...routerProps}/>}/>
+              <Route exact path="/signup" render={(routerProps) => <Signup setUser={this.setUser} currentUser={this.state.currentUser} {...routerProps}/>}/>
               <Route exact path="/myprofile" render={(routerProps) => <MyProfile currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/users" render={(routerProps) => <UserContainer currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/matches" render={(routerProps) => <MatchesContainer {...routerProps}/>}/>
               <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>
               <Route exact path="/users/:id" render={(routerProps) => <UserDetail {...routerProps}/>}/>
+              <Route exact path="/editprofile" render={(routerProps) => <EditProfile currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/filteredprofiles" render={(routerProps) => <FilteredProfiles currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/filters" render={(routerProps) => <Filter {...routerProps} editPreferences={this.editPreferences}
               minRangeChange={this.minRangeChange}maxRangeChange={this.maxRangeChange}stateChange={this.stateChange}smokesChange={this.smokesChange}drinksChange={this.drinksChange}

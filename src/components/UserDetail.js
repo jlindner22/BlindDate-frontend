@@ -44,7 +44,8 @@ class UserDetail extends React.Component {
     let someHighSchool = "Some High School"
     let diploma = "High School Diploma/GED"
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
-      if (profile) {return (
+      if (profile) {
+        return (
         <div className="flex_pic">
         <div className="ui container grid">
         <div className="stolenright">

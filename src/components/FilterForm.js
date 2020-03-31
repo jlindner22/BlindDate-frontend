@@ -57,10 +57,10 @@ class FilterForm extends React.Component {
                 </select>
                 <br></br>
               <b>Minimum Age: </b>
-              <input type="text" name="minimum_age" placeholder="Minimum Age" value={this.props.minimum_age} onChange={this.props.minRangeChange}></input>        
+              <input type="text" name="minimum_age" placeholder="Minimum Age" onChange={this.props.minRangeChange} value={this.props.minimum_age}></input>        
                 <br></br>
                 <b>Maximum Age: </b>
-                <input type="text" name="maximum_age" placeholder="Maximum Age" value={this.props.maximum_age} onChange={this.props.maxRangeChange}></input>
+                <input type="text" name="maximum_age" placeholder="Maximum Age" onChange={this.props.maxRangeChange} value={this.props.maximum_age}></input>
                   <br></br>                 
                   <br></br>
                   <b>State:</b>

@@ -57,7 +57,7 @@ class LogIn extends React.Component {
                             Go Back
                 </button>
                 </Link>
-            </form>
+            </form> 
             </div>
             </div>
             <br></br>
