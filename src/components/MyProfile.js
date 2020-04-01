@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loggedIn } from '../actions';
+import { Link } from 'react-router-dom'
 
 class MyProfile extends React.Component {
 
@@ -116,7 +117,10 @@ class MyProfile extends React.Component {
                   <br></br>
                   <b>Other drugs:</b>  {props.drugs}
                   <br></br>
-                  <br></br>                  
+                  <br></br>
+                  <Link to='/editprofile'>
+                  <button className="ui blue button">Edit Profile</button>
+                  </Link>                  
                   <br></br>
                   <br></br>                  
                   <br></br>

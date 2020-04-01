@@ -267,11 +267,11 @@ class FilterForm extends React.Component {
                   <option value="Male">Male</option>
                 </select>
                 <br></br>
-                Minimum Age:
-              <input type="text" name="minimum_age" placeholder="Minimum Age" value={this.props.minimum_age} onChange={this.props.handleChange}></input>        
+                Minimum Age: 
+              <input type="text" name="minimum_age" placeholder="Minimum Age" onChange={this.props.handleChange} value={this.props.minimum_age}></input>        
                 <br></br>
-              Maximum Age:
-                <input type="text" name="maximum_age" placeholder="Maximum Age" value={this.props.maximum_age} onChange={this.props.handleChange}></input>
+              Maximum Age: 
+                <input type="text" name="maximum_age" placeholder="Maximum Age" onChange={this.props.handleChange} value={this.props.maximum_age}></input>
                   <br></br>                 
                   <br></br>
               State:
