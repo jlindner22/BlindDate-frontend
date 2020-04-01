@@ -1,11 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loggedIn } from '../actions';
+import EditAvatar from './EditAvatar';
 
 class EditLogin extends React.Component {
 
     state = {
-        profileInfo: this.props.currentUser
+        profileInfo: this.props.currentUser,
+        avatarClicked: false,
+        age: this.props.currentUser.age,
+        gender: this.props.currentUser.gender,
+        city: this.props.currentUser.city,
+        state: this.props.currentUser.state
       }
 
     componentDidMount() {
@@ -16,42 +22,94 @@ class EditLogin extends React.Component {
             .then(response => this.setState({ profileInfo: response}))
         } else {return null}
     }
-
+    
     reload = () => {
         window.location.reload();
     }
 
+    handleBackClick = () => {
+        this.setState({
+            viewBasicInfo: false
+        })
+    }
+
+    avatarClicked = () => {
+        this.setState({
+            avatarClicked: !this.state.avatarClicked
+        })
+    }
+
+    // editUserInfo = (user) => {
+    //     this.setState({
+    //         age: user.age,
+    //         gender: user.gender,
+    //         city: user.city,
+    //         state: user.state
+    //       }) 
+    // }
+
+    handleSubmit = (user, e) => {
+        // console.log("USER?",this.props.currentUser)
+        e.preventDefault()
+        fetch(`http://localhost:3000/api/v1/users/${user}`,{
+            method: 'PATCH',
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+            gender: this.state.gender,
+            age: this.state.age,
+            city: this.state.city,
+            state: this.state.state,
+            })
+        }) .then(response => response.json())
+        .then(response => console.log(response))
+        alert("Your changes have been submitted!")
+    }
+
+    handleText = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+          }, console.log(e.target.value)
+          )
+      }
+
     render() {
         let props = this.props.currentUser
-
-        return(
+        console.log("JEN LOOK", this.props)
+        return (
             <div>
                 <br></br>
-                <h1>Edit Your Personal Information</h1>
+                <h2> Personal Information</h2>
                 <div className="ui container grid">
                 <div className="ui row">
                 <div className="stolenright">
               <img className="ui medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
+              <br></br>
+              <br></br>
+              <br></br>
+              {this.state.avatarClicked === false ? <button className="ui green button" onClick={this.avatarClicked}>Change Avatar</button>
+              : <button className="ui green button" onClick={this.avatarClicked}>Go Back</button>}
               </div>
-                <form className="ui form" onSubmit={(e) => this.userBasicInfo(this.props.user, e)}>
+                {this.state.avatarClicked === true ? <EditAvatar/> :
+                <form className="ui form" onSubmit={(e) => this.handleSubmit(props.id, e)}>
                     <br></br>
-
-                                <input type="text" name="age" placeholder="Age" value={props.age} onChange={this.handleText}></input>
-                                <br></br>
-                                <br></br>
-                                <select className="ui fluid dropdown" name="gender" onChange={this.handleText} value={props.gender}>
-                                <option value="">Gender</option>
-                                <option value="Female">Female</option>
-                                <option value="Male">Male</option>
-                                </select>
-                                <br></br>
-                        <div className="field">
-                        <label>Current Location</label>
-                            <div className="fields">
-                            <div className="eight wide field">
-                                <input type="text" name="city" placeholder="City" onChange={this.handleText} value={props.city}></input>
-                            </div>
-                                <select className="ui fluid dropdown" name="state" onChange={this.handleText} value={props.state}>
+                    <input type="text" name="age" placeholder="Age" onChange={this.handleText} value={this.state.age}></input>
+                    <br></br>
+                    <br></br>
+                    <select className="ui fluid dropdown" name="gender" onChange={this.handleText} value={this.state.gender}>
+                    <option value="">Gender</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    </select>
+                    <br></br>
+                    <label>Current Location</label>
+                    <br></br>
+                    <input type="text" name="city" placeholder="City" onChange={this.handleText} value={this.state.city}></input>
+                    <br></br>
+                    <br></br>
+                    <select className="ui fluid dropdown" name="state" onChange={this.handleText} value={this.state.state}>
                                 <option value="">State</option>
                                 <option value="Alabama">Alabama</option>
                                 <option value="Alaska">Alaska</option>
@@ -105,15 +163,18 @@ class EditLogin extends React.Component {
                                 <option value="Wisconsin">Wisconsin</option>
                                 <option value="Wyoming">Wyoming</option>
                                 </select>
-                            </div>
-                    </div>
-                <button className="ui basic blue button left floated" onClick={this.reload}>Go back</button>
-                <input className="ui basic blue button right floated" type="submit" value="Save Changes" ></input>
                 <br></br>
-                </form>
                 <br></br>
+                {/* <button className="ui basic blue button left floated" onClick={this.handleBackClick}>Go back</button> */}
+                <input className="ui basic blue button left floated" type="button" value="Go Back" onClick={this.handleBackClick}/>
+                <input className="ui blue button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
+                {/* ={() => this.editUserInfo(props)} */}
+                {/* <input className="ui blue button right floated">Save Changes</button> */}
+                {/* add onClick submit post */}
+                <br></br>
+                </form> }
                 </div>
-                <button className="ui basic blue button">Change Avatar</button>
+                {/* <button className="ui green button">Change Avatar</button> */}
                 </div>
                 <br></br>
                 <br></br>
@@ -123,7 +184,6 @@ class EditLogin extends React.Component {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = state => {

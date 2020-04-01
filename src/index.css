@@ -70,3 +70,10 @@ left: 50%
   justify-content: space-between;
   width: 100vw;
 }
+
+.loader {
+  text-align: center;
+  /* width: 100px; */
+  height: 100px;
+  margin: 0 auto
+}

@@ -30,9 +30,9 @@ class EditLogin extends React.Component {
         )
       }
 
-    reload = () => {
-        window.location.reload();
-    }
+    // reload = () => {
+    //     window.location.reload();
+    // }
 
     deleteUser = (user) => {
         alert("Are you sure?")
@@ -48,17 +48,22 @@ class EditLogin extends React.Component {
         this.logout();
     }
 
+    handleBackClick = () => {
+        this.setState({
+            viewAccountSettings: false
+        })
+    }
+
     render() {
         let props = this.props.currentUser
-        console.log("profiles?", this.state.profiles)
         return (
             <div>
                 <br></br>
                 {this.state.deleted === false ?
-                // <h1>Edit Account Settings</h1>
                 <div className="ui container grid">
                 <div className="ui row">
                 <form className="ui form">
+                <h2>Account Settings</h2>
                     <br></br>
                     <br></br>
                     <b>Name</b>  <input className="ui form" onChange={this.handleText} type="text" name="name" placeholder="First Name" value={props.name}></input>
@@ -80,8 +85,8 @@ class EditLogin extends React.Component {
                     <br></br>
                     <br></br>
                     <br></br>
-                    <button className="ui basic blue button left floated" onClick={this.reload}>Go back</button>
-                    <button className="ui blue right floated button" type="submit" onClick={()=> this.props.handlePreferenceChanges(this.props)}>Submit Changes </button>
+                    <button className="ui basic blue button left floated" onClick={this.handleBackClick}>Go back</button>
+                    <button className="ui blue right floated button" onClick={()=> this.props.handlePreferenceChanges(this.props)}>Submit Changes </button>
                     <button className="ui red right floated button" onClick={()=> this.deleteUser(props)}> Delete Account </button>
                 </form>
                     </div>

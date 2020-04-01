@@ -21,19 +21,19 @@ class EditProfilePage extends React.Component {
         } else {return null}
     }
 
-     editBasicInfo = e => {
+    editBasicInfo = e => {
         this.setState({
             viewAccountSettings: false,
             viewBasicInfo: true
             })
         }
     
-     editAccountSettings = e => {
+    editAccountSettings = e => {
         this.setState({
             viewBasicInfo: false,
             viewAccountSettings: true
-            })
-        }
+        })
+    }
     
 
     render() {
@@ -52,17 +52,33 @@ class EditProfilePage extends React.Component {
             <a className="item" onClick={this.editAccountSettings}>
               Account Settings
             </a>
-            </div> : null}
+            </div> : <h1>Edit Your Account</h1>}
             <br></br>
-            {this.state.viewBasicInfo === true ? <EditBasicInfo/> : null}
-            {this.state.viewAccountSettings === true ? <EditLogin/> : null}
-            
+            {this.state.viewBasicInfo === true ? <EditBasicInfo viewBasicInfo={this.state.viewBasicInfo}/> : null}
+            {this.state.viewAccountSettings === true ? <EditLogin viewAccountSettings={this.state.viewAccountSettings}/> : null}
             </div>
             </div> 
             </div>
         )
     } else {
-        return "Please log in to view your profile"
+        return (
+            // move .loader lower
+            <div className="loader">
+            <div className="ui segment">
+                <div className="ui active dimmer">
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                    <div className="ui large text loader">Loading</div>
+                <p></p>
+                <p></p>
+                <p></p>
+                </div>
+                </div>
+            </div>
+        )
+        // "Please log in to view your profile"
         }
     }
 
