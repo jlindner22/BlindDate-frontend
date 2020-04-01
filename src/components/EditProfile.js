@@ -4,6 +4,7 @@ import { loggedIn } from '../actions';
 import EditBasicInfo from './EditBasicInfo';
 import EditLogin from './EditLogin';
 import EditHabitsPersonalInfo from './EditHabitsPersonalInfo';
+import EditMoreAboutMe from './EditMoreAboutMe';
 
 class EditProfilePage extends React.Component {
 
@@ -11,7 +12,8 @@ class EditProfilePage extends React.Component {
         profileInfo: this.props.currentUser,
         viewBasicInfo: false,
         viewAccountSettings: false,
-        viewHabitsAndPersonalInfo: false
+        viewHabitsAndPersonalInfo: false,
+        viewMoreAboutMe: false
       }
 
     componentDidMount() {
@@ -27,6 +29,7 @@ class EditProfilePage extends React.Component {
         this.setState({
             viewAccountSettings: false,
             viewHabitsAndPersonalInfo: false,
+            viewMoreAboutMe: false,
             viewBasicInfo: true
             })
         }
@@ -35,6 +38,7 @@ class EditProfilePage extends React.Component {
         this.setState({
             viewBasicInfo: false,
             viewHabitsAndPersonalInfo: false,
+            viewMoreAboutMe: false,
             viewAccountSettings: true
         })
     }
@@ -43,7 +47,17 @@ class EditProfilePage extends React.Component {
         this.setState({
             viewBasicInfo: false,
             viewAccountSettings: false,
+            viewMoreAboutMe: false,
             viewHabitsAndPersonalInfo: true
+        })
+    }
+
+    editAboutMe = () => {
+        this.setState({
+            viewBasicInfo: false,
+            viewAccountSettings: false,
+            viewHabitsAndPersonalInfo: false,
+            viewMoreAboutMe: true
         })
     }
 
@@ -56,7 +70,7 @@ class EditProfilePage extends React.Component {
                 <div className="ui container grid">
                 <div className="ui row">
                 {this.state.viewBasicInfo === false && this.state.viewAccountSettings === false 
-                && this.state.viewHabitsAndPersonalInfo === false ?
+                && this.state.viewHabitsAndPersonalInfo === false && this.state.viewMoreAboutMe === false ?
                 <div>
                 <div className="ui top attached tabular menu">
             <a className="item" onClick={this.editBasicInfo}><i className="edit icon"></i>
@@ -65,8 +79,11 @@ class EditProfilePage extends React.Component {
             <a className="item" onClick={this.editAccountSettings}><i className="cog icon"></i>
               Account Settings
             </a>
-            <a className="item" onClick={this.editHabits}><i className="cog icon"></i>
+            <a className="item" onClick={this.editHabits}><i className="clipboard outline icon"></i>
               Habits & Personal Information
+            </a>
+            <a className="item" onClick={this.editAboutMe}><i className="user icon"></i>
+              More About Me
             </a>
             </div>
             <br></br>
@@ -83,6 +100,7 @@ class EditProfilePage extends React.Component {
             {this.state.viewBasicInfo === true ? <EditBasicInfo viewBasicInfo={this.state.viewBasicInfo}/> : null}
             {this.state.viewAccountSettings === true ? <EditLogin viewAccountSettings={this.state.viewAccountSettings}/> : null }
             {this.state.viewHabitsAndPersonalInfo === true ? <EditHabitsPersonalInfo viewHabitsAndPersonalInfo={this.state.viewHabitsAndPersonalInfo}/> : null }
+            {this.state.viewMoreAboutMe === true ? <EditMoreAboutMe viewMoreAboutMe={this.state.viewMoreAboutMe}/> : null }
             </div>
             </div> 
             </div>
