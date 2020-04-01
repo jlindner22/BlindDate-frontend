@@ -23,6 +23,14 @@ const deleteMatchReducer = (state = [], action) => {
     return state
 }
 
+// const deleteUserReducer = (state = [], action) => {
+//     if (action.type === 'DELETE_USER') {
+//         console.log("users", state)
+// 	return state.filter(user => user !== action.payload)
+//     }	
+//     return state
+// }
+
 // const userBasicInfoReducer = (user = [], action) => {
 //     if (action.type === 'ADD_PROFILE') {
 //         return action.payload;
@@ -67,5 +75,6 @@ export default combineReducers({
     currentUser: logInReducer,
     matches: matchesReducer,
     deleteMatch: deleteMatchReducer,
-    preferences: filterReducer
+    preferences: filterReducer,
+    // deleteUser: deleteUserReducer
 })

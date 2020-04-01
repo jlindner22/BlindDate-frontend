@@ -210,7 +210,7 @@ class ProfileForm extends React.Component {
                                  <input onChange={this.handleText} type="text" name="name" placeholder="First Name" value={this.state.name}></input>
                                 </div>
                                 <div className="field">
-                                 <input type="text" name="age" placeholder="Age" value={this.state.age} onChange={this.handleText}></input>
+                                 <input type="text" name="age" placeholder="Age" onChange={this.handleText} value={this.state.age}></input>
                                 </div>
                                 <select className="ui fluid dropdown" name="gender" onChange={this.handleText} value={this.state.gender}>
                                 <option value="">Gender</option>
