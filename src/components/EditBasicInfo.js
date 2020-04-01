@@ -17,20 +17,29 @@ class EditLogin extends React.Component {
         } else {return null}
     }
 
+    reload = () => {
+        window.location.reload();
+    }
+
     render() {
+        let props = this.props.currentUser
+
         return(
             <div>
                 <br></br>
                 <h1>Edit Your Personal Information</h1>
                 <div className="ui container grid">
                 <div className="ui row">
+                <div className="stolenright">
+              <img className="ui medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
+              </div>
                 <form className="ui form" onSubmit={(e) => this.userBasicInfo(this.props.user, e)}>
                     <br></br>
 
-                                <input type="text" name="age" placeholder="Age" value={this.state.age} onChange={this.handleText}></input>
+                                <input type="text" name="age" placeholder="Age" value={props.age} onChange={this.handleText}></input>
                                 <br></br>
                                 <br></br>
-                                <select className="ui fluid dropdown" name="gender" onChange={this.handleText} value={this.state.gender}>
+                                <select className="ui fluid dropdown" name="gender" onChange={this.handleText} value={props.gender}>
                                 <option value="">Gender</option>
                                 <option value="Female">Female</option>
                                 <option value="Male">Male</option>
@@ -40,9 +49,9 @@ class EditLogin extends React.Component {
                         <label>Current Location</label>
                             <div className="fields">
                             <div className="eight wide field">
-                                <input type="text" name="city" placeholder="City" value={this.state.city} onChange={this.handleText}></input>
+                                <input type="text" name="city" placeholder="City" onChange={this.handleText} value={props.city}></input>
                             </div>
-                                <select className="ui fluid dropdown" name="state" onChange={this.handleText} value={this.state.state}>
+                                <select className="ui fluid dropdown" name="state" onChange={this.handleText} value={props.state}>
                                 <option value="">State</option>
                                 <option value="Alabama">Alabama</option>
                                 <option value="Alaska">Alaska</option>
@@ -98,7 +107,8 @@ class EditLogin extends React.Component {
                                 </select>
                             </div>
                     </div>
-                <input className="ui basic blue button right floated" type="submit" value="Next Page" ></input>
+                <button className="ui basic blue button left floated" onClick={this.reload}>Go back</button>
+                <input className="ui basic blue button right floated" type="submit" value="Save Changes" ></input>
                 <br></br>
                 </form>
                 <br></br>

@@ -65,3 +65,13 @@ export const deleteMatch = (match) => {
     })
     }
 }
+
+// export const deleteUser = (user) => {
+//     return (dispatch) => {
+//     fetch(`http://localhost:3000/api/v1/users/${user}`, {
+//           method: 'DELETE',
+//         }).then(response => response.json())
+//         .then(user => {dispatch({type: 'DELETE_USER', payload: user })
+//     })
+//     }
+// }

@@ -28,7 +28,6 @@ class EditProfilePage extends React.Component {
             })
         }
     
-
      editAccountSettings = e => {
         this.setState({
             viewBasicInfo: false,
@@ -45,28 +44,21 @@ class EditProfilePage extends React.Component {
             <div>
                 <div className="ui container grid">
                 <div className="ui row">
-                <div class="ui top attached tabular menu">
-            <a class="active item" onClick={this.editBasicInfo}>
+                {this.state.viewBasicInfo === false && this.state.viewAccountSettings === false ?
+                <div className="ui top attached tabular menu">
+            <a className="item" onClick={this.editBasicInfo}>
               Basic Information
             </a>
-            <a class="item" onClick={this.editAccountSettings}>
+            <a className="item" onClick={this.editAccountSettings}>
               Account Settings
             </a>
-            </div>
+            </div> : null}
             <br></br>
             {this.state.viewBasicInfo === true ? <EditBasicInfo/> : null}
             {this.state.viewAccountSettings === true ? <EditLogin/> : null}
-            {/* <div class="right menu">
-              <div class="item">
-                <div class="ui transparent icon input">
-              </div>
+            
             </div>
-          </div> */}
-          {/* <div class="ui bottom attached segment">
-            <p></p>
-          </div> */}
-               </div>
-               </div>
+            </div> 
             </div>
         )
     } else {
