@@ -226,7 +226,8 @@ renderReverseNameSortedList = () => {
       </button>
       </Link>
       <button className="ui blue button" onClick={this.handleNameSort} >
-        {this.state.nameSorted === false ? "Sort Z -> A" : "Sort A -> Z"}
+        {/* {this.state.nameSorted === false ? "Sort Z -> A" : "Sort A -> Z"} */}
+        {this.state.nameSorted === false ? <i className="sort alphabet up icon"></i> : <i className="sort alphabet down icon"></i>}
       </button>
       {/* <button className="ui blue button" onClick={this.handleAgeSort}>
         {this.state.ageSorted === false ? "Sort age descending" : "Sort age ascending"}

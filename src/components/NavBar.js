@@ -22,19 +22,19 @@ class NavBar extends React.Component {
             <React.Fragment>  
                 {this.props.currentUser == null ? null :
             <div className="ui teal inverted secondary pointing menu">
-            <Link to='/'> <a className="item">
+            <Link to='/'> <a className="item"><i className="home icon"></i>
                 Home
             </a></Link>
-            <Link to='/myprofile'> <a className="item">
+            <Link to='/myprofile'> <a className="item"><i className="user circle icon"></i>
                 My Profile
             </a></Link>
-            <Link to='/users'><a className="item">
+            <Link to='/users'><a className="item"><i className="users icon"></i>
                 Browse
             </a></Link>
-            <Link to='/matches'><a className="item">
+            <Link to='/matches'><a className="item"><i className="fire icon"></i>
                 Matches
             </a></Link>
-            <Link to='/filters'><a className="item">
+            <Link to='/filters'><a className="item"><i className="search icon"></i>
                 Preferences
             </a></Link>
             {/* <Link to='/messages'><a className="item">
@@ -46,10 +46,10 @@ class NavBar extends React.Component {
             <i className="dropdown icon" ></i> 
             <div className="menu"> */}
             <Link to='/editprofile'>
-            <a className="item">Edit Account</a>
+            <a className="item"><i className="pencil icon"></i>Edit Account</a>
             </Link>
             <Link to='/'>
-            <a className="item" onClick={this.logOut}>Logout</a>
+            <a className="item" onClick={this.logOut}><i className="sign-out icon"></i>Logout</a>
             </Link>
             </div>
             </div>

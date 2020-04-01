@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import { loggedIn } from '../actions';
 import EditBasicInfo from './EditBasicInfo';
 import EditLogin from './EditLogin';
+import EditHabitsPersonalInfo from './EditHabitsPersonalInfo';
 
 class EditProfilePage extends React.Component {
 
     state = {
         profileInfo: this.props.currentUser,
         viewBasicInfo: false,
-        viewAccountSettings: false
+        viewAccountSettings: false,
+        viewHabitsAndPersonalInfo: false
       }
 
     componentDidMount() {
@@ -21,20 +23,29 @@ class EditProfilePage extends React.Component {
         } else {return null}
     }
 
-    editBasicInfo = e => {
+    editBasicInfo = () => {
         this.setState({
             viewAccountSettings: false,
+            viewHabitsAndPersonalInfo: false,
             viewBasicInfo: true
             })
         }
     
-    editAccountSettings = e => {
+    editAccountSettings = () => {
         this.setState({
             viewBasicInfo: false,
+            viewHabitsAndPersonalInfo: false,
             viewAccountSettings: true
         })
     }
     
+    editHabits = () => {
+        this.setState({
+            viewBasicInfo: false,
+            viewAccountSettings: false,
+            viewHabitsAndPersonalInfo: true
+        })
+    }
 
     render() {
         console.log("PROPS", this.props.currentUser)
@@ -44,18 +55,34 @@ class EditProfilePage extends React.Component {
             <div>
                 <div className="ui container grid">
                 <div className="ui row">
-                {this.state.viewBasicInfo === false && this.state.viewAccountSettings === false ?
+                {this.state.viewBasicInfo === false && this.state.viewAccountSettings === false 
+                && this.state.viewHabitsAndPersonalInfo === false ?
+                <div>
                 <div className="ui top attached tabular menu">
-            <a className="item" onClick={this.editBasicInfo}>
+            <a className="item" onClick={this.editBasicInfo}><i className="edit icon"></i>
               Basic Information
             </a>
-            <a className="item" onClick={this.editAccountSettings}>
+            <a className="item" onClick={this.editAccountSettings}><i className="cog icon"></i>
               Account Settings
             </a>
-            </div> : <h1>Edit Your Account</h1>}
+            <a className="item" onClick={this.editHabits}><i className="cog icon"></i>
+              Habits & Personal Information
+            </a>
+            </div>
+            <br></br>
+            <br></br>
+            <img src={user.avatar} className="ui fluid image" alt="Avatar"></img>
+            <br></br>
+            <br></br>
+     
+            </div> 
+            
+            : <h1>Edit Your Account</h1>
+            }
             <br></br>
             {this.state.viewBasicInfo === true ? <EditBasicInfo viewBasicInfo={this.state.viewBasicInfo}/> : null}
-            {this.state.viewAccountSettings === true ? <EditLogin viewAccountSettings={this.state.viewAccountSettings}/> : null}
+            {this.state.viewAccountSettings === true ? <EditLogin viewAccountSettings={this.state.viewAccountSettings}/> : null }
+            {this.state.viewHabitsAndPersonalInfo === true ? <EditHabitsPersonalInfo viewHabitsAndPersonalInfo={this.state.viewHabitsAndPersonalInfo}/> : null }
             </div>
             </div> 
             </div>
