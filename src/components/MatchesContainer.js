@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { viewProfile, loggedIn, getMyMatches, deleteMatch } from '../actions';
 import { Link } from 'react-router-dom';
+import PersonalityMatches from './PersonalityMatches';
 
 class MatchesContainer extends React.Component {
 
@@ -11,7 +12,8 @@ class MatchesContainer extends React.Component {
   }
 
   state = {
-      oldMatchesLength: this.props.matches.length
+      oldMatchesLength: this.props.matches.length,
+      heart: false
     }
 
   // //add condition to stop from infinite loop, still allowing for page refresh on delete
@@ -21,6 +23,12 @@ class MatchesContainer extends React.Component {
     // this.setState({oldMatchesLength: this.props.matches.length}) 
     // } else { return null }
     // console.log("LOOK HERE", this.props)
+  }
+
+  heartClicked = () => {
+    this.setState({
+      heart: true
+    })
   }
 
   renderMatches = () => {
@@ -68,7 +76,7 @@ class MatchesContainer extends React.Component {
   };
 
   render() {
-  console.log("THESE ARE MATCHES", this.props.matches)
+  console.log("MATCHES", this.props.matches)
     if (this.props.matches){
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return (
@@ -84,8 +92,25 @@ class MatchesContainer extends React.Component {
         <br></br>
         <br></br>
             <div className="ui link cards">
-          {myMatches < 1 ? <h1 className="center aligned content">
-           <br></br><br></br> <br></br>  You currently have no matches.</h1> :
+          {myMatches < 1 ? 
+            <div>
+            {this.state.heart === true ? <PersonalityMatches/> :
+          <div className="greenText">
+           <br></br><br></br> <br></br>  
+          <h1>
+           You currently have no matches.</h1> 
+           <h4>In the meantime, click on the heart to view some 
+           <br></br>
+            profiles that best match your personality type.</h4>
+           <br></br>
+           <br></br>
+           <br></br>
+           <img className="ui medium centered image" onClick={this.heartClicked} src="https://static.thenounproject.com/png/720337-200.png" alt="heart"></img>
+           <br></br>
+            <br></br> 
+            </div> }
+           </div> 
+           :
         this.renderList() }
           </div>
           <br></br>

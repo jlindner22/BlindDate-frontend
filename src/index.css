@@ -119,3 +119,7 @@ left: 50%
   justify-content: center;
   flex-direction: row;
 }
+
+.greenText {
+  color: rgba(28, 184, 137, 0.877)
+}

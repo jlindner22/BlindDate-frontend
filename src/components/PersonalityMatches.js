@@ -11,180 +11,213 @@ class PersonalityMatches extends React.Component {
   }
 
   renderList(){
-    let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
-    if (myPreferences.length > 0){
-      let prefState = myPreferences[0]
-      let filtersOn = this.props.profiles.filter(prof => ((prof.gender === prefState.gender) || (prefState.gender === "All"))
-        && ((prof.age <= prefState.maximum_age) || (prefState.minimum_age === 18 ))
-        && ((prof.age >= prefState.minimum_age) || (prefState.maximum_age === 100))
-        && ((prof.diet === prefState.diet) || (prefState.diet === "All"))
-        && ((prof.religion === prefState.religion) || (prefState.religion === "All"))
-        && (((prof.education_level === prefState.education_level) || (prefState.education_level === "All"))
-        && ((prof.kids === prefState.kids) || prefState.kids === "All"))
-        && ((prof.relationship_type === prefState.relationship_type) || (prefState.relationship_type === "All"))
-        && ((prof.politics === prefState.politics) || (prefState.politics === "All"))
-        && ((prof.have_pets === prefState.have_pets) || (prefState.have_pets === "All"))
-        && ((prof.smokes === prefState.smokes) || (prefState.smokes === "All"))
-        && ((prof.drinks === prefState.drinks) || (prefState.drinks === "All"))
-        && ((prof.weed === prefState.weed) || (prefState.weed === "All"))
-        && ((prof.drugs === prefState.drugs) || (prefState.drugs === "All"))
-        && ((prof.state === prefState.state) || (prefState.state === "All"))
-      )
-      console.log("who matches?", filtersOn)
-      return (this.props.preferences && filtersOn.map(profile => {
-          return (
-            <div className="card">
-            <div className="image">
-              <img className="ui image" src={profile.avatar} alt="Try again later!" />
-            </div>
-            <div className="content">
-              <a className="header">{profile.name}</a>
-              <div className="meta">
-                <span className="date">Age {profile.age} 
-                </span>
-              </div>
-              <div className="description">
-                {profile.name} lives in {profile.city}, {profile.state}.
-              </div>
-            </div>
-            <div className="extra content">
-                <Link to={`/users/${profile.id}`}> <button 
-                  onClick={() => this.props.viewProfile(profile)}
-                      className="ui blue basic button">
-                        View Profile!
-            </button></Link>
-            <div className="ui right floated">
-            {profile.gender !== "Female" ? <i className="mars icon" ></i>  :  <i className="venus icon"></i> }
-            </div>
-            </div> 
-          </div>
-            );
-          }))
-    }};
-    render() {
-      console.log("filtered profs props",this.props)
-      let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
-      if (myPreferences.length > 0){
-      let prefState = myPreferences[0]
-      let filteredProfs = this.props.profiles.filter(prof => ((prof.gender === prefState.gender) || (prefState.gender === "All"))
-        && ((prof.age <= prefState.maximum_age) || (prefState.minimum_age === 18 ))
-        && ((prof.age >= prefState.minimum_age) || (prefState.maximum_age === 100))
-        && ((prof.diet === prefState.diet) || (prefState.diet === "All"))
-        && ((prof.religion === prefState.religion) || (prefState.religion === "All"))
-        && (((prof.education_level === prefState.education_level) || (prefState.education_level === "All"))
-        && ((prof.kids === prefState.kids) || prefState.kids === "All"))
-        && ((prof.relationship_type === prefState.relationship_type) || (prefState.relationship_type === "All"))
-        && ((prof.politics === prefState.politics) || (prefState.politics === "All"))
-        && ((prof.have_pets === prefState.have_pets) || (prefState.have_pets === "All"))
-        && ((prof.smokes === prefState.smokes) || (prefState.smokes === "All"))
-        && ((prof.drinks === prefState.drinks) || (prefState.drinks === "All"))
-        && ((prof.weed === prefState.weed) || (prefState.weed === "All"))
-        && ((prof.drugs === prefState.drugs) || (prefState.drugs === "All"))
-        && ((prof.state === prefState.state) || (prefState.state === "All"))
-        ) 
-        if (myPreferences.length > 0 && filteredProfs.length > 0) {
-              return (
-                <div>
-          <div className="ui container">
-          <br></br>
-            <div className="ui row">
-            <Link to={`/users`}>
-          <button className="ui basic blue button left floated">
-              <i className="arrow alternate circle left blue icon"></i> Browse without filters
-          </button>
-          </Link>
-          <br></br>
-          <br></br>
-          <br></br>
-          <div className="ui link cards">
-                {this.renderList()}
-                </div>
-              </div>
-        </div>
-        </div>
-          );
-      } else if (filteredProfs.length < 1) {return (<div className="ui container grid">
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-    <h1> No profiles match your criteria</h1>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-  </div>
-      )} 
-   } else {return (
-    <div className="ui container grid">
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <div>
-      <h1> You haven't set any filters!</h1>
-      <br></br>
-      </div>
-      <br></br>
-      <Link to="/filters">
-        <button className="ui blue button">Set Preferences </button>
-      </Link>
-     <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    </div>
-  )}
-  } 
+    let myPersonality = this.props.currentUser.extrovert_introvert
+    let filtersOn;
+    // let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
+    if (myPersonality === true){
+            if (myPersonality === "ESFP") { filtersOn = this.props.profiles.extrovert_introvert === "ESFJ" || "ESTP" || "ISFP"}
+            if (myPersonality === "ENTJ") {filtersOn = this.props.profiles.filter(type => type.extrovert_introvert === "INTJ" || "ENTP" || "ENFJ")
+        return filtersOn
+        }
+            console.log("PERSONALITY MATCHES", filtersOn)
+        // "ESFP": "ESFJ", "ESTP", "ISFP"
+        // "ESTP": "ESTJ", "ESFP", "INFJ"
+        // "ESTJ": "ESTP", "ESFJ", "ISTJ"
+        // "ESFJ": "ISTP", "ESTJ", "ESTP"
+        // "ISTJ": "INFJ", "ISTP", "ISFJ"
+        // "ISTP": "ISFP", "INFP", "ESFP"
+        // "ISFJ": "ESFJ", "ISFP", "ISTJ"
+        // "ISFP": "ESFP", "ISFJ", "ESFJ"
+        // "ENTJ": "INTJ", "ENTP", "ENFJ"
+        // "ENTP": "ENTJ", "ENFP", "ENFJ"
+        // "ENFJ": "ENFJ", "INFJ", "ENFP"
+        // "ENFP": "ENTJ", "INTJ", "INTP"
+        // "INTJ": "INTP", "INFJ", "INFP"
+        // "INTP": "ENTP", "INFP", "ENFP"
+        // "INFJ": "ISTJ", "INFP", "INTJ"
+        // "INFP": "INFJ", "ISFJ", "ENFJ"
+
+    //   let prefState = myPreferences[0]
+    //   let filtersOn = this.props.profiles.filter(prof => ((prof.gender === prefState.gender) || (prefState.gender === "All"))
+    //     && ((prof.age <= prefState.maximum_age) || (prefState.minimum_age === 18 ))
+    //     && ((prof.age >= prefState.minimum_age) || (prefState.maximum_age === 100))
+    //     && ((prof.diet === prefState.diet) || (prefState.diet === "All"))
+    //     && ((prof.religion === prefState.religion) || (prefState.religion === "All"))
+    //     && (((prof.education_level === prefState.education_level) || (prefState.education_level === "All"))
+    //     && ((prof.kids === prefState.kids) || prefState.kids === "All"))
+    //     && ((prof.relationship_type === prefState.relationship_type) || (prefState.relationship_type === "All"))
+    //     && ((prof.politics === prefState.politics) || (prefState.politics === "All"))
+    //     && ((prof.have_pets === prefState.have_pets) || (prefState.have_pets === "All"))
+    //     && ((prof.smokes === prefState.smokes) || (prefState.smokes === "All"))
+    //     && ((prof.drinks === prefState.drinks) || (prefState.drinks === "All"))
+    //     && ((prof.weed === prefState.weed) || (prefState.weed === "All"))
+    //     && ((prof.drugs === prefState.drugs) || (prefState.drugs === "All"))
+    //     && ((prof.state === prefState.state) || (prefState.state === "All"))
+    //   )
+    //   console.log("who matches?", filtersOn)
+    //   return (this.props.currentUser && filtersOn.map(profile => {
+    //       return (
+    //         <div className="card">
+    //         <div className="image">
+    //           <img className="ui image" src={profile.avatar} alt="Try again later!" />
+    //         </div>
+    //         <div className="content">
+    //           <a className="header">{profile.name}</a>
+    //           <div className="meta">
+    //             <span className="date">Age {profile.age} 
+    //             </span>
+    //           </div>
+    //           <div className="description">
+    //             {profile.name} lives in {profile.city}, {profile.state}.
+    //           </div>
+    //         </div>
+    //         <div className="extra content">
+    //             <Link to={`/users/${profile.id}`}> <button 
+    //               onClick={() => this.props.viewProfile(profile)}
+    //                   className="ui blue basic button">
+    //                     View Profile!
+    //         </button></Link>
+    //         <div className="ui right floated">
+    //         {profile.gender !== "Female" ? <i className="mars icon" ></i>  :  <i className="venus icon"></i> }
+    //         </div>
+    //         </div> 
+    //       </div>
+    //         );
+        //   }))
+        }};
+    // render() {
+    //   console.log("filtered profs props",this.props)
+    // //   console.log("user personality type", this.props.currentUser.extrovert_introvert)
+    //   let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
+    //   if (myPreferences.length > 0){
+    //   let prefState = myPreferences[0]
+    //   let filteredProfs = this.props.profiles.filter(prof => ((prof.gender === prefState.gender) || (prefState.gender === "All"))
+    //     && ((prof.age <= prefState.maximum_age) || (prefState.minimum_age === 18 ))
+    //     && ((prof.age >= prefState.minimum_age) || (prefState.maximum_age === 100))
+    //     && ((prof.diet === prefState.diet) || (prefState.diet === "All"))
+    //     && ((prof.religion === prefState.religion) || (prefState.religion === "All"))
+    //     && (((prof.education_level === prefState.education_level) || (prefState.education_level === "All"))
+    //     && ((prof.kids === prefState.kids) || prefState.kids === "All"))
+    //     && ((prof.relationship_type === prefState.relationship_type) || (prefState.relationship_type === "All"))
+    //     && ((prof.politics === prefState.politics) || (prefState.politics === "All"))
+    //     && ((prof.have_pets === prefState.have_pets) || (prefState.have_pets === "All"))
+    //     && ((prof.smokes === prefState.smokes) || (prefState.smokes === "All"))
+    //     && ((prof.drinks === prefState.drinks) || (prefState.drinks === "All"))
+    //     && ((prof.weed === prefState.weed) || (prefState.weed === "All"))
+    //     && ((prof.drugs === prefState.drugs) || (prefState.drugs === "All"))
+    //     && ((prof.state === prefState.state) || (prefState.state === "All"))
+    //     ) 
+    //     if (myPreferences.length > 0 && filteredProfs.length > 0) {
+    //           return (
+    //             <div>
+    //       <div className="ui container">
+    //       <br></br>
+    //         <div className="ui row">
+    //         <Link to={`/users`}>
+    //       <button className="ui basic blue button left floated">
+    //           <i className="arrow alternate circle left blue icon"></i> Browse without filters
+    //       </button>
+    //       </Link>
+    //       <br></br>
+    //       <br></br>
+    //       <br></br>
+    //       <div className="ui link cards">
+    //             {this.renderList()}
+    //             </div>
+    //           </div>
+    //     </div>
+    //     </div>
+    //       );
+//       } else if (filteredProfs.length < 1) {return (<div className="ui container grid">
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//     <h1> No profiles match your criteria</h1>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//       <br></br>
+//   </div>
+//       )} 
+//    } else {return (
+//     <div className="ui container grid">
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <div>
+//       <h1> You haven't set any filters!</h1>
+//       <br></br>
+//       </div>
+//       <br></br>
+//       <Link to="/filters">
+//         <button className="ui blue button">Set Preferences </button>
+//       </Link>
+//      <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     <br></br>
+//     </div>
+//   )}
+  
+            // }
+       // }  
+       render(){
+       return (this.renderList)
+    }
 }
+
+
+// }
 
 const mapStateToProps = state => {
     return  { profiles: state.profiles,

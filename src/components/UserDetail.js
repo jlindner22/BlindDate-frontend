@@ -79,7 +79,7 @@ class UserDetail extends React.Component {
             <b>My diet is:</b> {profile.diet}
             <br></br>
             <br></br>
-            <button className="ui pink button"
+            <button className="ui blue button"
             onClick={this.toggleInfo}> {this.state.clickedInfoButton === false ? "See more about me!" : "See less about me!"}</button>
             <br></br>    
             <br></br>          
@@ -137,13 +137,13 @@ class UserDetail extends React.Component {
             <br></br>
             {myMatches.length > 0 ? 
             <Link to={`/matches`}> 
-            <button className="ui basic pink button">
-            <i className="arrow alternate circle left pink icon"></i> Browse your matches 
+            <button className="ui basic blue button">
+            <i className="arrow alternate circle left blue icon"></i> Browse your matches 
             </button>
             </Link> : null}
             <Link to={`/users`}>
-            <button className="ui basic pink button">
-            <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
+            <button className="ui basic blue button">
+            <i className="arrow alternate circle left blue icon"></i> Browse all profiles 
             </button>
             </Link>
             {/* {this.state.matched === true */}
@@ -151,7 +151,7 @@ class UserDetail extends React.Component {
               ?  <b>          You're a match!</b> :   
             <button 
               onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
-                    className="ui pink button">
+                    className="ui blue button">
                       Match with {profile.name}! <i className="heart red icon"></i>
             </button>}
             <br></br>
