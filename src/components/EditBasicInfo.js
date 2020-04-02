@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { loggedIn } from '../actions';
 import EditAvatar from './EditAvatar';
 
-class EditLogin extends React.Component {
+class EditBasicInfo extends React.Component {
 
     state = {
         profileInfo: this.props.currentUser,
@@ -73,7 +73,7 @@ class EditLogin extends React.Component {
             [e.target.name]: e.target.value
           }, console.log(e.target.value)
           )
-      }
+    }
 
     render() {
         let props = this.props.currentUser
@@ -166,11 +166,8 @@ class EditLogin extends React.Component {
                 <br></br>
                 <br></br>
                 {/* <button className="ui basic blue button left floated" onClick={this.handleBackClick}>Go back</button> */}
-                <input className="ui basic blue button left floated" type="button" value="Go Back" onClick={this.handleBackClick}/>
+                <input className="ui basic blue button left floated" type="button" value="Go Back" onClick={this.reload}/>
                 <input className="ui blue button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
-                {/* ={() => this.editUserInfo(props)} */}
-                {/* <input className="ui blue button right floated">Save Changes</button> */}
-                {/* add onClick submit post */}
                 <br></br>
                 </form> }
                 </div>
@@ -193,4 +190,4 @@ const mapStateToProps = state => {
              };
   }
 
-export default connect(mapStateToProps, {loggedIn})(EditLogin);
+export default connect(mapStateToProps, {loggedIn})(EditBasicInfo);

@@ -341,7 +341,7 @@ class ProfileForm extends React.Component {
                     >
                         <h4 className="ui dividing header">About Me</h4>
                             <div className="field">
-                                <label>What I'm Looking For: </label>
+                                <label>What I'm looking for</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" name="relationship_type" onChange={this.handleText} value={this.state.relationship_type}>
@@ -360,7 +360,7 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label>The religion I most strongly identify with is: </label>
+                                <label>The religion I most strongly identify with</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="religion" value={this.state.religion}>
@@ -380,7 +380,7 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label>Politically, my views are: </label>
+                                <label>Politically, my views are</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="politics" value={this.state.politics}>
@@ -395,7 +395,7 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label>My highest level of education attained is: </label>
+                                <label>My highest level of education attained</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="education_level" value={this.state.education_level}>
@@ -411,13 +411,13 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label>Which college(s) did you attend?</label>
+                                <label> Name of school(s) I attended</label>
                                 <div className="field">
                                     <input type="text" name="college" placeholder="College Name" value={this.state.college} onChange={this.handleText}></input>
                                 </div>
                             </div>
                             <div className="field">
-                                <label>My type of employment is: </label>
+                                <label>My employment</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="occupation" value={this.state.occupation}>
@@ -432,7 +432,7 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label>My diet is: </label>
+                                <label>My diet</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="diet" value={this.state.diet}>
@@ -448,7 +448,7 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label>Any children: </label>
+                                <label>Any children</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="kids" value={this.state.kids}>
@@ -460,7 +460,7 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label>Any pets owned: </label>
+                                <label>Any pets owned </label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="have_pets" value={this.state.have_pets}>
@@ -474,7 +474,7 @@ class ProfileForm extends React.Component {
                             </div>
                             <h4 className="ui dividing header">My Habits</h4>
                             <div className="field">
-                                <label>Drinking: </label>
+                                <label>Drinking </label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="drinks" value={this.state.drinks}>
@@ -489,7 +489,7 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label>Smoking: </label>
+                                <label>Smoking</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="smokes" value={this.state.smokes}>
@@ -504,7 +504,7 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label>4/20 Friendly: </label>
+                                <label>4/20 Friendly</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="weed" value={this.state.weed}>
@@ -516,7 +516,7 @@ class ProfileForm extends React.Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label>Other drugs: </label>
+                                <label>Other drugs</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="drugs" value={this.state.drugs}>
@@ -569,7 +569,7 @@ class ProfileForm extends React.Component {
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label>Do do you prefer summer or winter?</label>
+                                <label>Do you prefer summer or winter?</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="summer_winter" value={this.state.summer_winter}>
                                     <option value="">Please answer</option>
                                     <option value="Summer">Summer</option>
@@ -581,7 +581,7 @@ class ProfileForm extends React.Component {
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label>Where would you most like to live? </label>
+                                <label>Where would you prefer to live? </label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="city_country_suburbs" value={this.state.city_country_suburbs}>
                                     <option value="">Please answer</option>
                                     <option value="City">City</option>
@@ -605,7 +605,7 @@ class ProfileForm extends React.Component {
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label>What's your love language? </label>
+                                <label>What is your love language? </label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="love_language" value={this.state.love_language}>
                                     <option value="">Please answer</option>
                                     <option value="Acts of Service">Acts of Service</option>
@@ -620,20 +620,33 @@ class ProfileForm extends React.Component {
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label>Are you an extrovert or an introvert?</label>
+                                <label>What is your personality type?</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="extrovert_introvert" value={this.state.extrovert_introvert}>
                                     <option value="">Please answer</option>
-                                    <option value="Extrovert">Extrovert</option>
-                                    <option value="Introvert">Introvert</option>
-                                    <option value="Depends on who you ask">Depends on who you ask</option>
-                                    <option value="Somewhere in the middle">Somewhere in the middle</option>
+                                    <option value="ENFJ">ENFJ</option>
+                                    <option value="ENFP">ENFP</option>
+                                    <option value="ENTJ">ENTJ</option>
+                                    <option value="ENTP">ENTP</option>
+                                    <option value="ESFJ">ESFJ</option>
+                                    <option value="ESFP">ESFP</option>
+                                    <option value="ESTJ">ESTJ</option>
+                                    <option value="ESTP">ESTP</option>
+                                    <option value="INFJ">INFJ</option>
+                                    <option value="INFP">INFP</option>
+                                    <option value="INTJ">INTJ</option>
+                                    <option value="INTP">INTP</option>
+                                    <option value="ISFJ">ISFJ</option>
+                                    <option value="ISFP">ISFP</option>
+                                    <option value="ISTJ">ISTJ</option>
+                                    <option value="ISTP">ISTP</option>
                                     <option value="Not sure">Not sure</option>
                                 </select>
+                                <a href='https://www.truity.com/test/type-finder-personality-test-new' target="_blank">Take the quiz here</a> 
                             </div>
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label>Do you play any instruments?</label>
+                                <label>Can you play any instruments?</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="play_instrument" value={this.state.play_instrument}>
                                     <option value="">Please answer</option>
                                     <option value="Yes">Yes</option>
@@ -643,7 +656,7 @@ class ProfileForm extends React.Component {
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label>What's your ideal Friday night?</label>
+                                <label>Describe your ideal Friday night</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="ideal_friday" value={this.state.ideal_friday}>
                                     <option value="">Please answer</option>
                                     <option value="Going out to a bar">Going out to a bar</option>
@@ -687,7 +700,7 @@ class ProfileForm extends React.Component {
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label> What's your planning style like?</label>
+                                <label> Describe your planning style</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="general_planning" value={this.state.general_planning}>
                                     <option value="">Please answer</option>
                                     <option value="I’m definitely more of a planner">I’m definitely more of a planner</option>
@@ -709,7 +722,7 @@ class ProfileForm extends React.Component {
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label> Are you a cat person or a dog person?</label>
+                                <label> Cats or dogs?</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="cat_dog" value={this.state.cat_dog}>
                                     <option value="">Please answer</option>
                                     <option value="Cat">Cat</option>
@@ -721,7 +734,7 @@ class ProfileForm extends React.Component {
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label> Do you prefer coffee or tea?</label>
+                                <label> Coffee or tea?</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="coffee_tea" value={this.state.coffee_tea}>
                                     <option value="">Please answer</option>
                                     <option value="Coffee">Coffee</option>
@@ -744,7 +757,7 @@ class ProfileForm extends React.Component {
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label> What's your favorite type of music?</label>
+                                <label> What is your favorite type of music?</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="music" value={this.state.music}>
                                     <option value="">Please answer</option>
                                     <option value="Musicals">Musicals</option>
@@ -778,7 +791,7 @@ class ProfileForm extends React.Component {
                     </div>
                     <div className="field">
                             <div className="field">
-                                <label> What's your ideal type of vacation?</label>
+                                <label> Describe your ideal vacation</label>
                                 <select className="ui fluid dropdown" onChange={this.handleText} name="vacation_type" value={this.state.vacation_type}>
                                     <option value="">Please answer</option>
                                     <option value="Beach">Beach</option>

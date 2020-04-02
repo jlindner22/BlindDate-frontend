@@ -2,17 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getPreferences } from '../actions';
 import { Link } from 'react-router-dom'
+import PersonalityMatches from './PersonalityMatches';
 
 class FilterContainer extends React.Component {
 
+  state = {
+    heart: false
+  }
+
   componentDidMount() {
-      window.scrollTo(0, 0)
-      this.props.getPreferences()
+    window.scrollTo(0, 0)
+    this.props.getPreferences()
+  }
+
+  heartClicked = () => {
+    this.setState({
+      heart: true
+    })
   }
 
   renderPreferences = () => {
-      let preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
-      return preferences
+    let preferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
+    return preferences
   }
 
     renderList() {
@@ -169,12 +180,29 @@ class FilterContainer extends React.Component {
                 See who fits your preferences!
               </button>
               </Link>}
-                <div> <h1>PREFERENCES</h1> </div> 
+                <div className="centerText"> <h1>Preferences</h1> </div> 
                 <br></br>
-              {myPreferences < 1 ? <Link to="/editfilters">
-              <button className="ui blue button" 
+              {myPreferences < 1 ? <div className="centerText">
+                <br></br>
+                {this.state.heart === true ? <PersonalityMatches/> : <div>
+                It looks like you haven't set any filters yet! In the meantime, click on the  
+                <br></br>
+                heart to view some profiles that best match your personality type.
+                <br></br>
+                <br></br>
+                <br></br>
+                <img className="ui medium centered image" onClick={this.heartClicked} src="https://static.thenounproject.com/png/720337-200.png" alt="heart"></img>
+                <br></br>
+                <br></br>
+                <Link to="/editfilters">
+              <button className="ui red button" 
               onClick={() => this.props.editPreferences(myPreferences)}>
-              Set your filters </button> </Link> :
+              Set Filters </button> </Link> 
+              <br></br>
+              <br></br>
+              <br></br>
+                </div> }
+              </div> :
               this.renderList()}
           </div>
           </div>
