@@ -87,8 +87,9 @@ class EditMoreAboutMe extends React.Component {
                 <div className="ui row">
                 <form className="ui form" onSubmit={(e) => this.handleSubmit(props.id, e)}>
                 <h2>More About Me</h2>
+                {/* <div class="inline field"> */}
                     <br></br>
-                    <br></br>
+                    <b>Are you a morning or night person?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="morning_night" value={this.state.morning_night}>
                         <option value="">Please answer</option>
                         <option value="Morning person">Morning person</option>
@@ -97,15 +98,16 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>How do you usually dress?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="dress_style" value={this.state.dress_style}>
                         <option value="">Please answer</option>
                         <option value="Casual and comfortable, nothing too exciting">Casual and comfortable, nothing too exciting</option>
                         <option value="Bold, I like to stand out">Bold, I like to stand out</option>
                         <option value="It depends on the day">It depends on the day</option>
                     </select>
-
                     <br></br>
                     <br></br>
+                    <b>Do you prefer summer or winter?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="summer_winter" value={this.state.summer_winter}>
                         <option value="">Please answer</option>
                         <option value="Summer">Summer</option>
@@ -115,6 +117,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Where would you prefer to live?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="city_country_suburbs" value={this.state.city_country_suburbs}>
                         <option value="">Please answer</option>
                         <option value="City">City</option>
@@ -124,6 +127,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Beach or mountain?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="beach_mountain" value={this.state.beach_mountain}>
                         <option value="">Please answer</option>
                         <option value="Beach">Beach</option>
@@ -133,6 +137,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>What is your love language?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="love_language" value={this.state.love_language}>
                         <option value="">Please answer</option>
                         <option value="Acts of Service">Acts of Service</option>
@@ -142,19 +147,34 @@ class EditMoreAboutMe extends React.Component {
                         <option value="Words of Affirmation">Words of Affirmation</option>
                         <option value="Not Sure">Not Sure</option>
                     </select>
-                                <a href='https://www.5lovelanguages.com/quizzes/' target="_blank">Take the quiz here</a> 
+                    <a href='https://www.5lovelanguages.com/quizzes/' target="_blank">Take the quiz here</a> 
                     <br></br>
                     <br></br>
+                    <b>What is your personality type?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="extrovert_introvert" value={this.state.extrovert_introvert}>
                         <option value="">Please answer</option>
-                        <option value="Extrovert">Extrovert</option>
-                        <option value="Introvert">Introvert</option>
-                        <option value="Depends on who you ask">Depends on who you ask</option>
-                        <option value="Somewhere in the middle">Somewhere in the middle</option>
+                        <option value="ENFJ">ENFJ</option>
+                        <option value="ENFP">ENFP</option>
+                        <option value="ENTJ">ENTJ</option>
+                        <option value="ENTP">ENTP</option>
+                        <option value="ESFJ">ESFJ</option>
+                        <option value="ESFP">ESFP</option>
+                        <option value="ESTJ">ESTJ</option>
+                        <option value="ESTP">ESTP</option>
+                        <option value="INFJ">INFJ</option>
+                        <option value="INFP">INFP</option>
+                        <option value="INTJ">INTJ</option>
+                        <option value="INTP">INTP</option>
+                        <option value="ISFJ">ISFJ</option>
+                        <option value="ISFP">ISFP</option>
+                        <option value="ISTJ">ISTJ</option>
+                        <option value="ISTP">ISTP</option>
                         <option value="Not sure">Not sure</option>
                     </select>
+                    <a href='https://www.truity.com/test/type-finder-personality-test-new' target="_blank">Take the quiz here</a> 
                     <br></br>
-                    <br></br>
+                    <br></br> 
+                    <b>Can you play any instruments?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="play_instrument" value={this.state.play_instrument}>
                         <option value="">Please answer</option>
                         <option value="Yes">Yes</option>
@@ -162,6 +182,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Describe your ideal Friday night</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="ideal_friday" value={this.state.ideal_friday}>
                         <option value="">Please answer</option>
                         <option value="Going out to a bar">Going out to a bar</option>
@@ -176,6 +197,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Would you rather spend your night in or out?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="night_out_in" value={this.state.night_out_in}>
                         <option value="">Please answer</option>
                         <option value="Going Out">Going Out</option>
@@ -185,6 +207,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Describe your planning style</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="general_planning" value={this.state.general_planning}>
                         <option value="">Please answer</option>
                         <option value="I’m definitely more of a planner">I’m definitely more of a planner</option>
@@ -193,6 +216,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>How would you plan for a vacation?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="vacation_planning" value={this.state.vacation_planning}>
                         <option value="">Please answer</option>
                         <option value="As little as possible, I want to pack and go">As little as possible, I want to pack and go</option>
@@ -201,6 +225,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Cats or dogs?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="cat_dog" value={this.state.cat_dog}>
                         <option value="">Please answer</option>
                         <option value="Cat">Cat</option>
@@ -210,6 +235,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Coffee or tea?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="coffee_tea" value={this.state.coffee_tea}>
                         <option value="">Please answer</option>
                         <option value="Coffee">Coffee</option>
@@ -219,6 +245,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Would you describe yourself as messy or neat?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="messy_neat" value={this.state.messy_neat}>
                         <option value="">Please answer</option>
                         <option value="Messy">Messy</option>
@@ -227,6 +254,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>What is your favorite type of music?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="music" value={this.state.music}>
                         <option value="">Please answer</option>
                         <option value="Musicals">Musicals</option>
@@ -258,6 +286,7 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Describe your ideal vacation</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="vacation_type" value={this.state.vacation_type}>
                         <option value="">Please answer</option>
                         <option value="Beach">Beach</option>
@@ -280,8 +309,11 @@ class EditMoreAboutMe extends React.Component {
                      <input className="ui basic blue button left floated" type="button" value="Go Back" onClick={this.reload}/>
                      <input className="ui blue button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
                 </form>
-                    </div>
+                </div>
+                <br></br>
+                <br></br>
                 </div> 
+                <br></br>
             </div>
         )
     }

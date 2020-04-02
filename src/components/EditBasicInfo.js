@@ -168,9 +168,6 @@ class EditBasicInfo extends React.Component {
                 {/* <button className="ui basic blue button left floated" onClick={this.handleBackClick}>Go back</button> */}
                 <input className="ui basic blue button left floated" type="button" value="Go Back" onClick={this.reload}/>
                 <input className="ui blue button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
-                {/* ={() => this.editUserInfo(props)} */}
-                {/* <input className="ui blue button right floated">Save Changes</button> */}
-                {/* add onClick submit post */}
                 <br></br>
                 </form> }
                 </div>

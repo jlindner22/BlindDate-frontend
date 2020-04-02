@@ -30,6 +30,10 @@ class MyProfile extends React.Component {
       console.log("my profile props", props)
         if (props) {
           return (
+            <div>
+            <div className="centerText">
+            <h1> <b>Meet {props.name}!</b> </h1>
+            </div>
             <div className="flex_pic">
               <div className="ui container grid"> 
               <div className="stolenright">
@@ -38,7 +42,6 @@ class MyProfile extends React.Component {
                   <div>                  
                       <div className="column twelve wide" >
                         <br></br>
-                  <h1> <b>Meet {props.name}!</b> </h1>
                   <h2>About Me</h2>
                   <b>Age:</b> {props.age}
                   <br></br>
@@ -135,6 +138,7 @@ class MyProfile extends React.Component {
                   <br></br>                  
               </div>
               </div>
+            </div>
             </div>
             </div>
             </div>

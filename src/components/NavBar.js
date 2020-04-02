@@ -3,25 +3,16 @@ import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
 
-    // clicky = () => {
-    //     console.log("clicked")
-    // }
-
     logOut = () => {
         this.props.logout();
-        // this.props.history.push('/')
-        // return (
-        //   <Link to='/'> <Home/> </Link>
-        // )
     }
 
     render() {
-        // console.log("navbar props", this.props)
-
         return (
             <React.Fragment>  
                 {this.props.currentUser == null ? null :
             <div className="ui teal inverted secondary pointing menu">
+            <img className="ui mini image" src="https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D" alt="sorry"></img>
             <Link to='/'> <a className="item"><i className="home icon"></i>
                 Home
             </a></Link>
@@ -31,7 +22,7 @@ class NavBar extends React.Component {
             <Link to='/users'><a className="item"><i className="users icon"></i>
                 Browse
             </a></Link>
-            <Link to='/matches'><a className="item"><i className="fire icon"></i>
+            <Link to='/matches'><a className="item"><i className="red fire icon"></i>
                 Matches
             </a></Link>
             <Link to='/filters'><a className="item"><i className="search icon"></i>
@@ -53,8 +44,6 @@ class NavBar extends React.Component {
             </Link>
             </div>
             </div>
-            // </div>
-            // </div>
                 }
             </React.Fragment>  
         )

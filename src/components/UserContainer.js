@@ -216,6 +216,7 @@ renderReverseNameSortedList = () => {
       <div className="ui container">
         <br></br>
         {/* <Link to= "/filters"> */}
+        <div className="centerText">
         <button className="ui blue button" onClick={this.filterLink}>
         View/Set Preferences
         </button>
@@ -229,18 +230,23 @@ renderReverseNameSortedList = () => {
         {/* {this.state.nameSorted === false ? "Sort Z -> A" : "Sort A -> Z"} */}
         {this.state.nameSorted === false ? <i className="sort alphabet up icon"></i> : <i className="sort alphabet down icon"></i>}
       </button>
+      </div>
       {/* <button className="ui blue button" onClick={this.handleAgeSort}>
         {this.state.ageSorted === false ? "Sort age descending" : "Sort age ascending"}
       </button> */}
       <br></br>
       <br></br>
-      <br></br>
-      <div className="ui centered row">
-        <div className="ui link cards">
+      {/* <div className="container"> */}
+        {/* <div className="centerText"> */}
+        {/* <div className="center aligned three column row"> */}
+        {/* <div class="column"> */}
+        <div className="ui blue link cards">
         {this.state.ageButtonClicked === false && this.state.nameSorted === true ? this.renderNameSortedList() : this.renderReverseNameSortedList()}
         {/* {this.state.nameButtonClicked === false && this.state.ageButtonClicked === true && this.state.ageSorted === true? this.renderYoungToOld() : this.renderReverseSortedAge()}
         {this.state.ageButtonClicked === true && this.state.nameSorted === false ? this.renderYoungToOld() : this.renderReverseSortedAge()} */}
-        </div>
+        {/* </div> */}
+        {/* </div> */}
+        {/* </div> */}
       </div>
       </div>
       </div>

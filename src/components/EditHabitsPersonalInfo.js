@@ -81,6 +81,7 @@ class EditHabitsPersonalInfo extends React.Component {
                 <h2>Habits & Personal Information</h2>
                     <br></br>
                     <br></br>
+                    <b>What I'm looking for</b>
                     <select className="ui fluid dropdown" name="relationship_type" onChange={this.handleText} value={this.state.relationship_type}>
                         <option value="">Please answer</option>
                         <option value="Business/Networking">Business/Networking</option>
@@ -95,6 +96,7 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>                    
                     <br></br>
                     <br></br>
+                    <b>The religion I most strongly identify with</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="religion" value={this.state.religion}>
                         <option value="">Please answer</option>
                         <option value="Agnostic">Agnostic</option>
@@ -110,6 +112,7 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>                    
                     <br></br>
                     <br></br>
+                    <b>Politically, my views are</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="politics" value={this.state.politics}>
                         <option value="">Please answer</option>
                         <option value="Conservative">Conservative</option>
@@ -120,31 +123,7 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>                    
                     <br></br>
                     <br></br>
-                    <select className="ui fluid dropdown" onChange={this.handleText} name="religion" value={this.state.religion}>
-                        <option value="">Please answer</option>
-                        <option value="Agnostic">Agnostic</option>
-                        <option value="Atheist">Atheist</option>
-                        <option value="Buddhist">Buddhist</option>
-                        <option value="Catholic">Catholic</option>
-                        <option value="Christian">Christian</option>
-                        <option value="Hindu">Hindu</option>
-                        <option value="Jewish">Jewish</option>
-                        <option value="Other">Other</option>
-                        <option value="Spiritual">Spiritual</option>
-                        <option value="Prefer Not to Say">Prefer Not to Say</option>
-                    </select>                    
-                    <br></br>
-                    <br></br>
-                    <select className="ui fluid dropdown" onChange={this.handleText} name="politics" value={this.state.politics}>
-                        <option value="">Please answer</option>
-                        <option value="Conservative">Conservative</option>
-                        <option value="Liberal">Liberal</option>
-                        <option value="Moderate">Moderate</option>
-                        <option value="Other">Other</option>
-                        <option value="Prefer Not to Say">Prefer Not to Say</option>
-                    </select>
-                    <br></br>
-                    <br></br>
+                    <b>My highest level of education attained</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="education_level" value={this.state.education_level}>
                         <option value="">Please answer</option>
                         <option value="Some High School">Some High School</option>
@@ -156,9 +135,12 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Name of school(s) I attended</b>
                     <input type="text" name="college" placeholder="College Name" value={this.state.college} onChange={this.handleText}></input>
                     <br></br>
                     <br></br>
+                    <br></br>
+                    <b>My employment</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="occupation" value={this.state.occupation}>
                         <option value="">Please answer</option>
                         <option value="Employed Full-Time">Employed Full-Time</option>
@@ -169,6 +151,7 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>My diet</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="diet" value={this.state.diet}>
                         <option value="">Please answer</option>
                         <option value="Gluten-free">Gluten-free</option>
@@ -180,6 +163,7 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Any children</b>  <i className="child icon"></i>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="kids" value={this.state.kids}>
                         <option value="">Please answer</option>
                         <option value="Yes">Yes</option>
@@ -187,6 +171,7 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Any pets owned</b> <i className="paw icon"></i>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="have_pets" value={this.state.have_pets}>
                         <option value="">Please answer</option>
                         <option value="Yes">Yes</option>
@@ -195,6 +180,8 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <h4 className="ui dividing header">My Habits</h4>
+                    <b>Drinking</b> <i className="glass martini icon"></i>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="drinks" value={this.state.drinks}>
                         <option value="">Please answer</option>
                         <option value="A few times a week">A few times a week</option>
@@ -205,6 +192,7 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Smoking</b> <i className="cloud icon"></i>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="smokes" value={this.state.smokes}>
                         <option value="">Please answer</option>
                         <option value="Often">Often</option>
@@ -215,6 +203,7 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>4/20 Friendly</b> <i className="thumbs up icon"></i>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="weed" value={this.state.weed}>
                         <option value="">Please answer</option>
                         <option value="Yes">Yes</option>
@@ -222,6 +211,7 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
+                    <b>Other drugs</b> <i className="pills icon"></i>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="drugs" value={this.state.drugs}>
                         <option value="">Please answer</option>
                         <option value="Often">Often</option>
@@ -237,7 +227,10 @@ class EditHabitsPersonalInfo extends React.Component {
                 </form>
                     </div>
                 </div> 
-            
+                <br></br>
+                <br></br>
+                <br></br>
+
             </div>
         )
     }
