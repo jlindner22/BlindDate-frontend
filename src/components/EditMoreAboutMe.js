@@ -145,7 +145,7 @@ class EditMoreAboutMe extends React.Component {
                         <option value="Quality Time">Quality Time</option>
                         <option value="Receiving Gifts">Receiving Gifts</option>
                         <option value="Words of Affirmation">Words of Affirmation</option>
-                        <option value="Not Sure">Not Sure</option>
+                        <option value="Not sure">Not sure</option>
                     </select>
                     <a href='https://www.5lovelanguages.com/quizzes/' target="_blank">Take the quiz here</a> 
                     <br></br>

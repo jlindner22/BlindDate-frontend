@@ -303,8 +303,8 @@ class ProfileForm extends React.Component {
                             </div>
                             </div>
                 </div>
-                <input className="ui basic pink button right floated" type="submit" value="Next Page" ></input>
-                <br></br>
+                <input className="ui basic pink button right floated" type="submit" value="Next Page"></input>
+                 <br></br>
                  <br></br>
                  <br></br>
                  <br></br>
@@ -321,12 +321,6 @@ class ProfileForm extends React.Component {
                  <br></br>
                  <br></br>
                 </form>
-                {/* <button className="ui basic button right floated" type="button" 
-                onClick={this.goToSecondPage}>
-                Next Page
-                </button> */}
-
-          
             </div>
         </div>
         )} 
@@ -336,9 +330,7 @@ class ProfileForm extends React.Component {
         { return (
             <div className="ui container grid">
                 <div className="ui row">
-                    <form className="ui form" 
-                    onSubmit={(e) => this.userPageTwoInfo(this.props.user, e)}
-                    >
+                    <form className="ui form" onSubmit={(e) => this.userPageTwoInfo(this.props.user, e)}>
                         <h4 className="ui dividing header">About Me</h4>
                             <div className="field">
                                 <label>What I'm looking for</label>
@@ -353,14 +345,14 @@ class ProfileForm extends React.Component {
                                         <option value="Hookups">Hookups</option>
                                         <option value="Long-Term Relationship">Long-Term Relationship</option>
                                         <option value="Marriage">Marriage</option>
-                                        <option value="Not Sure">Not Sure</option>
-                                        <option value="Unspecified">Unspecified</option>
+                                        <option value="Not sure">Not sure</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
                                 </div>
                             </div>
                             <div className="field">
-                                <label>The religion I most strongly identify with</label>
+                                <label>I would classify my religious beliefs as</label>
                                 <div className="fields">
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="religion" value={this.state.religion}>
@@ -368,13 +360,19 @@ class ProfileForm extends React.Component {
                                         <option value="Agnostic">Agnostic</option>
                                         <option value="Atheist">Atheist</option>
                                         <option value="Buddhist">Buddhist</option>
+                                        <option value="Cao Dai">Cao Dai</option>
                                         <option value="Catholic">Catholic</option>
                                         <option value="Christian">Christian</option>
                                         <option value="Hindu">Hindu</option>
+                                        <option value="Jainism">Jainism</option>
                                         <option value="Jewish">Jewish</option>
+                                        <option value="Muslim">Muslim</option>
                                         <option value="Other">Other</option>
+                                        <option value="Shinto">Shinto</option>
+                                        <option value="Sikh">Sikh</option>
                                         <option value="Spiritual">Spiritual</option>
-                                        <option value="Prefer Not to Say">Prefer Not to Say</option>
+                                        <option value="Taoism">Taoism</option>
+                                        <option value="Prefer not to say">Prefer not to say</option>
                                     </select>
                                 </div>
                                 </div>
@@ -389,7 +387,7 @@ class ProfileForm extends React.Component {
                                         <option value="Liberal">Liberal</option>
                                         <option value="Moderate">Moderate</option>
                                         <option value="Other">Other</option>
-                                        <option value="Prefer Not to Say">Prefer Not to Say</option>
+                                        <option value="Prefer not to say">Prefer not to say</option>
                                     </select>
                                 </div>
                                 </div>
@@ -479,11 +477,12 @@ class ProfileForm extends React.Component {
                                 <div className="field">
                                     <select className="ui fluid dropdown" onChange={this.handleText} name="drinks" value={this.state.drinks}>
                                         <option value="">Please answer</option>
-                                        <option value="A few times a week">A few times a week</option>
+                                        <option value="Often">Often</option>
                                         <option value="Socially">Socially</option>
+                                        <option value="Sometimes">Sometimes</option>
                                         <option value="Rarely">Rarely</option>
                                         <option value="Never">Never</option>
-                                        <option value="Prefer Not to Say">Prefer Not to Say</option>
+                                        <option value="Prefer not to say">Prefer not to say</option>
                                     </select>
                                 </div>
                                 </div>
@@ -496,9 +495,10 @@ class ProfileForm extends React.Component {
                                         <option value="">Please answer</option>
                                         <option value="Often">Often</option>
                                         <option value="Sometimes">Sometimes</option>
+                                        <option value="Rarely">Rarely</option>
                                         <option value="Trying to quit">Trying to quit</option>
                                         <option value="Never">Never</option>
-                                        <option value="Prefer Not to Say">Prefer Not to Say</option>
+                                        <option value="Prefer not to say">Prefer not to say</option>
                                     </select>
                                 </div>
                                 </div>
@@ -523,8 +523,10 @@ class ProfileForm extends React.Component {
                                         <option value="">Please answer</option>
                                         <option value="Often">Often</option>
                                         <option value="Socially">Socially</option>
+                                        <option value="Sometimes">Sometimes</option>
+                                        <option value="Rarely">Rarely</option>
                                         <option value="Never">Never</option>
-                                        <option value="Prefer Not to Say">Prefer Not to Say</option>
+                                        <option value="Prefer not to say">Prefer not to say</option>
                                     </select>
                                 </div>
                                 </div>
@@ -613,7 +615,7 @@ class ProfileForm extends React.Component {
                                     <option value="Quality Time">Quality Time</option>
                                     <option value="Receiving Gifts">Receiving Gifts</option>
                                     <option value="Words of Affirmation">Words of Affirmation</option>
-                                    <option value="Not Sure">Not Sure</option>
+                                    <option value="Not sure">Not sure</option>
                                 </select>
                                 <a href='https://www.5lovelanguages.com/quizzes/' target="_blank">Take the quiz here</a> 
                             </div>
@@ -674,7 +676,7 @@ class ProfileForm extends React.Component {
                         <input className="ui basic pink button right floated" type="submit" value="Next Page"/>
                         <br></br>
                         <br></br>
-                     </form>
+                </form>
             </div>
             </div>
         )}
