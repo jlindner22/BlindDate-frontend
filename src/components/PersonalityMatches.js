@@ -14,57 +14,60 @@ class PersonalityMatches extends React.Component {
        let myPersonality = this.props.currentUser.extrovert_introvert
        let profiles = this.props.profiles
        let suggested;
-        if (myPersonality === "ESFP") { 
-            suggested = profiles.filter(pers => pers.extrovert_introvert === "ESFJ" || pers.extrovert_introvert === "ESTP" || pers.extrovert_introvert === "ISFP")
-        }
-        else if (myPersonality === "ESTP") { 
+       switch (myPersonality) {
+        case 'ESFP':
+           suggested = profiles.filter(pers => pers.extrovert_introvert === "ESFJ" || pers.extrovert_introvert === "ESTP" || pers.extrovert_introvert === "ISFP")
+           break;
+         case 'ESTP':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "ESTJ" || pers.extrovert_introvert === "ESFP" || pers.extrovert_introvert === "INFJ")
-        }
-        else if (myPersonality === "ESTJ") { 
-            suggested = profiles.filter(pers => pers.extrovert_introvert === "ESTP" || pers.extrovert_introvert === "ESFJ" || pers.extrovert_introvert === "ISTJ")
-        }
-        else if (myPersonality === "ESFJ") { 
+            break;
+         case 'ESTJ':
+            suggested = profiles.filter(pers => pers.extrovert_introvert === "ESTP" || pers.extrovert_introvert === "ESFJ" || pers.extrovert_introvert === "ISTJ")           
+            break;
+         case 'ESFJ':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "ISTP" || pers.extrovert_introvert === "ESTJ" || pers.extrovert_introvert === "ESTP")
-        }
-        else if (myPersonality === "ISTJ") { 
+           break;
+         case 'ISTJ':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "INFJ" || pers.extrovert_introvert === "ISTP" || pers.extrovert_introvert === "ISFJ")
-        }
-        else if (myPersonality === "ISTP") { 
+            break;
+         case 'ISTP':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "ISFP" || pers.extrovert_introvert === "INFP" || pers.extrovert_introvert === "ESFP")
-        }
-        else if (myPersonality === "ISFJ") { 
+            break;
+         case 'ISFJ':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "ESFJ" || pers.extrovert_introvert === "ISFP" || pers.extrovert_introvert === "ISTJ")
-        }
-        else if (myPersonality === "ISFP") { 
+            break;
+         case 'ISFP':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "ESFP" || pers.extrovert_introvert === "ISFJ" || pers.extrovert_introvert === "ESFJ")
-        }
-        else if (myPersonality === "ENTJ") { 
+            break;
+         case 'ENTJ':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "INTJ" || pers.extrovert_introvert === "ENTP" || pers.extrovert_introvert === "ENFJ")
-        }
-        else if (myPersonality === "ENTP") { 
+            break;
+         case 'ENTP':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "ENTJ" || pers.extrovert_introvert === "ENFP" || pers.extrovert_introvert === "ENFJ")
-        }
-        else if (myPersonality === "ENFJ") { 
+            break;
+         case 'ENFJ':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "ENFJ" || pers.extrovert_introvert === "INFJ" || pers.extrovert_introvert === "ENFP")
-        }
-        else if (myPersonality === "ENFP") { 
+            break;
+         case 'ENFP':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "ENTJ" || pers.extrovert_introvert === "INTJ" || pers.extrovert_introvert === "INTP")
-        }
-        else if (myPersonality === "INTJ") { 
+            break;
+         case 'INTJ':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "INTP" || pers.extrovert_introvert === "INFJ" || pers.extrovert_introvert === "INFP")
-        }
-        else if (myPersonality === "INTP") { 
+            break;
+         case 'INTP':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "ENTP" || pers.extrovert_introvert === "INFP" || pers.extrovert_introvert === "ENFP")
-        }
-        else if (myPersonality === "INFJ") { 
+            break;
+         case 'INFJ':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "ISTJ" || pers.extrovert_introvert === "INFP" || pers.extrovert_introvert === "INTJ")
-        }
-        else if (myPersonality === "INFP") { 
+            break;
+         case 'INFP':
             suggested = profiles.filter(pers => pers.extrovert_introvert === "INFJ" || pers.extrovert_introvert === "ISFJ" || pers.extrovert_introvert === "ENFJ")
-        }
-        else if (myPersonality === "Not sure") {
-            suggested = null
-        }
+            break;
+         default:
+            suggested = profiles
+            break;
+       }
+       
             return (this.props.currentUser && suggested.map(profile => {
                 return (
                     <div className="card">
