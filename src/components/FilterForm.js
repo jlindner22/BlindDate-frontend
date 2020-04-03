@@ -44,27 +44,35 @@ class FilterForm extends React.Component {
     if (this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id).length > 0) {
       return (this.props.preferences && this.renderPreferences(this.props.preferences).map(preference => { 
         return (
+          <div>
+          <br></br>
+          <br></br>
             <div className="ui container grid">
-                <div className="ui row">
-                <div className="column eight wide">
+                <div className="ui row whiteBackground">
+                <div className="column seven wide">
+                   <div className="centerText">
                    <h1>Select Your Preferences</h1> 
+                   </div>
               <br></br>
               <b>Gender:</b>
               <select className="ui fluid dropdown" name="gender" onChange={this.props.handleChange} value={this.props.gender} >
-                  <option defaultChecked value ="All">All</option>
+                  <option value ="All">All</option>
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
                 </select>
                 <br></br>
-              <b>Minimum Age: </b>
-              <div className="ui input focus">
-              <input type="text" name="minimum_age" placeholder="Minimum Age" onChange={this.props.handleChange} value={this.props.minimum_age}></input>        
-                <br></br>
-                <b>Maximum Age: </b>
+                <div className="ui form">
+                <div class="fields">
+                <div class="five wide field">
+                <label>Minimum Age:</label>
+                <input type="text" name="minimum_age" placeholder="Minimum Age" onChange={this.props.handleChange} value={this.props.minimum_age}></input>        
+                </div>
+                <div class="five wide field">
+                <label>Maximum Age:</label>                
                 <input type="text" name="maximum_age" placeholder="Maximum Age" onChange={this.props.handleChange} value={this.props.maximum_age}></input>
                 </div>
-                  <br></br>                 
-                  <br></br>
+                </div>
+                </div>
                   <b>State:</b>
               <select className="ui fluid dropdown" name="state" onChange={this.props.handleChange} value={this.props.state}>
                   <option value="All">All</option>
@@ -250,27 +258,37 @@ class FilterForm extends React.Component {
                   <Link to="/filters">
                 <button className="ui blue button">View Preferences </button>
                  </Link>
-                 <button className="ui blue right floated button" type="submit" onClick={()=> this.props.handlePreferenceChanges(preference)}>Submit Changes! </button>
-                 <br></br>
-                 <br></br>
-                 <br></br>
-                 <br></br>
-                 <br></br>
-                 <br></br>
-                 <br></br>
-                 <br></br>
-                 <br></br>
-                  </div>
+                 <button className="ui blue right floated button" type="submit" onClick={()=> this.props.handlePreferenceChanges(preference)}>Save Changes </button>
+                 </div>
                 </div>
-            </div>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+              </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+          </div>
             )}
         ))
     } else {
+      //if no preferences have been set
         return (
+          <div>
+            <br></br>
+            <br></br>
             <div className="ui container grid">
-                <div className="ui row">
-                <div className="column eight wide">
+                <div className="ui row whiteBackground">
+                <div className="column seven wide ">
+                <div className="centerText">
                    <h1>Select Your Preferences</h1> 
+                   </div>
               <br></br>
               <b>Gender:</b>
               <select className="ui fluid dropdown" name="gender" onChange={this.props.handleChange} value={this.props.gender}>
@@ -281,11 +299,11 @@ class FilterForm extends React.Component {
                 <br></br>
                 <div className="ui form">
                 <div class="fields">
-                <div class="four wide field">
+                <div class="five wide field">
                 <label>Minimum Age:</label>
                 <input type="text" name="minimum_age" placeholder="Minimum Age" onChange={this.props.handleChange} value={this.props.minimum_age}></input>        
                 </div>
-                <div class="four wide field">
+                <div class="five wide field">
                 <label>Maximum Age:</label>
                 <input type="text" name="maximum_age" placeholder="Maximum Age" onChange={this.props.handleChange} value={this.props.maximum_age}></input>
                 </div>
@@ -477,10 +495,24 @@ class FilterForm extends React.Component {
                   <Link to="/filters">
                 <button className="ui blue button">View Preferences </button>
                  </Link>
-                 <button className="ui blue right floated button" type="submit" onClick={()=> this.props.handlePreferenceChanges(this.props)}>Submit Preferences! </button>
-                  </div>
+                 <button className="ui blue right floated button" type="submit" onClick={()=> this.props.handlePreferenceChanges(this.props)}>Save Changes</button>
                 </div>
+                </div>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
+                 <br></br>
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
+          </div>
     )}
   }
 }

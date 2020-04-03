@@ -45,26 +45,32 @@ class Signup extends React.Component {
 
     render() {
         return (
+            <div className="homeBG">
             <div className="down">
             <div className="ui container grid">
             <div className="ui centered row">
-            <form className="ui form" onSubmit={this.handleSubmit}>
-                <h2><b> Sign up for BlindDate!</b></h2>
+            <form className="ui form whiteBackground extraPadding" onSubmit={this.handleSubmit}>
+            <h2 className="tealFont">Sign up for BlindDate!</h2>
                 <div className="field">
                     <br></br>
                     <label>Username</label>
-                        <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}></input>
+                    <div className="ui input focus">
+                    <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}></input>
+                </div>
                 </div>
                 <div className="field">
-                        <label>Password</label>
-                            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
+                    <label>Password</label>
+                    <div className="ui input focus">
+                    <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
+                </div>
                 </div>
                 <div className="field">
-                        <label>Confirm Password</label>
-                            <input type="password" name="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.handleChange}></input>
+                    <label>Confirm Password</label>
+                    <div className="ui input focus">
+                    <input type="password" name="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.handleChange}></input>
+                </div>
                 </div>
                 <br></br>
-                    <br></br>
                 <button className="ui teal button" type="submit"
                 >Sign Up</button>
                 <Link to={`/`}>
@@ -72,7 +78,7 @@ class Signup extends React.Component {
                             Go Back
                 </button>
                 </Link>
-            </form>
+                </form> 
             </div>
             </div>
             <br></br>
@@ -94,6 +100,7 @@ class Signup extends React.Component {
             <br></br>
             <br></br>
             <br></br>
+            </div>
             </div>
         )
     }

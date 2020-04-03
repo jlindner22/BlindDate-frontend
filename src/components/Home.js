@@ -5,24 +5,28 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div className="down">
-            <div className="ui container grid">
-            <div className="ui centered row" id="homeFont">
+            <div className="homeBG">
+            <div className="halfDown">
+            <div className="ui container grid ">
+            <div className="ui centered row whiteFont ">
                 <h1>Welcome to</h1>
                 </div>
-                <img className="ui centered large image" src="https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D" alt="sorry"></img>
+                <img className="ui centered circular large image" src="https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D" alt="sorry"></img>
                 <br></br>
                 {this.props.currentUser ? null :
                 <div className="ui centered row ">
-                    <div className="ui vertical buttons">
+                    <div className="ui vertical buttons ">
                     <Link to={'/login'}>
-                    <button className="ui blue button" type="submit">Log In</button>
+                    <button className="ui teal button" type="submit">Log In</button>
                     </Link>
                     <br></br>
                     <Link to={'/signup'}>
-                    <button className="ui blue button" type="submit">Sign Up</button>
+                    <button className="ui teal button" type="submit">Sign Up</button>
                     </Link>
                     </div>
+            <br></br>
+            <br></br>
+            <br></br>
                 </div> }
             </div>
             <br></br>
@@ -32,18 +36,7 @@ class Home extends React.Component {
             <br></br>
             <br></br>
             <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+            </div>
             </div>
         )
     }
