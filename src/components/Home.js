@@ -8,8 +8,8 @@ class Home extends React.Component {
             <div className="homeBG">
             <div className="halfDown">
             <div className="ui container grid ">
-            <div className="ui centered row whiteFont ">
-                <h1>Welcome to</h1>
+            <div className="ui centered row ">
+                <h1 className="whiteFont">Welcome to</h1>
                 </div>
                 <img className="ui centered circular large image" src="https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D" alt="sorry"></img>
                 <br></br>

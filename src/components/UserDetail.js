@@ -70,7 +70,7 @@ class UserDetail extends React.Component {
             <br></br>
             <b>Education Level:</b> {profile.education_level}
             <br></br>
-            {profile.education_level === diploma || profile.education_level === someHighSchool ? null : `College: ${profile.college}`}
+            {profile.education_level === diploma || profile.education_level === someHighSchool ? null : <div> <b>College:</b> {profile.college} </div>}
             <br></br>
             <b>My political views:</b> {profile.politics}
             <br></br>

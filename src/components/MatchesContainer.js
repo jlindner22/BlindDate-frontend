@@ -17,13 +17,9 @@ class MatchesContainer extends React.Component {
     }
 
   // //add condition to stop from infinite loop, still allowing for page refresh on delete
-  componentDidUpdate() {
-  //  if (this.state.oldMatchesLength !== this.props.matches.length){
-    this.props.getMyMatches()
-    // this.setState({oldMatchesLength: this.props.matches.length}) 
-    // } else { return null }
-    // console.log("LOOK HERE", this.props)
-  }
+  // componentDidUpdate() {
+  //   this.props.getMyMatches()
+  // }
 
   heartClicked = () => {
     this.setState({
@@ -59,7 +55,7 @@ class MatchesContainer extends React.Component {
       <div className="extra content">
           <Link to={`/users/${profile.potential_match.id}`}> <button 
             onClick={() => this.props.viewProfile(profile.potential_match)}
-                className="ui blue basic button">
+                className="ui blue button">
                   View Profile!
           </button></Link>
         <div className="ui right floated">
@@ -81,17 +77,20 @@ class MatchesContainer extends React.Component {
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
     return (
       <div>
-        <div className="ui container grid">
-          <div className="ui row">
+        <br></br>
+        <div className="ui container">
+          <div className="centerText">
             <Link to={`/users`}>
           <button className="ui basic blue button left floated">
               <i className="arrow alternate circle left blue icon"></i> Keep browsing
           </button>
         </Link>
+        </div>
         <br></br>
         <br></br>
         <br></br>
-            <div className="ui link cards">
+        <br></br>
+            <div className="ui blue link cards centerUsers">
           {myMatches < 1 ? 
             <div>
             {this.state.heart === true ? <PersonalityMatches/> :
@@ -115,7 +114,6 @@ class MatchesContainer extends React.Component {
           </div>
           <br></br>
           <br></br>
-          </div>
           </div>
           <br></br>
           <br></br>

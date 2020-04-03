@@ -10,7 +10,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Brush Script MT", 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 
     sans-serif;
-    /* font-family: 'Titillium Web', sans-serif; */
+    font-size: 100%; 
 
   /* font-family: 'Dancing Script'; */
   /* , cursive; */
@@ -147,6 +147,7 @@ left: 50%
 
 .loginImg {
   background-image: url("https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D");
+  background-repeat: no-repeat
 }
 
 .tealFont {
@@ -157,6 +158,18 @@ left: 50%
 
 .whiteFont {
   color: white;
+  font-variant: small-caps;
   font-style: italic;
   font-weight: bolder;
+  font-size: 40px
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.centerUsers  {
+  position: relative;
+  left: 9%;
+  /* width: 100% */
 }

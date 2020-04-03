@@ -57,7 +57,7 @@ class MyProfile extends React.Component {
                   <br></br>
                   <b>Education Level:</b> {props.education_level}
                   <br></br>
-                  {props.education_level === noCollege ? null : `College: ${props.college}`}
+                  {props.education_level === noCollege ? null : <div> <b>College:</b> {props.college} </div>}
                   <br></br>
                   <b>My political views:</b> {props.politics}
                   <br></br>
