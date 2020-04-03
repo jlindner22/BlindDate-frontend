@@ -215,12 +215,10 @@ renderReverseNameSortedList = () => {
       <br></br>
       <div className="ui container">
         <br></br>
-        {/* <Link to= "/filters"> */}
         <div className="centerText">
-        <button className="ui blue button" onClick={this.filterLink}>
+        <button className="ui blue button " onClick={this.filterLink}>
         View/Set Preferences
         </button>
-      {/* </Link> */}
       <Link to= "/filteredprofiles">
       <button className="ui blue button">
         See who fits your preferences!
@@ -240,7 +238,7 @@ renderReverseNameSortedList = () => {
         {/* <div className="centerText"> */}
         {/* <div className="center aligned three column row"> */}
         {/* <div class="column"> */}
-        <div className="ui blue link cards">
+        <div className="ui blue link cards centerUsers">
         {this.state.ageButtonClicked === false && this.state.nameSorted === true ? this.renderNameSortedList() : this.renderReverseNameSortedList()}
         {/* {this.state.nameButtonClicked === false && this.state.ageButtonClicked === true && this.state.ageSorted === true? this.renderYoungToOld() : this.renderReverseSortedAge()}
         {this.state.ageButtonClicked === true && this.state.nameSorted === false ? this.renderYoungToOld() : this.renderReverseSortedAge()} */}

@@ -10,7 +10,7 @@ import MessagesContainer from './MessagesContainer';
 import ProfileForm from './ProfileForm';
 import LogIn from './LogIn';
 import Home from './Home';
-import Filter from './Filter';
+import FilterContainer from './FilterContainer';
 import { getAllUsers, getMyMatches, loggedIn, getPreferences } from '../actions';
 import Signup from './Signup';
 import FilterForm from './FilterForm';
@@ -180,8 +180,8 @@ class App extends React.Component {
         <body>
           <div className="ui container grid">
             <div className="ui row">
-              <div className="column four wide">
-             </div>
+              {/* <div className="column four wide">
+             </div> */}
            </div>
           </div>
             <Switch>
@@ -195,11 +195,10 @@ class App extends React.Component {
               <Route exact path="/users/:id" render={(routerProps) => <UserDetail {...routerProps}/>}/>
               <Route exact path="/editprofile" render={(routerProps) => <EditProfilePage currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/filteredprofiles" render={(routerProps) => <FilteredProfiles currentUser={this.state.currentUser}{...routerProps}/>}/>
-              <Route exact path="/filters" render={(routerProps) => <Filter {...routerProps} editPreferences={this.editPreferences}
+              <Route exact path="/filters" render={(routerProps) => <FilterContainer {...routerProps} editPreferences={this.editPreferences}
               handleChange={this.handleChange} gender={this.state.gender} minimum_age={this.state.minimum_age} maximum_age={this.state.maximum_age} politics={this.state.politics}
               state={this.state.state} smokes={this.state.smokes} drinks={this.state.drinks}weed={this.state.weed} drugs={this.state.drugs} religion={this.state.religion}education_level={this.state.education_level}kids={this.state.kids}
-              have_pets={this.state.have_pets} diet={this.state.diet} relationship_type={this.state.relationship_type} id={this.state.id} currentUser={this.state.currentUser} {...routerProps} handlePreferenceChanges={this.handlePreferenceChanges}
-              />}/>
+              have_pets={this.state.have_pets} diet={this.state.diet} relationship_type={this.state.relationship_type} id={this.state.id} currentUser={this.state.currentUser} {...routerProps} handlePreferenceChanges={this.handlePreferenceChanges}/>}/>
               <Route exact path="/profileform" render={(routerProps) => <ProfileForm setUser={this.setUser} user={this.state.currentUser} {...routerProps}/>}/>
               <Route exact path="/editfilters" render={(routerProps) => <FilterForm editPreferences={this.editPreferences} 
               handleChange={this.handleChange} gender={this.state.gender}minimum_age={this.state.minimum_age} maximum_age={this.state.maximum_age} politics={this.state.politics}

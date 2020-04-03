@@ -10,7 +10,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Brush Script MT", 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 
     sans-serif;
-    /* font-family: 'Titillium Web', sans-serif; */
+    font-size: 100%; 
 
   /* font-family: 'Dancing Script'; */
   /* , cursive; */
@@ -26,7 +26,8 @@ body {
   font-family: 'Boogaloo', cursive; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f1f8ff
+  /* background: #f1f8ff */
+  background: rgb(242, 245, 245);
   /* background: rgb(251,211,249);
   background: radial-gradient(circle, rgba(251,211,249,1) 32%, rgba(252,171,228,1) 75%); */
 }
@@ -118,4 +119,57 @@ left: 50%
   position: relative;
   justify-content: center;
   flex-direction: row;
+}
+
+.greenText {
+  color: rgba(28, 184, 137, 0.877)
+}
+
+.whiteBackground {
+  background:white;
+  /* padding-top: 50% */
+}
+
+.extraPadding {
+  padding-top: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-bottom: 25px;
+}
+
+.halfDown  {
+  margin-top: 3%;
+}
+
+.homeBG {
+  background-color: rgb(104, 228, 235)
+}
+
+.loginImg {
+  background-image: url("https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D");
+  background-repeat: no-repeat
+}
+
+.tealFont {
+  color: teal;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.whiteFont {
+  color: white;
+  font-variant: small-caps;
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 40px
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.centerUsers  {
+  position: relative;
+  left: 9%;
+  /* width: 100% */
 }

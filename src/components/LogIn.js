@@ -37,20 +37,27 @@ class LogIn extends React.Component {
 
     render() {
         return (
+            <div className="homeBG">
+            {/* <img className="ui small image" src="https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D"></img> */}
             <div className="down">
             <div className="ui container grid">
             <div className="ui centered row">
-            <form className="ui form" onSubmit={this.handleSubmit}>
-            <h2><b> Log in to BlindDate!</b></h2>
+            <form className="ui form whiteBackground extraPadding" onSubmit={this.handleSubmit}>
+            <h2 className="tealFont"> Log into BlindDate!</h2>
                 <div className="field">
                     <br></br>
                     <label>Username</label>
-                        <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}></input>
+                    <div className="ui input focus">
+                    <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}></input>
+                </div>
                 </div>
                 <div className="field">
                         <label>Password</label>
-                            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
+                    <div className="ui input focus">
+                    <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}></input>
                 </div>
+                </div>
+                <br></br>
                 <button className="ui teal button" type="submit">Log In</button>
                 <Link to={`/`}>
                 <button className="ui basic teal button left floated">
@@ -79,6 +86,7 @@ class LogIn extends React.Component {
             <br></br>
             <br></br>
             <br></br>
+            </div>
             </div>
         )
     }
