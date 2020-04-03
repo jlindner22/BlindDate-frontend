@@ -78,33 +78,30 @@ class MatchesContainer extends React.Component {
     return (
       <div>
         <br></br>
+        <br></br>
+        <br></br>
         <div className="ui container">
-          <div className="centerText">
-            <Link to={`/users`}>
+          <div className="centerText centerUsers">
+           {this.state.heart === false ? <Link to={`/users`}>
           <button className="ui basic blue button left floated">
               <i className="arrow alternate circle left blue icon"></i> Keep browsing
           </button>
-        </Link>
+        </Link> : null}
         </div>
-        <br></br>
-        <br></br>
+        <div className="tealFont centerText matchesTitle"> <h1>Matches</h1> </div> 
         <br></br>
         <br></br>
             <div className="ui blue link cards centerUsers">
           {myMatches < 1 ? 
-            <div>
+            <div className="ui container grid">
             {this.state.heart === true ? <PersonalityMatches/> :
-          <div className="greenText">
-           <br></br><br></br> <br></br>  
-          <h1>
-           You currently have no matches.</h1> 
-           <h4>In the meantime, click on the heart to view some 
+          <div className="centerText">
+          <h2 className="tealFont centerMatchesContainer"> You currently have no matches.</h2> 
+           <h4 className="centerMatchesContainer"> In the meantime, click on the heart to view some 
            <br></br>
             profiles that best match your personality type.</h4>
            <br></br>
-           <br></br>
-           <br></br>
-           <img className="ui medium centered image" onClick={this.heartClicked} src="https://static.thenounproject.com/png/720337-200.png" alt="heart"></img>
+           <img className="ui medium centered image centerMatchesContainer" onClick={this.heartClicked} src="https://static.thenounproject.com/png/720337-200.png" alt="heart"></img>
            <br></br>
             <br></br> 
             </div> }
@@ -118,8 +115,7 @@ class MatchesContainer extends React.Component {
           <br></br>
           <br></br>
           <br></br>
-          <br></br> <br></br>
-          <br></br> <br></br>
+          <br></br> 
           <br></br>
       </div>
     )

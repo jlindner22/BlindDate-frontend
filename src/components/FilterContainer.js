@@ -173,40 +173,48 @@ class FilterContainer extends React.Component {
       return (
           <div className="ui container grid">
               <div className="ui row">
-              <div className="column twelve wide">
+              {/* <div className="column twelve wide"> */}
               {myPreferences < 1 ? null :
               <Link to= "/filteredprofiles">
               <button className="ui blue button right floated">
                 See who fits your preferences!
               </button>
               </Link>}
-                <div className="centerText"> <h1>Preferences</h1> </div> 
+                <div className="tealFont"> 
                 <br></br>
-              {myPreferences < 1 ? <div className="centerText">
+                <h1>Preferences</h1> 
+                </div> 
                 <br></br>
-                {this.state.heart === true ? <PersonalityMatches/> : <div>
-                It looks like you haven't set any filters yet! In the meantime, click on the  
+                <div className="ui blue link cards centerUsers">
+              {myPreferences < 1 ? 
+                // <div className="centerText">
+                <div className="ui container grid">
                 <br></br>
-                heart to view some profiles that best match your personality type.
+                {this.state.heart === true ? <PersonalityMatches/> : 
+                <div className="centerText halfDown">
+                  <h2 className="tealFont centerFilterContainer"> You currently have no preferences set.</h2> 
+                <h4 className="centerFilterContainer">In the meantime, click on the heart to view some 
                 <br></br>
+                profiles that best match your personality type.</h4>
                 <br></br>
-                <br></br>
-                <img className="ui medium centered image" onClick={this.heartClicked} src="https://static.thenounproject.com/png/720337-200.png" alt="heart"></img>
+                <img className="ui medium centered image centerFilterContainer" onClick={this.heartClicked} src="https://static.thenounproject.com/png/720337-200.png" alt="heart"></img>
                 <br></br>
                 <br></br>
                 <Link to="/editfilters">
-              <button className="ui red button" 
+              <button className="ui blue button centerFilterContainer" 
               onClick={() => this.props.editPreferences(myPreferences)}>
               Set Filters </button> </Link> 
               <br></br>
               <br></br>
               <br></br>
                 </div> }
-              </div> :
-              this.renderList()}
+              </div> 
+              :
+              this.renderList() }
+              </div> 
           </div>
           </div>
-          </div>
+          // </div>
       )
       } else {
           return "Log in to view/set your filters"

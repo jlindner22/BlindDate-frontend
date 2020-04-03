@@ -1,9 +1,9 @@
 /* @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap'); */
 
-@font-face {
+/* @font-face {
   font-family: 'Dancing Script';
   src: local('Dancing Script'), url("./fonts/DancingScript-VariableFont_wght.ttf") format('truetype');
-}
+} */
 
 body {
   margin: 0;
@@ -111,7 +111,6 @@ left: 50%
 .centerContent {
   align-content: center;
   /* margin: auto; */
-
 }
 
 .container {
@@ -142,7 +141,7 @@ left: 50%
 }
 
 .homeBG {
-  background-color: rgb(104, 228, 235)
+  background-color: rgba(133, 231, 236, 0.897)
 }
 
 .loginImg {
@@ -154,6 +153,7 @@ left: 50%
   color: teal;
   font-style: italic;
   font-weight: bolder;
+  font-variant: small-caps;
 }
 
 .whiteFont {
@@ -172,4 +172,19 @@ left: 50%
   position: relative;
   left: 9%;
   /* width: 100% */
+}
+
+.centerMatchesContainer {
+  position: relative;
+  left: -20%
+}
+
+.centerFilterContainer {
+  position: relative;
+  left: -28%
+}
+
+.matchesTitle {
+  position: relative;
+  left: -5%
 }

@@ -67,7 +67,7 @@ class PersonalityMatches extends React.Component {
             suggested = profiles
             break;
        }
-       
+
             return (this.props.currentUser && suggested.map(profile => {
                 return (
                     <div className="card">
@@ -103,7 +103,6 @@ class PersonalityMatches extends React.Component {
             return(
             <div>
             <div className="ui container">
-            <br></br>
                 <div className="ui row">
                 <Link to={`/users`}>
             <button className="ui basic blue button left floated">

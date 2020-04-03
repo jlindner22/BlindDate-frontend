@@ -48,10 +48,10 @@ class FilterForm extends React.Component {
           <br></br>
           <br></br>
             <div className="ui container grid">
-                <div className="ui row whiteBackground">
+                <div className="ui row">
                 <div className="column seven wide">
                    <div className="centerText">
-                   <h1>Select Your Preferences</h1> 
+                   <h1 className="tealFont">Select Your Preferences</h1> 
                    </div>
               <br></br>
               <b>Gender:</b>
@@ -284,10 +284,10 @@ class FilterForm extends React.Component {
             <br></br>
             <br></br>
             <div className="ui container grid">
-                <div className="ui row whiteBackground">
+                <div className="ui row">
                 <div className="column seven wide ">
                 <div className="centerText">
-                   <h1>Select Your Preferences</h1> 
+                   <h1 className="tealFont">Select Your Preferences</h1> 
                    </div>
               <br></br>
               <b>Gender:</b>
