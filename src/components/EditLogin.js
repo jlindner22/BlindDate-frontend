@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loggedIn } from '../actions';
-// import { Link } from 'react-router-dom';
-// import HomeAfterDelete from './HomeAfterDelete';
 import Home from './Home';
 
 class EditLogin extends React.Component {
@@ -97,7 +95,7 @@ handleText = e => {
                 <div className="ui container grid">
                 <div className="ui row">
                 <form className="ui form" onSubmit={(e) => this.handleSubmit(props.id, e)}>
-                <h2>Account Settings</h2>
+                <h2 className="grayFont centerText"> Account Settings</h2>
                     <br></br>
                     <br></br>
                     <b>Name</b>  <input type="text" name="name" placeholder="First Name" onChange={this.handleText} value={this.state.name}></input>
@@ -119,11 +117,9 @@ handleText = e => {
                     <br></br>
                     <br></br>
                     <br></br>
-                    {/* <button className="ui basic blue button left floated" onClick={this.handleBackClick}>Go back</button>
-                    <button className="ui blue right floated button" onClick={()=> this.props.handlePreferenceChanges(this.props)}>Submit Changes </button> */}
-                     <input className="ui basic blue button left floated" type="button" value="Go Back" onClick={this.reload}/>
-                     <input className="ui blue button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
-                     <button className="ui red right floated button" onClick={()=> this.deleteUser(props)}> Delete Account </button>
+                     <input className="ui basic teal button left floated" type="button" value="Go Back" onClick={this.reload}/>
+                     <input className="ui teal button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
+                     <button className="ui grey right floated button" onClick={()=> this.deleteUser(props)}> Delete Account </button>
                 </form>
                     </div>
                 </div> 

@@ -86,7 +86,7 @@ class EditMoreAboutMe extends React.Component {
                 <div className="ui container grid">
                 <div className="ui row">
                 <form className="ui form" onSubmit={(e) => this.handleSubmit(props.id, e)}>
-                <h2>More About Me</h2>
+                <h2 className="grayFont centerText">More about me</h2>
                 {/* <div class="inline field"> */}
                     <br></br>
                     <b>Are you a morning or night person?</b>
@@ -305,9 +305,8 @@ class EditMoreAboutMe extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
-                    <br></br>
-                     <input className="ui basic blue button left floated" type="button" value="Go Back" onClick={this.reload}/>
-                     <input className="ui blue button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
+                     <input className="ui basic teal button left floated" type="button" value="Go Back" onClick={this.reload}/>
+                     <input className="ui teal button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
                 </form>
                 </div>
                 <br></br>

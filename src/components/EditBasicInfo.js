@@ -39,17 +39,7 @@ class EditBasicInfo extends React.Component {
         })
     }
 
-    // editUserInfo = (user) => {
-    //     this.setState({
-    //         age: user.age,
-    //         gender: user.gender,
-    //         city: user.city,
-    //         state: user.state
-    //       }) 
-    // }
-
     handleSubmit = (user, e) => {
-        // console.log("USER?",this.props.currentUser)
         e.preventDefault()
         fetch(`http://localhost:3000/api/v1/users/${user}`,{
             method: 'PATCH',
@@ -77,38 +67,38 @@ class EditBasicInfo extends React.Component {
 
     render() {
         let props = this.props.currentUser
-        console.log("JEN LOOK", this.props)
         return (
             <div>
                 <br></br>
-                <h2> Personal Information</h2>
+                <h2 className="centerText grayFont"> Personal Information</h2>
                 <div className="ui container grid">
                 <div className="ui row">
                 <div className="stolenright">
               <img className="ui medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
               <br></br>
               <br></br>
-              <br></br>
-              {this.state.avatarClicked === false ? <button className="ui green button" onClick={this.avatarClicked}>Change Avatar</button>
-              : <button className="ui green button" onClick={this.avatarClicked}>Go Back</button>}
+              {this.state.avatarClicked === false ? <button className="ui blue button" onClick={this.avatarClicked}>Change Avatar</button>
+              : <button className="ui blue button" onClick={this.avatarClicked}>Go Back</button>}
               </div>
                 {this.state.avatarClicked === true ? <EditAvatar/> :
                 <form className="ui form" onSubmit={(e) => this.handleSubmit(props.id, e)}>
                     <br></br>
-                    <input type="text" name="age" placeholder="Age" onChange={this.handleText} value={this.state.age}></input>
+                    <b>Age</b> <input type="text" name="age" placeholder="Age" onChange={this.handleText} value={this.state.age}></input>
                     <br></br>
                     <br></br>
+                    <b>Gender</b>
                     <select className="ui fluid dropdown" name="gender" onChange={this.handleText} value={this.state.gender}>
                     <option value="">Gender</option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
                     </select>
                     <br></br>
-                    <label>Current Location</label>
+                    <b>City</b>
                     <br></br>
                     <input type="text" name="city" placeholder="City" onChange={this.handleText} value={this.state.city}></input>
                     <br></br>
                     <br></br>
+                    <b>State</b>
                     <select className="ui fluid dropdown" name="state" onChange={this.handleText} value={this.state.state}>
                                 <option value="">State</option>
                                 <option value="Alabama">Alabama</option>
@@ -165,9 +155,8 @@ class EditBasicInfo extends React.Component {
                                 </select>
                 <br></br>
                 <br></br>
-                {/* <button className="ui basic blue button left floated" onClick={this.handleBackClick}>Go back</button> */}
-                <input className="ui basic blue button left floated" type="button" value="Go Back" onClick={this.reload}/>
-                <input className="ui blue button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
+                <input className="ui basic teal button left floated" type="button" value="Go Back" onClick={this.reload}/>
+                <input className="ui teal button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
                 <br></br>
                 </form> }
                 </div>

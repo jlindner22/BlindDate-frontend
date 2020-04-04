@@ -31,6 +31,9 @@ class MyProfile extends React.Component {
         if (props) {
           return (
             <div>
+              <br></br>
+              <br></br>
+              <br></br>
             <div className="centerText">
             <h1> <b>Meet {props.name}!</b> </h1>
             </div>
