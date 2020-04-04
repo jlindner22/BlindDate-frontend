@@ -156,6 +156,13 @@ left: 50%
   font-variant: small-caps;
 }
 
+.grayFont {
+  color: rgba(73, 71, 71, 0.794);
+  font-style: italic;
+  font-weight: bolder;
+  font-variant: small-caps;
+}
+
 .whiteFont {
   color: white;
   font-variant: small-caps;
@@ -184,7 +191,16 @@ left: 50%
   left: -28%
 }
 
+.centerEditBasicTitle {
+  position: relative;
+  left: 25%
+}
+
 .matchesTitle {
   position: relative;
   left: -5%
+}
+
+.personalInfoRight {
+  right: 20%
 }

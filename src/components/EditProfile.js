@@ -94,7 +94,12 @@ class EditProfilePage extends React.Component {
      
             </div> 
             
-            : <h1>Edit Your Account</h1>
+            : 
+            <div>
+                <br></br>
+                <br></br>
+            <h1 className="tealFont">Edit your account</h1>
+            </div>
             }
             <br></br>
             {this.state.viewBasicInfo === true ? <EditBasicInfo viewBasicInfo={this.state.viewBasicInfo}/> : null}

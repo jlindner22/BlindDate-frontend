@@ -78,7 +78,7 @@ class EditHabitsPersonalInfo extends React.Component {
                 <div className="ui container grid">
                 <div className="ui row">
                 <form className="ui form" onSubmit={(e) => this.handleSubmit(props.id, e)}>
-                <h2>Habits & Personal Information</h2>
+                <h2 className="grayFont centerText">Habits & Personal Information</h2>
                     <br></br>
                     <br></br>
                     <b>What I'm looking for</b>
@@ -231,9 +231,8 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
-                    <br></br>
-                     <input className="ui basic blue button left floated" type="button" value="Go Back" onClick={this.reload}/>
-                     <input className="ui blue button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
+                     <input className="ui basic teal button left floated" type="button" value="Go Back" onClick={this.reload}/>
+                     <input className="ui teal button right floated" type="submit" value="Save Changes" onClick={this.reload}/>
                 </form>
                     </div>
                 </div> 
