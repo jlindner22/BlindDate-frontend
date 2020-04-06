@@ -184,12 +184,12 @@ left: 50%
 
 .centerMatchesContainer {
   position: relative;
-  left: -20%
+  right: 18%
 }
 
 .centerFilterContainer {
   position: relative;
-  left: -28%
+  right: 18%
 }
 
 .centerEditBasicTitle {
@@ -217,4 +217,29 @@ left: 50%
   font-weight: bolder;
   font-variant: small-caps;
   font-size: 40px;
+}
+
+.noPrefsDown {
+  margin-top: 3%;
+  font-size: 40px
+}
+
+.filteredRight {
+  position: relative;
+  left: 40%
+}
+
+.centerFilterButton {
+  position: relative;
+  left: 7%
+}
+
+.centerFilterPic {
+  position: relative;
+  left: -9%
+}
+
+.centerFilterMessage {
+  position: relative;
+  left: -2%
 }

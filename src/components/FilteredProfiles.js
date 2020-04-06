@@ -106,10 +106,7 @@ class FilteredProfiles extends React.Component {
       } else if (filteredProfs.length < 1) {return (<div className="ui container grid">
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+  
       <br></br>
       <br></br>
     <h1> No profiles match your criteria</h1>
@@ -118,71 +115,28 @@ class FilteredProfiles extends React.Component {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
   </div>
       )} 
-   } else {return (
-    <div className="ui container grid">
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <div>
-      <h1> You haven't set any filters!</h1>
+   } else {
+      return (
+      <div className="filteredRight">
+        <div className="noPrefsDown">
+        <h1 className="tealFont centerFilterMessage"> You haven't set any filters!</h1>
+        <img className="centerFilterPic" src="https://i.imgflip.com/1o12mo.jpg" alt="crying"></img>
+        <br></br>
+        <br></br>
+        <Link to="/filters">
+          <button className="ui blue button centerFilterButton">Set Preferences </button>
+        </Link>
       <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      </div> 
       </div>
-      <br></br>
-      <Link to="/filters">
-        <button className="ui blue button">Set Preferences </button>
-      </Link>
-     <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    </div>
-  )}
+    )}
   } 
 }
 

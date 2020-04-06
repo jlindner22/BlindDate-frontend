@@ -179,8 +179,6 @@ class App extends React.Component {
         <NavBar logout={this.logout} currentUser={this.state.currentUser} />
         <body>
           <div className="ui container grid">
-              {/* <div className="column four wide">
-             </div> */}
           </div>
             <Switch>
               <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps} setUser={this.setUser} currentUser={this.state.currentUser}/>}/>

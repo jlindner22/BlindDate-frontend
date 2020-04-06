@@ -179,7 +179,7 @@ class FilterContainer extends React.Component {
               <button className="ui blue button right floated">
                 See who fits your preferences!
               </button>
-              </Link>}
+              </Link> }
                 <div className="tealFont"> 
                 <br></br>
                 <h1>Preferences</h1> 
