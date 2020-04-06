@@ -27,7 +27,8 @@ class MyProfile extends React.Component {
   render() {
     console.log("my profile props", this.props)
     let props = this.state.profileInfo
-    let noCollege = "Some High School" || "High School Diploma/GED";
+    let someHighSchool = "Some High School"
+    let diploma = "High School Diploma/GED"
       if (props) {
         return (
           <div>
@@ -38,12 +39,35 @@ class MyProfile extends React.Component {
               <h1 className="loginFont"> <i className="star icon"></i><b>Meet {props.name}</b> <i className="star icon"></i></h1>
             </div>
             <div className="flex_pic">
+            <div className="habits">
+                  <h3 className="tealFont"> Habits </h3>
+                  <b>Drinking:</b>  {props.drinks}
+                  <br></br>
+                  <b>Smoking:</b>  {props.smokes}
+                  <br></br>
+                  <b>4/20 Friendly:</b>  {props.weed}
+                  <br></br>
+                  <b>Other drugs:</b>  {props.drugs}
+                  <br></br>
+                  <br></br>
+                  <Link to='/editprofile'>
+                  <button className="large ui blue button">Edit Profile</button>
+                  </Link>      
+          </div>
               <div className="ui container grid"> 
-                <div className="profilepic">
+                <div className="profilePicture">
                 <img className="ui medium bordered image" src={props.avatar} alt="Avatar"/>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 </div>
                 <div>                  
-                  <div className="column twelve wide fixedProfile">
+                  <div className="column sixteen wide fixedProfile">
                   <br></br>
                     <h2 className="tealFont">About me</h2>
                     <b>Age:</b> {props.age}
@@ -60,7 +84,7 @@ class MyProfile extends React.Component {
                     <br></br>
                     <b>Education Level:</b> {props.education_level}
                     <br></br>
-                    {props.education_level === noCollege ? null : <div> <b>College:</b> {props.college} </div>}
+                    {props.education_level === diploma || props.education_level === someHighSchool ? null : <div> <b>College:</b> {props.college} </div>}
                     <br></br>
                     <b>My political views:</b> {props.politics}
                     <br></br>
@@ -69,13 +93,13 @@ class MyProfile extends React.Component {
                     <b>My diet is:</b> {props.diet}
                     <br></br>
                     <br></br>
-                    <button className="ui blue button"
+                    <button className="large ui blue button"
                     onClick={this.toggleInfo}> {this.state.moreButton === false ? "See more about me!" : "See less about me!"}</button>
                     <br></br>
                     <br></br>
                       <div >
                       {this.state.moreButton === false ? null :
-                        <div className="column twelve wide fixedMoreProfile">
+                        <div className="column fourteen wide fixedMoreProfile">
                         <b> Morning or night:</b> {props.morning_night}
                         <br></br>
                         <b>How I dress:</b> {props.dress_style}
@@ -113,32 +137,13 @@ class MyProfile extends React.Component {
                         <br></br>
                         <b>For a vacation:</b> {props.vacation_planning}
                         <br></br>
+                        <br></br>
+                        <br></br>                  
+                        <br></br>
+                        <br></br>                  
+                        <br></br>
+                        <br></br>                  
                     </div>}
-                  <h3> <u>Habits </u></h3>
-                  <b>Drinking:</b>  {props.drinks}
-                  <br></br>
-                  <b>Smoking:</b>  {props.smokes}
-                  <br></br>
-                  <b>4/20 Friendly:</b>  {props.weed}
-                  <br></br>
-                  <b>Other drugs:</b>  {props.drugs}
-                  <br></br>
-                  <br></br>
-                  <Link to='/editprofile'>
-                  <button className="ui blue button">Edit Profile</button>
-                  </Link>                  
-                  <br></br>
-                  <br></br>                  
-                  <br></br>
-                  <br></br>                  
-                  <br></br>
-                  <br></br>                  
-                  <br></br>
-                  <br></br>                  
-                  <br></br>
-                  <br></br>                  
-                  <br></br>
-                  <br></br>                  
               </div>
             </div>
           </div>
@@ -147,24 +152,8 @@ class MyProfile extends React.Component {
     </div>
     )
   } else if (!props) {
-    // window.history.replaceState('/users','/myprofile')
-    return (
-      <UserContainer/>
-      // {this.switchPath}
-      // <div className="loader">
-      //   <div className="ui segment">
-      //     <div className="ui active dimmer">
-      //       <br></br>
-      //       <br></br>
-      //       <br></br>
-      //       <br></br>
-      //       <div className="ui large text loader">Loading</div>
-      //       <p></p>
-      //       <p></p>
-      //       <p></p>
-      //       </div>
-      //   </div>
-      // </div>
+      return (
+        <UserContainer/>
       )        
     }
   }

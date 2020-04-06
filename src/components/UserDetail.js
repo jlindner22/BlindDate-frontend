@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { matchProfile, loggedIn, getMyMatches } from '../actions';
 import { Link } from 'react-router-dom';
+import UserContainer from './UserContainer';
 
 class UserDetail extends React.Component {
 
@@ -34,18 +35,24 @@ class UserDetail extends React.Component {
   }
 
   render() {
-
-   let liked = this.props.likeProfile.map(profile => profile.potential_match_id)[0]
-    console.log("state of matched", this.state.matched)
-    console.log("userdetail props", this.props)
-    console.log("liked profile id", liked)
-    console.log("selected profile id", this.props.selectedProfile.id)
+  //  let liked = this.props.likeProfile.map(profile => profile.potential_match_id)[0]
+    // console.log("state of matched", this.state.matched)
+    // console.log("userdetail props", this.props)
+    // console.log("liked profile id", liked)
+    // console.log("selected profile id", this.props.selectedProfile.id)
     let profile = this.props.selectedProfile
     let someHighSchool = "Some High School"
     let diploma = "High School Diploma/GED"
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
       if (profile) {
         return (
+          <div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <div className="centerText">
+          <h1 className="loginFont"> <i className="star icon"></i><b>Meet {profile.name}</b> <i className="star icon"></i></h1>
+            </div>
         <div className="flex_pic">
         <div className="ui container grid">
         <div className="stolenright">
@@ -54,8 +61,7 @@ class UserDetail extends React.Component {
               <div>
                 <div className="column twelve wide">
                 <br></br>
-                <h1 className="loginFont"> <i className="star icon"></i><b>Meet {profile.name}</b> <i className="star icon"></i></h1>
-            <h2>About Me</h2>
+                <h2 className="tealFont">About me</h2>
             <b>Age:</b> {profile.age}
             <br></br>
             <b>Currently living in:</b> {profile.city}, {profile.state}            
@@ -125,7 +131,7 @@ class UserDetail extends React.Component {
             <b>For a vacation:</b> {profile.vacation_planning}
             <br></br>
             </div> }
-            <h3> <u>Habits </u></h3>
+            <h3 className="tealFont"> Habits </h3>
            <b>Drinking:</b>  {profile.drinks}
             <br></br>
             <b>Smoking:</b>  {profile.smokes}
@@ -165,16 +171,17 @@ class UserDetail extends React.Component {
             <br></br>
             <br></br>                  
             <br></br>
+            
          </div>
+        </div>
         </div>
       </div>
       </div>
        </div>
-    )} else {return <Link to={`/users`}>
-    <button className="ui basic pink button">
-    <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
-    </button>
-    </Link>}
+    )} else {return (
+      <UserContainer/>
+    )
+    }
   }
 }
 

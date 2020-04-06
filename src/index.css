@@ -54,19 +54,43 @@ code {
 
 .stolenright  {
   margin-top: 5%;
-  margin-right: 10%;
+  right: 10%;
 }
 
-.profile_text {
-  overflow-wrap: normal;
+.profilePicture  {
+  left: 35%;
+  position: absolute;
+  margin-top: -14%
+}
+
+.fixedProfile {
+  margin-top: -75%;
+  position: relative;
+  left: 115%;
+  width: 140%
 }
 
 .flex_pic {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: absolute;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 100vw;
+}
+
+.habits {
+  width: 25%;
+  margin-top: 3%;
+  margin-left: 20%
+}
+
+.fixedMoreProfile {
+  position: absolute;
+  /* right: 25%; */
+}
+
+.profile_text {
+  overflow-wrap: normal;
 }
 
 .profilepic {
@@ -75,16 +99,6 @@ code {
   /* margin-right: 10%; */
   /* margin-top: -530px; */
   right: 10%
-}
-
-.fixedProfile {
-  position: fixed;
-  right: 25%;
-}
-
-.fixedMoreProfile {
-  position: absolute;
-  /* right: 25%; */
 }
 
 .centerDiv{
