@@ -216,7 +216,7 @@ renderReverseNameSortedList = () => {
       <div className="ui container">
         <br></br>
         <div className="centerText">
-        <button className="ui blue button " onClick={this.filterLink}>
+        <button className="ui blue button" onClick={this.filterLink}>
         View/Set Preferences
         </button>
       <Link to= "/filteredprofiles">

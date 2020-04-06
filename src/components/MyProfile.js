@@ -35,7 +35,7 @@ class MyProfile extends React.Component {
               <br></br>
               <br></br>
             <div className="centerText">
-            <h1> <b>Meet {props.name}!</b> </h1>
+            <h1 className="loginFont"> <i className="star icon"></i><b>Meet {props.name}</b> <i className="star icon"></i></h1>
             </div>
             <div className="flex_pic">
               <div className="ui container grid"> 

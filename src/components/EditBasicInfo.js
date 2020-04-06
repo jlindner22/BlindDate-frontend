@@ -55,14 +55,13 @@ class EditBasicInfo extends React.Component {
             })
         }) .then(response => response.json())
         .then(response => console.log(response))
-        alert("Your changes have been submitted!")
     }
 
     handleText = e => {
         this.setState({
             [e.target.name]: e.target.value
           }, console.log(e.target.value)
-          )
+        )
     }
 
     render() {

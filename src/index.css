@@ -62,9 +62,9 @@ code {
 }
 
 .profilepic {
-position: relative;
-margin-top: -530px;
-left: 50%
+  position: relative;
+  margin-top: -530px;
+  left: 50%
 }
 
 .centerDiv{
@@ -110,7 +110,6 @@ left: 50%
 
 .centerContent {
   align-content: center;
-  /* margin: auto; */
 }
 
 .container {
@@ -126,7 +125,6 @@ left: 50%
 
 .whiteBackground {
   background:white;
-  /* padding-top: 50% */
 }
 
 .extraPadding {
@@ -154,6 +152,7 @@ left: 50%
   font-style: italic;
   font-weight: bolder;
   font-variant: small-caps;
+  font-size: 30px;
 }
 
 .grayFont {
@@ -168,7 +167,7 @@ left: 50%
   font-variant: small-caps;
   font-style: italic;
   font-weight: bolder;
-  font-size: 40px
+  font-size: 50px
 }
 
 .border {
@@ -183,12 +182,12 @@ left: 50%
 
 .centerMatchesContainer {
   position: relative;
-  left: -20%
+  right: 18%
 }
 
 .centerFilterContainer {
   position: relative;
-  left: -28%
+  right: 20%
 }
 
 .centerEditBasicTitle {
@@ -203,4 +202,58 @@ left: 50%
 
 .personalInfoRight {
   right: 20%
+}
+
+.loginDown  {
+  margin-top: 10%;
+  font-size: 20px
+}
+
+.loginFont  {
+  color: teal;
+  font-style: italic;
+  font-weight: bolder;
+  font-variant: small-caps;
+  font-size: 40px;
+}
+
+.noPrefsDown {
+  margin-top: 3%;
+  font-size: 40px
+}
+
+.filteredRight {
+  position: relative;
+  left: 40%
+}
+
+.centerFilterButton {
+  position: relative;
+  left: 7%
+}
+
+.centerFilterPic {
+  position: relative;
+  left: -9%
+}
+
+.centerFilterMessage {
+  position: relative;
+  left: -2%
+}
+
+.centerKimPic {
+  position: relative;
+  left: -2%
+}
+
+.centerEditFilters {
+  position: relative;
+  right: 10%
+}
+
+.centerEditFiltersButton {
+  position: relative;
+  /* left: 40% */
+  left: 14%
 }

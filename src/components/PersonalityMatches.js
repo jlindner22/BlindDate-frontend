@@ -106,7 +106,7 @@ class PersonalityMatches extends React.Component {
                 <div className="ui row">
                 <Link to={`/users`}>
             <button className="ui basic blue button left floated">
-                <i className="arrow alternate circle left blue icon"></i> Browse without filters
+                <i className="arrow alternate circle left blue icon"></i> Browse all profiles
             </button>
             </Link>
             <br></br>

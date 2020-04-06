@@ -60,7 +60,6 @@ class EditHabitsPersonalInfo extends React.Component {
             })
         }) .then(response => response.json())
         .then(response => console.log(response))
-        alert("Your changes have been submitted!")
     }
 
     handleText = e => {
@@ -186,7 +185,7 @@ class EditHabitsPersonalInfo extends React.Component {
                     </select>
                     <br></br>
                     <br></br>
-                    <h4 className="ui dividing header">My Habits</h4>
+                    <h4 className="ui dividing header grayFont">My Habits</h4>
                     <b>Drinking</b> <i className="glass martini icon"></i>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="drinks" value={this.state.drinks}>
                         <option value="">Please answer</option>

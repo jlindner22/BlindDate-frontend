@@ -88,7 +88,9 @@ class MatchesContainer extends React.Component {
           </button>
         </Link> : null}
         </div>
-        <div className="tealFont centerText matchesTitle"> <h1>Matches</h1> </div> 
+        <div className="centerText matchesTitle"> 
+        <h1 className="loginFont">Matches</h1> 
+        </div> 
         <br></br>
         <br></br>
             <div className="ui blue link cards centerUsers">

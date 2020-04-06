@@ -27,11 +27,13 @@ class FilterContainer extends React.Component {
   }
 
     renderList() {
-      // console.log("pref1", this.props.editPreferences)
       return (this.props.preferences && this.renderPreferences(this.props.preferences).map(preference => {
-        // console.log("pref2", this.props.editPreferences) 
         return (
-            <div className="ui middle aligned divided list">
+            <div className="ui container grid">
+              <div className="ui row">
+              <div className="column ten wide">
+            <br></br>
+            <div className="ui middle aligned divided list centerEditFilters">
             <div className="item">
               <div className="right floated content">
                 <Link to="/editfilters">
@@ -157,39 +159,32 @@ class FilterContainer extends React.Component {
                 <br></br>
                 <br></br>
                 <br></br>
-                <br></br>
               </div>
           </div>
           </div>
-            )
+          </div>
+          </div>
+          </div>
+          )
       }))
     };
 
   render() {
-    // console.log("pref3", this.props.editPreferences)
     if (this.props.currentUser) {
       let myPreferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
-      // console.log("FilterContainer props", this.props)
       return (
           <div className="ui container grid">
               <div className="ui row">
-              {/* <div className="column twelve wide"> */}
-              {myPreferences < 1 ? null :
-              <Link to= "/filteredprofiles">
-              <button className="ui blue button right floated">
-                See who fits your preferences!
-              </button>
-              </Link>}
-                <div className="tealFont"> 
+                <div> 
                 <br></br>
-                <h1>Preferences</h1> 
+                <h1 className="loginFont">Preferences</h1> 
                 </div> 
                 <br></br>
                 <div className="ui blue link cards centerUsers">
               {myPreferences < 1 ? 
-                // <div className="centerText">
                 <div className="ui container grid">
                 <br></br>
+                
                 {this.state.heart === true ? <PersonalityMatches/> : 
                 <div className="centerText halfDown">
                   <h2 className="tealFont centerFilterContainer"> You currently have no preferences set.</h2> 
@@ -210,11 +205,20 @@ class FilterContainer extends React.Component {
                 </div> }
               </div> 
               :
-              this.renderList() }
+              <div>
+              {this.renderList()} 
+              <Link to= "/filteredprofiles">
+              <button className="ui blue button centerEditFiltersButton">
+                See who fits your preferences!
+              </button>
+              </Link>
+              <br></br>
+              <br></br>
+              </div>
+              }
               </div> 
           </div>
           </div>
-          // </div>
       )
       } else {
           return "Log in to view/set your filters"

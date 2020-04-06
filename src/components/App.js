@@ -15,7 +15,7 @@ import { getAllUsers, getMyMatches, loggedIn, getPreferences } from '../actions'
 import Signup from './Signup';
 import FilterForm from './FilterForm';
 import FilteredProfiles from './FilteredProfiles';
-import EditProfilePage from './EditProfile';
+import EditProfilePage from './EditProfilePage';
 
 // import Footer from './Footer';
 
@@ -179,8 +179,6 @@ class App extends React.Component {
         <NavBar logout={this.logout} currentUser={this.state.currentUser} />
         <body>
           <div className="ui container grid">
-              {/* <div className="column four wide">
-             </div> */}
           </div>
             <Switch>
               <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps} setUser={this.setUser} currentUser={this.state.currentUser}/>}/>
@@ -191,7 +189,7 @@ class App extends React.Component {
               <Route exact path="/matches" render={(routerProps) => <MatchesContainer {...routerProps}/>}/>
               <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>
               <Route exact path="/users/:id" render={(routerProps) => <UserDetail {...routerProps}/>}/>
-              <Route exact path="/editprofile" render={(routerProps) => <EditProfilePage currentUser={this.state.currentUser}{...routerProps}/>}/>
+              <Route exact path="/editprofile" render={(routerProps) => <EditProfilePage currentUser={this.state.currentUser} logout={this.logout} {...routerProps}/>}/>
               <Route exact path="/filteredprofiles" render={(routerProps) => <FilteredProfiles currentUser={this.state.currentUser}{...routerProps}/>}/>
               <Route exact path="/filters" render={(routerProps) => <FilterContainer {...routerProps} editPreferences={this.editPreferences}
               handleChange={this.handleChange} gender={this.state.gender} minimum_age={this.state.minimum_age} maximum_age={this.state.maximum_age} politics={this.state.politics}

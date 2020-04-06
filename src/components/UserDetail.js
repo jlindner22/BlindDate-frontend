@@ -54,7 +54,7 @@ class UserDetail extends React.Component {
               <div>
                 <div className="column twelve wide">
                 <br></br>
-            <h1><b>Meet {profile.name}!</b></h1>
+                <h1 className="loginFont"> <i className="star icon"></i><b>Meet {profile.name}</b> <i className="star icon"></i></h1>
             <h2>About Me</h2>
             <b>Age:</b> {profile.age}
             <br></br>

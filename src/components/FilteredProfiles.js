@@ -30,7 +30,6 @@ class FilteredProfiles extends React.Component {
         && ((prof.drugs === prefState.drugs) || (prefState.drugs === "All"))
         && ((prof.state === prefState.state) || (prefState.state === "All"))
       )
-      console.log("who matches?", filtersOn)
       return (this.props.preferences && filtersOn.map(profile => {
           return (
             <div className="card">
@@ -62,7 +61,6 @@ class FilteredProfiles extends React.Component {
           }))
     }};
     render() {
-      console.log("filtered profs props",this.props)
       let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
       if (myPreferences.length > 0){
       let prefState = myPreferences[0]
@@ -83,106 +81,61 @@ class FilteredProfiles extends React.Component {
         && ((prof.state === prefState.state) || (prefState.state === "All"))
         ) 
         if (myPreferences.length > 0 && filteredProfs.length > 0) {
-              return (
-                <div>
+          return (
+            <div>
+              <br></br>
           <div className="ui container">
-          <br></br>
-            <div className="ui row">
+            <br></br>
+            <br></br>
             <Link to={`/users`}>
           <button className="ui basic blue button left floated">
-              <i className="arrow alternate circle left blue icon"></i> Browse without filters
+              <i className="arrow alternate circle left blue icon"></i> Browse all profiles
           </button>
           </Link>
           <br></br>
           <br></br>
           <br></br>
-          <div className="ui link cards">
+          <div className="ui link cards centerUsers">
                 {this.renderList()}
                 </div>
               </div>
         </div>
-        </div>
           );
-      } else if (filteredProfs.length < 1) {return (<div className="ui container grid">
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-    <h1> No profiles match your criteria</h1>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-  </div>
+      } else if (filteredProfs.length < 1) {
+        return (
+          <div className="filteredRight">
+          <div className="noPrefsDown">
+          <h1 className="tealFont centerFilterMessage"> No profiles match your criteria</h1>
+          <img className="centerKimPic ui large image" src="https://cdn.shopify.com/s/files/1/0094/8142/0858/products/KimK_01_2400x.png?v=1572195311" alt="crying kim"></img>
+          <Link to="/filters">
+            <button className="ui blue button centerFilterButton">Change Preferences </button>
+          </Link>
+        <br></br>
+        <br></br>
+        <br></br>
+        </div> 
+        </div>
       )} 
-   } else {return (
-    <div className="ui container grid">
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <div>
-      <h1> You haven't set any filters!</h1>
+   } else {
+      return (
+      <div className="filteredRight">
+        <div className="noPrefsDown">
+        <h1 className="tealFont centerFilterMessage"> You haven't set any filters!</h1>
+        <img className="centerFilterPic" src="https://i.imgflip.com/1o12mo.jpg" alt="crying"></img>
+        <br></br>
+        <br></br>
+        <Link to="/filters">
+          <button className="ui blue button centerFilterButton">Set Preferences </button>
+        </Link>
       <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      </div> 
       </div>
-      <br></br>
-      <Link to="/filters">
-        <button className="ui blue button">Set Preferences </button>
-      </Link>
-     <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    </div>
-  )}
+    )}
   } 
 }
 
