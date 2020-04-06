@@ -62,9 +62,9 @@ code {
 }
 
 .profilepic {
-position: relative;
-margin-top: -530px;
-left: 50%
+  position: relative;
+  margin-top: -530px;
+  left: 50%
 }
 
 .centerDiv{
@@ -110,7 +110,6 @@ left: 50%
 
 .centerContent {
   align-content: center;
-  /* margin: auto; */
 }
 
 .container {
@@ -126,7 +125,6 @@ left: 50%
 
 .whiteBackground {
   background:white;
-  /* padding-top: 50% */
 }
 
 .extraPadding {
@@ -154,7 +152,7 @@ left: 50%
   font-style: italic;
   font-weight: bolder;
   font-variant: small-caps;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .grayFont {
@@ -189,7 +187,7 @@ left: 50%
 
 .centerFilterContainer {
   position: relative;
-  right: 18%
+  right: 20%
 }
 
 .centerEditBasicTitle {
@@ -242,4 +240,20 @@ left: 50%
 .centerFilterMessage {
   position: relative;
   left: -2%
+}
+
+.centerKimPic {
+  position: relative;
+  left: -2%
+}
+
+.centerEditFilters {
+  position: relative;
+  right: 10%
+}
+
+.centerEditFiltersButton {
+  position: relative;
+  /* left: 40% */
+  left: 14%
 }
