@@ -52,6 +52,22 @@ code {
   left: 10px
 }
 
+.biggerMatchFont {
+  text-align: center;
+  font-size: 25px;
+  font-style: italic;
+  font-variant: small-caps;
+  font-weight: bolder;
+}
+
+.biggerProfileFont {
+  font-size: 16px;
+}
+
+.navbarFont {
+  font-size: 16px;
+}
+
 .stolenright  {
   margin-top: 5%;
   right: 10%;
@@ -179,6 +195,14 @@ code {
   font-weight: bolder;
   font-variant: small-caps;
   font-size: 30px;
+}
+
+.smallerTealFont {
+  color: teal;
+  font-style: italic;
+  font-weight: bolder;
+  font-variant: small-caps;
+  font-size: 24px;
 }
 
 .grayFont {

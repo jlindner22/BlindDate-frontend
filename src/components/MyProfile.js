@@ -39,7 +39,7 @@ class MyProfile extends React.Component {
               <h1 className="loginFont"> <i className="star icon"></i><b>Meet {props.name}</b> <i className="star icon"></i></h1>
             </div>
             <div className="flex_pic">
-            <div className="habits">
+            <div className="habits biggerProfileFont">
                   <h3 className="tealFont"> Habits </h3>
                   <b>Drinking:</b>  {props.drinks}
                   <br></br>
@@ -53,7 +53,7 @@ class MyProfile extends React.Component {
                   <Link to='/editprofile'>
                   <button className="large ui blue button">Edit Profile</button>
                   </Link>      
-          </div>
+            </div>
               <div className="ui container grid"> 
                 <div className="profilePicture">
                 <img className="ui medium bordered image" src={props.avatar} alt="Avatar"/>
@@ -67,7 +67,7 @@ class MyProfile extends React.Component {
                 <br></br>
                 </div>
                 <div>                  
-                  <div className="column sixteen wide fixedProfile">
+                  <div className="column sixteen wide fixedProfile biggerProfileFont">
                   <br></br>
                     <h2 className="tealFont">About me</h2>
                     <b>Age:</b> {props.age}
@@ -97,7 +97,7 @@ class MyProfile extends React.Component {
                     onClick={this.toggleInfo}> {this.state.moreButton === false ? "See more about me!" : "See less about me!"}</button>
                     <br></br>
                     <br></br>
-                      <div >
+                      <div>
                       {this.state.moreButton === false ? null :
                         <div className="column fourteen wide fixedMoreProfile">
                         <b> Morning or night:</b> {props.morning_night}
@@ -131,7 +131,7 @@ class MyProfile extends React.Component {
                         {props.play_instrument === true ? "I can play an instrument" : null }
                         <br></br>
                         <br></br>
-                        <u>My planning style</u>             
+                        <div className="smallerTealFont">My planning style</div>             
                         <br></br>
                         <b>In general:</b> {props.general_planning}
                         <br></br>
