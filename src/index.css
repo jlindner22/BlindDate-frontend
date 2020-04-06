@@ -54,17 +54,37 @@ code {
 
 .stolenright  {
   margin-top: 5%;
-  margin-right: 130px;
+  margin-right: 10%;
 }
 
 .profile_text {
   overflow-wrap: normal;
 }
 
+.flex_pic {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  justify-content: space-between;
+  width: 100vw;
+}
+
 .profilepic {
   position: relative;
-  margin-top: -530px;
-  left: 50%
+  margin-top: 4%;
+  /* margin-right: 10%; */
+  /* margin-top: -530px; */
+  right: 10%
+}
+
+.fixedProfile {
+  position: fixed;
+  right: 25%;
+}
+
+.fixedMoreProfile {
+  position: absolute;
+  /* right: 25%; */
 }
 
 .centerDiv{
@@ -83,14 +103,6 @@ code {
   height: 100%;
   position: relative;
   flex-wrap: wrap;
-}
-
-.flex_pic {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  justify-content: space-between;
-  width: 100vw;
 }
 
 .loader {
@@ -181,7 +193,7 @@ code {
 
 .centerMatchesContainer {
   position: relative;
-  right: 20%
+  right: 27%
 }
 
 .centerFilterContainer {
@@ -196,7 +208,8 @@ code {
 
 .matchesTitle {
   position: relative;
-  left: -5%
+  margin-top: 1%;
+  right: 7%
 }
 
 .personalInfoRight {
@@ -216,6 +229,16 @@ code {
   font-size: 40px;
 }
 
+.filterContainerTitle {
+  color: teal;
+  font-style: italic;
+  font-weight: bolder;
+  font-variant: small-caps;
+  font-size: 40px;
+  position: relative;
+  left: 7%
+}
+
 .noPrefsDown {
   margin-top: 3%;
   font-size: 40px
@@ -228,7 +251,7 @@ code {
 
 .centerFilterButton {
   position: relative;
-  left: 7%
+  left: 6%
 }
 
 .centerFilterPic {
@@ -238,7 +261,7 @@ code {
 
 .centerFilterMessage {
   position: relative;
-  left: -2%
+  left: 1%
 }
 
 .centerKimPic {
@@ -264,7 +287,6 @@ code {
   position: relative;
   left: 25%;
   color: teal;
-  /* font-style: italic; */
   font-weight: bolder;
   font-variant: small-caps;
   font-size: 30px;

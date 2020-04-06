@@ -184,7 +184,7 @@ renderReverseNameSortedList = () => {
       return ( <div className="centerUsers">
         <br></br>
         <br></br>
-       <h2 className="centerPersonalityMessage"> browse profiles suggested by personality type</h2>
+       {/* <h2 className="centerPersonalityMessage"> browse profiles suggested by personality type</h2> */}
       <PersonalityMatches personality={this.state.personality} personalityPage={this.personalityPage}/>
       </div>)
     }

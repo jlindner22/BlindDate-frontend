@@ -100,7 +100,7 @@ class PersonalityMatches extends React.Component {
          return(
          <div>
             <div className="ui container">
-               <div className="ui row">
+               {/* <div className="ui row"> */}
                <Link to={`/users`}>
                <button className="ui basic blue button left floated" onClick={this.props.personalityPage}>
                <i className="arrow alternate circle left blue icon"></i> Browse all profiles
@@ -109,12 +109,12 @@ class PersonalityMatches extends React.Component {
                <br></br>
                <br></br>
                <br></br>
-                  <div className="ui link cards">
+                  <div className="ui teal link cards">
                      {this.renderList()}
                   </div>
                </div>
             </div>
-         </div>
+         // </div>
       );
     }
 }

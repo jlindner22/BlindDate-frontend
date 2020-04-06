@@ -177,7 +177,7 @@ class FilterContainer extends React.Component {
               <div className="ui row">
                 <div> 
                 <br></br>
-                <h1 className="loginFont">Preferences</h1> 
+                <h1 className="filterContainerTitle">Preferences</h1> 
                 </div> 
                 <br></br>
                 <div className="ui blue link cards centerUsers">
@@ -196,7 +196,7 @@ class FilterContainer extends React.Component {
                 <br></br>
                 <br></br>
                 <Link to="/editfilters">
-              <button className="ui blue button centerFilterContainer" 
+              <button className="large ui blue button centerFilterContainer" 
               onClick={() => this.props.editPreferences(myPreferences)}>
               Set Filters </button> </Link> 
               <br></br>

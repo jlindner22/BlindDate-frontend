@@ -133,18 +133,14 @@ class EditProfilePage extends React.Component {
                 <br></br>
                 <br></br>
                     <div className="ui large text loader">Loading</div>
-                <p></p>
-                <p></p>
-                <p></p>
-                </div>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    </div>
                 </div>
             </div>
             )
         }
-        // else if (this.state.deleted === true) {
-        //     return ( </Home>
-        //     )
-        // }
     }
 }
 

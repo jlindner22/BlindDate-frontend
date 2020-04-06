@@ -89,7 +89,7 @@ class MatchesContainer extends React.Component {
         </Link> : null}
         </div>
         <div className="centerText matchesTitle"> 
-        <h1 className="loginFont">Matches</h1> 
+        <h1 className="loginFont ">Matches</h1> 
         </div> 
         <br></br>
         <br></br>
