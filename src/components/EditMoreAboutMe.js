@@ -68,7 +68,6 @@ class EditMoreAboutMe extends React.Component {
             })
         }) .then(response => response.json())
         .then(response => console.log(response))
-        alert("Your changes have been submitted!")
     }
 
     handleText = e => {
@@ -87,7 +86,6 @@ class EditMoreAboutMe extends React.Component {
                 <div className="ui row">
                 <form className="ui form" onSubmit={(e) => this.handleSubmit(props.id, e)}>
                 <h2 className="grayFont centerText">More about me</h2>
-                {/* <div class="inline field"> */}
                     <br></br>
                     <b>Are you a morning or night person?</b>
                     <select className="ui fluid dropdown" onChange={this.handleText} name="morning_night" value={this.state.morning_night}>

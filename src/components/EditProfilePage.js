@@ -10,6 +10,7 @@ class EditProfilePage extends React.Component {
 
     state = {
         profileInfo: this.props.currentUser,
+        profiles: this.props.profiles,
         viewBasicInfo: false,
         viewAccountSettings: false,
         viewHabitsAndPersonalInfo: false,
@@ -61,8 +62,21 @@ class EditProfilePage extends React.Component {
         })
     }
 
+    deleteUser = (user) => {
+        alert("Are you sure?")
+        this.props.history.push('/')
+        fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+            method: 'DELETE',
+        })
+        this.setState({
+            profiles: [...this.state.profiles].filter(deleteUser => user !== deleteUser)
+        })
+        this.props.logout();
+        window.location.reload();
+    }
+
     render() {
-        console.log("PROPS", this.props.currentUser)
+        console.log("editprofileprops", this.props)
         let user = this.props.currentUser
         if (user) {
             return (
@@ -72,6 +86,7 @@ class EditProfilePage extends React.Component {
                 {this.state.viewBasicInfo === false && this.state.viewAccountSettings === false 
                 && this.state.viewHabitsAndPersonalInfo === false && this.state.viewMoreAboutMe === false ?
                 <div>
+                    <br></br>
                 <div className="ui top attached tabular menu">
             <a className="item" onClick={this.editBasicInfo}><i className="edit icon"></i>
               Basic Information
@@ -91,9 +106,7 @@ class EditProfilePage extends React.Component {
             <img src={user.avatar} className="ui fluid image" alt="Avatar"></img>
             <br></br>
             <br></br>
-     
             </div> 
-            
             : 
             <div>
                 <br></br>
@@ -103,7 +116,7 @@ class EditProfilePage extends React.Component {
             }
             <br></br>
             {this.state.viewBasicInfo === true ? <EditBasicInfo viewBasicInfo={this.state.viewBasicInfo}/> : null}
-            {this.state.viewAccountSettings === true ? <EditLogin viewAccountSettings={this.state.viewAccountSettings}/> : null }
+            {this.state.viewAccountSettings === true ? <EditLogin deleteUser={this.deleteUser} viewAccountSettings={this.state.viewAccountSettings}/> : null }
             {this.state.viewHabitsAndPersonalInfo === true ? <EditHabitsPersonalInfo viewHabitsAndPersonalInfo={this.state.viewHabitsAndPersonalInfo}/> : null }
             {this.state.viewMoreAboutMe === true ? <EditMoreAboutMe viewMoreAboutMe={this.state.viewMoreAboutMe}/> : null }
             </div>
@@ -112,7 +125,6 @@ class EditProfilePage extends React.Component {
         )
     } else {
         return (
-            // move .loader lower
             <div className="loader">
             <div className="ui segment">
                 <div className="ui active dimmer">
@@ -127,11 +139,13 @@ class EditProfilePage extends React.Component {
                 </div>
                 </div>
             </div>
-        )
-        // "Please log in to view your profile"
+            )
         }
+        // else if (this.state.deleted === true) {
+        //     return ( </Home>
+        //     )
+        // }
     }
-
 }
 
 const mapStateToProps = state => {
@@ -142,8 +156,4 @@ const mapStateToProps = state => {
   }
 
 export default connect(mapStateToProps, {loggedIn})(EditProfilePage);
-
-/* <h1>Edit Your Account</h1>
-Name: {user.name} */
-
 

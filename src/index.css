@@ -154,6 +154,7 @@ left: 50%
   font-style: italic;
   font-weight: bolder;
   font-variant: small-caps;
+  font-size: 40px;
 }
 
 .grayFont {
@@ -168,7 +169,7 @@ left: 50%
   font-variant: small-caps;
   font-style: italic;
   font-weight: bolder;
-  font-size: 40px
+  font-size: 50px
 }
 
 .border {
@@ -203,4 +204,17 @@ left: 50%
 
 .personalInfoRight {
   right: 20%
+}
+
+.loginDown  {
+  margin-top: 10%;
+  font-size: 20px
+}
+
+.loginFont  {
+  color: teal;
+  font-style: italic;
+  font-weight: bolder;
+  font-variant: small-caps;
+  font-size: 40px;
 }

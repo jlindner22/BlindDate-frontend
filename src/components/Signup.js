@@ -49,8 +49,8 @@ class Signup extends React.Component {
             <div className="down">
             <div className="ui container grid">
             <div className="ui centered row">
-            <form className="ui form whiteBackground extraPadding" onSubmit={this.handleSubmit}>
-            <h2 className="tealFont">Sign up for BlindDate!</h2>
+            <form className="ui form whiteBackground extraPadding loginDown" onSubmit={this.handleSubmit}>
+            <h2 className="loginFont">Sign up for BlindDate!</h2>
                 <div className="field">
                     <br></br>
                     <label>Username</label>
@@ -71,10 +71,10 @@ class Signup extends React.Component {
                 </div>
                 </div>
                 <br></br>
-                <button className="ui teal button" type="submit"
+                <button className="large ui teal button right floated" type="submit"
                 >Sign Up</button>
                 <Link to={`/`}>
-                <button className="ui basic teal button left floated">
+                <button className="large ui basic teal button left floated">
                             Go Back
                 </button>
                 </Link>

@@ -8,6 +8,7 @@ class NavBar extends React.Component {
     }
 
     render() {
+        console.log("navbar curr user", this.props.currentUser)
         return (
             <React.Fragment>  
                 {this.props.currentUser == null ? null :

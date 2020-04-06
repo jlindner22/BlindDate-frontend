@@ -38,12 +38,11 @@ class LogIn extends React.Component {
     render() {
         return (
             <div className="homeBG">
-            {/* <img className="ui small image" src="https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D"></img> */}
             <div className="down">
             <div className="ui container grid">
             <div className="ui centered row">
-            <form className="ui form whiteBackground extraPadding" onSubmit={this.handleSubmit}>
-            <h2 className="tealFont"> Log into BlindDate!</h2>
+            <form className="ui form whiteBackground extraPadding loginDown" onSubmit={this.handleSubmit}>
+            <h2 className="loginFont"> Log into BlindDate!</h2>
                 <div className="field">
                     <br></br>
                     <label>Username</label>
@@ -58,9 +57,9 @@ class LogIn extends React.Component {
                 </div>
                 </div>
                 <br></br>
-                <button className="ui teal button" type="submit">Log In</button>
+                <button className="large ui teal button right floated" type="submit">Log In</button>
                 <Link to={`/`}>
-                <button className="ui basic teal button left floated">
+                <button className="large ui basic teal button left floated">
                             Go Back
                 </button>
                 </Link>
