@@ -177,12 +177,11 @@ code {
 .centerUsers  {
   position: relative;
   left: 9%;
-  /* width: 100% */
 }
 
 .centerMatchesContainer {
   position: relative;
-  right: 18%
+  right: 20%
 }
 
 .centerFilterContainer {
@@ -254,6 +253,19 @@ code {
 
 .centerEditFiltersButton {
   position: relative;
-  /* left: 40% */
   left: 14%
+}
+
+.itemHover:hover {
+  text-shadow: 1px 1px white, 0 0 5px teal;
+}
+
+.centerPersonalityMessage {
+  position: relative;
+  left: 25%;
+  color: teal;
+  /* font-style: italic; */
+  font-weight: bolder;
+  font-variant: small-caps;
+  font-size: 30px;
 }

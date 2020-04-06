@@ -98,8 +98,8 @@ class MatchesContainer extends React.Component {
             <div className="ui container grid">
             {this.state.heart === true ? <PersonalityMatches/> :
           <div className="centerText">
-          <h2 className="tealFont centerMatchesContainer"> You currently have no matches.</h2> 
-           <h4 className="centerMatchesContainer"> In the meantime, click on the heart to view some 
+          <h2 className="tealFont centerMatchesContainer"> You currently have no matches</h2> 
+           <h4 className="centerMatchesContainer"> In the meantime, click on the heart to view the 
            <br></br>
             profiles that best match your personality type.</h4>
            <br></br>

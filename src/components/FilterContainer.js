@@ -188,7 +188,7 @@ class FilterContainer extends React.Component {
                 {this.state.heart === true ? <PersonalityMatches/> : 
                 <div className="centerText halfDown">
                   <h2 className="tealFont centerFilterContainer"> You currently have no preferences set.</h2> 
-                <h4 className="centerFilterContainer">In the meantime, click on the heart to view some 
+                <h4 className="centerFilterContainer">In the meantime, click on the heart to view the 
                 <br></br>
                 profiles that best match your personality type.</h4>
                 <br></br>
