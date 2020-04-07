@@ -79,12 +79,12 @@ class UserContainer extends React.Component {
         </span>
         </div>
         <div className="description">
-          {profile.name} lives in {profile.city}, {profile.state}.
+         <i className="map pin icon"></i> {profile.name} lives in {profile.city}, {profile.state}.
         </div>
       </div>
       <div className="extra content"><Link to={`/users/${profile.id}`}> 
         <button onClick={() => this.props.viewProfile(profile)}
-                className="ui blue basic button">
+                className="ui blue button">
                   View Profile!
         </button></Link>
         <div className="ui right floated">
@@ -119,12 +119,12 @@ renderReverseNameSortedList = () => {
       </span>
       </div>
       <div className="description">
-        {profile.name} lives in {profile.city}, {profile.state}.
+      <i className="map pin icon"></i>{profile.name} lives in {profile.city}, {profile.state}.
       </div>
     </div>
     <div className="extra content"><Link to={`/users/${profile.id}`}> 
       <button onClick={() => this.props.viewProfile(profile)}
-              className="ui blue basic button">
+              className="ui blue button">
                 View Profile!
       </button></Link>
       <div className="ui right floated">

@@ -81,8 +81,8 @@ class EditProfilePage extends React.Component {
         if (user) {
             return (
             <div>
-                <div className="ui container grid">
-                <div className="ui row">
+                <div className="ui container">
+                {/* <div className="ui row"> */}
                 {this.state.viewBasicInfo === false && this.state.viewAccountSettings === false 
                 && this.state.viewHabitsAndPersonalInfo === false && this.state.viewMoreAboutMe === false ?
                 <div>
@@ -111,15 +111,17 @@ class EditProfilePage extends React.Component {
             <div>
             <br></br>
             <br></br>
-            <h1 className="tealFont">Edit your account</h1>
+            <h1 className="tealFont centerText">Edit your account</h1>
+          
             </div>
             }
-            <br></br>
+            <div>
             {this.state.viewBasicInfo === true ? <EditBasicInfo viewBasicInfo={this.state.viewBasicInfo}/> : null}
             {this.state.viewAccountSettings === true ? <EditLogin deleteUser={this.deleteUser} viewAccountSettings={this.state.viewAccountSettings}/> : null }
             {this.state.viewHabitsAndPersonalInfo === true ? <EditHabitsPersonalInfo viewHabitsAndPersonalInfo={this.state.viewHabitsAndPersonalInfo}/> : null }
             {this.state.viewMoreAboutMe === true ? <EditMoreAboutMe viewMoreAboutMe={this.state.viewMoreAboutMe}/> : null }
             </div>
+            {/* </div> */}
             </div> 
             </div>
         )

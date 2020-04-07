@@ -1,55 +1,18 @@
-/* @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap'); */
-
-/* @font-face {
-  font-family: 'Dancing Script';
-  src: local('Dancing Script'), url("./fonts/DancingScript-VariableFont_wght.ttf") format('truetype');
-} */
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Brush Script MT", 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 
     sans-serif;
     font-size: 100%; 
-
-  /* font-family: 'Dancing Script'; */
-  /* , cursive; */
-  /* font-family: 'Liu Jian Mao Cao', cursive;
-  font-family: 'Indie Flower', cursive;
-  font-family: 'Lobster', cursive;
-  font-family: 'Caveat', cursive;
-  font-family: 'Permanent Marker', cursive;
-  font-family: 'Kalam', cursive;
-  font-family: 'Kaushan Script', cursive;
-  font-family: 'Rochester', cursive;
-  font-family: 'Shadows Into Light', cursive;
-  font-family: 'Boogaloo', cursive; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background: #f1f8ff */
   background: rgb(242, 245, 245);
-  /* background: rgb(251,211,249);
-  background: radial-gradient(circle, rgba(251,211,249,1) 32%, rgba(252,171,228,1) 75%); */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.down  {
-  margin-top: 7%;
-}
-
-.box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.right  {
-  margin-top: 1%;
-  left: 10px
 }
 
 .biggerMatchFont {
@@ -73,66 +36,36 @@ code {
   right: 10%;
 }
 
-.profilePicture  {
-  left: 35%;
-  position: absolute;
-  margin-top: -14%
-}
-
-.fixedProfile {
-  margin-top: -75%;
-  position: relative;
-  left: 115%;
-  width: 140%
-}
-
-.flex_pic {
+.flex-container {
+  margin-left: 25%;
+  width: 60%;
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  /* justify-content: space-between; */
-  width: 100vw;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-between; 
+  align-items: flex-start;
 }
 
-.habits {
-  width: 25%;
-  margin-top: 3%;
-  margin-left: 20%
+.basicInfoFlex {
+  margin-left: 10%;
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between; 
+}
+
+.moveFlexRight {
+  right: 80%
+}
+
+.profilePicture {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .fixedMoreProfile {
   position: absolute;
-  /* right: 25%; */
-}
-
-.profile_text {
-  overflow-wrap: normal;
-}
-
-.profilepic {
-  position: relative;
-  margin-top: 4%;
-  /* margin-right: 10%; */
-  /* margin-top: -530px; */
-  right: 10%
-}
-
-.centerDiv{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
-}
-
-.customContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  height: 100%;
-  position: relative;
-  flex-wrap: wrap;
 }
 
 .loader {
@@ -142,16 +75,14 @@ code {
   justify-content: center;
 }
 
-#homeFont {
-  font-family: "Brush Script MT", cursive;
-  }
-
 .centerText {
   text-align: center;
 }
 
-.centerContent {
-  align-content: center;
+.centerUserDetailButtons {
+  /* margin: auto */
+  text-align: center;
+
 }
 
 .container {
@@ -161,12 +92,12 @@ code {
   flex-direction: row;
 }
 
-.greenText {
-  color: rgba(28, 184, 137, 0.877)
-}
-
 .whiteBackground {
   background:white;
+}
+
+.down  {
+  margin-top: 7%;
 }
 
 .extraPadding {
@@ -182,11 +113,6 @@ code {
 
 .homeBG {
   background-color: rgba(133, 231, 236, 0.897)
-}
-
-.loginImg {
-  background-image: url("https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D");
-  background-repeat: no-repeat
 }
 
 .tealFont {
@@ -250,10 +176,6 @@ code {
   right: 7%
 }
 
-.personalInfoRight {
-  right: 20%
-}
-
 .loginDown  {
   margin-top: 10%;
   font-size: 20px
@@ -277,6 +199,7 @@ code {
   left: 7%
 }
 
+/* FilteredProfile */
 .noPrefsDown {
   margin-top: 3%;
   font-size: 40px
@@ -307,6 +230,8 @@ code {
   left: -2%
 }
 
+
+/* FilterContainer */
 .centerEditFilters {
   position: relative;
   right: 10%
@@ -317,10 +242,14 @@ code {
   left: 14%
 }
 
+
+/* EditProfile */
 .itemHover:hover {
   text-shadow: 1px 1px white, 0 0 5px teal;
 }
 
+
+/* May be able to remove */
 .centerPersonalityMessage {
   position: relative;
   left: 25%;

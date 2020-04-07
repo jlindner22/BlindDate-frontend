@@ -54,7 +54,6 @@ class EditAvatar extends React.Component {
                 <br></br>
                 </div>
                 <input className="ui teal button right floated" type="submit" value="Save Changes" onClick={(e) => this.handleSubmit(this.props.currentUser.id, e)}/>
-
                  </div>
                  </div>
         )

@@ -46,10 +46,12 @@ class UserDetail extends React.Component {
           <br></br>
           <div className="centerText">
           <h1 className="loginFont"> <i className="star icon"></i><b>Meet {profile.name}</b> <i className="star icon"></i></h1>
-            </div>
-        <div className="flex_pic">
-          <div className="habits biggerProfileFont">
-          <h3 className="tealFont"> Habits </h3>
+          </div>
+          <br></br>
+          <br></br>
+        <div className="flex-container">
+          <div className="biggerProfileFont">
+          <h3 className="tealFont centerText"> Habits </h3>
            <b>Drinking:</b>  {profile.drinks}
             <br></br>
             <b>Smoking:</b>  {profile.smokes}
@@ -60,42 +62,13 @@ class UserDetail extends React.Component {
             <br></br>
             <br></br>
           </div>
-
-        <div className="ui container grid">
         <div className="profilePicture">
-            <img className="ui medium bordered image" src={profile.avatar} alt="Oops, this image is broken!"/>
+            <img className="ui medium bordered image" src={profile.avatar} alt="Avatar"/>   
+        </div>
                 <br></br>
                 <br></br>
-                {myMatches.length > 0 ? 
-            <Link to={`/matches`}> 
-            <button className="large ui basic blue button centerUsers">
-            <i className="arrow alternate circle left blue icon"></i> Browse your matches 
-            </button>
-            </Link> : null}
-            <br></br>
-            <Link to={`/users`}>
-            <button className="large ui basic blue button centerUsers">
-            <i className="arrow alternate circle left blue icon"></i> Browse all profiles 
-            </button>
-            </Link>
-            <br></br>
-            <br></br>
-              {myMatches.map(match => match.potential_match.id).includes(profile.id) 
-              ?  
-              <div className="biggerMatchFont">You're a match!</div> :   
-            <button onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
-              className="large ui blue button centerUsers"> Match with {profile.name}! <i className="heart red icon"></i>
-            </button> }
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-              </div>
-              <div>
-                <div className="column sixteen wide fixedProfile biggerProfileFont">
-                <br></br>
-                <h2 className="tealFont">About me</h2>
+              <div className="biggerProfileFont">
+                <h2 className="tealFont centerText">About me</h2>
             <b>Age:</b> {profile.age}
             <br></br>
             <b>Currently living in:</b> {profile.city}, {profile.state}            
@@ -155,7 +128,7 @@ class UserDetail extends React.Component {
             <br></br>
             <b>My favorite kind of music:</b> {profile.music}
             <br></br>
-            {profile.play_instrument === true ? "I can play an instrument" : null }           
+            <b>Can play an instrument:</b> {profile.play_instrument === true ? <i className="music icon"></i> : "No" }           
             <br></br>
             <br></br>
             <div className="smallerTealFont">My planning style</div>             
@@ -171,24 +144,43 @@ class UserDetail extends React.Component {
             <br></br>
             <br></br>             
           </div> }
-  
-            <br></br>
-            <br></br>                  
-            <br></br>
-            <br></br>                  
-            <br></br>
-            <br></br>                  
-            <br></br>
-            <br></br>                  
-            <br></br>
-            <br></br>                  
-            <br></br>
          </div>
         </div>
         </div>
+          <br></br>
+        <div className="centerUserDetailButtons">
+            <Link to={`/users`}>
+            <button className="large ui basic teal button ">
+            <i className="arrow alternate circle left blue icon"></i> Browse all profiles 
+            </button>
+            </Link>
+            <br></br> 
+          
+              {myMatches.map(match => match.potential_match.id).includes(profile.id) 
+              ?  
+              <div>
+                <br></br> 
+              <div className="biggerMatchFont">You're a match!
+              </div>
+              </div> : 
+              <div> 
+                <br></br>  
+            <button onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
+              className="large ui blue button "> <i className="user plus icon"></i>Match with {profile.name}! 
+            </button> </div>} 
+                {/* <br></br> */}
+                <br></br>
+                {myMatches.length > 0 ? 
+            <Link to={`/matches`}> 
+            <button className="large ui basic blue button ">
+            <i className="arrow alternate circle left blue icon"></i> Browse your matches 
+            </button>
+            </Link> : null}
+              </div>
+
+
       </div>
-      </div>
-       </div>
+
     )} else {return (
       <UserContainer/>
     )

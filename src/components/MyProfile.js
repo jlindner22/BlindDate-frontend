@@ -35,12 +35,14 @@ class MyProfile extends React.Component {
             <br></br>
             <br></br>
             <br></br>
-            <div className="centerText">
+              <div className="centerText">
               <h1 className="loginFont"> <i className="star icon"></i><b>Meet {props.name}</b> <i className="star icon"></i></h1>
-            </div>
-            <div className="flex_pic">
-            <div className="habits biggerProfileFont">
-                  <h3 className="tealFont"> Habits </h3>
+              </div>
+              <br></br>
+              <br></br>
+            <div className="flex-container">
+              <div>     
+                <h3 className="tealFont centerText"> Habits </h3>
                   <b>Drinking:</b>  {props.drinks}
                   <br></br>
                   <b>Smoking:</b>  {props.smokes}
@@ -52,24 +54,13 @@ class MyProfile extends React.Component {
                   <br></br>
                   <Link to='/editprofile'>
                   <button className="large ui blue button">Edit Profile</button>
-                  </Link>      
-            </div>
-              <div className="ui container grid"> 
-                <div className="profilePicture">
+                  </Link>    
+              </div>
+              <div className="profilePicture">
                 <img className="ui medium bordered image" src={props.avatar} alt="Avatar"/>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                </div>
-                <div>                  
-                  <div className="column sixteen wide fixedProfile biggerProfileFont">
-                  <br></br>
-                    <h2 className="tealFont">About me</h2>
+              </div>
+              <div>
+                <h2 className="tealFont centerText">About me</h2>
                     <b>Age:</b> {props.age}
                     <br></br>
                     <b>Currently living in:</b> {props.city}, {props.state}            
@@ -135,29 +126,25 @@ class MyProfile extends React.Component {
                         <br></br>
                         <b>In general:</b> {props.general_planning}
                         <br></br>
-                        <b>For a vacation:</b> {props.vacation_planning}
+                        <b>For a vacation:</b> {props.vacation_planning} 
                         <br></br>
                         <br></br>
-                        <br></br>                  
                         <br></br>
-                        <br></br>                  
                         <br></br>
-                        <br></br>                  
-                    </div>}
+
+                </div>
+                        }
+              </div>
+              </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
     )
   } else if (!props) {
-      return (
-        <UserContainer/>
-      )        
+      return ( <div><UserContainer/></div> )        
     }
   }
 }
+
 
 const mapStateToProps = state => {
     console.log("my profile state", state)
