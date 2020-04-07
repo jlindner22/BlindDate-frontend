@@ -49,7 +49,7 @@ class EditAvatar extends React.Component {
                 <br></br>
                 <div className="ui row"> 
                 <div className="ui form">
-                <b>Choose your avatar</b> <input type="text" name="avatar" placeholder="Avatar" onChange={this.handleText} value={this.state.age}></input>        
+                <b>Choose your avatar</b> <input type="text" name="avatar" placeholder="Image URL" onChange={this.handleText} value={this.state.age}></input>        
                 <br></br>
                 <br></br>
                 </div>
