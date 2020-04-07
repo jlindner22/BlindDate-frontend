@@ -60,7 +60,9 @@ class FilteredProfiles extends React.Component {
             );
           }))
     }};
+    
     render() {
+      if (this.props.currentUser) {
       let myPreferences = this.props.preferences.filter(pref => pref.user_id === this.props.currentUser.id)
       if (myPreferences.length > 0){
       let prefState = myPreferences[0]
@@ -80,7 +82,7 @@ class FilteredProfiles extends React.Component {
         && ((prof.drugs === prefState.drugs) || (prefState.drugs === "All"))
         && ((prof.state === prefState.state) || (prefState.state === "All"))
         ) 
-        if (myPreferences.length > 0 && filteredProfs.length > 0) {
+        if (filteredProfs.length > 0) {
           return (
             <div>
               <br></br>
@@ -95,7 +97,7 @@ class FilteredProfiles extends React.Component {
           <br></br>
           <br></br>
           <br></br>
-          <div className="ui link cards centerUsers">
+          <div className="ui teal link cards centerUsers">
                 {this.renderList()}
                 </div>
               </div>
@@ -105,7 +107,7 @@ class FilteredProfiles extends React.Component {
         return (
           <div className="filteredRight">
           <div className="noPrefsDown">
-          <h1 className="tealFont centerFilterMessage"> No profiles match your criteria</h1>
+          <h1 className="tealFont centerFilterMessage"> No profiles match your criteria!</h1>
           <img className="centerKimPic ui large image" src="https://cdn.shopify.com/s/files/1/0094/8142/0858/products/KimK_01_2400x.png?v=1572195311" alt="crying kim"></img>
           <Link to="/filters">
             <button className="ui blue button centerFilterButton">Change Preferences </button>
@@ -116,7 +118,7 @@ class FilteredProfiles extends React.Component {
         </div> 
         </div>
       )} 
-   } else {
+  } else {
       return (
       <div className="filteredRight">
         <div className="noPrefsDown">
@@ -135,8 +137,26 @@ class FilteredProfiles extends React.Component {
       <br></br>
       </div> 
       </div>
-    )}
-  } 
+      )}
+    } else {
+      return (
+        <div className="loader">
+        <div className="ui segment">
+            <div className="ui active dimmer">
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+                <div className="ui large text loader">Loading</div>
+            <p></p>
+            <p></p>
+            <p></p>
+            </div>
+            </div>
+        </div>
+        )
+    }
+  }
 }
 
 const mapStateToProps = state => {

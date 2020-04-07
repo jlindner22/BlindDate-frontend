@@ -69,19 +69,21 @@ class EditBasicInfo extends React.Component {
         return (
             <div>
                 <br></br>
+                <div>
                 <h2 className="centerText grayFont"> Personal Information</h2>
-                <div className="ui container grid">
-                <div className="ui row">
-                <div className="stolenright">
+                </div>
+                <br></br>
+                <div className="basicInfoFlex">
+                <div>
               <img className="ui medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
               <br></br>
               <br></br>
               {this.state.avatarClicked === false ? <button className="ui blue button" onClick={this.avatarClicked}>Change Avatar</button>
               : <button className="ui blue button" onClick={this.avatarClicked}>Go Back</button>}
               </div>
+              <div>
                 {this.state.avatarClicked === true ? <EditAvatar/> :
                 <form className="ui form" onSubmit={(e) => this.handleSubmit(props.id, e)}>
-                    <br></br>
                     <b>Age</b> <input type="text" name="age" placeholder="Age" onChange={this.handleText} value={this.state.age}></input>
                     <br></br>
                     <br></br>

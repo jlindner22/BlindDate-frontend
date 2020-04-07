@@ -14,19 +14,19 @@ class NavBar extends React.Component {
                 {this.props.currentUser == null ? null :
             <div className="ui teal inverted secondary pointing menu">
             <img className="ui mini image" src="https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D" alt="sorry"></img>
-            <Link to='/'> <a className="item"><i className="home icon"></i>
+            <Link to='/'> <a className="item navbarFont"><i className="home icon"></i>
                 Home
             </a></Link>
-            <Link to='/myprofile'> <a className="item"><i className="user circle icon"></i>
+            <Link to='/myprofile'> <a className="item navbarFont"><i className="user circle icon"></i>
                 My Profile
             </a></Link>
-            <Link to='/users'><a className="item"><i className="users icon"></i>
+            <Link to='/users'><a className="item navbarFont"><i className="users icon"></i>
                 Browse
             </a></Link>
-            <Link to='/matches'><a className="item"><i className="red fire icon"></i>
+            <Link to='/matches'><a className="item navbarFont"><i className="red fire icon"></i>
                 Matches
             </a></Link>
-            <Link to='/filters'><a className="item"><i className="search icon"></i>
+            <Link to='/filters'><a className="item navbarFont"><i className="search icon"></i>
                 Preferences
             </a></Link>
             {/* <Link to='/messages'><a className="item">
@@ -38,10 +38,10 @@ class NavBar extends React.Component {
             <i className="dropdown icon" ></i> 
             <div className="menu"> */}
             <Link to='/editprofile'>
-            <a className="item"><i className="pencil icon"></i>Edit Account</a>
+            <a className="item navbarFont"><i className="pencil icon"></i>Edit Account</a>
             </Link>
             <Link to='/'>
-            <a className="item" onClick={this.logOut}><i className="sign-out icon"></i>Logout</a>
+            <a className="item navbarFont" onClick={this.logOut}><i className="sign-out icon"></i>Logout</a>
             </Link>
             </div>
             </div>

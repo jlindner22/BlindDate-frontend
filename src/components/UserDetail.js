@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { matchProfile, loggedIn, getMyMatches } from '../actions';
 import { Link } from 'react-router-dom';
+import UserContainer from './UserContainer';
 
 class UserDetail extends React.Component {
 
@@ -19,43 +20,55 @@ class UserDetail extends React.Component {
     this.setState({ clickedInfoButton: !this.state.clickedInfoButton })
   }
 
-  componentDidUpdate() {
-    this.props.getMyMatches()
-    let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
-    console.log(liked)
-    let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+  // componentDidUpdate() {
+  //   this.props.getMyMatches()
+  //   let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
+  //   console.log(liked)
+  //   let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
 
-  // if (myMatches.map(match => match.potential_match.id).includes(this.props.selectedProfile.id))
-    if (liked === [true]) {
-      this.setState({matched: true}, console.log("new matched state", this.state.matched))
-    } else {
-      return null
-    }
-  }
+  //   if (liked === [true]) {
+  //     this.setState({matched: true}, console.log("new matched state", this.state.matched))
+  //   } else {
+  //     return null
+  //   }
+  // }
 
   render() {
-
-   let liked = this.props.likeProfile.map(profile => profile.potential_match_id)[0]
-    console.log("state of matched", this.state.matched)
-    console.log("userdetail props", this.props)
-    console.log("liked profile id", liked)
-    console.log("selected profile id", this.props.selectedProfile.id)
     let profile = this.props.selectedProfile
     let someHighSchool = "Some High School"
     let diploma = "High School Diploma/GED"
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
       if (profile) {
         return (
-        <div className="flex_pic">
-        <div className="ui container grid">
-        <div className="stolenright">
-            <img className="ui medium bordered image" src={profile.avatar} alt="Oops, this image is broken!"/>
-              </div>
-              <div>
-                <div className="column twelve wide">
+          <div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <div className="centerText">
+          <h1 className="loginFont"> <i className="star icon"></i><b>Meet {profile.name}</b> <i className="star icon"></i></h1>
+          </div>
+          <br></br>
+          <br></br>
+        <div className="flex-container">
+          <div className="biggerProfileFont">
+          <h3 className="tealFont centerText"> Habits </h3>
+           <b>Drinking:</b>  {profile.drinks}
+            <br></br>
+            <b>Smoking:</b>  {profile.smokes}
+            <br></br>
+            <b>4/20 Friendly:</b>  {profile.weed}
+            <br></br>
+            <b>Other drugs:</b>  {profile.drugs}
+            <br></br>
+            <br></br>
+          </div>
+        <div className="profilePicture">
+            <img className="ui medium bordered image" src={profile.avatar} alt="Avatar"/>   
+        </div>
                 <br></br>
-                <h1 className="loginFont"> <i className="star icon"></i><b>Meet {profile.name}</b> <i className="star icon"></i></h1>
-            <h2>About Me</h2>
+                <br></br>
+              <div className="biggerProfileFont">
+                <h2 className="tealFont centerText">About me</h2>
             <b>Age:</b> {profile.age}
             <br></br>
             <b>Currently living in:</b> {profile.city}, {profile.state}            
@@ -79,13 +92,13 @@ class UserDetail extends React.Component {
             <b>My diet is:</b> {profile.diet}
             <br></br>
             <br></br>
-            <button className="ui blue button"
+            <button className="large ui blue button"
             onClick={this.toggleInfo}> {this.state.clickedInfoButton === false ? "See more about me!" : "See less about me!"}</button>
             <br></br>    
             <br></br>          
             <div>
             {this.state.clickedInfoButton === false ? null :
-            <div>
+            <div className="column fourteen wide fixedMoreProfile">
             <br></br>
             <b> Morning or night:</b> {profile.morning_night}
             <br></br>
@@ -115,71 +128,67 @@ class UserDetail extends React.Component {
             <br></br>
             <b>My favorite kind of music:</b> {profile.music}
             <br></br>
-            {profile.play_instrument === true ? "I can play an instrument" : null }           
+            <b>Can play an instrument:</b> {profile.play_instrument === true ? <i className="music icon"></i> : "No" }           
             <br></br>
             <br></br>
-            <u>My planning style</u>             
+            <div className="smallerTealFont">My planning style</div>             
             <br></br>
             <b>In general:</b> {profile.general_planning}
             <br></br>
             <b>For a vacation:</b> {profile.vacation_planning}
             <br></br>
-            </div> }
-            <h3> <u>Habits </u></h3>
-           <b>Drinking:</b>  {profile.drinks}
             <br></br>
-            <b>Smoking:</b>  {profile.smokes}
+            <br></br>                  
             <br></br>
-            <b>4/20 Friendly:</b>  {profile.weed}
+            <br></br>                  
             <br></br>
-            <b>Other drugs:</b>  {profile.drugs}
-            <br></br>
-            <br></br>
-            {myMatches.length > 0 ? 
-            <Link to={`/matches`}> 
-            <button className="ui basic blue button">
-            <i className="arrow alternate circle left blue icon"></i> Browse your matches 
-            </button>
-            </Link> : null}
+            <br></br>             
+          </div> }
+         </div>
+        </div>
+        </div>
+          <br></br>
+        <div className="centerUserDetailButtons">
             <Link to={`/users`}>
-            <button className="ui basic blue button">
+            <button className="large ui basic teal button ">
             <i className="arrow alternate circle left blue icon"></i> Browse all profiles 
             </button>
             </Link>
-            {/* {this.state.matched === true */}
+            <br></br> 
+          
               {myMatches.map(match => match.potential_match.id).includes(profile.id) 
-              ?  <b>          You're a match!</b> :   
-            <button 
-              onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
-                    className="ui blue button">
-                      Match with {profile.name}! <i className="heart red icon"></i>
-            </button>}
-            <br></br>
-            <br></br>                  
-            <br></br>
-            <br></br>                  
-            <br></br>
-            <br></br>                  
-            <br></br>
-            <br></br>                  
-            <br></br>
-            <br></br>                  
-            <br></br>
-         </div>
-        </div>
+              ?  
+              <div>
+                <br></br> 
+              <div className="biggerMatchFont">You're a match!
+              </div>
+              </div> : 
+              <div> 
+                <br></br>  
+            <button onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
+              className="large ui blue button "> <i className="user plus icon"></i>Match with {profile.name}! 
+            </button> </div>} 
+                {/* <br></br> */}
+                <br></br>
+                {myMatches.length > 0 ? 
+            <Link to={`/matches`}> 
+            <button className="large ui basic blue button ">
+            <i className="arrow alternate circle left blue icon"></i> Browse your matches 
+            </button>
+            </Link> : null}
+              </div>
+
+
       </div>
-      </div>
-       </div>
-    )} else {return <Link to={`/users`}>
-    <button className="ui basic pink button">
-    <i className="arrow alternate circle left pink icon"></i> Browse all profiles 
-    </button>
-    </Link>}
+
+    )} else {return (
+      <UserContainer/>
+    )
+    }
   }
 }
 
 const mapStateToProps = state => {
-    // console.log("detail state", state)
   return { selectedProfile: state.selectedProfile, 
             likeProfile: state.likeProfile,
             currentUser: state.currentUser,

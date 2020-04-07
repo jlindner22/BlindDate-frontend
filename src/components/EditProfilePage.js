@@ -32,8 +32,8 @@ class EditProfilePage extends React.Component {
             viewHabitsAndPersonalInfo: false,
             viewMoreAboutMe: false,
             viewBasicInfo: true
-            })
-        }
+        })
+    }
     
     editAccountSettings = () => {
         this.setState({
@@ -81,23 +81,23 @@ class EditProfilePage extends React.Component {
         if (user) {
             return (
             <div>
-                <div className="ui container grid">
-                <div className="ui row">
+                <div className="ui container">
+                {/* <div className="ui row"> */}
                 {this.state.viewBasicInfo === false && this.state.viewAccountSettings === false 
                 && this.state.viewHabitsAndPersonalInfo === false && this.state.viewMoreAboutMe === false ?
                 <div>
                     <br></br>
                 <div className="ui top attached tabular menu">
-            <a className="item" onClick={this.editBasicInfo}><i className="edit icon"></i>
+            <a className="item itemHover biggerProfileFont" onClick={this.editBasicInfo}><i className="edit icon"></i>
               Basic Information
             </a>
-            <a className="item" onClick={this.editAccountSettings}><i className="cog icon"></i>
+            <a className="item itemHover biggerProfileFont" onClick={this.editAccountSettings}><i className="cog icon"></i>
               Account Settings
             </a>
-            <a className="item" onClick={this.editHabits}><i className="clipboard outline icon"></i>
+            <a className="item itemHover biggerProfileFont" onClick={this.editHabits}><i className="clipboard outline icon"></i>
               Habits & Personal Information
             </a>
-            <a className="item" onClick={this.editAboutMe}><i className="user icon"></i>
+            <a className="item itemHover biggerProfileFont" onClick={this.editAboutMe}><i className="user icon"></i>
               More About Me
             </a>
             </div>
@@ -109,17 +109,19 @@ class EditProfilePage extends React.Component {
             </div> 
             : 
             <div>
-                <br></br>
-                <br></br>
-            <h1 className="tealFont">Edit your account</h1>
+            <br></br>
+            <br></br>
+            <h1 className="tealFont centerText">Edit your account</h1>
+          
             </div>
             }
-            <br></br>
+            <div>
             {this.state.viewBasicInfo === true ? <EditBasicInfo viewBasicInfo={this.state.viewBasicInfo}/> : null}
             {this.state.viewAccountSettings === true ? <EditLogin deleteUser={this.deleteUser} viewAccountSettings={this.state.viewAccountSettings}/> : null }
             {this.state.viewHabitsAndPersonalInfo === true ? <EditHabitsPersonalInfo viewHabitsAndPersonalInfo={this.state.viewHabitsAndPersonalInfo}/> : null }
             {this.state.viewMoreAboutMe === true ? <EditMoreAboutMe viewMoreAboutMe={this.state.viewMoreAboutMe}/> : null }
             </div>
+            {/* </div> */}
             </div> 
             </div>
         )
@@ -133,18 +135,14 @@ class EditProfilePage extends React.Component {
                 <br></br>
                 <br></br>
                     <div className="ui large text loader">Loading</div>
-                <p></p>
-                <p></p>
-                <p></p>
-                </div>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    </div>
                 </div>
             </div>
             )
         }
-        // else if (this.state.deleted === true) {
-        //     return ( </Home>
-        //     )
-        // }
     }
 }
 

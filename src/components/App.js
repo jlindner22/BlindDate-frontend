@@ -137,7 +137,11 @@ class App extends React.Component {
       })
     }) .then(response => response.json())
     .then(response => console.log(response))
-    alert("Your changes have been submitted!")
+    if (window.confirm("Your changes have been submitted! Would you like to view your preferences?")) {
+      window.history.back()
+    } else {
+      return null
+    }
   } else {
     fetch('http://localhost:3000/api/v1/preferences',{
       method: 'POST',
@@ -167,7 +171,11 @@ class App extends React.Component {
       .then(response => response.json())
       .then(response => {
       console.log(response)
-      alert("Your preferences have been submitted!")
+      if (window.confirm("Your changes have been submitted! Would you like to view your preferences?")) {
+        window.history.back()
+      } else {
+        return null
+      }    
     })
   }
 }

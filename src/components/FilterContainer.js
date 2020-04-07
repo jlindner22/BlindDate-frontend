@@ -177,7 +177,7 @@ class FilterContainer extends React.Component {
               <div className="ui row">
                 <div> 
                 <br></br>
-                <h1 className="loginFont">Preferences</h1> 
+                <h1 className="filterContainerTitle">Preferences</h1> 
                 </div> 
                 <br></br>
                 <div className="ui blue link cards centerUsers">
@@ -188,7 +188,7 @@ class FilterContainer extends React.Component {
                 {this.state.heart === true ? <PersonalityMatches/> : 
                 <div className="centerText halfDown">
                   <h2 className="tealFont centerFilterContainer"> You currently have no preferences set.</h2> 
-                <h4 className="centerFilterContainer">In the meantime, click on the heart to view some 
+                <h4 className="centerFilterContainer">In the meantime, click on the heart to view the 
                 <br></br>
                 profiles that best match your personality type.</h4>
                 <br></br>
@@ -196,7 +196,7 @@ class FilterContainer extends React.Component {
                 <br></br>
                 <br></br>
                 <Link to="/editfilters">
-              <button className="ui blue button centerFilterContainer" 
+              <button className="large ui blue button centerFilterContainer" 
               onClick={() => this.props.editPreferences(myPreferences)}>
               Set Filters </button> </Link> 
               <br></br>
