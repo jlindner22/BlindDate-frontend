@@ -86,7 +86,7 @@ class PersonalityMatches extends React.Component {
             <div className="extra content">
                <Link to={`/users/${profile.id}`}> <button 
                onClick={() => this.props.viewProfile(profile)}
-               className="ui blue basic button">View Profile!
+               className="ui blue button">View Profile!
                </button></Link>
                <div className="ui right floated">
                {profile.gender !== "Female" ? <i className="mars icon" ></i>  :  <i className="venus icon"></i> }
@@ -110,10 +110,10 @@ class PersonalityMatches extends React.Component {
                <br></br>
                   <div className="ui teal link cards">
                      {this.renderList()}
-                     <br></br>
-                     <br></br>
-                     <br></br>
                   </div>
+                     <br></br>
+                     <br></br>
+                     <br></br>
                </div>
             </div>
       );
