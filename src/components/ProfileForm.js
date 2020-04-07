@@ -78,7 +78,7 @@ class ProfileForm extends React.Component {
         // console.log("profile form user", user)
         // console.log(this.state)
         e.preventDefault()
-        fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+        fetch(`https://blind-date-backend.herokuapp.com/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",
@@ -104,7 +104,7 @@ class ProfileForm extends React.Component {
         // console.log("profile form user", user)
         // console.log(this.state)
         e.preventDefault()
-        fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+        fetch(`https://blind-date-backend.herokuapp.com/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",
@@ -134,7 +134,7 @@ class ProfileForm extends React.Component {
     userPageThreeInfo = (user, e) => {
         // console.log(this.state)
         e.preventDefault()
-        fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+        fetch(`https://blind-date-backend.herokuapp.com/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",
@@ -159,7 +159,7 @@ class ProfileForm extends React.Component {
 
     userPageFourInfo = (user, e) => {
         e.preventDefault()
-        fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+        fetch(`https://blind-date-backend.herokuapp.com/api/v1/users/${user.id}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",

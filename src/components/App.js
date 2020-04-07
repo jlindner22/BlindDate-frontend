@@ -26,7 +26,7 @@ class App extends React.Component {
     this.props.getPreferences()
     const user_id = localStorage.getItem('user_id')
     if (user_id) {
-      fetch('http://localhost:3000/api/v1/auto_login', {
+      fetch('https://blind-date-backend.herokuapp.com/api/v1/auto_login', {
           headers: {
             "Authorization": user_id
           }
@@ -111,7 +111,7 @@ class App extends React.Component {
 
   handlePreferenceChanges = (newPreference) => {
     if (newPreference.id) {
-    fetch(`http://localhost:3000/api/v1/preferences/${newPreference.id}`,{
+    fetch(`https://blind-date-backend.herokuapp.com/api/v1/preferences/${newPreference.id}`,{
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ class App extends React.Component {
       return null
     }
   } else {
-    fetch('http://localhost:3000/api/v1/preferences',{
+    fetch('https://blind-date-backend.herokuapp.com/api/v1/preferences',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
