@@ -25,10 +25,9 @@ class MatchesContainer extends React.Component {
     }
   }
 
-  // //add condition to stop from infinite loop, still allowing for page refresh on delete
-  // componentDidUpdate() {
-  //   this.props.getMyMatches()
-  // }
+  componentDidUpdate() {
+    this.props.getMyMatches()
+  }
 
   heartClicked = () => {
     this.setState({
@@ -60,7 +59,7 @@ class MatchesContainer extends React.Component {
       return (
         <div className="card">
       <div className="image">
-        <img className="ui image" src={profile.potential_match.avatar} alt="Try again later!" />
+        <img className="ui image" src={profile.potential_match.avatar} alt="Avatar" />
       </div>
       <div className="content">
         <a className="header">{profile.potential_match.name}</a>
@@ -97,7 +96,7 @@ class MatchesContainer extends React.Component {
       return (
         <div className="card">
       <div className="image">
-        <img className="ui image" src={profile.user_id.avatar} alt="Try again later!" />
+        <img className="ui image" src={profile.user_id.avatar} alt="Avatar" />
       </div>
       <div className="content">
         <a className="header">{profile.user_id.name}</a>

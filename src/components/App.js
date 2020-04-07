@@ -16,8 +16,7 @@ import Signup from './Signup';
 import FilterForm from './FilterForm';
 import FilteredProfiles from './FilteredProfiles';
 import EditProfilePage from './EditProfilePage';
-
-// import Footer from './Footer';
+import Footer from './Footer';
 
 class App extends React.Component {
   
@@ -211,7 +210,9 @@ class App extends React.Component {
               currentUser={this.state.currentUser} {...routerProps}handlePreferenceChanges={this.handlePreferenceChanges}/>}/>
           </Switch>
       </body>
-      {/* <Footer/> */}
+      <footer>
+      <Footer/>
+      </footer>
     </Router>
     )
   }

@@ -119,7 +119,7 @@ class MyProfile extends React.Component {
                         <br></br>
                         <b>My favorite kind of music:</b> {props.music}
                         <br></br>
-                        {props.play_instrument === true ? "I can play an instrument" : null }
+                        <b>Can play an instrument:</b> {props.play_instrument === true ? <i className="music icon"></i> : "No" }           
                         <br></br>
                         <br></br>
                         <div className="smallerTealFont">My planning style</div>             
@@ -131,7 +131,6 @@ class MyProfile extends React.Component {
                         <br></br>
                         <br></br>
                         <br></br>
-
                 </div>
                         }
               </div>

@@ -34,7 +34,7 @@ class FilteredProfiles extends React.Component {
           return (
             <div className="card">
             <div className="image">
-              <img className="ui image" src={profile.avatar} alt="Try again later!" />
+              <img className="ui image" src={profile.avatar} alt="Avatar" />
             </div>
             <div className="content">
               <a className="header">{profile.name}</a>

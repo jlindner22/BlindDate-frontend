@@ -70,12 +70,12 @@ class EditBasicInfo extends React.Component {
             <div>
                 <br></br>
                 <div>
-                <h2 className="centerText grayFont"> Personal Information</h2>
+                <h2 className="centerText grayFont"> Personal information</h2>
                 </div>
                 <br></br>
                 <div className="basicInfoFlex">
                 <div>
-              <img className="ui medium bordered image" src={props.avatar} alt="Oops, this image is broken!"/>
+              <img className="ui medium bordered image" src={props.avatar} alt="Avatar"/>
               <br></br>
               <br></br>
               {this.state.avatarClicked === false ? <button className="ui blue button" onClick={this.avatarClicked}>Change Avatar</button>

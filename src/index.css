@@ -27,15 +27,6 @@ code {
   font-size: 16px;
 }
 
-.navbarFont {
-  font-size: 16px;
-}
-
-.stolenright  {
-  margin-top: 5%;
-  right: 10%;
-}
-
 .flex-container {
   margin-left: 25%;
   width: 60%;
@@ -53,6 +44,18 @@ code {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between; 
+}
+
+.footerFlex {
+  margin-left: 40%;
+  width: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between; 
+  align-items: center;
+  font-style: cursive;
+  font-weight: bold
 }
 
 .moveFlexRight {
@@ -250,11 +253,15 @@ code {
 
 
 /* May be able to remove */
-.centerPersonalityMessage {
+/* .centerPersonalityMessage {
   position: relative;
   left: 25%;
   color: teal;
   font-weight: bolder;
   font-variant: small-caps;
   font-size: 30px;
+} */
+
+.footer {   
+  flex-shrink: 0; 
 }

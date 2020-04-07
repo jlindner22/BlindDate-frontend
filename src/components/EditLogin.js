@@ -68,7 +68,7 @@ class EditLogin extends React.Component {
                 <div className="ui container grid">
                 <div className="ui row">
                 <form className="ui form" onSubmit={(e) => this.handleSubmit(props.id, e)}>
-                <h2 className="grayFont centerText"> Account Settings</h2>
+                <h2 className="grayFont centerText"> Account settings</h2>
                     <br></br>
                     <br></br>
                     <b>First Name</b>  <input type="text" name="name" placeholder="First Name" onChange={this.handleText} value={this.state.name}></input>

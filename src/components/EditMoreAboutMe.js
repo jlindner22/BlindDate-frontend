@@ -311,6 +311,8 @@ class EditMoreAboutMe extends React.Component {
                 <br></br>
                 </div> 
                 <br></br>
+                <br></br>
+                <br></br>
             </div>
         )
     }

@@ -20,18 +20,18 @@ class UserDetail extends React.Component {
     this.setState({ clickedInfoButton: !this.state.clickedInfoButton })
   }
 
-  // componentDidUpdate() {
-  //   this.props.getMyMatches()
-  //   let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
-  //   console.log(liked)
-  //   let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+  componentDidUpdate() {
+    this.props.getMyMatches()
+    let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
+    console.log(liked)
+    // let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
 
-  //   if (liked === [true]) {
-  //     this.setState({matched: true}, console.log("new matched state", this.state.matched))
-  //   } else {
-  //     return null
-  //   }
-  // }
+    if (liked === [true]) {
+      this.setState({matched: true}, console.log("new matched state", this.state.matched))
+    } else {
+      return null
+    }
+  }
 
   render() {
     let profile = this.props.selectedProfile
@@ -168,7 +168,6 @@ class UserDetail extends React.Component {
             <button onClick={() => this.props.matchProfile(profile.id, this.props.currentUser)}
               className="large ui blue button "> <i className="user plus icon"></i>Match with {profile.name}! 
             </button> </div>} 
-                {/* <br></br> */}
                 <br></br>
                 {myMatches.length > 0 ? 
             <Link to={`/matches`}> 
@@ -177,8 +176,6 @@ class UserDetail extends React.Component {
             </button>
             </Link> : null}
               </div>
-
-
       </div>
 
     )} else {return (
