@@ -6,15 +6,24 @@ import PersonalityMatches from './PersonalityMatches';
 
 class MatchesContainer extends React.Component {
 
+  state = {
+    oldMatchesLength: this.props.matches.length,
+    heart: false,
+    matchesPresent: false
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0)
     this.props.getMyMatches()
-  }
+    let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+    let matchedMe = this.props.matches.filter(match => match.potential_match.id === this.props.currentUser.id)
 
-  state = {
-      oldMatchesLength: this.props.matches.length,
-      heart: false
+    if (matchedMe.length > 0 || matches.length > 0) {
+      this.setState({
+        matchesPresent: true
+      })
     }
+  }
 
   // //add condition to stop from infinite loop, still allowing for page refresh on delete
   // componentDidUpdate() {
@@ -28,15 +37,26 @@ class MatchesContainer extends React.Component {
   }
 
   renderMatches = () => {
+    console.log("MATCHES", this.props.matches)
     if (this.props.matches) {
-    let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
-    return matches } else {return "Log in to view your matches"}
+      let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+      return matches
+      } else {
+        return "Log in to view your matches"}
+  }
+
+  renderMatchedMe = () => {
+    if (this.props.matches) {
+      let matches = this.props.matches.filter(match => match.potential_match.id === this.props.currentUser.id)
+      return matches
+      } else {
+        return "Log in to view your matches"}
   }
 
   renderList() {
     return (this.props.matches && this.renderMatches(this.props.profiles).map(profile => { 
       console.log("profile in renderList", profile.potential_match)
-      console.log("profile match id",profile.match_id)
+      console.log("profile match id", profile.match_id)
       return (
         <div className="card">
       <div className="image">
@@ -61,8 +81,44 @@ class MatchesContainer extends React.Component {
         <div className="ui right floated">
           <button 
           onClick={() => this.props.deleteMatch(profile.match_id)}
-                  className="ui blue basic button">
-                      Delete Match
+              className="ui red button"> Delete Match
+          </button>
+        </div> 
+      </div> 
+    </div>
+      );
+    }))
+  };
+
+  renderListOfMatchedMe() {
+    return (this.props.matches && this.renderMatchedMe(this.props.profiles).map(profile => { 
+      console.log("profile in new renderlist", profile.user_id)
+      console.log("profile match id",profile.match_id)
+      return (
+        <div className="card">
+      <div className="image">
+        <img className="ui image" src={profile.user_id.avatar} alt="Try again later!" />
+      </div>
+      <div className="content">
+        <a className="header">{profile.user_id.name}</a>
+        <div className="meta">
+          <span className="date">Age {profile.user_id.age} 
+          </span>
+        </div>
+        <div className="description">
+          {profile.user_id.name} lives in {profile.user_id.city}, {profile.user_id.state}.
+        </div>
+      </div>
+      <div className="extra content">
+          <Link to={`/users/${profile.user_id.id}`}> <button 
+            onClick={() => this.props.viewProfile(profile.user_id)}
+                className="ui blue button">
+                  View Profile!
+          </button></Link>
+        <div className="ui right floated">
+          <button 
+          onClick={() => this.props.deleteMatch(profile.match_id)}
+                  className="ui red button"> Delete Match
           </button>
         </div> 
       </div> 
@@ -72,9 +128,10 @@ class MatchesContainer extends React.Component {
   };
 
   render() {
+    let matchedMe = this.props.matches.filter(match => match.potential_match.id === this.props.currentUser.id)
   console.log("MATCHES", this.props.matches)
     if (this.props.matches){
-    let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+    let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id || match.potential_match.id === this.props.currentUser.id)
     return (
       <div>
         <br></br>
@@ -82,13 +139,13 @@ class MatchesContainer extends React.Component {
         <br></br>
         <div className="ui container">
           <div className="centerText centerUsers">
-           {this.state.heart === false ? <Link to={`/users`}>
+           {/* {this.state.heart === false && this.state.matchesPresent === false ? <Link to={`/users`}>
           <button className="ui basic blue button left floated">
               <i className="arrow alternate circle left blue icon"></i> Keep browsing
           </button>
-        </Link> : null}
+        </Link> : null} */}
         </div>
-        <div className="centerText matchesTitle"> 
+        <div className="centerText "> 
         <h1 className="loginFont ">Matches</h1> 
         </div> 
         <br></br>
@@ -109,7 +166,11 @@ class MatchesContainer extends React.Component {
             </div> }
            </div> 
            :
-        this.renderList() }
+           <React.Fragment>  
+        {this.renderList()}
+        {this.renderListOfMatchedMe()}
+        </React.Fragment>  
+          }
           </div>
           <br></br>
           <br></br>
