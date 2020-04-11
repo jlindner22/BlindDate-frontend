@@ -14,7 +14,7 @@ class MyProfile extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0)
     if (this.props.currentUser){
-      fetch(`https://blind-date-backend.herokuapp.com/api/v1/users/${this.props.currentUser.id}`)
+      fetch(`'http://localhost:3000/api/v1/users/${this.props.currentUser.id}`)
         .then(response => response.json())
         .then(response => this.setState({ profileInfo: response}))
     } else {return null}
@@ -41,8 +41,18 @@ class MyProfile extends React.Component {
               <br></br>
               <br></br>
             <div className="flex-container">
-              <div>     
-                <h3 className="tealFont centerText"> Habits </h3>
+            <div className="biggerProfileFont flexDivs">
+                <h3 className="tealFont"> Personal Info & Habits</h3>
+                  <b>Religion:</b>  {props.religion}
+                  <br></br>
+                  <b>Diet:</b>  {props.diet}
+                  <br></br>
+                  <b>Politics:</b>  {props.politics}
+                  <br></br>
+                  <b>Pets:</b> {props.have_pets}
+                  <br></br>
+                  <b>Parent:</b> {props.kids}
+                  <br></br>
                   <b>Drinking:</b>  {props.drinks}
                   <br></br>
                   <b>Smoking:</b>  {props.smokes}
@@ -56,11 +66,11 @@ class MyProfile extends React.Component {
                   <button className="large ui blue button">Edit Profile</button>
                   </Link>    
               </div>
-              <div className="profilePicture">
+              <div className="flexDivs">
                 <img className="ui medium bordered image" src={props.avatar} alt="Avatar"/>
               </div>
-              <div>
-                <h2 className="tealFont centerText">About me</h2>
+              <div className="flexDivs biggerProfileFont">
+                <h2 className="tealFont">About me</h2>
                     <b>Age:</b> {props.age}
                     <br></br>
                     <b>Currently living in:</b> {props.city}, {props.state}            
@@ -69,19 +79,11 @@ class MyProfile extends React.Component {
                     <br></br>
                     <b>Parent:</b> {props.kids}
                     <br></br>
-                    <b>Religion:</b> {props.religion}
-                    <br></br>
                     <b>Employment type:</b> {props.occupation}
                     <br></br>
                     <b>Education Level:</b> {props.education_level}
                     <br></br>
                     {props.education_level === diploma || props.education_level === someHighSchool ? null : <div> <b>College:</b> {props.college} </div>}
-                    <br></br>
-                    <b>My political views:</b> {props.politics}
-                    <br></br>
-                    <b>Pets:</b> {props.have_pets}
-                    <br></br>
-                    <b>My diet is:</b> {props.diet}
                     <br></br>
                     <br></br>
                     <button className="large ui blue button"

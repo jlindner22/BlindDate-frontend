@@ -12,7 +12,7 @@ class EditAvatar extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
         if (this.props.currentUser){
-          fetch(`https://blind-date-backend.herokuapp.com/api/v1/users/${this.props.currentUser.id}`)
+          fetch(`'http://localhost:3000/api/v1/users/${this.props.currentUser.id}`)
             .then(response => response.json())
             .then(response => this.setState({ profileInfo: response}))
         } else {return null}
@@ -20,7 +20,7 @@ class EditAvatar extends React.Component {
 
     handleSubmit = (user, e) => {
         e.preventDefault()
-        fetch(`https://blind-date-backend.herokuapp.com/api/v1/users/${user}`,{
+        fetch(`'http://localhost:3000/api/v1/users/${user}`,{
             method: 'PATCH',
             headers: {
             'Content-Type': 'application/json',

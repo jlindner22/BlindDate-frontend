@@ -184,7 +184,6 @@ class FilterContainer extends React.Component {
               {myPreferences < 1 ? 
                 <div className="ui container grid">
                 <br></br>
-                
                 {this.state.heart === true ? <PersonalityMatches/> : 
                 <div className="centerText halfDown">
                   <h2 className="tealFont centerFilterContainer"> You currently have no preferences set</h2> 

@@ -21,7 +21,7 @@ class UserDetail extends React.Component {
   }
 
   componentDidUpdate() {
-    this.props.getMyMatches()
+    // this.props.getMyMatches()
     let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
     console.log(liked)
     // let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
@@ -50,9 +50,19 @@ class UserDetail extends React.Component {
           <br></br>
           <br></br>
         <div className="flex-container">
-          <div className="biggerProfileFont">
-          <h3 className="tealFont centerText"> Habits </h3>
-           <b>Drinking:</b>  {profile.drinks}
+          <div className="biggerProfileFont flexDivs">
+          <h3 className="tealFont"> Personal Info & Habits </h3>
+            <b>Religion:</b>  {profile.religion}
+            <br></br>
+            <b>Diet:</b>  {profile.diet}
+            <br></br>
+            <b>Politics:</b>  {profile.politics}
+            <br></br>
+            <b>Pets:</b> {profile.have_pets}
+            <br></br>
+            <b>Parent:</b> {profile.kids}
+            <br></br>
+            <b>Drinking:</b>  {profile.drinks}
             <br></br>
             <b>Smoking:</b>  {profile.smokes}
             <br></br>
@@ -62,13 +72,13 @@ class UserDetail extends React.Component {
             <br></br>
             <br></br>
           </div>
-        <div className="profilePicture">
+        <div className="flexDivs">
             <img className="ui medium bordered image" src={profile.avatar} alt="Avatar"/>   
         </div>
                 <br></br>
                 <br></br>
-              <div className="biggerProfileFont">
-                <h2 className="tealFont centerText">About me</h2>
+              <div className="biggerProfileFont flexDivs">
+                <h2 className="tealFont">About me</h2>
             <b>Age:</b> {profile.age}
             <br></br>
             <b>Currently living in:</b> {profile.city}, {profile.state}            
@@ -147,7 +157,6 @@ class UserDetail extends React.Component {
          </div>
         </div>
         </div>
-          <br></br>
         <div className="centerUserDetailButtons">
             <Link to={`/users`}>
             <button className="large ui basic teal button ">
@@ -176,6 +185,8 @@ class UserDetail extends React.Component {
             </button>
             </Link> : null}
               </div>
+              <br></br>
+              <br></br>
       </div>
 
     )} else {return (

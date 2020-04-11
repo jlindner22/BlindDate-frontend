@@ -28,14 +28,18 @@ code {
 }
 
 .flex-container {
-  margin-left: 25%;
-  width: 60%;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  justify-content: space-between; 
   align-items: flex-start;
 }
+
+.flexDivs {
+  width: 20%;
+  margin-right: 3%;
+  margin-left: 3%;
+}
+
 
 .basicInfoFlex {
   margin-left: 10%;
@@ -47,15 +51,15 @@ code {
 }
 
 .footerFlex {
-  margin-left: 40%;
-  width: 15%;
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between; 
+  justify-content: center; 
   align-items: center;
-  font-style: cursive;
-  font-weight: bold
+  font-weight: bold;
+}
+
+.centerContainer {
+text-align: center;
 }
 
 .moveFlexRight {
@@ -250,17 +254,6 @@ code {
 .itemHover:hover {
   text-shadow: 1px 1px white, 0 0 5px teal;
 }
-
-
-/* May be able to remove */
-/* .centerPersonalityMessage {
-  position: relative;
-  left: 25%;
-  color: teal;
-  font-weight: bolder;
-  font-variant: small-caps;
-  font-size: 30px;
-} */
 
 .footer {   
   flex-shrink: 0; 

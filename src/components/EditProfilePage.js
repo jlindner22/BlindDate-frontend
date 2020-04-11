@@ -20,7 +20,7 @@ class EditProfilePage extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
         if (this.props.currentUser){
-          fetch(`https://blind-date-backend.herokuapp.com/api/v1/${this.props.currentUser.id}`)
+          fetch(`'http://localhost:3000/api/v1/${this.props.currentUser.id}`)
             .then(response => response.json())
             .then(response => this.setState({ profileInfo: response}))
         } else {return null}
@@ -65,7 +65,7 @@ class EditProfilePage extends React.Component {
     deleteUser = (user) => {
         alert("Are you sure?")
         this.props.history.push('/')
-        fetch(`https://blind-date-backend.herokuapp.com/api/v1/${user.id}`, {
+        fetch(`'http://localhost:3000/api/v1/${user.id}`, {
             method: 'DELETE',
         })
         this.setState({

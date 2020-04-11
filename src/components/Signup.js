@@ -24,7 +24,7 @@ class Signup extends React.Component {
     handleSubmit = (e) => { 
         e.preventDefault()
         if (this.state.password === this.state.password_confirmation) {
-            fetch('https://blind-date-backend.herokuapp.com/api/v1/signup', {
+            fetch('http://localhost:3000/api/v1/signup', {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json",

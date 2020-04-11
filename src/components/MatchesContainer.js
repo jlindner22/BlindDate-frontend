@@ -15,19 +15,19 @@ class MatchesContainer extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0)
     this.props.getMyMatches()
-    let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
-    let matchedMe = this.props.matches.filter(match => match.potential_match.id === this.props.currentUser.id)
+    // let matches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
+    // let matchedMe = this.props.matches.filter(match => match.potential_match.id === this.props.currentUser.id)
 
-    if (matchedMe.length > 0 || matches.length > 0) {
-      this.setState({
-        matchesPresent: true
-      })
-    }
+    // if (matchedMe.length > 0 || matches.length > 0) {
+    //   this.setState({
+    //     matchesPresent: true
+    //   })
+    // }
   }
 
-  componentDidUpdate() {
-    this.props.getMyMatches()
-  }
+  // componentDidUpdate() {
+  //   this.props.getMyMatches()
+  // }
 
   heartClicked = () => {
     this.setState({
@@ -132,28 +132,27 @@ class MatchesContainer extends React.Component {
     if (this.props.matches){
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id || match.potential_match.id === this.props.currentUser.id)
     return (
-      <div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <div className="ui container">
-          <div className="centerText centerUsers">
+      <div className="centerContainer">
+        <div className="ui container grid">
+        <div> 
+          <br></br>
+        <h1 className="filterContainerTitle ">Matches</h1> 
+        </div> 
+          <div className="ui row">
+          {/* <div className="centerText centerUsers"> */}
            {/* {this.state.heart === false && this.state.matchesPresent === false ? <Link to={`/users`}>
           <button className="ui basic blue button left floated">
               <i className="arrow alternate circle left blue icon"></i> Keep browsing
           </button>
         </Link> : null} */}
-        </div>
-        <div className="centerText "> 
-        <h1 className="loginFont ">Matches</h1> 
-        </div> 
-        <br></br>
+        {/* </div> */}
         <br></br>
             <div className="ui blue link cards centerUsers">
           {myMatches < 1 ? 
             <div className="ui container grid">
+              <br></br>
             {this.state.heart === true ? <PersonalityMatches/> :
-          <div className="centerText">
+          <div className="centerText halfDown">
           <h2 className="tealFont centerMatchesContainer"> You currently have no matches</h2> 
            <h4 className="centerMatchesContainer"> In the meantime, click on the heart to view the 
            <br></br>
@@ -179,6 +178,7 @@ class MatchesContainer extends React.Component {
           <br></br>
           <br></br> 
           <br></br>
+          </div>
       </div>
     )
     } else {return "Log in to view your matches"}
