@@ -31,7 +31,7 @@ class FilterContainer extends React.Component {
         return (
             <div className="ui container grid">
               <div className="ui row">
-              <div className="column ten wide">
+              <div className="column eight wide">
             <br></br>
             <div className="ui middle aligned divided list centerEditFilters">
             <div className="item">
@@ -146,9 +146,7 @@ class FilterContainer extends React.Component {
               </Link>
               </div>
               <div className="content">
-              <u><b>Habits</b></u>
-                <br></br>
-                <br></br>
+              <h4 className="smallerTealFont">Habits</h4>              
                 <b>Smoking:</b> {preference.smokes ? preference.smokes : "No preference set"}
                 <br></br>
                 <b>Drinking:</b> {preference.drinks ? preference.drinks : "No preference set"}
@@ -173,12 +171,13 @@ class FilterContainer extends React.Component {
     if (this.props.currentUser) {
       let myPreferences = this.props.preferences.filter(preference => preference.user_id === this.props.currentUser.id)
       return (
+        <div className="centerContainer">
           <div className="ui container grid">
-              <div className="ui row">
                 <div> 
                 <br></br>
                 <h1 className="filterContainerTitle">Preferences</h1> 
                 </div> 
+              <div className="ui row">
                 <br></br>
                 <div className="ui blue link cards centerUsers">
               {myPreferences < 1 ? 
@@ -216,6 +215,7 @@ class FilterContainer extends React.Component {
               </div>
               }
               </div> 
+          </div>
           </div>
           </div>
       )

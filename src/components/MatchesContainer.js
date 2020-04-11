@@ -25,9 +25,9 @@ class MatchesContainer extends React.Component {
     // }
   }
 
-  // componentDidUpdate() {
-  //   this.props.getMyMatches()
-  // }
+  componentDidUpdate() {
+    this.props.getMyMatches()
+  }
 
   heartClicked = () => {
     this.setState({
@@ -136,7 +136,7 @@ class MatchesContainer extends React.Component {
         <div className="ui container grid">
         <div> 
           <br></br>
-        <h1 className="filterContainerTitle ">Matches</h1> 
+        <h1 className="filterContainerTitle">Matches</h1> 
         </div> 
           <div className="ui row">
           {/* <div className="centerText centerUsers"> */}

@@ -59,7 +59,7 @@ code {
 }
 
 .centerContainer {
-text-align: center;
+  text-align: center;
 }
 
 .moveFlexRight {
@@ -164,7 +164,7 @@ text-align: center;
 
 .centerMatchesContainer {
   position: relative;
-  right: 27%
+  right: 24.5%
 }
 
 .centerFilterContainer {
@@ -241,7 +241,8 @@ text-align: center;
 /* FilterContainer */
 .centerEditFilters {
   position: relative;
-  right: 10%
+  text-align: left;
+  left: -18%
 }
 
 .centerEditFiltersButton {
