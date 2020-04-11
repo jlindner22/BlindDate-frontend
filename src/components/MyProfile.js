@@ -77,8 +77,6 @@ class MyProfile extends React.Component {
                     <br></br>
                     <b>I'm looking for: </b>{props.relationship_type}
                     <br></br>
-                    <b>Parent:</b> {props.kids}
-                    <br></br>
                     <b>Employment type:</b> {props.occupation}
                     <br></br>
                     <b>Education Level:</b> {props.education_level}

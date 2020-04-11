@@ -85,21 +85,11 @@ class UserDetail extends React.Component {
             <br></br>
             <b>I'm looking for: </b>{profile.relationship_type}
             <br></br>
-            <b>Parent:</b> {profile.kids}
-            <br></br>
-            <b>Religion:</b> {profile.religion}
-            <br></br>
             <b>Employment type:</b> {profile.occupation}
             <br></br>
             <b>Education Level:</b> {profile.education_level}
             <br></br>
             {profile.education_level === diploma || profile.education_level === someHighSchool ? null : <div> <b>College:</b> {profile.college} </div>}
-            <br></br>
-            <b>My political views:</b> {profile.politics}
-            <br></br>
-            <b>Pets:</b> {profile.have_pets}
-            <br></br>
-            <b>My diet is:</b> {profile.diet}
             <br></br>
             <br></br>
             <button className="large ui blue button"
