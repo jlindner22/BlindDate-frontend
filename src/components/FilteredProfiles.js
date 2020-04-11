@@ -102,6 +102,7 @@ class FilteredProfiles extends React.Component {
             </div>
             <br></br>
             <br></br>
+            <br></br>
           </div>
         </div>
           );

@@ -14,7 +14,7 @@ class MyProfile extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0)
     if (this.props.currentUser){
-      fetch(`'https://blind-date-backend.herokuapp.com/api/v1/users/${this.props.currentUser.id}`)
+      fetch(`https://blind-date-backend.herokuapp.com/api/v1/users/${this.props.currentUser.id}`)
         .then(response => response.json())
         .then(response => this.setState({ profileInfo: response}))
     } else {return null}
