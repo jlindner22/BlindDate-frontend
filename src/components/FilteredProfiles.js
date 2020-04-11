@@ -97,11 +97,11 @@ class FilteredProfiles extends React.Component {
           <br></br>
           <br></br>
           <br></br>
-          <div className="ui teal link cards centerUsers">
+            <div className="ui teal link cards centerUsers">
                 {this.renderList()}
-                <br></br>
-                <br></br>
-          </div>
+            </div>
+            <br></br>
+            <br></br>
           </div>
         </div>
           );
