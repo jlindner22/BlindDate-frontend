@@ -101,8 +101,8 @@ class FilteredProfiles extends React.Component {
                 {this.renderList()}
                 <br></br>
                 <br></br>
-                </div>
-              </div>
+          </div>
+          </div>
         </div>
           );
       } else if (filteredProfs.length < 1) {
