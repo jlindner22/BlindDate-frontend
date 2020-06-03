@@ -58,13 +58,16 @@ class UserContainer extends React.Component {
 
   renderNameSortedList = () => {
     let nameOrder = this.props.profiles.sort((a, b) => {
+      //prevents error if there is a profile with no name
+      if (a.name && b.name) { 
       if (a.name.toLowerCase() < b.name.toLowerCase()) {
         return 1;
       } if (a.name.toLowerCase() > b.name.toLowerCase()) {
         return -1;
       }
       return 0;
-    })
+    }
+  })
      console.log("normal sorted", nameOrder)
     return (this.props.profiles && nameOrder.map(profile => {
       return (
