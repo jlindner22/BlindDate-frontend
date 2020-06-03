@@ -62,7 +62,7 @@ class MatchesContainer extends React.Component {
         <img className="ui image" src={profile.potential_match.avatar} alt="Avatar" />
       </div>
       <div className="content">
-        <a className="header">{profile.potential_match.name}</a>
+        <div className="header">{profile.potential_match.name}</div>
         <div className="meta">
           <span className="date">Age {profile.potential_match.age} 
           </span>
@@ -99,7 +99,7 @@ class MatchesContainer extends React.Component {
         <img className="ui image" src={profile.user_id.avatar} alt="Avatar" />
       </div>
       <div className="content">
-        <a className="header">{profile.user_id.name}</a>
+        <div className="header">{profile.user_id.name}</div>
         <div className="meta">
           <span className="date">Age {profile.user_id.age} 
           </span>
@@ -127,8 +127,8 @@ class MatchesContainer extends React.Component {
   };
 
   render() {
-    let matchedMe = this.props.matches.filter(match => match.potential_match.id === this.props.currentUser.id)
-  console.log("MATCHES", this.props.matches)
+  //   let matchedMe = this.props.matches.filter(match => match.potential_match.id === this.props.currentUser.id)
+  // console.log("MATCHES", this.props.matches)
     if (this.props.matches){
     let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id || match.potential_match.id === this.props.currentUser.id)
     return (

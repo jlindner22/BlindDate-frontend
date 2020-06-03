@@ -73,7 +73,7 @@ class UserContainer extends React.Component {
         <img className="ui image" src={profile.avatar} alt="Avatar" />
       </div>
       <div className="content">
-        <a className="header">{profile.name}</a>
+        <div className="header">{profile.name}</div>
         <div className="meta">
           <span className="date">Age {profile.age} 
         </span>
@@ -98,13 +98,16 @@ class UserContainer extends React.Component {
 
 renderReverseNameSortedList = () => {
   let reverseSortedNames = this.props.profiles.sort((a, b) => {
+    //prevents error if there is a profile with no name
+    if (a.name && b.name) { 
     if (a.name.toLowerCase() > b.name.toLowerCase()) {
       return 1;
     } if (a.name.toLowerCase() < b.name.toLowerCase()) {
       return -1;
     }
     return 0;
-  })
+  }
+})
    console.log("reverse sorted names", reverseSortedNames)
   return (this.props.profiles && reverseSortedNames.map(profile => {
     return (
@@ -113,7 +116,7 @@ renderReverseNameSortedList = () => {
       <img className="ui image" src={profile.avatar} alt="Avatar" />
     </div>
     <div className="content">
-      <a className="header">{profile.name}</a>
+      <div className="header">{profile.name}</div>
       <div className="meta">
         <span className="date">Age {profile.age} 
       </span>
@@ -215,7 +218,7 @@ export default connect(mapStateToProps, {viewProfile, getPreferences, loggedIn})
 //       <img className="ui image" src={profile.avatar} alt="Avatar" />
 //     </div>
 //     <div className="content">
-//       <a className="header">{profile.name}</a>
+//       <div className="header">{profile.name}</div>
 //       <div className="meta">
 //         <span className="date">Age {profile.age} 
 //       </span>
@@ -255,7 +258,7 @@ export default connect(mapStateToProps, {viewProfile, getPreferences, loggedIn})
 //       <img className="ui image" src={profile.avatar} alt="Avatar" />
 //     </div>
 //     <div className="content">
-//       <a className="header">{profile.name}</a>
+//       <div className="header">{profile.name}</div>
 //       <div className="meta">
 //         <span className="date">Age {profile.age} 
 //       </span>

@@ -74,7 +74,7 @@ class PersonalityMatches extends React.Component {
                <img className="ui image" src={profile.avatar} alt="Avatar" />
                </div>
                <div className="content">
-               <a className="header">{profile.name}</a>
+               <div className="header">{profile.name}</div>
                <div className="meta">
                <span className="date">Age {profile.age} 
                </span>

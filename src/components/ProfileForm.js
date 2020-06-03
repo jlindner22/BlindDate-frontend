@@ -562,7 +562,7 @@ class ProfileForm extends React.Component {
                                     <option value="Words of Affirmation">Words of Affirmation</option>
                                     <option value="Not sure">Not sure</option>
                                 </select>
-                                <a href='https://www.5lovelanguages.com/quizzes/' target="_blank">Take the quiz here</a> 
+                                <a href='https://www.5lovelanguages.com/quizzes/' target="_blank" rel="noopener noreferrer">Take the quiz here</a> 
                             </div>
                     </div>
                     <div className="field">
@@ -588,7 +588,7 @@ class ProfileForm extends React.Component {
                                     <option value="ISTP">ISTP</option>
                                     <option value="Not sure">Not sure</option>
                                 </select>
-                                <a href='https://www.truity.com/test/type-finder-personality-test-new' target="_blank">Take the quiz here</a> 
+                                <a href='https://www.truity.com/test/type-finder-personality-test-new' target="_blank" rel="noopener noreferrer">Take the quiz here</a> 
                             </div>
                     </div>
                     <div className="field">

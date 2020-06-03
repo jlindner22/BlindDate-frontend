@@ -5,8 +5,8 @@ const Footer = () => {
     <div className="ui mini bottom fixed menu">
       <div className="footerFlex"> 
         <h4>
-          <a href="https://github.com/jlindner22/BlindDate-frontend" target="_blank"><i className="github icon"></i></a>
-          Built by <a href='https://www.linkedin.com/in/jen-lindner13/'target="_blank">Jen Lindner</a>  © 2020
+          <a href="https://github.com/jlindner22/BlindDate-frontend" target="_blank" rel="noopener noreferrer"><i className="github icon"></i></a>
+          Built by <a href='https://www.linkedin.com/in/jen-lindner13/'target="_blank" rel="noopener noreferrer">Jen Lindner</a>  © 2020
         </h4>
       </div>
     </div>

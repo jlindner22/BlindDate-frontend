@@ -37,7 +37,7 @@ class FilteredProfiles extends React.Component {
               <img className="ui image" src={profile.avatar} alt="Avatar" />
             </div>
             <div className="content">
-              <a className="header">{profile.name}</a>
+              <div className="header">{profile.name}</div>
               <div className="meta">
                 <span className="date">Age {profile.age} 
                 </span>
@@ -111,7 +111,8 @@ class FilteredProfiles extends React.Component {
           <div className="filteredRight">
           <div className="noPrefsDown">
           <h1 className="tealFont centerFilterMessage"> No profiles match your criteria!</h1>
-          <img className="centerKimPic ui large image" src="https://cdn.shopify.com/s/files/1/0094/8142/0858/products/KimK_01_2400x.png?v=1572195311" alt="crying kim"></img>
+          <img className="centerKimPic" src="https://cdn.shopify.com/s/files/1/0094/8142/0858/products/KimK_01_2400x.png?v=1572195311" alt="crying kim"></img>
+          <br></br>
           <Link to="/filters">
             <button className="ui blue button centerFilterButton">Change Preferences </button>
           </Link>

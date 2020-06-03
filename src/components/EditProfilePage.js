@@ -88,18 +88,18 @@ class EditProfilePage extends React.Component {
                 <div>
                     <br></br>
                 <div className="ui top attached tabular menu">
-            <a className="item itemHover biggerProfileFont" onClick={this.editBasicInfo}><i className="edit icon"></i>
+            <div className="item itemHover biggerProfileFont" onClick={this.editBasicInfo}><i className="edit icon"></i>
               Basic Information
-            </a>
-            <a className="item itemHover biggerProfileFont" onClick={this.editAccountSettings}><i className="cog icon"></i>
+            </div>
+            <div className="item itemHover biggerProfileFont" onClick={this.editAccountSettings}><i className="cog icon"></i>
               Account Settings
-            </a>
-            <a className="item itemHover biggerProfileFont" onClick={this.editHabits}><i className="clipboard outline icon"></i>
+            </div>
+            <div className="item itemHover biggerProfileFont" onClick={this.editHabits}><i className="clipboard outline icon"></i>
               Habits & Personal Information
-            </a>
-            <a className="item itemHover biggerProfileFont" onClick={this.editAboutMe}><i className="user icon"></i>
+            </div>
+            <div className="item itemHover biggerProfileFont" onClick={this.editAboutMe}><i className="user icon"></i>
               More About Me
-            </a>
+            </div>
             </div>
             <br></br>
             <br></br>

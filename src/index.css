@@ -233,10 +233,13 @@ code {
 }
 
 .centerKimPic {
+  width: 400px;
+  height: 500px;
+  /* width: 30%;
+  height: 30%; */
   position: relative;
-  left: -2%
+  margin-left: -2%
 }
-
 
 /* FilterContainer */
 .centerEditFilters {
@@ -254,6 +257,10 @@ code {
 /* EditProfile */
 .itemHover:hover {
   text-shadow: 1px 1px white, 0 0 5px teal;
+}
+
+.menuHover:hover {
+  text-shadow: .5px .5px lightgray, 0 0 5px teal;
 }
 
 .footer {   
