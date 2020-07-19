@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import homeLogo from '../assets/home_logo.jpg';
 
 const Home = (props) => {
 
@@ -10,7 +11,7 @@ const Home = (props) => {
             <div className="ui centered row ">
                 <h1 className="whiteFont">Welcome to</h1>
                 </div>
-                <img className="ui centered circular large image" src="https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D" alt="logo"></img>
+                <img className="ui centered circular large image" src={homeLogo} alt="logo"></img>
                 <br></br>
                 {props.currentUser ? null :
                 <div className="ui centered row ">

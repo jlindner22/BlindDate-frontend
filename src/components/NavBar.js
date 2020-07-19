@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import homeLogo from '../assets/home_logo.jpg';
+
 
 class NavBar extends React.Component {
 
@@ -12,7 +14,7 @@ class NavBar extends React.Component {
             <React.Fragment>  
                 {this.props.currentUser == null ? null :
             <div className="ui teal inverted secondary pointing menu">
-            <img className="ui mini image" src="https://lh4.googleusercontent.com/proxy/Mao6aPRTCA83ZBktGFcx7Auw91UbX4X_LY69tI4dlwYalmIVEXkf9tWN_qiQO5dTBdDequSk2BoZEKvH_zpQ_0li_Z15KEpffWUrEGgOvqfko_M0Oj817XMDQ38D" alt="sorry"></img>
+            <img className="ui mini image" src={homeLogo} alt="logo"></img>
             <Link to='/'> <div className="item biggerProfileFont menuHover"><i className="home icon"></i>
                 Home
             </div></Link>
@@ -22,7 +24,7 @@ class NavBar extends React.Component {
             <Link to='/users'><div className="item biggerProfileFont menuHover"><i className="users icon"></i>
                 Browse
             </div></Link>
-            <Link to='/matches'><div className="item biggerProfileFont menuHover"><i className="red fire icon"></i>
+            <Link to='/matches'><div className="item biggerProfileFont menuHover"><i className="fire icon"></i>
                 Matches
             </div></Link>
             <Link to='/filters'><div className="item biggerProfileFont menuHover"><i className="search icon"></i>

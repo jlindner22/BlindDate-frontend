@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getPreferences } from '../actions';
 import { Link } from 'react-router-dom'
 import PersonalityMatches from './PersonalityMatches';
+import heartIcon from '../assets/heart_icon.png'
 
 class FilterContainer extends React.Component {
 
@@ -190,7 +191,7 @@ class FilterContainer extends React.Component {
                 <br></br>
                 profiles that best match your personality type.</h4>
                 <br></br>
-                <img className="ui medium centered image centerFilterContainer" onClick={this.heartClicked} src="https://static.thenounproject.com/png/720337-200.png" alt="heart"></img>
+                <img className="ui medium centered image centerFilterContainer" onClick={this.heartClicked} src={heartIcon} alt="heart"></img>
                 <br></br>
                 <br></br>
                 <Link to="/editfilters">

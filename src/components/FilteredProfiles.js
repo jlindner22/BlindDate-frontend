@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { viewProfile, loggedIn, getPreferences } from '../actions';
 import { Link } from 'react-router-dom';
+import pepeCrying from '../assets/pepe_crying.jpg'
+import kimCrying from '../assets/kim_crying.png'
 
 class FilteredProfiles extends React.Component {
 
@@ -111,7 +113,7 @@ class FilteredProfiles extends React.Component {
           <div className="filteredRight">
           <div className="noPrefsDown">
           <h1 className="tealFont centerFilterMessage"> No profiles match your criteria!</h1>
-          <img className="centerKimPic" src="https://cdn.shopify.com/s/files/1/0094/8142/0858/products/KimK_01_2400x.png?v=1572195311" alt="crying kim"></img>
+          <img className="centerKimPic" src={kimCrying} alt="crying kim"></img>
           <br></br>
           <Link to="/filters">
             <button className="ui blue button centerFilterButton">Change Preferences </button>
@@ -127,7 +129,7 @@ class FilteredProfiles extends React.Component {
       <div className="filteredRight">
         <div className="noPrefsDown">
         <h1 className="tealFont centerFilterMessage"> You haven't set any filters!</h1>
-        <img className="centerFilterPic" src="https://i.imgflip.com/1o12mo.jpg" alt="crying"></img>
+        <img className="centerFilterPic" src={pepeCrying} alt="crying"></img>
         <br></br>
         <br></br>
         <Link to="/filters">

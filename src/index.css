@@ -8,6 +8,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* background: #f1f8ff */
   background: rgb(242, 245, 245);
+  /* background-color: rgba(133, 231, 236, 0.897) */ 
+
 }
 
 code {
