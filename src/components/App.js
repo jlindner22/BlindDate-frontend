@@ -47,6 +47,7 @@ class App extends React.Component {
 
   state = {
     currentUser: null,
+    home: null,
     gender: this.preferences.gender,
     minimum_age: this.preferences.minimum_age,
     maximum_age: this.preferences.maximum_age,
@@ -179,20 +180,30 @@ class App extends React.Component {
   }
 }
 
+changeBackgroundToTeal = () => {
+  this.setState({ home: true })
+}
+
+changeBackgroundToGray = () => {
+  this.setState({ home: false })
+}
+
   render() {
     console.log("app props", this.props)
+    // let backgroundColorGray = false;
+
     return (
       <Router>
         <NavBar logout={this.logout} currentUser={this.state.currentUser} />
-        <body>
+        <body className={this.state.currentUser && !this.state.home ? 'background-gray' : 'background-teal'}>
           <div className="ui container grid">
           </div>
             <Switch>
-              <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps} setUser={this.setUser} currentUser={this.state.currentUser}/>}/>
-              <Route exact path="/" render={(routerProps) => <Home currentUser={this.state.currentUser}{...routerProps}/>}/>
-              <Route exact path="/signup" render={(routerProps) => <Signup setUser={this.setUser} currentUser={this.state.currentUser} {...routerProps}/>}/>
+              <Route exact path="/login" render={(routerProps) => <LogIn {...routerProps} setUser={this.setUser} currentUser={this.state.currentUser} home={this.state.home} changeBackgroundToTeal={this.changeBackgroundToTeal}/>}/>
+              <Route exact path="/" render={(routerProps) => <Home currentUser={this.state.currentUser}{...routerProps} home={this.state.home} changeBackgroundToTeal={this.changeBackgroundToTeal}/>}/>
+              <Route exact path="/signup" render={(routerProps) => <Signup setUser={this.setUser} currentUser={this.state.currentUser} {...routerProps} home={this.state.home} changeBackgroundToTeal={this.changeBackgroundToTeal}/>}/>
               <Route exact path="/myprofile" render={(routerProps) => <MyProfile currentUser={this.state.currentUser}{...routerProps}/>}/>
-              <Route exact path="/users" render={(routerProps) => <UserContainer currentUser={this.state.currentUser}{...routerProps}/>}/>
+              <Route exact path="/users" render={(routerProps) => <UserContainer currentUser={this.state.currentUser}{...routerProps} home={this.state.home} changeBackgroundToGray={this.changeBackgroundToGray}/>}/>
               <Route exact path="/matches" render={(routerProps) => <MatchesContainer {...routerProps}/>}/>
               <Route exact path="/messages" render={(routerProps) => <MessagesContainer {...routerProps}/>}/>
               <Route exact path="/users/:id" render={(routerProps) => <UserDetail {...routerProps}/>}/>

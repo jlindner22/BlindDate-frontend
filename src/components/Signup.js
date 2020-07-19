@@ -7,6 +7,7 @@ class Signup extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
+        this.props.changeBackgroundToTeal();
       }
 
     state = {
@@ -44,6 +45,7 @@ class Signup extends React.Component {
     }
 
     render() {
+        console.log("signup props", this.props)
         return (
             <div className="homeBG">
             <div className="down">
