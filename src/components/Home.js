@@ -5,7 +5,6 @@ import homeLogo from '../assets/home_logo.jpg';
 const Home = (props) => {
 
         return (
-            // <body style={{ backgroundColor: `rgba(133, 231, 236, 1)`}}>
             <div className="homeBG">
             <div className="halfDown">
             <div className="ui container grid ">

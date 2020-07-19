@@ -10,13 +10,13 @@ body {
   background: rgb(242, 245, 245);
 }
 
-.background-gray {
+background-gray {
   background: rgb(242, 245, 245);
 }
 
 .background-teal {
   background-color: rgba(133, 231, 236, 1)
-}
+}	
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -47,6 +47,7 @@ code {
   margin-right: 3%;
   margin-left: 3%;
 }
+
 
 .basicInfoFlex {
   margin-left: 10%;
@@ -96,6 +97,7 @@ code {
 .centerUserDetailButtons {
   /* margin: auto */
   text-align: center;
+
 }
 
 .container {

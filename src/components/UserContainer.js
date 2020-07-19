@@ -18,7 +18,7 @@ class UserContainer extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0)
-    this.props.getPreferences()
+    this.props.getPreferences();
     this.props.changeBackgroundToGray();
   }
 
