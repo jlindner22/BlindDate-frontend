@@ -2,6 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loggedIn } from '../actions';
+import TagManager from 'react-gtm-module';
+
+const tagManagerArgs = {
+    gtmId: 'GTM-PPQS4D9',
+    dataLayer: {
+        'Log In': 'true'
+    }
+}
+
 
 class LogIn extends React.Component {
 
@@ -30,6 +39,7 @@ class LogIn extends React.Component {
             } else {
         this.props.setUser(response)
         this.props.loggedIn(response)
+        TagManager.dataLayer(tagManagerArgs)
         this.props.history.push('/users')
         }
     })

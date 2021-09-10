@@ -9,14 +9,14 @@ import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
 import TagManager from 'react-gtm-module';
 
-let store = createStore(reducers, applyMiddleware(reduxThunk))
-
 const tagManagerArgs = {
     gtmId: 'GTM-PPQS4D9',
     dataLayer: []
 }
 
 TagManager.initialize(tagManagerArgs)
+
+let store = createStore(reducers, applyMiddleware(reduxThunk))
 
 ReactDOM.render(
     <Provider store={store}>
