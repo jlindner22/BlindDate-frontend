@@ -23,11 +23,13 @@ class UserDetail extends React.Component {
   componentDidUpdate() {
     this.props.getMyMatches()
     let liked = this.props.likeProfile.map(profile => profile.potential_match_id == this.props.selectedProfile.id)
-    console.log(liked)
+    // console.log(liked)
     // let myMatches = this.props.matches.filter(match => match.user_id.id === this.props.currentUser.id)
 
     if (liked === [true]) {
-      this.setState({matched: true}, console.log("new matched state", this.state.matched))
+      this.setState({matched: true}, 
+        // console.log("new matched state", this.state.matched)
+        )
     } else {
       return null
     }

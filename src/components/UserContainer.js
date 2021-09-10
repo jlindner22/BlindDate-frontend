@@ -26,6 +26,12 @@ class UserContainer extends React.Component {
     this.props.history.push('/filters')
   }
 
+  buttonClick = () => {
+    this.props.viewProfile(profile);
+    console.log('clicked button, check for custom event')
+    dataLayer.push({'event': 'Profile View'});
+  }
+
   handleNameSort = () => {
     this.setState({
       nameSorted: !this.state.nameSorted,
@@ -69,7 +75,7 @@ class UserContainer extends React.Component {
       return 0;
     }
   })
-     console.log("normal sorted", nameOrder)
+    //  console.log("normal sorted", nameOrder)
     return (this.props.profiles && nameOrder.map(profile => {
       return (
         <div className="card">
@@ -112,7 +118,7 @@ renderReverseNameSortedList = () => {
     return 0;
   }
 })
-   console.log("reverse sorted names", reverseSortedNames)
+  //  console.log("reverse sorted names", reverseSortedNames)
   return (this.props.profiles && reverseSortedNames.map(profile => {
     return (
       <div className="card">
@@ -130,7 +136,7 @@ renderReverseNameSortedList = () => {
       </div>
     </div>
     <div className="extra content"><Link to={`/users/${profile.id}`}> 
-      <button onClick={() => this.props.viewProfile(profile)}
+      <button onClick={this.buttonClick}
               className="ui blue button">
                 View Profile!
       </button></Link>

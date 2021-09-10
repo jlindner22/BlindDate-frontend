@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import homeLogo from '../assets/home_logo.jpg';
 
+<script>
+    dataLayer = [];
+</script>
 const Home = (props) => {
 
         return (
