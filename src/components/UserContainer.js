@@ -69,7 +69,7 @@ class UserContainer extends React.Component {
       return 0;
     }
   })
-     console.log("normal sorted", nameOrder)
+    //  console.log("normal sorted", nameOrder)
     return (this.props.profiles && nameOrder.map(profile => {
       return (
         <div className="card">
@@ -112,7 +112,7 @@ renderReverseNameSortedList = () => {
     return 0;
   }
 })
-   console.log("reverse sorted names", reverseSortedNames)
+  //  console.log("reverse sorted names", reverseSortedNames)
   return (this.props.profiles && reverseSortedNames.map(profile => {
     return (
       <div className="card">
@@ -131,7 +131,7 @@ renderReverseNameSortedList = () => {
     </div>
     <div className="extra content"><Link to={`/users/${profile.id}`}> 
       <button onClick={() => this.props.viewProfile(profile)}
-              className="ui blue button" onClick="dataLayer.push({'event': 'Profile View'})">
+              className="ui blue button">
                 View Profile!
       </button></Link>
       <div className="ui right floated">
